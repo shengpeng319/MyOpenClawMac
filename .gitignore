@@ -1,7 +1,6 @@
 # Dependencies
 node_modules/
 .pnp/
-.pnp.js
 
 # Build outputs
 dist/
@@ -11,22 +10,33 @@ build/
 logs/
 *.log
 
-# Runtime data
-pids/
-*.pid
-*.seed
-
 # OS files
 .DS_Store
 Thumbs.db
 
-# OpenClaw runtime
-sessions/
-*.sock
-*.pid
+# OpenClaw runtime data (exclude these)
+memory/
+*.sqlite
+cron/runs/
+canvas/
+devices/
+sandboxes/
+exec-approvals.json
+update-check.json
 
-# Credentials (keep config but exclude secrets)
+# Session data (runtime)
+sessions/
+
+# Credentials & identity (exclude)
+identity/
 auth-profiles.json
 *.key
 *.pem
 credentials/
+feishu/dedup/
+
+# Extensions (too large)
+extensions/
+
+# OS-specific
+:Zone.Identifier
