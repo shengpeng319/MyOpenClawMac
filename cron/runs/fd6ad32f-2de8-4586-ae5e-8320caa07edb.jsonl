@@ -1,0 +1,2 @@
+{"ts":1772150400033,"jobId":"fd6ad32f-2de8-4586-ae5e-8320caa07edb","action":"finished","status":"ok","summary":"检查 Whisper 模型下载状态","deliveryStatus":"not-requested","runAtMs":1772150400028,"durationMs":0,"nextRunAtMs":1772236800000}
+{"ts":1772236802190,"jobId":"fd6ad32f-2de8-4586-ae5e-8320caa07edb","action":"finished","status":"ok","summary":"检查 Whisper 模型下载状态","deliveryStatus":"not-requested","runAtMs":1772236802177,"durationMs":0,"nextRunAtMs":1772323200000}

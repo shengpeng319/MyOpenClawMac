@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "skills": {
+    "chromadb-memory": {
+      "version": "1.0.0",
+      "installedAt": 1770299698421
+    },
+    "deepresearch": {
+      "version": "1.0.0",
+      "installedAt": 1770299776532
+    },
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1770304719263
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1770306202863
+    },
+    "proactive-agent-1-2-4": {
+      "version": "1.0.0",
+      "installedAt": 1770306367156
+    },
+    "pollinations-image": {
+      "version": "1.0.0",
+      "installedAt": 1772444165521
+    },
+    "edge-tts": {
+      "version": "2.0.0",
+      "installedAt": 1772444171814
+    }
+  }
+}
