@@ -3,8 +3,8 @@
     "deviceId": "17f3428b01ce943bb6297101136c885c383e15d83b5ab6f1029f9487748432ae",
     "publicKey": "ocGPQmh5n8_TvgmFn-zwAl436KyGz6ww75Tlaf9PBuw",
     "platform": "darwin",
-    "clientId": "cli",
-    "clientMode": "cli",
+    "clientId": "gateway-client",
+    "clientMode": "ui",
     "role": "operator",
     "roles": [
       "operator"
@@ -32,7 +32,8 @@
       }
     },
     "createdAtMs": 1772887453294,
-    "approvedAtMs": 1772887462654
+    "approvedAtMs": 1772887462654,
+    "displayName": "openclaw-tui"
   },
   "d7f961ab58d00a8a8c772225cedfcbc60cc802564c379fb16e81149bc2a69dde": {
     "deviceId": "d7f961ab58d00a8a8c772225cedfcbc60cc802564c379fb16e81149bc2a69dde",
@@ -64,7 +65,7 @@
           "operator.pairing"
         ],
         "createdAtMs": 1772890873933,
-        "lastUsedAtMs": 1772896236589
+        "lastUsedAtMs": 1772898144512
       }
     },
     "createdAtMs": 1772890873933,
