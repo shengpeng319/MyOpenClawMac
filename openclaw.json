@@ -38,7 +38,7 @@
           {
             "id": "MiniMax-M2.5-highspeed",
             "name": "MiniMax-M2.5-highspeed",
-            "reasoning": true,
+            "reasoning": false,
             "input": [
               "text"
             ],
@@ -48,8 +48,23 @@
               "cacheRead": 0.03,
               "cacheWrite": 0.12
             },
-            "contextWindow": 200000,
-            "maxTokens": 8192
+            "contextWindow": 128000
+          }
+        ]
+      },
+      "localqwen35": {
+        "baseUrl": "http://localhost:11434/v1",
+        "api": "openai-completions",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "qwen3.5:9b",
+            "name": "Mqwen3.5:9b",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 64000
           }
         ]
       }
@@ -58,13 +73,15 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.5-highspeed"
+        "primary": "localqwen35/qwen3.5:9b"
       },
       "models": {
         "minimax-cn/MiniMax-M2.5-highspeed": {
           "alias": "Minimax"
         },
-        "minimax/MiniMax-M2.5-highspeed": {}
+        "localqwen35/qwen3.5:9b": {
+          "alias": "qwen3.5"
+        }
       },
       "sandbox": {
         "mode": "off"
@@ -98,6 +115,7 @@
         "name": "个人助理",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent/main/agent",
         "workspace": "/Users/shengpeng319/.openclaw/workspace",
+        "model":"qwen3.5",
         "subagents": {
           "allowAgents": [
             "main",
@@ -124,6 +142,7 @@
         "name": "coder",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
+        "model":"Minimax",
         "subagents": {
           "allowAgents": [
             "main",
@@ -150,6 +169,7 @@
         "name": "researcher",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-researcher",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/researcher/agent",
+        "model":"Minimax",
         "subagents": {
           "allowAgents": [
             "main",
@@ -176,6 +196,7 @@
         "name": "projectmanager",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
+        "model":"Minimax",
         "subagents": {
           "allowAgents": [
             "main",
