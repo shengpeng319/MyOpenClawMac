@@ -1,0 +1,582 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.8",
+    "lastTouchedAt": "2026-03-11T12:00:54.642Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-11T12:00:54.628Z",
+    "lastRunVersion": "2026.3.8",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "browser": {
+    "enabled": true,
+    "executablePath": "/usr/bin/google-chrome-stable",
+    "headless": false,
+    "noSandbox": true,
+    "attachOnly": false,
+    "defaultProfile": "dev-chrome",
+    "profiles": {
+      "dev-chrome": {
+        "cdpUrl": "http://127.0.0.1:9222",
+        "color": "#FF5733"
+      }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "minimax:default": {
+        "provider": "minimax",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "minimax-cn": {
+        "baseUrl": "https://api.minimaxi.com/anthropic",
+        "api": "anthropic-messages",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "MiniMax-M2.5-highspeed",
+            "name": "MiniMax-M2.5-highspeed",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 1.2,
+              "cacheRead": 0.03,
+              "cacheWrite": 0.12
+            },
+            "contextWindow": 128000
+          }
+        ]
+      },
+      "localqwen35": {
+        "baseUrl": "http://localhost:11434/v1",
+        "api": "openai-completions",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "qwen3.5:9b",
+            "name": "Mqwen3.5:9b",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 64000
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "minimax-cn/MiniMax-M2.5-highspeed"
+      },
+      "models": {
+        "minimax-cn/MiniMax-M2.5-highspeed": {
+          "alias": "Minimax"
+        },
+        "localqwen35/qwen3.5:9b": {
+          "alias": "qwen3.5"
+        }
+      },
+      "workspace": "/Users/shengpeng319/.openclaw/workspace",
+      "memorySearch": {
+        "enabled": false,
+        "sources": [
+          "memory",
+          "sessions"
+        ],
+        "experimental": {
+          "sessionMemory": true
+        }
+      },
+      "compaction": {
+        "mode": "safeguard",
+        "memoryFlush": {
+          "enabled": true
+        }
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      },
+      "sandbox": {
+        "mode": "off"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "\u4e2a\u4eba\u52a9\u7406",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
+      },
+      {
+        "id": "coder",
+        "name": "coder",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
+      },
+      {
+        "id": "researcher",
+        "name": "researcher",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-researcher",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/researcher/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
+      },
+      {
+        "id": "projectmanager",
+        "name": "projectmanager",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
+      }
+    ]
+  },
+  "tools": {
+    "profile": "coding",
+    "web": {
+      "search": {
+        "enabled": false
+      },
+      "fetch": {
+        "enabled": true
+      }
+    },
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent": {
+      "enabled": true,
+      "allow": [
+        "main",
+        "coder",
+        "researcher",
+        "projectmanager"
+      ]
+    },
+    "fs": {
+      "workspaceOnly": true
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "main"
+      }
+    },
+    {
+      "agentId": "projectmanager",
+      "match": {
+        "channel": "feishu",
+        "accountId": "projectmanager"
+      }
+    },
+    {
+      "agentId": "coder",
+      "match": {
+        "channel": "feishu",
+        "accountId": "coder"
+      }
+    },
+    {
+      "agentId": "researcher",
+      "match": {
+        "channel": "feishu",
+        "accountId": "researcher"
+      }
+    }
+  ],
+  "broadcast": {
+    "strategy": "parallel",
+    "oc_49bd38a7e7152bafbb125392b40e2939": [
+      "main",
+      "projectmanager",
+      "coder",
+      "researcher"
+    ],
+    "oc_7b67599bb9c0f800478f770aaa745743": [
+      "main",
+      "projectmanager",
+      "coder",
+      "researcher"
+    ]
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "cron": {
+    "enabled": true
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "domain": "feishu",
+      "groups": {
+        "*": {
+          "enabled": true,
+          "requireMention": true
+        },
+        "oc_49bd38a7e7152bafbb125392b40e2939": {
+          "enabled": true,
+          "requireMention": true
+        },
+        "oc_7b67599bb9c0f800478f770aaa745743": {
+          "enabled": true,
+          "requireMention": false
+        }
+      },
+      "accounts": {
+        "main": {
+          "appId": "cli_a9f6e7b152399cc2",
+          "appSecret": "VwUFofMX3ECVw4MFkWMPFe8ioNsObdec",
+          "botName": "Javis"
+        },
+        "coder": {
+          "appId": "cli_a91548d971f89bd6",
+          "appSecret": "8eRAV7IKNTMPabt5p9bpceCA4sqahWn7",
+          "botName": "Bonnie - Coder"
+        },
+        "researcher": {
+          "appId": "cli_a91544380138dbc8",
+          "appSecret": "I2KCOU2OOudFI12eucAlibE4ZKJ4QB8B",
+          "botName": "Claire - Researcher"
+        },
+        "projectmanager": {
+          "appId": "cli_a9154b2f8da11bd3",
+          "appSecret": "UKYZxhIDOeZmKqfsQXVm5cQifhOSkq8f",
+          "botName": "Annie - Project Manager"
+        },
+        "default": {
+          "groupPolicy": "allowlist",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "*"
+          ]
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "controlUi": {
+      "allowInsecureAuth": false
+    },
+    "auth": {
+      "mode": "token",
+      "token": "a9e59f5abe42c1fe0c48be3b7171f61605cf8ca7a6675429"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "remote": {
+      "url": "ws://172.29.218.22:18789",
+      "token": "a9e59f5abe42c1fe0c48be3b7171f61605cf8ca7a6675429"
+    }
+  },
+  "skills": {
+    "load": {
+      "extraDirs": [
+        "/Users/shengpeng319/.openclaw/skills",
+        "/Users/shengpeng319/.openclaw/workspace/skills"
+      ]
+    },
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "wacli": {
+        "enabled": false
+      },
+      "things-mac": {
+        "enabled": false
+      },
+      "spotify-player": {
+        "enabled": false
+      },
+      "sonoscli": {
+        "enabled": false
+      },
+      "sag": {
+        "enabled": false
+      },
+      "sherpa-onnx-tts": {
+        "enabled": false
+      },
+      "peekaboo": {
+        "enabled": true
+      },
+      "ordercli": {
+        "enabled": false
+      },
+      "openhue": {
+        "enabled": false
+      },
+      "oracle": {
+        "enabled": false
+      },
+      "openai-whisper-api": {
+        "enabled": false
+      },
+      "openai-image-gen": {
+        "enabled": false
+      },
+      "notion": {
+        "enabled": false
+      },
+      "nano-banana-pro": {
+        "enabled": false
+      },
+      "model-usage": {
+        "enabled": false
+      },
+      "local-places": {
+        "enabled": false
+      },
+      "imsg": {
+        "enabled": false
+      },
+      "goplaces": {
+        "enabled": false
+      },
+      "eightctl": {
+        "enabled": false
+      },
+      "coding-agent": {
+        "enabled": true
+      },
+      "camsnap": {
+        "enabled": false
+      },
+      "apple-notes": {
+        "enabled": true
+      },
+      "apple-reminders": {
+        "enabled": true
+      },
+      "bear-notes": {
+        "enabled": false
+      },
+      "clawra-selfie": {
+        "enabled": true,
+        "apiKey": "5eacee9d-f32e-4521-b5c6-11b9ff2805db:ee87d851cf54a31119deb9e0f48eb720",
+        "env": {
+          "FAL_KEY": "5eacee9d-f32e-4521-b5c6-11b9ff2805db:ee87d851cf54a31119deb9e0f48eb720"
+        }
+      },
+      "1password": {
+        "enabled": false
+      },
+      "blogwatcher": {
+        "enabled": false
+      },
+      "blucli": {
+        "enabled": false
+      },
+      "discord": {
+        "enabled": false
+      },
+      "gemini": {
+        "enabled": false
+      },
+      "gog": {
+        "enabled": false
+      },
+      "gh-issues": {
+        "enabled": false
+      },
+      "nano-pdf": {
+        "enabled": false
+      },
+      "obsidian": {
+        "enabled": false
+      },
+      "session-logs": {
+        "enabled": true
+      },
+      "slack": {
+        "enabled": false
+      },
+      "songsee": {
+        "enabled": false
+      },
+      "summarize": {
+        "enabled": true
+      },
+      "trello": {
+        "enabled": false
+      },
+      "xurl": {
+        "enabled": false
+      },
+      "chrome-devtools": {
+        "enabled": true
+      }
+    }
+  },
+  "plugins": {
+    "allow": [
+      "lossless-claw",
+      "feishu"
+    ],
+    "slots": {
+      "contextEngine": "lossless-claw"
+    },
+    "entries": {
+      "feishu": {
+        "enabled": true
+      },
+      "lossless-claw": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "feishu": {
+        "source": "npm",
+        "spec": "@m1heng-clawd/feishu",
+        "installPath": "/Users/shengpeng319/.openclaw/extensions/feishu",
+        "version": "0.1.14",
+        "resolvedName": "@m1heng-clawd/feishu",
+        "resolvedVersion": "0.1.14",
+        "resolvedSpec": "@m1heng-clawd/feishu@0.1.14",
+        "integrity": "sha512-CJF3MNjxOUSEmu5OSXmvdzKyl4CUAOjbaq5WU0E/J6Mrl2TJZVtC95h/vGPYDpNEONAqP4xievOowvHqWuqbuw==",
+        "shasum": "a382656354e81bdc1c40e9624bc54e45919c22fe",
+        "resolvedAt": "2026-03-02T06:42:47.334Z",
+        "installedAt": "2026-03-02T06:42:55.427Z"
+      },
+      "lossless-claw": {
+        "source": "npm",
+        "spec": "@martian-engineering/lossless-claw",
+        "installPath": "/Users/shengpeng319/.openclaw/extensions/lossless-claw",
+        "version": "0.2.8",
+        "resolvedName": "@martian-engineering/lossless-claw",
+        "resolvedVersion": "0.2.8",
+        "resolvedSpec": "@martian-engineering/lossless-claw@0.2.8",
+        "integrity": "sha512-GnxqBICpy8ysOOl+TsvSPyHv50xuXxGuJF8A6qGnxGqUPNEa23xiJpbLKmkoGxvr30g7wpl0pk5Ff1RbchpM2w==",
+        "shasum": "377bcb51ce4e7c5c66f1e0d6ef3afe4e4da96e4d",
+        "resolvedAt": "2026-03-11T00:44:04.319Z",
+        "installedAt": "2026-03-11T00:46:22.825Z"
+      }
+    }
+  }
+}
