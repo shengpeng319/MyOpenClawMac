@@ -1,12 +1,15 @@
-# 网络访问最佳实践 - OpenClaw 访问受限网站指南
+# 网络访问最佳实践 - OpenClaw 信息获取工具指南
 
 ## 核心原则
 
-**优先使用 Chrome DevTools（MCP），其次 Browser Relay Extension**
+**优先使用专用搜索 Skills，其次浏览器自动化**
 
-当需要访问动态渲染或有访问限制的网站时：
-1. **首选 Chrome DevTools** - 通过 MCP 连接本地 Chrome，功能更强
-2. **备选 Browser Relay Extension** - 如果 Chrome DevTools 不可用
+当需要获取信息时，按以下优先级：
+1. **SearXNG** - 本地元搜索引擎，适合快速搜索
+2. **Tavily Search** - AI 优化的专业搜索 MCP 工具
+3. **last30days** - 研究过去30天内的社交媒体讨论
+4. **news-summary** - 获取国际新闻 RSS 摘要
+5. **Playwright** - 浏览器自动化，访问动态网页
 
 ---
 
@@ -14,147 +17,256 @@
 
 | 优先级 | 方法 | 适用场景 |
 |--------|------|----------|
-| 1️⃣ | **Chrome DevTools (MCP)** | 动态渲染网站、需要登录的网站、有反爬虫的网站 |
-| 2️⃣ | **Browser Relay Extension** | Chrome DevTools 不可用时的备选方案 |
-| 3️⃣ | `web_fetch` | 静态网页，简单内容抓取 |
-| 4️⃣ | `curl` + 请求头伪装 | API 端点，无反爬虫的简单页面 |
-| ❌ | `agent-browser` | **WSL 环境下无法使用**（需要 X server） |
+| 1️⃣ | **SearXNG** | 快速搜索、多引擎聚合、本地无需翻墙 |
+| 2️⃣ | **Tavily Search** | AI 搜索研究、深度内容提取 |
+| 3️⃣ | **last30days** | 研究社交媒体讨论、Reddit/X 热点 |
+| 4️⃣ | **news-summary** | 获取国际新闻 BBC/NPR RSS |
+| 5️⃣ | **Playwright** | 动态网页、需要登录的网站 |
+| 6️⃣ | **web_fetch** | 静态网页，简单内容抓取 |
 
 ---
 
-## 🔧 经验学习
+## 🔧 工具详细说明
 
-### 2026-03-02: Chrome DevTools 优先
-- **规则**: 所有 agent 和 subagent 抓新闻必须优先使用 Chrome DevTools
-- **原因**: Chrome DevTools (MCP) 功能更强，支持 CDP 协议
-- **备选**: 如果 Chrome DevTools 不可用，再使用 Browser Relay
+### 1. SearXNG - 本地元搜索引擎
 
-### 工具失败时立即记录原则
-- **原则**：「当一种工具失败但另一种成功时 → 立即记录到 best practice」
-- **原因**：避免重复同样的错误
-- **行动**：解决问题后，更新对应的 best practice 文件
+**位置**: `~/.openclaw/workspace/skills/searxng/`
 
-### Cron 任务自动启用
-- **问题**：`openclaw cron add` 默认创建 disabled 状态
-- **解决**：使用 `~/bin/cron-add-auto` 脚本
-- **示例**：`~/bin/cron-add-auto "每日热点新闻" "1770604800000" "# message"`
-
----
-
-## Chrome DevTools 使用步骤
-
-### 1. 确保 Chrome DevTools MCP 已配置
-- 检查 `~/.config/opencode/mcp_servers.json` 是否包含 chrome-devtools
-- 或使用 `mcporter` 工具管理 MCP 服务器
-
-### 2. 使用 Chrome DevTools Skill
+**使用方法**:
 ```bash
-# 先读取 skill 文件
-~/.agents/skills/chrome-devtools/SKILL.md
+cd ~/.openclaw/workspace/skills/searxng
+source .venv/bin/activate
+python scripts/searxng.py search "搜索关键词" -n 10
 ```
 
-### 3. 常用操作
-- 导航到目标页面
-- 获取页面内容
+**参数**:
+- `-n, --num_results` - 返回结果数量（默认10）
+- 不指定引擎时使用 SearXNG 默认引擎（会自动选择可用的引擎）
+
+**可用引擎**（部分）:
+- ✅ google, brave, yahoo, github, stackoverflow, youtube
+- ✅ bilibili, sogou, wikipedia
+- ❌ 部分需要翻墙的引擎可能超时
+
+**适用场景**:
+- 快速搜索任何主题
+- 多引擎结果聚合
+- 本地无需额外配置
+
+---
+
+### 2. Tavily Search - AI 搜索 MCP
+
+**位置**: `~/.openclaw/workspace/skills/tavily-search/`
+
+**MCP 配置**:
+```json
+{
+  "mcpServers": {
+    "tavily": {
+      "baseUrl": "https://mcp.tavily.com/mcp/?tavilyApiKey=你的APIKey"
+    }
+  }
+}
+```
+
+**使用方法**（通过 mcporter）:
+```bash
+# 查看可用工具
+mcporter tools list tavily
+```
+
+**可用工具**:
+- `tavily_search` - 搜索相关结果
+- `tavily_extract` - 提取页面内容
+- `tavily_crawl` - 爬取网站
+- `tavily_map` - 映射主题
+- `tavily_research` - 深度研究
+
+**适用场景**:
+- AI 优化的搜索结果
+- 深度研究主题
+- 内容提取和分析
+
+---
+
+### 3. last30days - 社交媒体研究
+
+**位置**: `~/.openclaw/workspace/skills/last30days/`
+
+**使用方法**:
+```bash
+cd ~/.openclaw/workspace/skills/last30days
+python3 scripts/last30days.py "研究主题" --quick
+```
+
+**参数**:
+- `--quick` - 快速模式，较少来源
+- `--deep` - 深度模式，更多来源
+- 默认 - 平衡模式
+
+**工作模式**:
+1. **Full Mode** (有 API Key) - Reddit + X + Web
+2. **Partial Mode** - Reddit 或 X 单一平台 + Web
+3. **Web-Only Mode** (无 API Key) - 仅 Web 搜索
+
+**API Key 配置**（可选）:
+```bash
+mkdir -p ~/.config/last30days
+cat > ~/.config/last30days/.env << 'ENVEOF'
+OPENAI_API_KEY=
+XAI_API_KEY=
+ENVEOF
+```
+
+**适用场景**:
+- 研究特定话题的社交媒体讨论
+- 获取 Reddit/X 上的热门观点
+- 发现最新趋势和讨论
+
+---
+
+### 4. news-summary - 新闻 RSS 摘要
+
+**位置**: `~/.openclaw/workspace/skills/news-summary/`
+
+**使用方法**:
+```python
+import xml.etree.ElementTree as ET
+import urllib.request
+
+# BBC World News
+url = "https://feeds.bbci.co.uk/news/world/rss.xml"
+
+# NPR News
+url = "https://feeds.npr.org/1001/rss.xml"
+
+with urllib.request.urlopen(url, timeout=10) as response:
+    data = response.read()
+    root = ET.fromstring(data)
+    items = root.findall('.//item')
+    for item in items[:10]:
+        title = item.find('title')
+        if title:
+            print(title.text)
+```
+
+**可用 RSS 源**:
+- ✅ BBC World News - `https://feeds.bbci.co.uk/news/world/rss.xml`
+- ✅ NPR News - `https://feeds.npr.org/1001/rss.xml`
+- ❌ Reuters - 需要备用 URL
+- ❌ Al Jazeera - 可能被屏蔽
+
+**适用场景**:
+- 获取国际新闻摘要
+- 了解全球热点事件
+- 语音合成新闻简报
+
+---
+
+### 5. Playwright - 浏览器自动化
+
+**位置**: `~/.openclaw/workspace/skills/playwright/`
+
+**使用方法**:
+```bash
+# 运行 Playwright skill
+cd ~/.openclaw/workspace/skills/playwright
+python -m playwright [...]
+```
+
+**常用操作**:
+- 导航到网页
 - 截图
-- 执行 JavaScript
-- 网络请求分析
+- 点击元素
+- 填写表单
+- 滚动页面
+
+**适用场景**:
+- 访问需要登录的网站
+- 抓取动态渲染的内容
+- 自动化网页交互
+
+**文档**:
+- `scraping.md` - 爬虫用法
+- `selectors.md` - 选择器指南
+- `testing.md` - 测试用法
 
 ---
 
-## Browser Relay Extension 使用步骤（备选）
+## 工具对比
 
-### 1. 确保 Extension 已开启
-- 用户需要在 Chrome 浏览器上打开 Browser Relay extension
-- Extension 图标显示 "ON" 或已连接状态
+| 工具 | 速度 | 可靠性 | 适用场景 |
+|------|------|--------|----------|
+| **SearXNG** | 快 | 高 | 日常搜索、多引擎聚合 |
+| **Tavily** | 中 | 高 | AI 研究、深度内容 |
+| **last30days** | 中 | 中 | 社交媒体趋势研究 |
+| **news-summary** | 快 | 高 | 新闻摘要获取 |
+| **Playwright** | 慢 | 中 | 动态网页、登录需求 |
+| **web_fetch** | 快 | 低 | 静态简单页面 |
 
-### 2. 使用 `browser` 工具
+---
+
+## 常见场景用法
+
+### 场景1: 搜索最新新闻
 ```bash
-# 导航到目标页面
-browser action=navigate profile=chrome targetUrl="https://www.zhihu.com/billboard"
-
-# 获取页面快照（交互元素）
-browser action=snapshot profile=chrome compact=true
-
-# 截图
-browser action=screenshot profile=chrome
-
-# 滚动页面
-browser action=act kind=scroll targetId=xxx
+# 使用 SearXNG
+cd ~/.openclaw/workspace/skills/searxng
+source .venv/bin/activate
+python scripts/searxng.py search "美股今天走势" -n 5
 ```
 
-### 3. 关键参数
-- `profile="chrome"` - **必须指定**，告诉 OpenClaw 使用用户的 Chrome 浏览器
-- 不要使用 `host="sandbox"` 或其他选项
+### 场景2: 研究特定话题（过去30天）
+```bash
+# 使用 last30days
+cd ~/.openclaw/workspace/skills/last30days
+python3 scripts/last30days.py "AI 投资趋势" --quick
+```
 
----
+### 场景3: 获取国际新闻
+```python
+# 使用 news-summary
+import xml.etree.ElementTree as ET
+import urllib.request
 
-## 常见网站访问策略
+url = "https://feeds.bbci.co.uk/news/world/rss.xml"
+with urllib.request.urlopen(url) as response:
+    root = ET.fromstring(response.read())
+    for item in root.findall('.//item')[:5]:
+        print(item.find('title').text)
+```
 
-### ✅ Chrome DevTools / Browser Relay 适用
-- **知乎** (zhihu.com) - 需要登录，有反爬虫
-- **B站** (bilibili.com) - 动态渲染，API 限制
-- **微博** - 动态内容，需要登录
-- **虎嗅** - 深度商业科技
-- **36氪** - 科技创投
-- **需要登录的任何网站**
+### 场景4: 深度内容提取
+```bash
+# 使用 Tavily MCP
+# 通过 mcporter 调用 tavily_extract 工具
+```
 
-### ⚠️ 可尝试 curl/api
-- 纯静态页面
-- 有公开 API 的网站
-- 没有严格反爬虫的网站
-
-### ❌ 不适用
-- `agent-browser` - WSL 环境无法启动（需要 X server）
-- `web_fetch` - 只能获取静态 HTML，动态内容无效
+### 场景5: 访问需要登录的网站
+```bash
+# 使用 Playwright
+cd ~/.openclaw/workspace/skills/playwright
+python -m playwright navigate "https://zhihu.com"
+```
 
 ---
 
 ## 失败时的排查
 
-1. **优先使用 Chrome DevTools** - 检查 MCP 配置
-2. **备选 Browser Relay** - 检查 Extension 是否开启
-3. **使用正确的 profile** - 必须用 `profile="chrome"`
-4. **尝试不同的方法** - API → web_fetch → Chrome DevTools → Browser Relay
-5. **检查网络连接** - 某些网站可能区域性限制
+1. **SearXNG 超时** - 尝试指定可用引擎（google, brave, bilibili）
+2. **Tavily 失败** - 检查 MCP 配置和网络
+3. **last30days 无数据** - 添加 API Key 增强功能，或使用 web-only 模式
+4. **news-summary 失败** - 尝试备用 RSS 源
+5. **Playwright 失败** - 检查浏览器安装和依赖
 
 ---
 
 ## 记忆要点
 
-> **重要**: Chrome DevTools (MCP) 是访问动态/受限网站的首选方法。Browser Relay 是备选方案。在 WSL 环境下，`agent-browser` 无法使用，必须通过 OpenClaw 的 `browser` 工具连接用户的 Chrome 浏览器。
+> **重要**: 优先使用专用搜索 Skills（SearXNG、Tavily、last30days、news-summary），它们比传统浏览器工具更稳定、更高效。Playwright 仅用于需要浏览器交互的场景。
 
-**关键词**: chrome devtools, mcp, browser relay, profile=chrome, 动态渲染, 登录限制, 反爬虫
-
----
-
-## 📌 飞书文件获取最佳实践
-
-### 问题
-用户通过飞书发送视频/文件，机器人无法直接下载。
-
-### 原因
-飞书机器人没有云盘根目录访问权限，需要用户手动分享文件。
-
-### 解决方案
-1. **询问用户文件来源**：云盘分享 / 直接拖入
-2. **用户操作**：将文件分享给机器人（分享到对话或云盘共享）
-3. **获取文件 token**：从消息中提取 file_key
-4. **使用 feishu_drive**：下载文件
-
-### 文件类型处理
-
-| 文件类型 | 处理方式 |
-|---------|---------|
-| 视频 (mp4) | ffmpeg 提取帧 → image 模型分析 |
-| 图片 | 直接用 image 模型分析 |
-| 文档 | 用 feishu_doc 读取 |
-| Excel | 下载后用 Python 处理 |
-
-### 注意事项
-- 飞书机器人权限有限，优先让用户分享文件
-- 视频分析需要先提取关键帧
-- 检查 `feishu_app_scopes` 确认权限
+**关键词**: searxng, tavily, last30days, news-summary, playwright, 搜索工具, 信息获取
 
 ---
 
@@ -164,27 +276,31 @@ browser action=act kind=scroll targetId=xxx
 
 **多源验证 vs 单源依赖**
 
-- ❌ **不要只从一个 APP/网站搜集信息**
+- ❌ **不要只从一个来源搜集信息**
 - ✅ **先研究口碑好的信息源**
 - ✅ **选出多个可靠源进行交叉验证**
 - ✅ **综合总结，形成全面视角**
 
 ---
 
-## 好的中文新闻源分类
+## 推荐信息源
 
-### 科技商业类
-| 新闻源 | 特点 | 适用场景 |
-|--------|------|----------|
-| **虎嗅** | 深度评论，商业洞察 | 深度分析，社会现象解读 |
-| **36氪** | 科技创投，前沿资讯 | AI科技、创业融资、IPO |
-| **知乎热榜** | 社会热点，民间讨论 | 热门话题、民生讨论 |
+### 搜索引擎
+| 来源 | 特点 | 适用场景 |
+|------|------|----------|
+| **SearXNG** | 本地多引擎聚合 | 日常快速搜索 |
+| **Tavily** | AI 优化搜索 | 深度研究分析 |
 
-### 综合类
-| 新闻源 | 特点 | 适用场景 |
-|--------|------|----------|
-| 微博热搜 | 实时热点，娱乐八卦 | 突发事件、舆情监测 |
-| 豆瓣讨论 | 文化深度，小众兴趣 | 影视、书籍，文化话题 |
+### 社交媒体研究
+| 来源 | 特点 | 适用场景 |
+|------|------|----------|
+| **last30days** | Reddit/X/网页聚合 | 热门话题讨论 |
+
+### 新闻资讯
+| 来源 | 特点 | 适用场景 |
+|------|------|----------|
+| **news-summary** | BBC/NPR RSS | 国际新闻摘要 |
+| **SearXNG** | 多引擎新闻搜索 | 特定主题新闻 |
 
 ---
 
@@ -194,12 +310,14 @@ browser action=act kind=scroll targetId=xxx
 - 明确要搜集什么类型的信息
 - 确定需要几个维度的观点
 
-### Step 2: 选择信息源
-- 根据需求选择合适的新闻源
-- 优先选择口碑好、专业度高的平台
+### Step 2: 选择工具/信息源
+- 快速搜索 → SearXNG
+- 深度研究 → Tavily + last30days
+- 新闻获取 → news-summary + SearXNG
+- 动态网页 → Playwright
 
 ### Step 3: 多源搜集
-- 从每个源获取关键信息
+- 从每个工具/源获取关键信息
 - 记录不同视角的观点
 
 ### Step 4: 综合总结
@@ -218,15 +336,15 @@ browser action=act kind=scroll targetId=xxx
 - [ ] 明确搜集目标
 - [ ] 确定需要的信息类型
 
-### 2. 信息源选择
-- [ ] 列出潜在信息源
-- [ ] 评估可靠性
-- [ ] 选择 2-3 个优质源
+### 2. 工具/信息源选择
+- [ ] 主要搜索: [SearXNG / Tavily / last30days]
+- [ ] 新闻获取: [news-summary / SearXNG]
+- [ ] 备用工具: [Playwright]
 
 ### 3. 执行搜集
-- [ ] 源1: [平台名] - [关键发现]
-- [ ] 源2: [平台名] - [关键发现]
-- [ ] 源3: [平台名] - [关键发现]
+- [ ] 工具1: [工具名] - [关键发现]
+- [ ] 工具2: [工具名] - [关键发现]
+- [ ] 工具3: [工具名] - [关键发现]
 
 ### 4. 综合分析
 - [ ] 提取热点话题

@@ -27,7 +27,7 @@ Then read AGENTS.md and its linked files (see below).
 
 | File | Content | Purpose |
 |------|---------|---------|
-| `NETWORK_ACCESS_BEST_PRACTICE.md` | Network access methods | Browser Relay, tool usage |
+| `NETWORK_ACCESS_BEST_PRACTICE.md` | Network access methods |
 | `RESEARCH_METHODS.md` | Research methodology | Multi-source verification |
 | `WORK_QUALITY_CHECKLIST.md` | Quality checklist | File delivery process |
 | `EMOTIONAL_INTELLIGENCE.md` | EQ framework | Communication, emotions |
@@ -110,7 +110,7 @@ Yes → Write to .md file → Update AGENTS.md
 
 | File | Content |
 |------|---------|
-| `NETWORK_ACCESS_BEST_PRACTICE.md` | Network access (Browser Relay first) |
+| `NETWORK_ACCESS_BEST_PRACTICE.md` | Network access |
 | `RESEARCH_METHODS.md` | Multi-source verification |
 | `WORK_QUALITY_CHECKLIST.md` | File delivery quality |
 | `EMOTIONAL_INTELLIGENCE.md` | Emotional intelligence |
