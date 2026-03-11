@@ -1,0 +1,19 @@
+{
+  "id": "9ba1be85-ab9e-42a0-a958-6e00b9871cb8",
+  "enqueuedAt": 1773189467147,
+  "channel": "feishu",
+  "to": "ou_c858ba4fbb03f207666daef058ede895",
+  "payloads": [
+    {
+      "text": "📊 每日进化报告 (2026-03-11)\n\n今日要点：\n• 批准了 4 个飞书连接配对 (W734ND96, 4A3XU8CT, M98LF7FJ, NF75YXP4)\n• 回答了模型配置问题 (MiniMax-M2.5-highspeed)\n• 新用户 Peng Sheng 通过飞书打招呼，开始 bootstrap 对话\n• 每日热点新闻 cron 尝试获取新闻失败（外部网站无法访问），成功获取天气信息\n\n学到的：\n• 熟练使用 openclaw pairing approve 命令\n• 天气 skill 正常工作\n• 新闻网站无法访问时的 fallback 处理\n\n问题/错误：\n• 初始化时 401 认证错误\n• localqwen35 连接错误\n• GitHub push 失败（网络问题）\n\n备份状态：已提交到本地 Git，但 push 到 GitHub 失败（网络超时）",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "silent": false,
+  "retryCount": 1,
+  "lastAttemptAt": 1773189467160,
+  "lastError": "Feishu account \"default\" not configured"
+}

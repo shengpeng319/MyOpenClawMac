@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1772635670112,
-      "updatedAtMs": 1773189483664,
+      "updatedAtMs": 1772896488246,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -24,14 +24,15 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773237600000,
-        "lastRunAtMs": 1773189223058,
+        "nextRunAtMs": 1773064800000,
+        "lastRunAtMs": 1772896462842,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 260606,
+        "lastDurationMs": 25404,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
+        "consecutiveErrors": 0,
+        "runningAtMs": 1773189005181
       }
     },
     {
@@ -39,7 +40,7 @@
       "name": "每日热点新闻",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773189223058,
+      "updatedAtMs": 1772925717189,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -56,14 +57,15 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773270000000,
-        "lastRunAtMs": 1773189005385,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 217673,
+        "nextRunAtMs": 1773010800000,
+        "lastRunAtMs": 1772924746726,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 970463,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
+        "consecutiveErrors": 1,
+        "runningAtMs": 1773189005181
       }
     }
   ]
