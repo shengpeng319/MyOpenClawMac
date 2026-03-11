@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1772635670112,
-      "updatedAtMs": 1773189483664,
+      "updatedAtMs": 1773237984294,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -24,15 +24,14 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773237600000,
-        "lastRunAtMs": 1773189223058,
+        "nextRunAtMs": 1773324000000,
+        "lastRunAtMs": 1773237600008,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 260606,
+        "lastDurationMs": 384286,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "runningAtMs": 1773237600004
+        "consecutiveErrors": 0
       }
     },
     {
