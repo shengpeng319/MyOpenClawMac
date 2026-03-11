@@ -1,8 +1,0 @@
-{
-  "name": "memory-manager",
-  "version": "1.0.0",
-  "description": "Local memory management for agents with semantic/procedural/episodic memory pattern",
-  "author": "marmikcfc",
-  "tags": ["memory", "context", "storage"],
-  "installed": true
-}

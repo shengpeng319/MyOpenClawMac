@@ -1,12 +1,12 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.2.26",
-    "lastTouchedAt": "2026-03-04T18:06:57.793Z"
+    "lastTouchedVersion": "2026.3.8",
+    "lastTouchedAt": "2026-03-10T23:51:50.028Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-02T07:56:18.549Z",
-    "lastRunVersion": "2026.2.26",
-    "lastRunCommand": "configure",
+    "lastRunAt": "2026-03-10T23:51:49.983Z",
+    "lastRunVersion": "2026.3.8",
+    "lastRunCommand": "onboard",
     "lastRunMode": "local"
   },
   "browser": {
@@ -25,6 +25,10 @@
   },
   "auth": {
     "profiles": {
+      "minimax:default": {
+        "provider": "minimax",
+        "mode": "api_key"
+      }
     }
   },
   "models": {
@@ -73,7 +77,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "localqwen35/qwen3.5:9b"
+        "primary": "minimax-cn/MiniMax-M2.5-highspeed"
       },
       "models": {
         "minimax-cn/MiniMax-M2.5-highspeed": {
@@ -82,9 +86,6 @@
         "localqwen35/qwen3.5:9b": {
           "alias": "qwen3.5"
         }
-      },
-      "sandbox": {
-        "mode": "off"
       },
       "workspace": "/Users/shengpeng319/.openclaw/workspace",
       "memorySearch": {
@@ -106,6 +107,9 @@
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
+      },
+      "sandbox": {
+        "mode": "off"
       }
     },
     "list": [
@@ -113,9 +117,8 @@
         "id": "main",
         "default": true,
         "name": "个人助理",
-        "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent/main/agent",
         "workspace": "/Users/shengpeng319/.openclaw/workspace",
-        "model":"qwen3.5",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
         "subagents": {
           "allowAgents": [
             "main",
@@ -142,7 +145,6 @@
         "name": "coder",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
-        "model":"Minimax",
         "subagents": {
           "allowAgents": [
             "main",
@@ -169,7 +171,6 @@
         "name": "researcher",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-researcher",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/researcher/agent",
-        "model":"Minimax",
         "subagents": {
           "allowAgents": [
             "main",
@@ -196,7 +197,6 @@
         "name": "projectmanager",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
-        "model":"Minimax",
         "subagents": {
           "allowAgents": [
             "main",
@@ -221,9 +221,7 @@
     ]
   },
   "tools": {
-    "fs": {
-      "workspaceOnly": true
-    },
+    "profile": "coding",
     "web": {
       "search": {
         "enabled": false
@@ -243,6 +241,9 @@
         "researcher",
         "projectmanager"
       ]
+    },
+    "fs": {
+      "workspaceOnly": true
     }
   },
   "bindings": [
@@ -299,8 +300,30 @@
     "restart": true,
     "ownerDisplay": "raw"
   },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
   "cron": {
     "enabled": true
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
   },
   "channels": {
     "feishu": {
@@ -350,6 +373,7 @@
   "gateway": {
     "port": 18789,
     "mode": "local",
+    "bind": "loopback",
     "controlUi": {
       "allowInsecureAuth": false
     },
