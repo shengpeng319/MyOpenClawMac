@@ -120,7 +120,7 @@
         "workspace": "/Users/shengpeng319/.openclaw/workspace",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
         "subagents": {
-          "allowAgents": [
+          "allowAgents": [ 
             "main",
             "coder",
             "researcher",
