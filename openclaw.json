@@ -1,12 +1,12 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.8",
-    "lastTouchedAt": "2026-03-10T23:51:50.028Z"
+    "lastTouchedAt": "2026-03-11T13:05:37.987Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-10T23:51:49.983Z",
+    "lastRunAt": "2026-03-11T13:05:37.973Z",
     "lastRunVersion": "2026.3.8",
-    "lastRunCommand": "onboard",
+    "lastRunCommand": "doctor",
     "lastRunMode": "local"
   },
   "browser": {
@@ -120,7 +120,7 @@
         "workspace": "/Users/shengpeng319/.openclaw/workspace",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
         "subagents": {
-          "allowAgents": [ 
+          "allowAgents": [
             "main",
             "coder",
             "researcher",
@@ -223,9 +223,6 @@
   "tools": {
     "profile": "coding",
     "web": {
-      "search": {
-        "enabled": false
-      },
       "fetch": {
         "enabled": true
       }
@@ -276,24 +273,6 @@
       }
     }
   ],
-  "broadcast": {
-    "strategy": "parallel",
-    "oc_49bd38a7e7152bafbb125392b40e2939": [
-      "main",
-      "projectmanager",
-      "coder",
-      "researcher"
-    ],
-    "oc_7b67599bb9c0f800478f770aaa745743": [
-      "main",
-      "projectmanager",
-      "coder",
-      "researcher"
-    ]
-  },
-  "messages": {
-    "ackReactionScope": "group-mentions"
-  },
   "commands": {
     "native": "auto",
     "nativeSkills": "auto",
@@ -330,13 +309,9 @@
       "enabled": true,
       "domain": "feishu",
       "groups": {
-        "*": {
-          "enabled": true,
-          "requireMention": true
-        },
         "oc_49bd38a7e7152bafbb125392b40e2939": {
           "enabled": true,
-          "requireMention": true
+          "requireMention": false
         }
       },
       "accounts": {
@@ -388,12 +363,16 @@
     "remote": {
       "url": "ws://172.29.218.22:18789",
       "token": "a9e59f5abe42c1fe0c48be3b7171f61605cf8ca7a6675429"
+    },
+    "reload": {
+      "mode": "hot"
     }
   },
   "skills": {
     "load": {
       "extraDirs": [
-        "/Users/shengpeng319/.openclaw/skills"
+        "/Users/shengpeng319/.openclaw/skills",
+        "/Users/shengpeng319/.openclaw/workspace/skills"
       ]
     },
     "install": {
@@ -419,7 +398,7 @@
         "enabled": false
       },
       "peekaboo": {
-        "enabled": false
+        "enabled": true
       },
       "ordercli": {
         "enabled": false
@@ -458,16 +437,16 @@
         "enabled": false
       },
       "coding-agent": {
-        "enabled": false
+        "enabled": true
       },
       "camsnap": {
         "enabled": false
       },
       "apple-notes": {
-        "enabled": false
+        "enabled": true
       },
       "apple-reminders": {
-        "enabled": false
+        "enabled": true
       },
       "bear-notes": {
         "enabled": false
@@ -507,7 +486,7 @@
         "enabled": false
       },
       "session-logs": {
-        "enabled": false
+        "enabled": true
       },
       "slack": {
         "enabled": false
@@ -516,7 +495,7 @@
         "enabled": false
       },
       "summarize": {
-        "enabled": false
+        "enabled": true
       },
       "trello": {
         "enabled": false
@@ -526,12 +505,28 @@
       },
       "chrome-devtools": {
         "enabled": true
+      },
+      "searxng": {
+        "enabled": true,
+        "env": {
+          "SEARXNG_URL": "http://localhost:7890"
+        }
       }
     }
   },
   "plugins": {
+    "allow": [
+      "lossless-claw",
+      "feishu"
+    ],
+    "slots": {
+      "contextEngine": "lossless-claw"
+    },
     "entries": {
       "feishu": {
+        "enabled": true
+      },
+      "lossless-claw": {
         "enabled": true
       }
     },
@@ -548,6 +543,19 @@
         "shasum": "a382656354e81bdc1c40e9624bc54e45919c22fe",
         "resolvedAt": "2026-03-02T06:42:47.334Z",
         "installedAt": "2026-03-02T06:42:55.427Z"
+      },
+      "lossless-claw": {
+        "source": "npm",
+        "spec": "@martian-engineering/lossless-claw",
+        "installPath": "/Users/shengpeng319/.openclaw/extensions/lossless-claw",
+        "version": "0.2.8",
+        "resolvedName": "@martian-engineering/lossless-claw",
+        "resolvedVersion": "0.2.8",
+        "resolvedSpec": "@martian-engineering/lossless-claw@0.2.8",
+        "integrity": "sha512-GnxqBICpy8ysOOl+TsvSPyHv50xuXxGuJF8A6qGnxGqUPNEa23xiJpbLKmkoGxvr30g7wpl0pk5Ff1RbchpM2w==",
+        "shasum": "377bcb51ce4e7c5c66f1e0d6ef3afe4e4da96e4d",
+        "resolvedAt": "2026-03-11T00:44:04.319Z",
+        "installedAt": "2026-03-11T00:46:22.825Z"
       }
     }
   }
