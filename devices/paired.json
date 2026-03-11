@@ -1,7 +1,8 @@
 {
-  "17f3428b01ce943bb6297101136c885c383e15d83b5ab6f1029f9487748432ae": {
-    "deviceId": "17f3428b01ce943bb6297101136c885c383e15d83b5ab6f1029f9487748432ae",
-    "publicKey": "ocGPQmh5n8_TvgmFn-zwAl436KyGz6ww75Tlaf9PBuw",
+  "fe59b5a88d9d0abfd2806ce614079e3664c8498aea7a2c43e05cf2bf0d893ab5": {
+    "deviceId": "fe59b5a88d9d0abfd2806ce614079e3664c8498aea7a2c43e05cf2bf0d893ab5",
+    "publicKey": "F5vjtk8GOGgUz2RRRUddsfFvOg5qy5avGU3t--fmuXs",
+    "displayName": "openclaw-tui",
     "platform": "darwin",
     "clientId": "gateway-client",
     "clientMode": "ui",
@@ -11,10 +12,7 @@
     ],
     "scopes": [
       "operator.read",
-      "operator.admin",
-      "operator.write",
-      "operator.approvals",
-      "operator.pairing"
+      "operator.admin"
     ],
     "approvedScopes": [
       "operator.read",
@@ -22,53 +20,16 @@
     ],
     "tokens": {
       "operator": {
-        "token": "VGyzSTPRmYp2-MKqNuKKBmbUvulUkD26c4qU7NoQHbE",
+        "token": "jmeHqljSoorD01-5C_5JuzoR1M2iXJ4GacfdlwAXaTk",
         "role": "operator",
         "scopes": [
           "operator.admin"
         ],
-        "createdAtMs": 1772887453295,
-        "rotatedAtMs": 1772887462654
+        "createdAtMs": 1773186715322,
+        "rotatedAtMs": 1773186725027
       }
     },
-    "createdAtMs": 1772887453294,
-    "approvedAtMs": 1772887462654,
-    "displayName": "openclaw-tui"
-  },
-  "d7f961ab58d00a8a8c772225cedfcbc60cc802564c379fb16e81149bc2a69dde": {
-    "deviceId": "d7f961ab58d00a8a8c772225cedfcbc60cc802564c379fb16e81149bc2a69dde",
-    "publicKey": "bfINzlZ8YYrEZogjj_G-tw5XwAjdbgs5tF03uMzqNMs",
-    "platform": "MacIntel",
-    "clientId": "openclaw-control-ui",
-    "clientMode": "webchat",
-    "role": "operator",
-    "roles": [
-      "operator"
-    ],
-    "scopes": [
-      "operator.admin",
-      "operator.approvals",
-      "operator.pairing"
-    ],
-    "approvedScopes": [
-      "operator.admin",
-      "operator.approvals",
-      "operator.pairing"
-    ],
-    "tokens": {
-      "operator": {
-        "token": "iBZzjQFpmzazaOceQtocJduvvq3MIsetXvIUH88tx3c",
-        "role": "operator",
-        "scopes": [
-          "operator.admin",
-          "operator.approvals",
-          "operator.pairing"
-        ],
-        "createdAtMs": 1772890873933,
-        "lastUsedAtMs": 1772979482684
-      }
-    },
-    "createdAtMs": 1772890873933,
-    "approvedAtMs": 1772890873933
+    "createdAtMs": 1773186715322,
+    "approvedAtMs": 1773186725027
   }
 }

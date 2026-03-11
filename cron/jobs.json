@@ -2,101 +2,6 @@
   "version": 1,
   "jobs": [
     {
-      "id": "33ceff59-4a36-4e6f-a64f-447d3e7be0c6",
-      "agentId": "main",
-      "name": "测试提醒",
-      "enabled": false,
-      "createdAtMs": 1770479592758,
-      "updatedAtMs": 1770555703945,
-      "schedule": {
-        "kind": "at",
-        "at": "2026-02-08T12:40:00.000Z"
-      },
-      "sessionTarget": "main",
-      "wakeMode": "next-heartbeat",
-      "payload": {
-        "kind": "systemEvent",
-        "text": "hi"
-      },
-      "state": {
-        "lastRunAtMs": 1770555703945,
-        "lastStatus": "ok",
-        "lastDurationMs": 7
-      }
-    },
-    {
-      "id": "5becc987-b0e3-4e83-9264-c15180d6d7be",
-      "agentId": "main",
-      "name": "提醒睡觉",
-      "createdAtMs": 1770480437755,
-      "updatedAtMs": 1772097017210,
-      "schedule": {
-        "kind": "at",
-        "at": "2026-02-08T21:20:00.000Z"
-      },
-      "sessionTarget": "main",
-      "wakeMode": "next-heartbeat",
-      "payload": {
-        "kind": "systemEvent",
-        "text": "🌙 10分钟到了，该睡觉了！晚安！"
-      },
-      "state": {
-        "lastRunAtMs": 1772097017209,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 1,
-        "lastDeliveryStatus": "not-requested",
-        "consecutiveErrors": 0
-      },
-      "enabled": false
-    },
-    {
-      "id": "72df8c9f-d3e6-4ee8-b227-a4a97bd7e4c4",
-      "name": "提醒睡觉",
-      "enabled": false,
-      "deleteAfterRun": false,
-      "createdAtMs": 1770481187759,
-      "updatedAtMs": 1770481486156,
-      "schedule": {
-        "kind": "at",
-        "at": "2026-02-07T16:24:44.000Z"
-      },
-      "sessionTarget": "main",
-      "wakeMode": "next-heartbeat",
-      "payload": {
-        "kind": "systemEvent",
-        "text": "🌙 5分钟到了，该睡觉了！晚安！"
-      },
-      "state": {
-        "lastRunAtMs": 1770481486156,
-        "lastStatus": "ok",
-        "lastDurationMs": 6
-      }
-    },
-    {
-      "id": "86fb95ae-62ca-4759-afb4-abb8e960e423",
-      "name": "提醒睡觉",
-      "enabled": false,
-      "deleteAfterRun": false,
-      "createdAtMs": 1770482232051,
-      "updatedAtMs": 1770482349893,
-      "schedule": {
-        "kind": "at",
-        "at": "2026-02-07T16:39:09.000Z"
-      },
-      "sessionTarget": "main",
-      "wakeMode": "next-heartbeat",
-      "payload": {
-        "kind": "systemEvent",
-        "text": "🌙 2分钟到了，该睡觉了！晚安！"
-      },
-      "state": {
-        "lastRunAtMs": 1770482349894,
-        "lastStatus": "ok",
-        "lastDurationMs": 7
-      }
-    },
-    {
       "id": "f9aaf978-5d2d-4296-8854-6db0662f46ae",
       "name": "每日进化报告",
       "enabled": true,
@@ -126,7 +31,8 @@
         "lastDurationMs": 25404,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
+        "consecutiveErrors": 0,
+        "runningAtMs": 1773189005181
       }
     },
     {
@@ -159,7 +65,7 @@
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 1,
-        "lastError": "Request timed out before a response was generated. Please try again, or increase `agents.defaults.timeoutSeconds` in your config."
+        "runningAtMs": 1773189005181
       }
     }
   ]
