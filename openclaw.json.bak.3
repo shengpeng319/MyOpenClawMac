@@ -1,10 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.8",
-    "lastTouchedAt": "2026-03-11T08:05:33.410Z"
+    "lastTouchedAt": "2026-03-12T00:31:37.844Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-11T00:50:38.080Z",
+    "lastRunAt": "2026-03-11T13:05:37.973Z",
     "lastRunVersion": "2026.3.8",
     "lastRunCommand": "doctor",
     "lastRunMode": "local"
@@ -42,6 +42,7 @@
           {
             "id": "MiniMax-M2.5-highspeed",
             "name": "MiniMax-M2.5-highspeed",
+            "api": "anthropic-messages",
             "reasoning": false,
             "input": [
               "text"
@@ -52,23 +53,32 @@
               "cacheRead": 0.03,
               "cacheWrite": 0.12
             },
-            "contextWindow": 128000
+            "contextWindow": 128000,
+            "maxTokens": 8192
           }
         ]
       },
       "localqwen35": {
-        "baseUrl": "http://localhost:11434/v1",
+        "baseUrl": "http://localhost:7891/v1",
         "api": "openai-completions",
         "authHeader": true,
         "models": [
           {
-            "id": "qwen3.5:9b",
-            "name": "Mqwen3.5:9b",
+            "id": "Qwen3.5-4B-MLX-4bit ",
+            "name": "Qwen3.5-4B-MLX-4bit ",
+            "api": "openai-completions",
             "reasoning": false,
             "input": [
               "text"
             ],
-            "contextWindow": 64000
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 64000,
+            "maxTokens": 8192
           }
         ]
       }
@@ -83,13 +93,13 @@
         "minimax-cn/MiniMax-M2.5-highspeed": {
           "alias": "Minimax"
         },
-        "localqwen35/qwen3.5:9b": {
+        "localqwen35/Qwen3.5-4B-MLX-4bit ": {
           "alias": "qwen3.5"
         }
       },
       "workspace": "/Users/shengpeng319/.openclaw/workspace",
       "memorySearch": {
-        "enabled": false,
+        "enabled": true,
         "sources": [
           "memory",
           "sessions"
@@ -118,6 +128,9 @@
         "default": true,
         "name": "个人助理",
         "workspace": "/Users/shengpeng319/.openclaw/workspace",
+        "model": {
+          "primary": "localqwen35/Qwen3.5-4B-MLX-4bit "
+        },
         "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
         "subagents": {
           "allowAgents": [
@@ -223,9 +236,6 @@
   "tools": {
     "profile": "coding",
     "web": {
-      "search": {
-        "enabled": false
-      },
       "fetch": {
         "enabled": true
       }
@@ -276,21 +286,6 @@
       }
     }
   ],
-  "broadcast": {
-    "strategy": "parallel",
-    "oc_49bd38a7e7152bafbb125392b40e2939": [
-      "main",
-      "projectmanager",
-      "coder",
-      "researcher"
-    ],
-    "oc_7b67599bb9c0f800478f770aaa745743": [
-      "main",
-      "projectmanager",
-      "coder",
-      "researcher"
-    ]
-  },
   "messages": {
     "ackReactionScope": "group-mentions"
   },
@@ -330,13 +325,9 @@
       "enabled": true,
       "domain": "feishu",
       "groups": {
-        "*": {
-          "enabled": true,
-          "requireMention": true
-        },
         "oc_49bd38a7e7152bafbb125392b40e2939": {
           "enabled": true,
-          "requireMention": true
+          "requireMention": false
         }
       },
       "accounts": {
@@ -388,12 +379,16 @@
     "remote": {
       "url": "ws://172.29.218.22:18789",
       "token": "a9e59f5abe42c1fe0c48be3b7171f61605cf8ca7a6675429"
+    },
+    "reload": {
+      "mode": "hot"
     }
   },
   "skills": {
     "load": {
       "extraDirs": [
-        "/Users/shengpeng319/.openclaw/skills"
+        "/Users/shengpeng319/.openclaw/skills",
+        "/Users/shengpeng319/.openclaw/workspace/skills"
       ]
     },
     "install": {
@@ -526,15 +521,23 @@
       },
       "chrome-devtools": {
         "enabled": true
+      },
+      "searxng": {
+        "enabled": true,
+        "env": {
+          "SEARXNG_URL": "http://localhost:7890"
+        }
       }
     }
   },
   "plugins": {
     "allow": [
       "lossless-claw",
-      "feishu"
+      "feishu",
+      "memos-local-openclaw-plugin"
     ],
     "slots": {
+      "memory": "memos-local-openclaw-plugin",
       "contextEngine": "lossless-claw"
     },
     "entries": {
@@ -543,6 +546,15 @@
       },
       "lossless-claw": {
         "enabled": true
+      },
+      "memory-core": {
+        "enabled": false
+      },
+      "memory-lancedb": {
+        "enabled": false
+      },
+      "memos-local-openclaw-plugin": {
+        "enabled": true
       }
     },
     "installs": {
@@ -550,14 +562,14 @@
         "source": "npm",
         "spec": "@m1heng-clawd/feishu",
         "installPath": "/Users/shengpeng319/.openclaw/extensions/feishu",
-        "version": "0.1.14",
+        "version": "0.1.16",
         "resolvedName": "@m1heng-clawd/feishu",
-        "resolvedVersion": "0.1.14",
-        "resolvedSpec": "@m1heng-clawd/feishu@0.1.14",
-        "integrity": "sha512-CJF3MNjxOUSEmu5OSXmvdzKyl4CUAOjbaq5WU0E/J6Mrl2TJZVtC95h/vGPYDpNEONAqP4xievOowvHqWuqbuw==",
-        "shasum": "a382656354e81bdc1c40e9624bc54e45919c22fe",
-        "resolvedAt": "2026-03-02T06:42:47.334Z",
-        "installedAt": "2026-03-02T06:42:55.427Z"
+        "resolvedVersion": "0.1.16",
+        "resolvedSpec": "@m1heng-clawd/feishu@0.1.16",
+        "integrity": "sha512-BRbAdogf0NrjAX8HTPHcgMQ4zsx0SEFfWgoPcFYOTeq4muvGRkAXfPR14zS0ZtTGImcijatlZvgexWB7unj/pw==",
+        "shasum": "47780b9ee0d1b9a8585612e6072fbd787402e03d",
+        "resolvedAt": "2026-03-12T00:27:58.501Z",
+        "installedAt": "2026-03-12T00:29:22.742Z"
       },
       "lossless-claw": {
         "source": "npm",
@@ -569,8 +581,21 @@
         "resolvedSpec": "@martian-engineering/lossless-claw@0.2.8",
         "integrity": "sha512-GnxqBICpy8ysOOl+TsvSPyHv50xuXxGuJF8A6qGnxGqUPNEa23xiJpbLKmkoGxvr30g7wpl0pk5Ff1RbchpM2w==",
         "shasum": "377bcb51ce4e7c5c66f1e0d6ef3afe4e4da96e4d",
-        "resolvedAt": "2026-03-11T00:44:04.319Z",
-        "installedAt": "2026-03-11T00:46:22.825Z"
+        "resolvedAt": "2026-03-12T00:29:24.073Z",
+        "installedAt": "2026-03-12T00:29:32.442Z"
+      },
+      "memos-local-openclaw-plugin": {
+        "source": "npm",
+        "spec": "@memtensor/memos-local-openclaw-plugin",
+        "installPath": "/Users/shengpeng319/.openclaw/extensions/memos-local-openclaw-plugin",
+        "version": "1.0.1",
+        "resolvedName": "@memtensor/memos-local-openclaw-plugin",
+        "resolvedVersion": "1.0.1",
+        "resolvedSpec": "@memtensor/memos-local-openclaw-plugin@1.0.1",
+        "integrity": "sha512-PkLR9yfM94xg2HSIuS0yw+ByrfvszIYbhfqotdpyrKoyrleZkH0VDRdFPYdOAQfvR5J645r3IFMKFFNprfptSg==",
+        "shasum": "9dfa36b22d8ca1f7a8bad99b999ce27ccd48ad4a",
+        "resolvedAt": "2026-03-12T00:31:19.834Z",
+        "installedAt": "2026-03-12T00:31:37.350Z"
       }
     }
   }

@@ -17,14 +17,6 @@
       "version": "1.0.3",
       "installedAt": 1773221286084
     },
-    "fin-cog": {
-      "version": "1.0.1",
-      "installedAt": 1773239658739
-    },
-    "cellcog": {
-      "version": "1.0.21",
-      "installedAt": 1773239705538
-    },
     "stock-info-explorer": {
       "version": "1.2.10",
       "installedAt": 1773239836300
@@ -36,6 +28,10 @@
     "news-summary": {
       "version": "1.0.1",
       "installedAt": 1773240305801
+    },
+    "memory-search": {
+      "version": "1.0.0",
+      "installedAt": 1773278223800
     }
   }
 }

@@ -39,7 +39,7 @@
       "name": "每日热点新闻",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773189223058,
+      "updatedAtMs": 1773270161605,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -56,11 +56,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773270000000,
-        "lastRunAtMs": 1773189005385,
+        "nextRunAtMs": 1773356400000,
+        "lastRunAtMs": 1773270000009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 217673,
+        "lastDurationMs": 161596,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
