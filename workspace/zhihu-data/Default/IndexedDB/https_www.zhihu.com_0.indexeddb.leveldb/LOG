@@ -1,7 +1,0 @@
-2026/03/11-14:18:22.085 4bb11 Reusing MANIFEST /Users/shengpeng319/.openclaw/workspace/zhihu-data/Default/IndexedDB/https_www.zhihu.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/03/11-14:18:22.085 4bb11 Recovering log #3
-2026/03/11-14:18:22.085 4bb11 Reusing old log /Users/shengpeng319/.openclaw/workspace/zhihu-data/Default/IndexedDB/https_www.zhihu.com_0.indexeddb.leveldb/000003.log 
-2026/03/11-15:49:43.744 4bb12 Level-0 table #5: started
-2026/03/11-15:49:43.747 4bb12 Level-0 table #5: 8261 bytes OK
-2026/03/11-15:49:43.748 4bb12 Delete type=0 #3
-2026/03/11-15:49:43.749 4bb12 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

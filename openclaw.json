@@ -87,10 +87,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.5-highspeed",
-        "fallbacks": [
-          "localqwen35/Qwen3.5-4B-MLX-4bit"
-        ]
+        "primary": "minimax-cn/MiniMax-M2.5-highspeed"
       },
       "models": {
         "minimax-cn/MiniMax-M2.5-highspeed": {
@@ -131,7 +128,7 @@
         "id": "main",
         "default": true,
         "name": "\u4e2a\u4eba\u52a9\u7406",
-        "workspace": "/Users/shengpeng319/.openclaw/workspace",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-main",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
         "subagents": {
           "allowAgents": [
@@ -384,8 +381,7 @@
   "skills": {
     "load": {
       "extraDirs": [
-        "/Users/shengpeng319/.openclaw/skills",
-        "/Users/shengpeng319/.openclaw/workspace/skills"
+        "/Users/shengpeng319/.openclaw/skills"
       ]
     },
     "install": {
@@ -544,19 +540,6 @@
       }
     },
     "installs": {
-      "feishu": {
-        "source": "npm",
-        "spec": "@m1heng-clawd/feishu",
-        "installPath": "/Users/shengpeng319/.openclaw/extensions/feishu",
-        "version": "0.1.16",
-        "resolvedName": "@m1heng-clawd/feishu",
-        "resolvedVersion": "0.1.16",
-        "resolvedSpec": "@m1heng-clawd/feishu@0.1.16",
-        "integrity": "sha512-BRbAdogf0NrjAX8HTPHcgMQ4zsx0SEFfWgoPcFYOTeq4muvGRkAXfPR14zS0ZtTGImcijatlZvgexWB7unj/pw==",
-        "shasum": "47780b9ee0d1b9a8585612e6072fbd787402e03d",
-        "resolvedAt": "2026-03-12T00:27:58.501Z",
-        "installedAt": "2026-03-12T00:29:22.742Z"
-      },
       "lossless-claw": {
         "source": "npm",
         "spec": "@martian-engineering/lossless-claw",

@@ -2,76 +2,42 @@
 
 This folder is home. Treat it that way.
 
-## Every Session
+## Every Session Must Read
 
-Before doing anything else, read these files in order:
-
-1. **SOUL.md** — this is who you are
-2. **USER.md** — this is who you're helping  
-3. **memory/YYYY-MM-DD.md** — recent context (today + yesterday)
-4. **MEMORY.md** — long-term memory (main session only)
-
-Then read AGENTS.md and its linked files (see below).
-
-## 📖 Core Files to Read Every Session
-
-### Must Read
 | File | Content | Purpose |
 |------|---------|---------|
 | `SOUL.md` | Identity & values | Who you are |
 | `USER.md` | User info | Who you're helping |
 | `memory/YYYY-MM-DD.md` | Daily notes | Recent conversations |
-| `MEMORY.md` | Curated memory | Long-term memory |
 
-### AGENTS.md Linked Files (Read After AGENTS.md)
+### AGENTS.md Linked Files - Best Practices Files (Read After AGENTS.md)
 
 | File | Content | Purpose |
 |------|---------|---------|
-| `NETWORK_ACCESS_BEST_PRACTICE.md` | Network access methods | Browser Relay, tool usage |
+| `NETWORK_ACCESS_BEST_PRACTICE.md` | Network access methods |
 | `RESEARCH_METHODS.md` | Research methodology | Multi-source verification |
 | `WORK_QUALITY_CHECKLIST.md` | Quality checklist | File delivery process |
 | `EMOTIONAL_INTELLIGENCE.md` | EQ framework | Communication, emotions |
 | `SELF_AWARENESS.md` | Self-awareness framework | Reflection, growth |
+| `MEMORY_ARCHITECTURE.md` | **三层记忆架构** (工作/短期/长期) |
 
 ---
 
 ## 🔴 CRITICAL: Non-Negotiable Rules
 
-### 📁 File Placement
-- **Outputs** (Excel, PDF, etc.) → `/workspace/artifacts/` directory
+### File Placement
+- **Outputs** (Excel, PDF, etc.) → `workspace-xxxx/artifacts/` directory
+- **Temp Files** (debug data, temp cache, temp scripts/binaries, etc) → `workspace-xxxx/temp/` directory
 - **Permanent rules** → Write to AGENTS.md (read every session)
 - **Best practices** → Write to linked files, update AGENTS.md reference
 
-### ✅ File Delivery Process
-1. Generate file → `/workspace/artifacts/`
+### File Delivery Process
+1. Generate file → `workspace-xxxx/artifacts/`
 2. Verify locally (can it open? format correct?)
 3. Upload to Feishu Drive → get `file_token`
 4. Push using `file_token` (NOT local path)
 5. Ask user to confirm it opens
 6. Reference: `WORK_QUALITY_CHECKLIST.md`
-
-### 🔧 OpenCode Integration (编程任务强制使用)
-
-**所有编程/代码任务 → 必须使用 OpenCode**
-- OpenCode 位置: `~/.opencode/bin/opencode` 或 `opencode`
-- 路径已添加到 PATH，可直接运行 `opencode`
-- 支持 MCP 工具（飞书等）
-
-**使用方式**:
-```bash
-# 交互式界面
-opencode /path/to/project/
-
-# 直接执行任务
-opencode run "帮我开发XX功能"
-```
-
-**强制规则**:
-- ❌ 禁止直接用 exec 写代码（除非用户明确要求）
-- ✅ 所有代码开发任务必须通过 OpenCode
-- ✅ 简单命令（ls, cat, df 等）仍用 exec
-- ⚠️ **违规教训**：即使 OpenCode 看起来"卡住"，也不能绕过规则！宁可等更久，也不要违约
-- ⚠️ **耐心等待**：OpenCode 比 exec 慢很多，必须等到任务自然结束后再检查结果
 
 ### 🔧 Cron Job Automation
 - Problem: `openclaw cron add` creates disabled tasks by default
@@ -84,58 +50,16 @@ opencode run "帮我开发XX功能"
 - **Recurring tasks** → Automate via cron
 - **Knowledge/experience** → Document in md files
 
-### 🔄 Post-Task Reflection (One-Time Tasks)
-After completing a one-time task:
-1. **Reflect**: What went well? What could be improved?
-2. **Extract**: Is there reusable knowledge or experience?
-3. **Decide**: Should this become a best practice?
-4. **Document**: If yes, write to relevant .md file and update AGENTS.md reference
-
-```
-One-time task completed
-        ↓
-Reflect: Success? Issues? Learnings?
-        ↓
-Extract: Is this reusable knowledge?
-        ↓
-Decision: Worth documenting?
-        ↓
-Yes → Write to .md file → Update AGENTS.md
- No → Discard or note in daily log
-```
-
----
-
-## 🧠 Best Practice Files
-
-| File | Content |
-|------|---------|
-| `NETWORK_ACCESS_BEST_PRACTICE.md` | Network access (Browser Relay first) |
-| `RESEARCH_METHODS.md` | Multi-source verification |
-| `WORK_QUALITY_CHECKLIST.md` | File delivery quality |
-| `EMOTIONAL_INTELLIGENCE.md` | Emotional intelligence |
-| `SELF_AWARENESS.md` | Self-awareness |
-| `MEMORY_ARCHITECTURE.md` | **三层记忆架构** (工作/短期/长期) |
-
-**Learning workflow:**
-- Learn new skill → update relevant best practice file
-- Improve process → update WORK_QUALITY_CHECKLIST.md
-- New rule → write to file AND update AGENTS.md reference
-
 ---
 
 ## 📝 Memory Maintenance
 
-### 📋 Daily Notes (`memory/YYYY-MM-DD.md`)
+### 📋 Daily Notes (`workspace-xxxx/memory/YYYY-MM-DD.md`)
 - Raw logs of conversations
 - Key decisions, learnings, mistakes
 - Create if not exists
 
-### 🧠 MEMORY.md
-- **Only in main session** (direct chats)
-- Curated long-term memory
-- Significant events, opinions, lessons
-- Review and update periodically
+### 🧠 Long Term Memories: Managed by extension: lossless-claw
 
 ### 📝 Write It Down!
 - **Memory is limited** → write to file
@@ -151,22 +75,6 @@ Read `HEARTBEAT.md` when it exists. Follow instructions.
 **Respond:**
 - HEARTBEAT_OK if nothing needs attention
 - Alert text if something needs attention
-
----
-
-## 🎭 Voice Storytelling
-
-Use `sag` (ElevenLabs TTS) for stories and summaries!
-
----
-
-## 🏷️ Platform Formatting
-
-| Platform | Rule |
-|----------|------|
-| Discord/WhatsApp | No markdown tables, use bullet lists |
-| Discord links | Wrap in `<>` to suppress embeds |
-| WhatsApp | No headers, use **bold** or CAPS |
 
 ---
 
@@ -197,6 +105,18 @@ You're a participant, not their voice.
 
 ---
 
+## 任务执行铁律 (2026-02-24)
+
+**分解思考 → 执行 → 迭代 → 求助**
+
+1. **分解思考**：先拆解任务步骤，再开始执行
+2. **迭代尝试**：遇到问题时，改变方法再尝试，**至少尝试 3 轮**再求助
+3. **求助条件**：
+   - 已尝试 3 轮仍未解决
+   - 消耗 token 超过上限（待定）
+   - 需要真实人类授权或支付
+   - 任务涉及系统安全稳定
+
 ---
 
 ## 🧠 自我成长系统（Self-Growth System）
@@ -219,7 +139,7 @@ Agent 每次重启都会"失忆"，但文件不会。通过建立"入口 + 分�
 ├─────────────────────────────────────────────────────┤
 │                                                     │
 │   ┌─────────────┐  ┌─────────────┐  ┌───────────┐  │
-│   │  SOUL.md    │  │  USER.md    │  │ MEMORY.md │  │
+│   │  SOUL.md    │  │  USER.md    │  │ Lossless-Claw │  │
 │   │ 身份与价值观 │  │  用户信息    │  │  长期记忆  │  │
 │   └─────────────┘  └─────────────┘  └───────────┘  │
 │                                                     │
@@ -230,7 +150,7 @@ Agent 每次重启都会"失忆"，但文件不会。通过建立"入口 + 分�
 │   └─────────────────────────────────────────────┘   │
 │                                                     │
 │   ┌─────────────────────────────────────────────┐   │
-│   │            memory/YYYY-MM-DD.md             │   │
+│   │   {workspace-xxxx/memory/YYYY-MM-DD.md│   │
 │   │              每日对话与临时约定               │   │
 │   └─────────────────────────────────────────────┘   │
 │                                                     │
@@ -274,8 +194,8 @@ Agent 每次重启都会"失忆"，但文件不会。通过建立"入口 + 分�
    - 具体内容放到各自的文件
 
 3. **持续迭代**
-   - 每周回顾 memory/*.md
-   - 提炼重要内容到 MEMORY.md
+   - 每周回顾新学到的技能，技巧和知识
+   - 提炼重要内容到规则文件
    - 淘汰过时规则
 
 ### 自我检查清单
@@ -293,7 +213,7 @@ Agent 每次重启都会"失忆"，但文件不会。通过建立"入口 + 分�
 
 *This file is your entry point. Keep it stable. Evolve linked files.*
 
-### ⚡ Subagent Async Mode (Default Preference)
+## Subagent Async Mode (Default Preference)
 
 **用户偏好：所有 agents 默认使用 subagent 模式**
 
@@ -308,3 +228,10 @@ sessions_spawn --runtime subagent --task "执行 npm build" -- detached
 ```
 
 **注意**：不是所有任务都需要 subagent，简单命令（ls, cat, df 等）仍用直接 exec
+
+
+## Skills 查找 (2026-02-24)
+
+- 命令: `npx skills find [关键词]`
+- 浏览: https://skills.sh/
+- Excel 处理：直接用 Python，不需额外 skill

@@ -20,6 +20,8 @@ cron/runs/
 feishu/dedup/
 exec-approvals.json
 update-check.json
+Workspace-*/artifacts/
+workspace-*/temp/
 
 # Session data (runtime)
 sessions/
