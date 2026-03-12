@@ -15,12 +15,9 @@ logs/
 Thumbs.db
 
 # OpenClaw runtime data (exclude these)
-memory/
-*.sqlite
-cron/runs/
-canvas/
-devices/
 sandboxes/
+cron/runs/
+feishu/dedup/
 exec-approvals.json
 update-check.json
 
@@ -33,7 +30,6 @@ auth-profiles.json
 *.key
 *.pem
 credentials/
-feishu/dedup/
 
 # Extensions (too large)
 extensions/
