@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.8",
-    "lastTouchedAt": "2026-03-12T04:50:23.849Z"
+    "lastTouchedVersion": "2026.3.11",
+    "lastTouchedAt": "2026-03-12T23:55:12.088Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-12T04:50:23.808Z",
@@ -127,7 +127,7 @@
       {
         "id": "main",
         "default": true,
-        "name": "\u4e2a\u4eba\u52a9\u7406",
+        "name": "个人助理",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-main",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
         "subagents": {
@@ -544,14 +544,14 @@
         "source": "npm",
         "spec": "@martian-engineering/lossless-claw",
         "installPath": "/Users/shengpeng319/.openclaw/extensions/lossless-claw",
-        "version": "0.2.8",
+        "version": "0.3.0",
         "resolvedName": "@martian-engineering/lossless-claw",
-        "resolvedVersion": "0.2.8",
-        "resolvedSpec": "@martian-engineering/lossless-claw@0.2.8",
-        "integrity": "sha512-GnxqBICpy8ysOOl+TsvSPyHv50xuXxGuJF8A6qGnxGqUPNEa23xiJpbLKmkoGxvr30g7wpl0pk5Ff1RbchpM2w==",
-        "shasum": "377bcb51ce4e7c5c66f1e0d6ef3afe4e4da96e4d",
-        "resolvedAt": "2026-03-12T00:29:24.073Z",
-        "installedAt": "2026-03-12T00:29:32.442Z"
+        "resolvedVersion": "0.3.0",
+        "resolvedSpec": "@martian-engineering/lossless-claw@0.3.0",
+        "integrity": "sha512-SsY0bp3SoSzEu+KB8fOBke46MFhTmslfWg6OvC4pShq34ig2+V+jkTFAHib8PTZ0MoethAddR+ZmRN9OASorAA==",
+        "shasum": "bc9725d6d59d9b1523128ab528f1258c4258fa3f",
+        "resolvedAt": "2026-03-12T23:52:04.809Z",
+        "installedAt": "2026-03-12T23:55:12.071Z"
       }
     }
   }

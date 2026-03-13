@@ -1,0 +1,23 @@
+{
+  "id": "df2c06de-e5ee-4fb4-9365-97e79ec0217a",
+  "enqueuedAt": 1773360102941,
+  "channel": "feishu",
+  "to": "ou_6f647c48b442a8457c1cf51158b20655",
+  "payloads": [
+    {
+      "text": "",
+      "mediaUrl": "/Users/shengpeng319/.openclaw/workspace-projectmanager/artifacts/深圳天气预报.xlsx",
+      "mediaUrls": [
+        "/Users/shengpeng319/.openclaw/workspace-projectmanager/artifacts/深圳天气预报.xlsx"
+      ],
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "silent": false,
+  "retryCount": 5,
+  "lastAttemptAt": 1773403958350,
+  "lastError": "Feishu account \"default\" not configured"
+}

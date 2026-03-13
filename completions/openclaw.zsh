@@ -95,7 +95,7 @@ _openclaw_onboard() {
     "--accept-risk[Acknowledge that agents are powerful and full system access is risky (required for --non-interactive)]" \
     "--flow[Wizard flow: quickstart|advanced|manual]" \
     "--mode[Wizard mode: local|remote]" \
-    "--auth-choice[Auth: token|openai-codex|chutes|vllm|apiKey|openai-api-key|mistral-api-key|openrouter-api-key|kilocode-api-key|ai-gateway-api-key|cloudflare-ai-gateway-api-key|moonshot-api-key|kimi-code-api-key|gemini-api-key|zai-api-key|xiaomi-api-key|minimax-api|synthetic-api-key|venice-api-key|together-api-key|huggingface-api-key|opencode-zen|xai-api-key|litellm-api-key|qianfan-api-key|volcengine-api-key|byteplus-api-key|moonshot-api-key-cn|github-copilot|gemini-api-key|google-gemini-cli|zai-api-key|zai-coding-global|zai-coding-cn|zai-global|zai-cn|xiaomi-api-key|minimax-portal|qwen-portal|copilot-proxy|apiKey|opencode-zen|minimax-api|minimax-api-key-cn|minimax-api-lightning|custom-api-key|skip|setup-token|oauth|claude-cli|codex-cli|minimax-cloud|minimax]" \
+    "--auth-choice[Auth: token|openai-codex|chutes|vllm|ollama|apiKey|openai-api-key|mistral-api-key|openrouter-api-key|kilocode-api-key|ai-gateway-api-key|cloudflare-ai-gateway-api-key|moonshot-api-key|kimi-code-api-key|gemini-api-key|zai-api-key|xiaomi-api-key|minimax-api|synthetic-api-key|venice-api-key|together-api-key|huggingface-api-key|opencode-zen|opencode-go|xai-api-key|litellm-api-key|qianfan-api-key|modelstudio-api-key-cn|modelstudio-api-key|volcengine-api-key|byteplus-api-key|moonshot-api-key-cn|github-copilot|gemini-api-key|google-gemini-cli|zai-api-key|zai-coding-global|zai-coding-cn|zai-global|zai-cn|xiaomi-api-key|minimax-portal|qwen-portal|copilot-proxy|apiKey|opencode-zen|minimax-api|minimax-api-key-cn|minimax-api-lightning|qianfan-api-key|modelstudio-api-key-cn|modelstudio-api-key|custom-api-key|skip|setup-token|oauth|claude-cli|codex-cli|minimax-cloud|minimax]" \
     "--token-provider[Token provider id (non-interactive; used with --auth-choice token)]" \
     "--token[Token value (non-interactive; used with --auth-choice token)]" \
     "--token-profile-id[Auth profile id (non-interactive; default: <provider>:manual)]" \
@@ -120,10 +120,13 @@ _openclaw_onboard() {
     "--venice-api-key[Venice API key]" \
     "--together-api-key[Together AI API key]" \
     "--huggingface-api-key[Hugging Face API key (HF token)]" \
-    "--opencode-zen-api-key[OpenCode Zen API key]" \
+    "--opencode-zen-api-key[OpenCode API key (Zen catalog)]" \
+    "--opencode-go-api-key[OpenCode API key (Go catalog)]" \
     "--xai-api-key[xAI API key]" \
     "--litellm-api-key[LiteLLM API key]" \
     "--qianfan-api-key[QIANFAN API key]" \
+    "--modelstudio-api-key-cn[Alibaba Cloud Model Studio Coding Plan API key (China)]" \
+    "--modelstudio-api-key[Alibaba Cloud Model Studio Coding Plan API key (Global/Intl)]" \
     "--volcengine-api-key[Volcano Engine API key]" \
     "--byteplus-api-key[BytePlus API key]" \
     "--custom-base-url[Custom provider base URL]" \
@@ -290,7 +293,7 @@ _openclaw_message_send() {
     "--thread-id[Thread id (Telegram forum thread)]" \
     "--gif-playback[Treat video media as GIF playback (WhatsApp only).]" \
     "--silent[Send message silently without notification (Telegram + Discord)]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -299,7 +302,7 @@ _openclaw_message_send() {
 
 _openclaw_message_broadcast() {
   _arguments -C \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -312,7 +315,7 @@ _openclaw_message_broadcast() {
 _openclaw_message_poll() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -332,7 +335,7 @@ _openclaw_message_poll() {
 _openclaw_message_react() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -349,7 +352,7 @@ _openclaw_message_react() {
 _openclaw_message_reactions() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -361,7 +364,7 @@ _openclaw_message_reactions() {
 _openclaw_message_read() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -378,7 +381,7 @@ _openclaw_message_edit() {
     "--message-id[Message id]" \
     "(--message -m)"{--message,-m}"[Message body]" \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -390,7 +393,7 @@ _openclaw_message_delete() {
   _arguments -C \
     "--message-id[Message id]" \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -400,7 +403,7 @@ _openclaw_message_delete() {
 _openclaw_message_pin() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -411,7 +414,7 @@ _openclaw_message_pin() {
 _openclaw_message_unpin() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -422,7 +425,7 @@ _openclaw_message_unpin() {
 _openclaw_message_pins() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -433,7 +436,7 @@ _openclaw_message_pins() {
 _openclaw_message_permissions() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -442,7 +445,7 @@ _openclaw_message_permissions() {
 
 _openclaw_message_search() {
   _arguments -C \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -460,7 +463,7 @@ _openclaw_message_thread_create() {
   _arguments -C \
     "--thread-name[Thread name]" \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -473,7 +476,7 @@ _openclaw_message_thread_create() {
 _openclaw_message_thread_list() {
   _arguments -C \
     "--guild-id[Guild id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -488,7 +491,7 @@ _openclaw_message_thread_reply() {
   _arguments -C \
     "(--message -m)"{--message,-m}"[Message body]" \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -519,7 +522,7 @@ _openclaw_message_thread() {
 
 _openclaw_message_emoji_list() {
   _arguments -C \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -530,7 +533,7 @@ _openclaw_message_emoji_list() {
 _openclaw_message_emoji_upload() {
   _arguments -C \
     "--guild-id[Guild id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -562,7 +565,7 @@ _openclaw_message_emoji() {
 _openclaw_message_sticker_send() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -574,7 +577,7 @@ _openclaw_message_sticker_send() {
 _openclaw_message_sticker_upload() {
   _arguments -C \
     "--guild-id[Guild id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -607,7 +610,7 @@ _openclaw_message_sticker() {
 _openclaw_message_role_info() {
   _arguments -C \
     "--guild-id[Guild id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -619,7 +622,7 @@ _openclaw_message_role_add() {
     "--guild-id[Guild id]" \
     "--user-id[User id]" \
     "--role-id[Role id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -631,7 +634,7 @@ _openclaw_message_role_remove() {
     "--guild-id[Guild id]" \
     "--user-id[User id]" \
     "--role-id[Role id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -661,7 +664,7 @@ _openclaw_message_role() {
 _openclaw_message_channel_info() {
   _arguments -C \
     "(--target -t)"{--target,-t}"[Recipient/channel: E.164 for WhatsApp/Signal, Telegram chat id/@username, Discord/Slack channel/user, or iMessage handle/chat_id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -671,7 +674,7 @@ _openclaw_message_channel_info() {
 _openclaw_message_channel_list() {
   _arguments -C \
     "--guild-id[Guild id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -700,7 +703,7 @@ _openclaw_message_channel() {
 _openclaw_message_member_info() {
   _arguments -C \
     "--user-id[User id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -730,7 +733,7 @@ _openclaw_message_voice_status() {
   _arguments -C \
     "--guild-id[Guild id]" \
     "--user-id[User id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -758,7 +761,7 @@ _openclaw_message_voice() {
 _openclaw_message_event_list() {
   _arguments -C \
     "--guild-id[Guild id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -770,7 +773,7 @@ _openclaw_message_event_create() {
     "--guild-id[Guild id]" \
     "--event-name[Event name]" \
     "--start-time[Event start time]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -805,7 +808,7 @@ _openclaw_message_timeout() {
   _arguments -C \
     "--guild-id[Guild id]" \
     "--user-id[User id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -819,7 +822,7 @@ _openclaw_message_kick() {
   _arguments -C \
     "--guild-id[Guild id]" \
     "--user-id[User id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -831,7 +834,7 @@ _openclaw_message_ban() {
   _arguments -C \
     "--guild-id[Guild id]" \
     "--user-id[User id]" \
-    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
+    "--channel[Channel: telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon]" \
     "--account[Channel account id (accountId)]" \
     "--json[Output result as JSON]" \
     "--dry-run[Print payload and skip sending]" \
@@ -934,7 +937,7 @@ _openclaw_agent() {
     "--agent[Agent id (overrides routing bindings)]" \
     "--thinking[Thinking level: off | minimal | low | medium | high]" \
     "--verbose[Persist agent verbose level for the session]" \
-    "--channel[Delivery channel: last|telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon (omit to use the main session channel)]" \
+    "--channel[Delivery channel: last|telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon (omit to use the main session channel)]" \
     "--reply-to[Delivery target override (separate from session routing)]" \
     "--reply-channel[Delivery channel override (separate from routing)]" \
     "--reply-account[Delivery account id override]" \
@@ -3516,7 +3519,7 @@ _openclaw_channels_status() {
 
 _openclaw_channels_capabilities() {
   _arguments -C \
-    "--channel[Channel (all|telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
+    "--channel[Channel (all|telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
     "--account[Account id (only with --channel)]" \
     "--target[Channel target for permission audit (Discord channel:<id>)]" \
     "--timeout[Timeout in ms]" \
@@ -3525,7 +3528,7 @@ _openclaw_channels_capabilities() {
 
 _openclaw_channels_resolve() {
   _arguments -C \
-    "--channel[Channel (telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
+    "--channel[Channel (telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
     "--account[Account id (accountId)]" \
     "--kind[Target kind (auto|user|group)]" \
     "--json[Output JSON]"
@@ -3533,14 +3536,14 @@ _openclaw_channels_resolve() {
 
 _openclaw_channels_logs() {
   _arguments -C \
-    "--channel[Channel (all|telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
+    "--channel[Channel (all|telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
     "--lines[Number of lines (default: 200)]" \
     "--json[Output JSON]"
 }
 
 _openclaw_channels_add() {
   _arguments -C \
-    "--channel[Channel (telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
+    "--channel[Channel (telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
     "--account[Account id (default when omitted)]" \
     "--name[Display name for this account]" \
     "--token[Bot token (Telegram/Discord)]" \
@@ -3578,7 +3581,7 @@ _openclaw_channels_add() {
 
 _openclaw_channels_remove() {
   _arguments -C \
-    "--channel[Channel (telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|nostr|msteams|mattermost|nextcloud-talk|feishu|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
+    "--channel[Channel (telegram|whatsapp|discord|irc|googlechat|slack|signal|imessage|line|feishu|nostr|msteams|mattermost|nextcloud-talk|matrix|bluebubbles|zalo|zalouser|synology-chat|tlon)]" \
     "--account[Account id (default when omitted)]" \
     "--delete[Delete config entries (no prompt)]"
 }
@@ -3866,4 +3869,4 @@ _openclaw_update() {
 }
 
 
-[[ -n ${functions[compdef]} ]] && compdef _openclaw_root_completion openclaw
+compdef _openclaw_root_completion openclaw

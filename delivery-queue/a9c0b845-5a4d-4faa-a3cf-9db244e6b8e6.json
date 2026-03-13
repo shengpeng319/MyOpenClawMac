@@ -1,0 +1,23 @@
+{
+  "id": "a9c0b845-5a4d-4faa-a3cf-9db244e6b8e6",
+  "enqueuedAt": 1773360323110,
+  "channel": "feishu",
+  "to": "ou_c858ba4fbb03f207666daef058ede895",
+  "payloads": [
+    {
+      "text": "视频已添加音乐 🎵",
+      "mediaUrl": "/Users/shengpeng319/.openclaw/workspace-main/artifacts/video_with_music.mp4",
+      "mediaUrls": [
+        "/Users/shengpeng319/.openclaw/workspace-main/artifacts/video_with_music.mp4"
+      ],
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "silent": false,
+  "retryCount": 4,
+  "lastAttemptAt": 1773403958381,
+  "lastError": "Feishu account \"default\" not configured"
+}
