@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1772635670112,
-      "updatedAtMs": 1773237984294,
+      "updatedAtMs": 1773324061440,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -24,15 +24,14 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773324000000,
-        "lastRunAtMs": 1773237600008,
+        "nextRunAtMs": 1773410400000,
+        "lastRunAtMs": 1773324000007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 384286,
+        "lastDurationMs": 61433,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "runningAtMs": 1773324000003
+        "consecutiveErrors": 0
       }
     },
     {
@@ -40,7 +39,7 @@
       "name": "每日热点新闻",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773270161605,
+      "updatedAtMs": 1773356400072,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -57,14 +56,39 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773356400000,
-        "lastRunAtMs": 1773270000009,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 161596,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
+        "nextRunAtMs": 1773442800000,
+        "lastRunAtMs": 1773356400010,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 62,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1,
+        "lastError": "Error: Context engine \"lossless-claw\" is not registered. Available engines: legacy"
+      }
+    },
+    {
+      "id": "9c0d80ac-ec49-49d1-93fc-bbc047a1b7b4",
+      "name": "带道法书",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1773367081795,
+      "updatedAtMs": 1773367081795,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-03-14T14:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "📚 提醒：记得带道法书！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1773496800000
       }
     }
   ]

@@ -55,7 +55,7 @@
 
 ### 第二层：短期记忆 (Short-term Memory)
 
-**位置**: `memory/YYYY-MM-DD.md`
+**位置**: `workspace-xxxx/memory/YYYY-MM-DD.md`
 
 **内容**:
 | 类型 | 示例 | 保留时间 |
@@ -67,7 +67,7 @@
 
 **管理策略**:
 ```
-每日会话结束 → 自动写入 memory/YYYY-MM-DD.md
+每日会话结束 → 自动写入 workspace-xxxx/memory/YYYY-MM-DD.md
     ↓
 每周回顾 → 提取重要内容到 MEMORY.md
     ↓
@@ -127,7 +127,7 @@
 ### 场景 1: 日常启动
 ```
 需求: "我是谁？用户是谁？今天要做什么？"
-→ 读取 SOUL.md + USER.md + memory/YYYY-MM-DD.md
+→ 读取 SOUL.md + USER.md + workspace-xxxx/memory/YYYY-MM-DD.md
 ```
 
 ### 场景 2: 专业任务
@@ -141,13 +141,13 @@
 ```
 需求: "用户有什么偏好？"
 → 读取 USER.md
-→ 搜索 memory/*.md 中的偏好记录
+→ 搜索 workspace-xxxx/memory/*.md 中的偏好记录
 ```
 
 ### 场景 4: 项目上下文
 ```
 需求: "上次我们讨论到哪了？"
-→ 读取最新的 memory/YYYY-MM-DD.md
+→ 读取最新的 workspace-xxxx/memory/YYYY-MM-DD.md
 → 搜索相关关键词
 ```
 
@@ -156,7 +156,7 @@
 ## 自动化机制 (已固化)
 
 ### 1. 会话结束自动保存
-在每次响应后，如果有重要内容，**自动**写入 memory/YYYY-MM-DD.md
+在每次响应后，如果有重要内容，**自动**写入 workspace-xxxx/memory/YYYY-MM-DD.md
 
 **触发条件**：
 - 完成重要任务
@@ -183,7 +183,7 @@
 ```
 触发: 每周日晚 cron
 动作: 
-  - 扫描本周 memory/*.md
+  - 扫描本周 workspace-xxxx/memory/*.md
   - 提取 3-5 个关键点到 MEMORY.md
   - 更新 USER.md 偏好（如有变化）
 ```
@@ -202,7 +202,7 @@
 ## 文件命名规范
 
 ```
-memory/
+workspace-xxxx/memory/
 ├── 2026-01-01.md      # 日常对话
 ├── 2026-01-02.md
 ├── ...

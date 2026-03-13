@@ -1,15 +1,16 @@
 # USER.md - About Your Human
 
-*Learn about the person you're helping. Update this as you go.*
+_Learn about the person you're helping. Update this as you go._
 
-- **Name:** Peng
-- **What to call them:** Peng
-- **Pronouns:** (optional)
-- **Timezone:** Asia/Shanghai
+- **Name:**
+- **What to call them:**
+- **Pronouns:** _(optional)_
+- **Timezone:**
+- **Notes:**
 
 ## Context
 
-*What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.*
+_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
 
 ---
 

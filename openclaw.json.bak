@@ -1,10 +1,10 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.8",
-    "lastTouchedAt": "2026-03-12T04:50:11.876Z"
+    "lastTouchedVersion": "2026.3.11",
+    "lastTouchedAt": "2026-03-12T23:29:33.005Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-12T04:50:11.833Z",
+    "lastRunAt": "2026-03-12T04:50:23.808Z",
     "lastRunVersion": "2026.3.8",
     "lastRunCommand": "configure",
     "lastRunMode": "local"
@@ -87,10 +87,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.5-highspeed",
-        "fallbacks": [
-          "localqwen35/Qwen3.5-4B-MLX-4bit"
-        ]
+        "primary": "minimax-cn/MiniMax-M2.5-highspeed"
       },
       "models": {
         "minimax-cn/MiniMax-M2.5-highspeed": {
@@ -109,7 +106,8 @@
         ],
         "experimental": {
           "sessionMemory": true
-        }
+        },
+        "provider": "local"
       },
       "compaction": {
         "mode": "safeguard",
@@ -130,7 +128,7 @@
         "id": "main",
         "default": true,
         "name": "个人助理",
-        "workspace": "/Users/shengpeng319/.openclaw/workspace",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-main",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
         "subagents": {
           "allowAgents": [
@@ -362,7 +360,7 @@
     }
   },
   "gateway": {
-    "port": 18790,
+    "port": 12612,
     "mode": "local",
     "bind": "loopback",
     "controlUi": {
@@ -370,21 +368,20 @@
     },
     "auth": {
       "mode": "token",
-      "token": "5a64320b8fde5a17134f55c5f467aabb3fd62d601496e1b4"
+      "token": "2c08bbe50bedc8a2292e02f497dbfe455c526d152ab2898e"
     },
     "tailscale": {
       "mode": "off",
       "resetOnExit": false
     },
     "reload": {
-      "mode": "hot"
+      "mode": "off"
     }
   },
   "skills": {
     "load": {
       "extraDirs": [
-        "/Users/shengpeng319/.openclaw/skills",
-        "/Users/shengpeng319/.openclaw/workspace/skills"
+        "/Users/shengpeng319/.openclaw/skills"
       ]
     },
     "install": {
@@ -536,26 +533,13 @@
         "enabled": true
       },
       "memory-core": {
-        "enabled": false
+        "enabled": true
       },
       "memory-lancedb": {
         "enabled": false
       }
     },
     "installs": {
-      "feishu": {
-        "source": "npm",
-        "spec": "@m1heng-clawd/feishu",
-        "installPath": "/Users/shengpeng319/.openclaw/extensions/feishu",
-        "version": "0.1.16",
-        "resolvedName": "@m1heng-clawd/feishu",
-        "resolvedVersion": "0.1.16",
-        "resolvedSpec": "@m1heng-clawd/feishu@0.1.16",
-        "integrity": "sha512-BRbAdogf0NrjAX8HTPHcgMQ4zsx0SEFfWgoPcFYOTeq4muvGRkAXfPR14zS0ZtTGImcijatlZvgexWB7unj/pw==",
-        "shasum": "47780b9ee0d1b9a8585612e6072fbd787402e03d",
-        "resolvedAt": "2026-03-12T00:27:58.501Z",
-        "installedAt": "2026-03-12T00:29:22.742Z"
-      },
       "lossless-claw": {
         "source": "npm",
         "spec": "@martian-engineering/lossless-claw",
@@ -566,8 +550,8 @@
         "resolvedSpec": "@martian-engineering/lossless-claw@0.2.8",
         "integrity": "sha512-GnxqBICpy8ysOOl+TsvSPyHv50xuXxGuJF8A6qGnxGqUPNEa23xiJpbLKmkoGxvr30g7wpl0pk5Ff1RbchpM2w==",
         "shasum": "377bcb51ce4e7c5c66f1e0d6ef3afe4e4da96e4d",
-        "resolvedAt": "2026-03-12T00:29:24.073Z",
-        "installedAt": "2026-03-12T00:29:32.442Z"
+        "resolvedAt": "2026-03-12T23:25:53.098Z",
+        "installedAt": "2026-03-12T23:29:32.978Z"
       }
     }
   }
