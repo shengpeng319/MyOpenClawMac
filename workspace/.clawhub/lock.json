@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-reach": {
+      "version": "1.1.0",
+      "installedAt": 1773482170656
+    },
+    "self-improving-agent": {
+      "version": "3.0.2",
+      "installedAt": 1773485177837
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1773485181281
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1773485188098
+    },
+    "humanizer": {
+      "version": "1.0.0",
+      "installedAt": 1773485224468
+    },
+    "skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1773485282903
+    },
+    "proactive-agent": {
+      "version": "3.1.0",
+      "installedAt": 1773485294080
+    },
+    "stock-market-pro": {
+      "version": "1.2.12",
+      "installedAt": 1773485461569
+    },
+    "marketing-skills": {
+      "version": "0.1.2",
+      "installedAt": 1773485540127
+    },
+    "ui-ux-pro-max": {
+      "version": "0.1.0",
+      "installedAt": 1773485850792
+    }
+  }
+}

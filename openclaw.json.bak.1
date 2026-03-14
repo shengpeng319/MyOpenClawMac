@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.11",
-    "lastTouchedAt": "2026-03-14T04:54:38.731Z"
+    "lastTouchedVersion": "2026.3.12",
+    "lastTouchedAt": "2026-03-14T08:57:19.145Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-12T04:50:23.808Z",
@@ -43,7 +43,7 @@
             "id": "MiniMax-M2.5-highspeed",
             "name": "MiniMax-M2.5-highspeed",
             "api": "anthropic-messages",
-            "reasoning": false,
+            "reasoning": true,
             "input": [
               "text"
             ],
@@ -52,6 +52,23 @@
               "output": 1.2,
               "cacheRead": 0.03,
               "cacheWrite": 0.12
+            },
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.1",
+            "name": "MiniMax-M2.1",
+            "api": "anthropic-messages",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.1,
+              "output": 0.4,
+              "cacheRead": 0.01,
+              "cacheWrite": 0.04
             },
             "contextWindow": 128000,
             "maxTokens": 8192
@@ -404,7 +421,9 @@
       "footer": {
         "elapsed": true,
         "status": true
-      }
+      },
+      "streaming": true,
+      "blockStreaming": false
     }
   },
   "gateway": {
@@ -575,7 +594,7 @@
     },
     "entries": {
       "feishu": {
-        "enabled": false
+        "enabled": true
       },
       "lossless-claw": {
         "enabled": true

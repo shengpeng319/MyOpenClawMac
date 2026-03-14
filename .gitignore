@@ -41,3 +41,6 @@ extensions/
 
 # File transfers (temporary files)
 transfers/
+lcm.db
+lcm.db-wal
+lcm.db-shm
