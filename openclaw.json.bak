@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.11",
-    "lastTouchedAt": "2026-03-12T23:29:33.005Z"
+    "lastTouchedVersion": "2026.3.12",
+    "lastTouchedAt": "2026-03-14T05:05:19.247Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-12T04:50:23.808Z",
@@ -135,7 +135,8 @@
             "main",
             "coder",
             "researcher",
-            "projectmanager"
+            "projectmanager",
+            "educationexpert"
           ]
         },
         "tools": {
@@ -161,7 +162,8 @@
             "main",
             "coder",
             "researcher",
-            "projectmanager"
+            "projectmanager",
+            "educationexpert"
           ]
         },
         "tools": {
@@ -187,7 +189,8 @@
             "main",
             "coder",
             "researcher",
-            "projectmanager"
+            "projectmanager",
+            "educationexpert"
           ]
         },
         "tools": {
@@ -213,7 +216,35 @@
             "main",
             "coder",
             "researcher",
-            "projectmanager"
+            "projectmanager",
+            "educationexpert"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
+      },
+      {
+        "id": "educationexpert",
+        "name": "educationexpert",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-educationexpert",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/educationexpert/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert"
           ]
         },
         "tools": {
@@ -247,7 +278,8 @@
         "main",
         "coder",
         "researcher",
-        "projectmanager"
+        "projectmanager",
+        "educationexpert"
       ]
     },
     "fs": {
@@ -281,6 +313,13 @@
       "match": {
         "channel": "feishu",
         "accountId": "researcher"
+      }
+    },
+    {
+      "agentId": "educationexpert",
+      "match": {
+        "channel": "feishu",
+        "accountId": "educationexpert"
       }
     }
   ],
@@ -349,6 +388,11 @@
           "appSecret": "UKYZxhIDOeZmKqfsQXVm5cQifhOSkq8f",
           "botName": "Annie - Project Manager"
         },
+        "educationexpert": {
+          "appId": "cli_a93ea1762b615bdb",
+          "appSecret": "jjegmYrnlDvvEWKVM95tYcDAuLo75E0i",
+          "botName": "Diana - Education Expert"
+        },
         "default": {
           "groupPolicy": "allowlist",
           "dmPolicy": "allowlist",
@@ -356,6 +400,10 @@
             "*"
           ]
         }
+      },
+      "footer": {
+        "elapsed": true,
+        "status": true
       }
     }
   },
@@ -544,14 +592,27 @@
         "source": "npm",
         "spec": "@martian-engineering/lossless-claw",
         "installPath": "/Users/shengpeng319/.openclaw/extensions/lossless-claw",
-        "version": "0.2.8",
+        "version": "0.3.0",
         "resolvedName": "@martian-engineering/lossless-claw",
-        "resolvedVersion": "0.2.8",
-        "resolvedSpec": "@martian-engineering/lossless-claw@0.2.8",
-        "integrity": "sha512-GnxqBICpy8ysOOl+TsvSPyHv50xuXxGuJF8A6qGnxGqUPNEa23xiJpbLKmkoGxvr30g7wpl0pk5Ff1RbchpM2w==",
-        "shasum": "377bcb51ce4e7c5c66f1e0d6ef3afe4e4da96e4d",
-        "resolvedAt": "2026-03-12T23:25:53.098Z",
-        "installedAt": "2026-03-12T23:29:32.978Z"
+        "resolvedVersion": "0.3.0",
+        "resolvedSpec": "@martian-engineering/lossless-claw@0.3.0",
+        "integrity": "sha512-SsY0bp3SoSzEu+KB8fOBke46MFhTmslfWg6OvC4pShq34ig2+V+jkTFAHib8PTZ0MoethAddR+ZmRN9OASorAA==",
+        "shasum": "bc9725d6d59d9b1523128ab528f1258c4258fa3f",
+        "resolvedAt": "2026-03-14T04:53:34.796Z",
+        "installedAt": "2026-03-14T04:54:12.030Z"
+      },
+      "feishu": {
+        "source": "npm",
+        "spec": "@m1heng-clawd/feishu",
+        "installPath": "/Users/shengpeng319/.openclaw/extensions/feishu",
+        "version": "0.1.17",
+        "resolvedName": "@m1heng-clawd/feishu",
+        "resolvedVersion": "0.1.17",
+        "resolvedSpec": "@m1heng-clawd/feishu@0.1.17",
+        "integrity": "sha512-6BMqvndOXvWvGzMJEQQdp3vX1jidaIXrwwlz6Q8F5gC+yzcuHmNqIaAxXsrVOj7jaEAtznFjGmPWZ97sGc2eRw==",
+        "shasum": "4e33e4c0cef6593da0b9e40f96d9310adc5bf6ab",
+        "resolvedAt": "2026-03-14T04:54:14.225Z",
+        "installedAt": "2026-03-14T04:54:38.710Z"
       }
     }
   }

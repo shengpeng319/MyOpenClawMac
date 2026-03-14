@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1772635670112,
-      "updatedAtMs": 1773324061440,
+      "updatedAtMs": 1773410505333,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -24,11 +24,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773410400000,
-        "lastRunAtMs": 1773324000007,
+        "nextRunAtMs": 1773496800000,
+        "lastRunAtMs": 1773410400008,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 61433,
+        "lastDurationMs": 105325,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -36,10 +36,10 @@
     },
     {
       "id": "c9416999-3d53-4821-afaa-2fd55565c74e",
-      "name": "每日热点新闻",
+      "name": "每日早安关怀",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773356400072,
+      "updatedAtMs": 1773469514371,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -48,7 +48,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "早上好！请抓取新闻并发送早间新闻，务必用纯文字格式（不要用表格或代码块），格式如下：\n\n深圳天气：当前气温 XX°C，最高 XX°C，最低 XX°C，天气 XX\n广州天气：当前气温 XX°C，最高 XX°C，最低 XX°C，天气 XX\n\n然后发送一条简短的资讯简报（2-3句话）"
+        "message": "生成温馨的早间关怀提醒，包含：1）深圳和广州的天气情况，重点关注温度变化、是否下雨、空气质量等；2）给出穿衣建议（如降温带外套、下雨带伞等）；3）如果前一天有重要新闻可以提一下，但不要太多"
       },
       "delivery": {
         "mode": "announce",
@@ -56,14 +56,14 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773442800000,
-        "lastRunAtMs": 1773356400010,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 62,
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1,
-        "lastError": "Error: Context engine \"lossless-claw\" is not registered. Available engines: legacy"
+        "nextRunAtMs": 1773529200000,
+        "lastRunAtMs": 1773442800009,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 461529,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
       }
     },
     {
@@ -89,6 +89,173 @@
       },
       "state": {
         "nextRunAtMs": 1773496800000
+      }
+    },
+    {
+      "id": "d7770465-6f9d-4a3e-b718-9ca706bebc1a",
+      "agentId": "coder",
+      "name": "coder heartbeat",
+      "enabled": true,
+      "createdAtMs": 1773464285739,
+      "updatedAtMs": 1773471490040,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1800000,
+        "anchorMs": 1773464285739
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "heartbeat"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1773473285782,
+        "lastRunAtMs": 1773471485782,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 4258,
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "7c4da115-7e0a-455d-9adf-3611a6061963",
+      "agentId": "researcher",
+      "name": "researcher heartbeat",
+      "enabled": true,
+      "createdAtMs": 1773464288417,
+      "updatedAtMs": 1773471497883,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1800000,
+        "anchorMs": 1773464288417
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "heartbeat"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1773473292944,
+        "lastRunAtMs": 1773471492944,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 4939,
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "a68098ef-4372-49c4-a6e2-90e8001f9d72",
+      "agentId": "projectmanager",
+      "name": "projectmanager heartbeat",
+      "enabled": true,
+      "createdAtMs": 1773464290798,
+      "updatedAtMs": 1773471503458,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1800000,
+        "anchorMs": 1773464290798
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "heartbeat"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1773473299895,
+        "lastRunAtMs": 1773471499895,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 3563,
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "b8464973-6083-473d-95a9-0c5c4008259f",
+      "agentId": "educationexpert",
+      "name": "educationexpert heartbeat",
+      "enabled": true,
+      "createdAtMs": 1773464292989,
+      "updatedAtMs": 1773469727541,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1800000,
+        "anchorMs": 1773464292989
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "heartbeat"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1773471516362,
+        "lastRunAtMs": 1773469716362,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 11179,
+        "lastDeliveryStatus": "not-delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": false,
+        "runningAtMs": 1773471516370
+      }
+    },
+    {
+      "id": "042e920d-1dd9-48e3-809b-a39cd1f37998",
+      "agentId": "educationexpert",
+      "name": "每日课程提醒",
+      "enabled": true,
+      "createdAtMs": 1773468718510,
+      "updatedAtMs": 1773471148681,
+      "schedule": {
+        "kind": "cron",
+        "expr": "5 7 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你是教育专家 Diana。请完成以下任务：\n\n1. 获取深圳和广州当前天气情况\n2. 搜索今日重要新闻（1-2条，简洁）\n3. 读取 USER.md 中的课程表，根据今天的星期几，找出两个孩子的课程，列出每个课程的出发时间\n\n根据天气情况给出适当提醒（如：降温提醒添衣，下雨提醒带伞等）。\n根据课程安排给出关怀提醒（如：连续课程提醒提前点餐等）。\n\n生成简洁的早间提醒消息发出即可。",
+        "timeoutSeconds": 90
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "nextRunAtMs": 1773529500000,
+        "lastRunAtMs": 1773470651120,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 49787,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
       }
     }
   ]
