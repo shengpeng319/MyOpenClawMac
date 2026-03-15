@@ -1,5 +1,12 @@
 {
   "mcpServers": {
+    "exa": {
+      "command": "npx",
+      "args": ["-y", "exa-mcp-server"],
+      "env": {
+        "EXA_API_KEY": "1157ce80-caca-4065-9a9d-aa36aeb72133"
+      }
+    },
     "tavily": {
       "baseUrl": "https://mcp.tavily.com/mcp/?tavilyApiKey=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"
     }

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "exa": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "exa-mcp-server"
+      ]
+    }
+  },
+  "imports": []
+}
