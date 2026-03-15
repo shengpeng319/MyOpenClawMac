@@ -7,26 +7,67 @@
 **复杂调研原则**：如果是复杂调研任务，应综合使用多个搜索工具进行交叉验证，不要只用单一工具。
 
 当需要获取信息时，按以下优先级：
-1. **SearXNG** - 本地元搜索引擎，适合快速搜索
-2. **Playwright** - 浏览器自动化，访问动态网页
+1. **Exa** - AI 优化的专业搜索 MCP (MCP工具)
+2. **SearXNG** - 本地元搜索引擎，适合快速搜索
 3. **Tavily Search** - AI 优化的专业搜索 MCP 工具
-4. **last30days** - 研究过去30天内的社交媒体讨论
+4. **Playwright** - 浏览器自动化，访问动态网页
 5. **news-summary** - 获取国际新闻 RSS 摘要
-6. **web_fetch** - 静态网页，简单内容抓取 
+6. **web_fetch** - 静态网页，简单内容抓取
 
 ---
 
 ## 🔧 工具详细说明
 
-### 1. SearXNG - 本地元搜索引擎
+### 1. Exa - AI 搜索 MCP (推荐)
 
-**位置**: `~/.openclaw/workspace/skills/searxng/`
+**MCP 配置** (已配置):
+```json
+{
+  "mcpServers": {
+    "exa": {
+      "command": "npx",
+      "args": ["-y", "exa-mcp-server"],
+      "env": {
+        "EXA_API_KEY": "你的APIKey"
+      }
+    }
+  }
+}
+```
+
+**使用方法** (通过 mcporter):
+```bash
+mcporter list exa
+mcporter call exa.web_search_exa(query: "搜索关键词", numResults: 10)
+```
+
+**可用工具**:
+- `web_search_exa` - 网页搜索，支持分类筛选（公司/论文/人物）
+- `get_code_context_exa` - 代码上下文搜索，搜代码/文档
+
+**参数说明**:
+- `query` - 搜索关键词 (必填)
+- `numResults` - 返回结果数量 (默认 8)
+- `category` - 分类筛选: `company` / `research paper` / `people`
+- `livecrawl` - 实时抓取: `fallback` / `preferred`
+- `type` - 搜索类型: `auto` (平衡) / `fast` (快速)
+
+**适用场景**:
+- 通用网页搜索
+- 查找公司信息
+- 搜索学术论文
+- 搜索人物资料
+
+---
+
+### 2. SearXNG - 本地元搜索引擎
+
+**位置**: `~/.openclaw/skills/searxng/`
 
 **使用方法**:
 ```bash
-cd ~/.openclaw/workspace/skills/searxng
-source .venv/bin/activate
-python scripts/searxng.py search "搜索关键词" -n 10
+cd ~/.openclaw/skills/searxng
+uv run scripts/searxng.py search "搜索关键词" -n 10
 ```
 
 **参数**:
@@ -45,9 +86,9 @@ python scripts/searxng.py search "搜索关键词" -n 10
 
 ---
 
-### 2. Tavily Search - AI 搜索 MCP
+### 3. Tavily Search - AI 搜索 MCP
 
-**位置**: `~/.openclaw/workspace/skills/tavily-search/`
+**位置**: `~/.openclaw/skills/tavily-search/`
 
 **MCP 配置**:
 ```json
@@ -80,45 +121,9 @@ mcporter tools list tavily
 
 ---
 
-### 3. last30days - 社交媒体研究
-
-**位置**: `~/.openclaw/workspace/skills/last30days/`
-
-**使用方法**:
-```bash
-cd ~/.openclaw/workspace/skills/last30days
-python3 scripts/last30days.py "研究主题" --quick
-```
-
-**参数**:
-- `--quick` - 快速模式，较少来源
-- `--deep` - 深度模式，更多来源
-- 默认 - 平衡模式
-
-**工作模式**:
-1. **Full Mode** (有 API Key) - Reddit + X + Web
-2. **Partial Mode** - Reddit 或 X 单一平台 + Web
-3. **Web-Only Mode** (无 API Key) - 仅 Web 搜索
-
-**API Key 配置**（可选）:
-```bash
-mkdir -p ~/.config/last30days
-cat > ~/.config/last30days/.env << 'ENVEOF'
-OPENAI_API_KEY=
-XAI_API_KEY=
-ENVEOF
-```
-
-**适用场景**:
-- 研究特定话题的社交媒体讨论
-- 获取 Reddit/X 上的热门观点
-- 发现最新趋势和讨论
-
----
-
 ### 4. news-summary - 新闻 RSS 摘要
 
-**位置**: `~/.openclaw/workspace/skills/news-summary/`
+**位置**: `~/.openclaw/skills/news-summary/`
 
 **使用方法**:
 ```python
@@ -156,13 +161,12 @@ with urllib.request.urlopen(url, timeout=10) as response:
 
 ### 5. Playwright - 浏览器自动化
 
-**位置**: `~/.openclaw/workspace/skills/playwright/`
+**位置**: `~/.openclaw/skills/playwright/`
 
 **使用方法**:
 ```bash
-# 运行 Playwright skill
-cd ~/.openclaw/workspace/skills/playwright
-python -m playwright [...]
+# 运行 Playwright MCP
+npx @playwright/mcp --headless
 ```
 
 **常用操作**:
@@ -188,9 +192,9 @@ python -m playwright [...]
 
 | 工具 | 速度 | 可靠性 | 适用场景 |
 |------|------|--------|----------|
+| **Exa** | 快 | 高 | 通用搜索、论文/公司/人物 |
 | **SearXNG** | 快 | 高 | 日常搜索、多引擎聚合 |
 | **Tavily** | 中 | 高 | AI 研究、深度内容 |
-| **last30days** | 中 | 中 | 社交媒体趋势研究 |
 | **news-summary** | 快 | 高 | 新闻摘要获取 |
 | **Playwright** | 慢 | 中 | 动态网页、登录需求 |
 | **web_fetch** | 快 | 低 | 静态简单页面 |
@@ -202,19 +206,11 @@ python -m playwright [...]
 ### 场景1: 搜索最新新闻
 ```bash
 # 使用 SearXNG
-cd ~/.openclaw/workspace/skills/searxng
-source .venv/bin/activate
-python scripts/searxng.py search "美股今天走势" -n 5
+cd ~/.openclaw/skills/searxng
+uv run scripts/searxng.py search "美股今天走势" -n 5
 ```
 
-### 场景2: 研究特定话题（过去30天）
-```bash
-# 使用 last30days
-cd ~/.openclaw/workspace/skills/last30days
-python3 scripts/last30days.py "AI 投资趋势" --quick
-```
-
-### 场景3: 获取国际新闻
+### 场景2: 获取国际新闻
 ```python
 # 使用 news-summary
 import xml.etree.ElementTree as ET
@@ -227,17 +223,16 @@ with urllib.request.urlopen(url) as response:
         print(item.find('title').text)
 ```
 
-### 场景4: 深度内容提取
+### 场景3: 深度内容提取
 ```bash
 # 使用 Tavily MCP
 # 通过 mcporter 调用 tavily_extract 工具
 ```
 
-### 场景5: 访问需要登录的网站
+### 场景4: 访问需要登录的网站
 ```bash
-# 使用 Playwright
-cd ~/.openclaw/workspace/skills/playwright
-python -m playwright navigate "https://zhihu.com"
+# 使用 Playwright MCP
+npx @playwright/mcp --headless
 ```
 
 ---
@@ -246,17 +241,16 @@ python -m playwright navigate "https://zhihu.com"
 
 1. **SearXNG 超时** - 尝试指定可用引擎（google, brave, bilibili）
 2. **Tavily 失败** - 检查 MCP 配置和网络
-3. **last30days 无数据** - 添加 API Key 增强功能，或使用 web-only 模式
-4. **news-summary 失败** - 尝试备用 RSS 源
-5. **Playwright 失败** - 检查浏览器安装和依赖
+3. **news-summary 失败** - 尝试备用 RSS 源
+4. **Playwright 失败** - 检查浏览器安装和依赖
 
 ---
 
 ## 记忆要点
 
-> **重要**: 优先使用专用搜索 Skills（SearXNG、Tavily、last30days、news-summary），它们比传统浏览器工具更稳定、更高效。Playwright 仅用于需要浏览器交互的场景。
+> **重要**: 优先使用专用搜索 Skills（SearXNG、Tavily、news-summary），它们比传统浏览器工具更稳定、更高效。Playwright 仅用于需要浏览器交互的场景。
 
-**关键词**: searxng, tavily, last30days, news-summary, playwright, 搜索工具, 信息获取
+**关键词**: searxng, tavily, news-summary, playwright, 搜索工具, 信息获取
 
 ---
 
@@ -278,13 +272,9 @@ python -m playwright navigate "https://zhihu.com"
 ### 搜索引擎
 | 来源 | 特点 | 适用场景 |
 |------|------|----------|
+| **Exa** | AI 优化搜索，推荐首选 | 通用搜索、论文/公司/人物 |
 | **SearXNG** | 本地多引擎聚合 | 日常快速搜索 |
 | **Tavily** | AI 优化搜索 | 深度研究分析 |
-
-### 社交媒体研究
-| 来源 | 特点 | 适用场景 |
-|------|------|----------|
-| **last30days** | Reddit/X/网页聚合 | 热门话题讨论 |
 
 ### 新闻资讯
 | 来源 | 特点 | 适用场景 |
@@ -302,7 +292,7 @@ python -m playwright navigate "https://zhihu.com"
 
 ### Step 2: 选择工具/信息源
 - 快速搜索 → SearXNG
-- 深度研究 → Tavily + last30days
+- 深度研究 → Tavily
 - 新闻获取 → news-summary + SearXNG
 - 动态网页 → Playwright
 
@@ -327,7 +317,7 @@ python -m playwright navigate "https://zhihu.com"
 - [ ] 确定需要的信息类型
 
 ### 2. 工具/信息源选择
-- [ ] 主要搜索: [SearXNG / Tavily / last30days]
+- [ ] 主要搜索: [SearXNG / Tavily]
 - [ ] 新闻获取: [news-summary / SearXNG]
 - [ ] 备用工具: [Playwright]
 

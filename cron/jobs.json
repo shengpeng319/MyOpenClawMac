@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1772635670112,
-      "updatedAtMs": 1773410505333,
+      "updatedAtMs": 1773496965708,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -24,15 +24,15 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773496800000,
-        "lastRunAtMs": 1773410400008,
+        "nextRunAtMs": 1773583200000,
+        "lastRunAtMs": 1773496800007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 105325,
+        "lastDurationMs": 165701,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
-        "runningAtMs": 1773496800005
+        "runningAtMs": 1773583200003
       }
     },
     {
@@ -40,7 +40,7 @@
       "name": "每日早安关怀",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773469514371,
+      "updatedAtMs": 1773529365158,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -57,40 +57,14 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773529200000,
-        "lastRunAtMs": 1773442800009,
+        "nextRunAtMs": 1773615600000,
+        "lastRunAtMs": 1773529200011,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 461529,
+        "lastDurationMs": 165147,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
-      }
-    },
-    {
-      "id": "9c0d80ac-ec49-49d1-93fc-bbc047a1b7b4",
-      "name": "带道法书",
-      "enabled": true,
-      "deleteAfterRun": true,
-      "createdAtMs": 1773367081795,
-      "updatedAtMs": 1773367081795,
-      "schedule": {
-        "kind": "at",
-        "at": "2026-03-14T14:00:00.000Z"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "📚 提醒：记得带道法书！"
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "last"
-      },
-      "state": {
-        "nextRunAtMs": 1773496800000,
-        "runningAtMs": 1773496800005
       }
     },
     {
@@ -99,7 +73,7 @@
       "name": "coder heartbeat",
       "enabled": true,
       "createdAtMs": 1773464285739,
-      "updatedAtMs": 1773496717665,
+      "updatedAtMs": 1773583090192,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -116,11 +90,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773498485906,
-        "lastRunAtMs": 1773496685906,
+        "nextRunAtMs": 1773584886375,
+        "lastRunAtMs": 1773583086375,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 31759,
+        "lastDurationMs": 3817,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0
@@ -132,7 +106,7 @@
       "name": "researcher heartbeat",
       "enabled": true,
       "createdAtMs": 1773464288417,
-      "updatedAtMs": 1773496724342,
+      "updatedAtMs": 1773583163591,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -149,14 +123,14 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773498519676,
-        "lastRunAtMs": 1773496719676,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 4666,
-        "lastDelivered": false,
-        "lastDeliveryStatus": "not-delivered",
-        "consecutiveErrors": 0
+        "nextRunAtMs": 1773584930486,
+        "lastRunAtMs": 1773583130486,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 33105,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1,
+        "lastError": "Delivering to Feishu requires target <chatId|user:openId|chat:chatId>"
       }
     },
     {
@@ -165,7 +139,7 @@
       "name": "projectmanager heartbeat",
       "enabled": true,
       "createdAtMs": 1773464290798,
-      "updatedAtMs": 1773496739197,
+      "updatedAtMs": 1773583186737,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -182,11 +156,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773498535479,
-        "lastRunAtMs": 1773496735479,
+        "nextRunAtMs": 1773584970455,
+        "lastRunAtMs": 1773583170455,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 3718,
+        "lastDurationMs": 16282,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0
@@ -198,7 +172,7 @@
       "name": "educationexpert heartbeat",
       "enabled": true,
       "createdAtMs": 1773464292989,
-      "updatedAtMs": 1773496745276,
+      "updatedAtMs": 1773581466901,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -215,11 +189,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773498540876,
-        "lastRunAtMs": 1773496740876,
+        "nextRunAtMs": 1773583257101,
+        "lastRunAtMs": 1773581457101,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 4400,
+        "lastDurationMs": 9800,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -231,7 +205,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1773468718510,
-      "updatedAtMs": 1773476837402,
+      "updatedAtMs": 1773548283281,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -241,7 +215,7 @@
       "payload": {
         "kind": "agentTurn",
         "message": "你是教育专家 Diana。请完成以下任务：\n\n1. 获取深圳和广州当前天气情况\n2. 搜索今日重要新闻（1-2条，简洁）\n3. 读取 USER.md 中的课程表，根据今天的星期几，找出两个孩子的课程，列出每个课程的出发时间\n\n根据天气情况给出适当提醒（如：降温提醒添衣，下雨提醒带伞等）。\n根据课程安排给出关怀提醒（如：连续课程提醒提前点餐等）。\n\n生成简洁的早间提醒消息发出即可。\n\n然后，你需要为每个课程创建一次性用完即删的子task：\n- 对于每个课程，计算其出发时间（减去20分钟就是提醒时间）\n- 使用 --at 参数创建一次性任务，在提醒时间触发\n- 使用 --delete-after-run 参数确保task执行后自动删除\n- 命名格式：\"课程提醒-课程名称-时间\"\n\n出发时间格式是 HH:MM（24小时制），比如下午5:10 就是 17:10。提醒时间 = 出发时间 - 20分钟。\n\n创建子task的命令格式示例（注意使用 --at 而不是 --cron）：\nopenclaw cron add --name \"课程提醒-游泳-17:10\" --at \"2026-03-14T16:50:00+08:00\" --message \"提醒：蛋蛋的游泳课还有20分钟就要出发了，出发时间是17:10，课程是5:30-7:00，地点在莲花体育中心。\" --to \"oc_49bd38a7e7152bafbb125392b40e2939\" --expect-final --delete-after-run --timeout-seconds 30\n\n注意：日期格式是 YYYY-MM-DDTHH:MM:00+08:00",
-        "timeoutSeconds": 90
+        "timeoutSeconds": 300
       },
       "delivery": {
         "mode": "announce",
@@ -249,14 +223,15 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773529500000,
-        "lastRunAtMs": 1773476612911,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 63373,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
+        "nextRunAtMs": 1773615900000,
+        "lastRunAtMs": 1773535383971,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 90016,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2,
+        "lastErrorReason": "timeout",
+        "lastError": "Error: cron: job execution timed out"
       }
     }
   ]
