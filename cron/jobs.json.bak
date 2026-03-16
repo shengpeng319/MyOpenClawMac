@@ -36,10 +36,10 @@
     },
     {
       "id": "c9416999-3d53-4821-afaa-2fd55565c74e",
-      "name": "每日早安关怀",
+      "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773615723640,
+      "updatedAtMs": 1773672448461,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -171,7 +171,7 @@
       "name": "educationexpert heartbeat",
       "enabled": true,
       "createdAtMs": 1773464292989,
-      "updatedAtMs": 1773670087574,
+      "updatedAtMs": 1773671887164,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -188,15 +188,14 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773671882087,
-        "lastRunAtMs": 1773670082087,
+        "nextRunAtMs": 1773673682098,
+        "lastRunAtMs": 1773671882098,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 5487,
+        "lastDurationMs": 5066,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
-        "lastDelivered": false,
-        "runningAtMs": 1773671882095
+        "lastDelivered": false
       }
     },
     {
@@ -205,7 +204,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1773468718510,
-      "updatedAtMs": 1773616009492,
+      "updatedAtMs": 1773672601414,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
