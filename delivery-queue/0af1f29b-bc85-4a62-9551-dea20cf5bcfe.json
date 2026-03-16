@@ -1,0 +1,19 @@
+{
+  "id": "0af1f29b-bc85-4a62-9551-dea20cf5bcfe",
+  "enqueuedAt": 1773669714892,
+  "channel": "feishu",
+  "to": "ou_cf1a1ee3279590e248bcfed4d0838c22",
+  "payloads": [
+    {
+      "text": "# 📊 每日进化报告 - 2026年3月16日\n\n## 📋 今日概要\n- 日期: 2026-03-16 (周一)\n- 天气: ☀️ 深圳/广州 晴 17-27°C\n- 课程: 蛋蛋无课 / 妞妞足球训练\n\n---\n## 🎯 今日关键事件\n\n1. ✅ 课程提醒超时问题解决\n   - 问题: cron任务超时失败\n   - 解决: timeout从180秒改为300秒\n   - 结果: 成功执行\n\n2. 🔍 知乎热搜API发现\n   - 发现: 直接调用 api.zhihu.com 获取热搜\n   - 无需认证\n\n3. Heartbeat检查\n   - projectmanager/researcher/educationexpert: OK\n   - coder: 超时\n\n---\n## 🧠 学到的\n- 知乎API直接调用比爬虫可靠\n- 复杂任务需要5分钟超时\n\n---\n## ⚠️ 犯的错误\n- Coder heartbeat超时\n\n---\n## 💡 可固化的技能\n1. 新增Skill: zhihu-trending\n2. Cron超时配置优化\n\n---\n## 📊 备份状态\n⚠️ GitHub备份失败 - 检测到secret",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "silent": false,
+  "retryCount": 1,
+  "lastAttemptAt": 1773669714902,
+  "lastError": "Feishu account \"default\" not configured"
+}

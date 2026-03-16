@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1772635670112,
-      "updatedAtMs": 1773583679462,
+      "updatedAtMs": 1773669722339,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -24,15 +24,14 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773669600000,
-        "lastRunAtMs": 1773583200007,
+        "nextRunAtMs": 1773756000000,
+        "lastRunAtMs": 1773669600010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 479455,
+        "lastDurationMs": 122329,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "runningAtMs": 1773669600007
+        "consecutiveErrors": 0
       }
     },
     {
@@ -73,7 +72,7 @@
       "name": "coder heartbeat",
       "enabled": true,
       "createdAtMs": 1773464285739,
-      "updatedAtMs": 1773669519845,
+      "updatedAtMs": 1773671305900,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -90,14 +89,14 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773671286850,
-        "lastRunAtMs": 1773669486850,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 32995,
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1,
-        "lastError": "Delivering to Feishu requires target <chatId|user:openId|chat:chatId>"
+        "nextRunAtMs": 1773673086859,
+        "lastRunAtMs": 1773671286859,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 19041,
+        "lastDeliveryStatus": "not-delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": false
       }
     },
     {
@@ -106,7 +105,7 @@
       "name": "researcher heartbeat",
       "enabled": true,
       "createdAtMs": 1773464288417,
-      "updatedAtMs": 1773669535216,
+      "updatedAtMs": 1773671334758,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -123,11 +122,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773671330982,
-        "lastRunAtMs": 1773669530982,
+        "nextRunAtMs": 1773673130989,
+        "lastRunAtMs": 1773671330989,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 4234,
+        "lastDurationMs": 3769,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -139,7 +138,7 @@
       "name": "projectmanager heartbeat",
       "enabled": true,
       "createdAtMs": 1773464290798,
-      "updatedAtMs": 1773669575896,
+      "updatedAtMs": 1773671374534,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -156,11 +155,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773671370930,
-        "lastRunAtMs": 1773669570930,
+        "nextRunAtMs": 1773673170941,
+        "lastRunAtMs": 1773671370941,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 4966,
+        "lastDurationMs": 3593,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -172,7 +171,7 @@
       "name": "educationexpert heartbeat",
       "enabled": true,
       "createdAtMs": 1773464292989,
-      "updatedAtMs": 1773668292335,
+      "updatedAtMs": 1773671887164,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -189,11 +188,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773670082062,
-        "lastRunAtMs": 1773668282062,
+        "nextRunAtMs": 1773673682098,
+        "lastRunAtMs": 1773671882098,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 10273,
+        "lastDurationMs": 5066,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
