@@ -31,7 +31,8 @@
         "lastDurationMs": 122329,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
+        "consecutiveErrors": 0,
+        "runningAtMs": 1773756000004
       }
     },
     {
@@ -39,7 +40,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773672448461,
+      "updatedAtMs": 1773702191841,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -56,11 +57,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773702000000,
-        "lastRunAtMs": 1773615600010,
+        "nextRunAtMs": 1773788400000,
+        "lastRunAtMs": 1773702000010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 123630,
+        "lastDurationMs": 191831,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -72,7 +73,7 @@
       "name": "coder heartbeat",
       "enabled": true,
       "createdAtMs": 1773464285739,
-      "updatedAtMs": 1773671305900,
+      "updatedAtMs": 1773755891105,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -89,11 +90,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773673086859,
-        "lastRunAtMs": 1773671286859,
+        "nextRunAtMs": 1773757687358,
+        "lastRunAtMs": 1773755887358,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 19041,
+        "lastDurationMs": 3747,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -105,7 +106,7 @@
       "name": "researcher heartbeat",
       "enabled": true,
       "createdAtMs": 1773464288417,
-      "updatedAtMs": 1773671334758,
+      "updatedAtMs": 1773755935784,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -122,11 +123,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773673130989,
-        "lastRunAtMs": 1773671330989,
+        "nextRunAtMs": 1773757731462,
+        "lastRunAtMs": 1773755931462,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 3769,
+        "lastDurationMs": 4322,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -138,7 +139,7 @@
       "name": "projectmanager heartbeat",
       "enabled": true,
       "createdAtMs": 1773464290798,
-      "updatedAtMs": 1773671374534,
+      "updatedAtMs": 1773755976144,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -155,11 +156,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773673170941,
-        "lastRunAtMs": 1773671370941,
+        "nextRunAtMs": 1773757771397,
+        "lastRunAtMs": 1773755971397,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 3593,
+        "lastDurationMs": 4747,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -171,7 +172,7 @@
       "name": "educationexpert heartbeat",
       "enabled": true,
       "createdAtMs": 1773464292989,
-      "updatedAtMs": 1773671887164,
+      "updatedAtMs": 1773754687819,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -188,11 +189,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773673682098,
-        "lastRunAtMs": 1773671882098,
+        "nextRunAtMs": 1773756482574,
+        "lastRunAtMs": 1773754682574,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 5066,
+        "lastDurationMs": 5245,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -204,7 +205,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1773468718510,
-      "updatedAtMs": 1773672608044,
+      "updatedAtMs": 1773702330555,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -222,11 +223,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773702300000,
-        "lastRunAtMs": 1773615900011,
+        "nextRunAtMs": 1773788700000,
+        "lastRunAtMs": 1773702300010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 109481,
+        "lastDurationMs": 30545,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true

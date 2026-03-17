@@ -1,0 +1,19 @@
+{
+  "id": "62ffc980-5dc4-4dad-b33d-e09d49739cb4",
+  "enqueuedAt": 1773756109270,
+  "channel": "feishu",
+  "to": "ou_c858ba4fbb03f207666daef058ede895",
+  "payloads": [
+    {
+      "text": "# 📊 每日进化报告 - 2026年3月17日\n\n## 📌 今日关键要点\n\n### 1. 中国PMI数据查询\n- 用户询问过去十年中国PMI数据\n- 成功整理2016-2025年官方PMI和财新PMI历史数据\n- 提供2026年分季度预测（官方49.5-50.5，财新50.0-51.0）\n- **经验**: 多个API调用失败时，使用训练数据作为备选\n\n### 2. Cron任务优化\n- 优化了\"每日课程提醒\"任务，去掉重复的天气/新闻内容\n- 现在只保留课程安排 + 出发提醒\n- 与\"每日早安问候\"形成差异化\n\n### 3. 飞书文件传输经验\n- 更新MEMORY.md记录：文件必须放 ~/.openclaw/media/ 目录\n- **教训**: transfers/ 目录不在允许列表\n\n### 4. Heartbeat检查\n- 4个子agent完成heartbeat检查，均正常\n\n---\n\n## 🧠 学会了什么\n\n1. **经济数据分析**: 掌握了官方PMI vs 财新PMI的区别和应用场景\n2. **任务设计**: cron任务间要避免内容重复，各有侧重\n3. **文件传输**: 飞书发送文件的目录限制\n\n---\n\n## ⚠️ 犯了什么错\n\n1. **API调用失败**: 多个经济数据API调用未返回有效数据\n   - 解决: 使用训练数据作为备选方案\n\n2. **clawhub登录失败**: coder尝试登录时超时\n   - 原因: 需要用户交互\n\n---\n\n## 💡 可固化的技能\n\n1. **飞书文件传输最佳实践** → 更新 FILE_TRANSFER_BEST_PRACTICE.md\n2. **Cron任务设计原则** → 添加到AGENTS.md\n\n---\n\n*报告已保存到 memory/2026-03-17.md*",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "silent": false,
+  "retryCount": 1,
+  "lastAttemptAt": 1773756109305,
+  "lastError": "Feishu account \"default\" not configured"
+}
