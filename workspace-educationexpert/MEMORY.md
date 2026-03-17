@@ -22,3 +22,24 @@
 ### 维护方式
 - 课程有变化 → 更新 USER.md 中的课程表
 - 需要新日历 → 生成 .ics 文件导入手机
+
+---
+
+## 飞书文件传输 (2026-03-16)
+
+### 经验教训
+- 通过飞书发送文件时，文件必须放在允许的目录
+- **允许的目录列表**：
+  - `~/.openclaw/media/`
+  - `~/.openclaw/agents/`
+  - `~/.openclaw/workspace/`
+  - `~/.openclaw/sandboxes/`
+- **不在允许列表**：`~/.openclaw/transfers/` ❌
+
+### 操作步骤
+1. 把文件复制到 `~/.openclaw/media/` 目录
+2. 使用 `--media ~/.openclaw/media/文件名` 发送
+
+### 课程表Excel
+- 已发送到用户
+- 文件位置：`~/.openclaw/media/课外班课程表.xlsx`

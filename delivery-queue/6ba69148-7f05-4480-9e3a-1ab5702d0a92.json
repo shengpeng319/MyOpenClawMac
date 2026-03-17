@@ -1,0 +1,23 @@
+{
+  "id": "6ba69148-7f05-4480-9e3a-1ab5702d0a92",
+  "enqueuedAt": 1773672913312,
+  "channel": "feishu",
+  "to": "ou_fddf58b3579afe9168ad38eea080294f",
+  "payloads": [
+    {
+      "text": "这是两个孩子的课外班课程表Excel文件，请查收~",
+      "mediaUrl": "/Users/shengpeng319/.openclaw/workspace-educationexpert/课外班课程表.xlsx",
+      "mediaUrls": [
+        "/Users/shengpeng319/.openclaw/workspace-educationexpert/课外班课程表.xlsx"
+      ],
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "silent": false,
+  "retryCount": 1,
+  "lastAttemptAt": 1773672913322,
+  "lastError": "Feishu account \"default\" not configured"
+}

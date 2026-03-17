@@ -1,0 +1,24 @@
+{
+  "id": "f2cf47ab-1d22-4b63-9e7a-c304b2b74f16",
+  "enqueuedAt": 1773673128155,
+  "channel": "feishu",
+  "to": "ou_fddf58b3579afe9168ad38eea080294f",
+  "accountId": "main",
+  "payloads": [
+    {
+      "text": "这是两个孩子的课外班课程表Excel文件，请查收~",
+      "mediaUrl": "/Users/shengpeng319/.openclaw/transfers/课外班课程表.xlsx",
+      "mediaUrls": [
+        "/Users/shengpeng319/.openclaw/transfers/课外班课程表.xlsx"
+      ],
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "gifPlayback": false,
+  "silent": false,
+  "retryCount": 1,
+  "lastAttemptAt": 1773673128505,
+  "lastError": "Request failed with status code 400"
+}
