@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1772635670112,
-      "updatedAtMs": 1773669722339,
+      "updatedAtMs": 1773756223868,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -24,15 +24,15 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773756000000,
-        "lastRunAtMs": 1773669600010,
+        "nextRunAtMs": 1773842400000,
+        "lastRunAtMs": 1773756000007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 122329,
+        "lastDurationMs": 223861,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
-        "runningAtMs": 1773756000004
+        "runningAtMs": 1773842400007
       }
     },
     {
@@ -40,7 +40,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773702191841,
+      "updatedAtMs": 1773788551830,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -57,11 +57,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773788400000,
-        "lastRunAtMs": 1773702000010,
+        "nextRunAtMs": 1773874800000,
+        "lastRunAtMs": 1773788400010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 191831,
+        "lastDurationMs": 151820,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -73,7 +73,7 @@
       "name": "coder heartbeat",
       "enabled": true,
       "createdAtMs": 1773464285739,
-      "updatedAtMs": 1773755891105,
+      "updatedAtMs": 1773842290230,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -90,11 +90,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773757687358,
-        "lastRunAtMs": 1773755887358,
+        "nextRunAtMs": 1773844087853,
+        "lastRunAtMs": 1773842287853,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 3747,
+        "lastDurationMs": 2377,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -106,7 +106,7 @@
       "name": "researcher heartbeat",
       "enabled": true,
       "createdAtMs": 1773464288417,
-      "updatedAtMs": 1773755935784,
+      "updatedAtMs": 1773842335521,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -123,11 +123,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773757731462,
-        "lastRunAtMs": 1773755931462,
+        "nextRunAtMs": 1773844131944,
+        "lastRunAtMs": 1773842331944,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 4322,
+        "lastDurationMs": 3577,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -139,7 +139,7 @@
       "name": "projectmanager heartbeat",
       "enabled": true,
       "createdAtMs": 1773464290798,
-      "updatedAtMs": 1773755976144,
+      "updatedAtMs": 1773842376413,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -156,11 +156,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773757771397,
-        "lastRunAtMs": 1773755971397,
+        "nextRunAtMs": 1773844171880,
+        "lastRunAtMs": 1773842371880,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 4747,
+        "lastDurationMs": 4533,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -172,7 +172,7 @@
       "name": "educationexpert heartbeat",
       "enabled": true,
       "createdAtMs": 1773464292989,
-      "updatedAtMs": 1773754687819,
+      "updatedAtMs": 1773841088303,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -189,11 +189,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773756482574,
-        "lastRunAtMs": 1773754682574,
+        "nextRunAtMs": 1773842883054,
+        "lastRunAtMs": 1773841083054,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 5245,
+        "lastDurationMs": 5249,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -205,7 +205,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1773468718510,
-      "updatedAtMs": 1773702330555,
+      "updatedAtMs": 1773788727949,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -223,11 +223,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773788700000,
-        "lastRunAtMs": 1773702300010,
+        "nextRunAtMs": 1773875100000,
+        "lastRunAtMs": 1773788700010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 30545,
+        "lastDurationMs": 27939,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -295,6 +295,40 @@
         "lastRunStatus": "error",
         "lastStatus": "error",
         "lastDurationMs": 30016,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "0869a66a-602c-4880-a4cf-c6151b816bad",
+      "name": "课程提醒-手风琴特色课-15:50",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1773788714852,
+      "updatedAtMs": 1773819030027,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-03-18T07:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "提醒：妞妞的手风琴特色课还有20分钟就要出发了，出发时间是15:50，课程是4:00-5:35，地点在学校。",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1773819000009,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 30018,
         "lastError": "cron: job execution timed out",
         "lastErrorReason": "timeout",
         "lastDeliveryStatus": "unknown",
