@@ -13,7 +13,7 @@
   ],
   "gifPlayback": false,
   "silent": false,
-  "retryCount": 1,
-  "lastAttemptAt": 1773756109305,
+  "retryCount": 2,
+  "lastAttemptAt": 1773879578555,
   "lastError": "Feishu account \"default\" not configured"
 }
