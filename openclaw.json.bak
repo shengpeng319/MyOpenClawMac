@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-14T19:28:37.567Z"
+    "lastTouchedVersion": "2026.3.12",
+    "lastTouchedAt": "2026-03-19T02:34:33.425Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-12T04:50:23.808Z",
@@ -577,7 +577,7 @@
         "enabled": true
       },
       "searxng": {
-        "enabled": false,
+        "enabled": true,
         "env": {
           "SEARXNG_URL": "http://localhost:12613"
         }
@@ -610,7 +610,7 @@
     "installs": {
       "lossless-claw": {
         "source": "npm",
-        "spec": "@martian-engineering/lossless-claw",
+        "spec": "@martian-engineering/lossless-claw@0.3.0",
         "installPath": "/Users/shengpeng319/.openclaw/extensions/lossless-claw",
         "version": "0.3.0",
         "resolvedName": "@martian-engineering/lossless-claw",
@@ -618,12 +618,12 @@
         "resolvedSpec": "@martian-engineering/lossless-claw@0.3.0",
         "integrity": "sha512-SsY0bp3SoSzEu+KB8fOBke46MFhTmslfWg6OvC4pShq34ig2+V+jkTFAHib8PTZ0MoethAddR+ZmRN9OASorAA==",
         "shasum": "bc9725d6d59d9b1523128ab528f1258c4258fa3f",
-        "resolvedAt": "2026-03-14T04:53:34.796Z",
-        "installedAt": "2026-03-14T04:54:12.030Z"
+        "resolvedAt": "2026-03-19T02:32:37.073Z",
+        "installedAt": "2026-03-19T02:34:11.894Z"
       },
       "feishu": {
         "source": "npm",
-        "spec": "@m1heng-clawd/feishu",
+        "spec": "@m1heng-clawd/feishu@0.1.17",
         "installPath": "/Users/shengpeng319/.openclaw/extensions/feishu",
         "version": "0.1.17",
         "resolvedName": "@m1heng-clawd/feishu",
@@ -631,8 +631,8 @@
         "resolvedSpec": "@m1heng-clawd/feishu@0.1.17",
         "integrity": "sha512-6BMqvndOXvWvGzMJEQQdp3vX1jidaIXrwwlz6Q8F5gC+yzcuHmNqIaAxXsrVOj7jaEAtznFjGmPWZ97sGc2eRw==",
         "shasum": "4e33e4c0cef6593da0b9e40f96d9310adc5bf6ab",
-        "resolvedAt": "2026-03-14T04:54:14.225Z",
-        "installedAt": "2026-03-14T04:54:38.710Z"
+        "resolvedAt": "2026-03-19T02:34:13.456Z",
+        "installedAt": "2026-03-19T02:34:33.403Z"
       }
     }
   }
