@@ -23,7 +23,7 @@ update-check.json
 Workspace-*/artifacts/
 workspace-*/temp/
 media/
-
+ping 100.101.89.94 -t 4
 # Session data (runtime)
 sessions/
 

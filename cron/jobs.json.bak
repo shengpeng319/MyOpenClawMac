@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1772635670112,
-      "updatedAtMs": 1773756223868,
+      "updatedAtMs": 1773887189765,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -21,14 +21,14 @@
       "delivery": {
         "mode": "announce",
         "channel": "feishu",
-        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+        "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1773842400000,
-        "lastRunAtMs": 1773756000007,
+        "nextRunAtMs": 1773928800000,
+        "lastRunAtMs": 1773842400010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 223861,
+        "lastDurationMs": 136776,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -39,7 +39,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773788551830,
+      "updatedAtMs": 1773874932270,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -56,11 +56,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773874800000,
-        "lastRunAtMs": 1773788400010,
+        "nextRunAtMs": 1773961200000,
+        "lastRunAtMs": 1773874800011,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 151820,
+        "lastDurationMs": 132259,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -72,7 +72,7 @@
       "name": "coder heartbeat",
       "enabled": true,
       "createdAtMs": 1773464285739,
-      "updatedAtMs": 1773842290230,
+      "updatedAtMs": 1773887292393,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -89,11 +89,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773844087853,
-        "lastRunAtMs": 1773842287853,
+        "nextRunAtMs": 1773889088105,
+        "lastRunAtMs": 1773887288105,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 2377,
+        "lastDurationMs": 4288,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -105,7 +105,7 @@
       "name": "researcher heartbeat",
       "enabled": true,
       "createdAtMs": 1773464288417,
-      "updatedAtMs": 1773842335521,
+      "updatedAtMs": 1773887336522,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -122,11 +122,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773844131944,
-        "lastRunAtMs": 1773842331944,
+        "nextRunAtMs": 1773889132193,
+        "lastRunAtMs": 1773887332193,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 3577,
+        "lastDurationMs": 4329,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -138,7 +138,7 @@
       "name": "projectmanager heartbeat",
       "enabled": true,
       "createdAtMs": 1773464290798,
-      "updatedAtMs": 1773842376413,
+      "updatedAtMs": 1773885583354,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -155,14 +155,15 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773844171880,
-        "lastRunAtMs": 1773842371880,
+        "nextRunAtMs": 1773887374215,
+        "lastRunAtMs": 1773885574215,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 4533,
+        "lastDurationMs": 9139,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
-        "lastDelivered": false
+        "lastDelivered": false,
+        "runningAtMs": 1773887374222
       }
     },
     {
@@ -171,7 +172,7 @@
       "name": "educationexpert heartbeat",
       "enabled": true,
       "createdAtMs": 1773464292989,
-      "updatedAtMs": 1773841088303,
+      "updatedAtMs": 1773886094567,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -188,11 +189,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773842883054,
-        "lastRunAtMs": 1773841083054,
+        "nextRunAtMs": 1773887883314,
+        "lastRunAtMs": 1773886083314,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 5249,
+        "lastDurationMs": 11253,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -204,7 +205,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1773468718510,
-      "updatedAtMs": 1773788727949,
+      "updatedAtMs": 1773875120535,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -222,11 +223,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773875100000,
-        "lastRunAtMs": 1773788700010,
+        "nextRunAtMs": 1773961500000,
+        "lastRunAtMs": 1773875100011,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 27939,
+        "lastDurationMs": 20524,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -332,6 +333,87 @@
         "lastErrorReason": "timeout",
         "lastDeliveryStatus": "unknown",
         "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "3cfc7627-d766-4234-851b-41327ce38259",
+      "name": "课程提醒-手风琴-15:50",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1773875116054,
+      "updatedAtMs": 1773875116054,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-03-19T07:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🎹 提醒：妞妞的手风琴特色课还有20分钟就要出发了！\\n⏰ 出发时间：15:50\\n📍 地点：学校\\n🕐 课程时间：16:00-17:35\\n\\n加油练习，期待看到你精彩的表演！",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "nextRunAtMs": 1773905400000
+      }
+    },
+    {
+      "id": "8384114d-22d9-4724-bef2-3191ed802ab4",
+      "name": "课程提醒-小白鸽-18:20",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1773875116080,
+      "updatedAtMs": 1773875116080,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-03-19T10:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🕊️ 提醒：妞妞的小白鸽课程还有20分钟就要出发了！\\n⏰ 出发时间：18:20\\n📍 地点：枫丹雅苑\\n🕐 课程时间：18:30-20:00\\n\\n加油！今天的课程安排比较满，记得适时休息补充能量！",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "nextRunAtMs": 1773914400000
+      }
+    },
+    {
+      "id": "e0f37dd0-1994-410a-a0b2-0441e8479493",
+      "name": "课程提醒-蛋蛋自习-18:40",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1773875361866,
+      "updatedAtMs": 1773875361866,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-03-19T10:20:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "📚 提醒：蛋蛋的自习课还有20分钟就要出发了！\\n⏰ 出发时间：18:40\\n📍 地点：青海大厦\\n🕐 课程时间：19:00-20:30\\n\\n记得带好课本和作业，加油！",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "nextRunAtMs": 1773915600000
       }
     }
   ]
