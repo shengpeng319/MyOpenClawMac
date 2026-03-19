@@ -72,7 +72,7 @@
       "name": "coder heartbeat",
       "enabled": true,
       "createdAtMs": 1773464285739,
-      "updatedAtMs": 1773887292393,
+      "updatedAtMs": 1773928693844,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -89,11 +89,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773889088105,
-        "lastRunAtMs": 1773887288105,
+        "nextRunAtMs": 1773930488355,
+        "lastRunAtMs": 1773928688355,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 4288,
+        "lastDurationMs": 5489,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -105,7 +105,7 @@
       "name": "researcher heartbeat",
       "enabled": true,
       "createdAtMs": 1773464288417,
-      "updatedAtMs": 1773887336522,
+      "updatedAtMs": 1773928740637,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -122,11 +122,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773889132193,
-        "lastRunAtMs": 1773887332193,
+        "nextRunAtMs": 1773930532444,
+        "lastRunAtMs": 1773928732444,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 4329,
+        "lastDurationMs": 8193,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -138,7 +138,7 @@
       "name": "projectmanager heartbeat",
       "enabled": true,
       "createdAtMs": 1773464290798,
-      "updatedAtMs": 1773885583354,
+      "updatedAtMs": 1773928778772,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -155,15 +155,14 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773887374215,
-        "lastRunAtMs": 1773885574215,
+        "nextRunAtMs": 1773930574468,
+        "lastRunAtMs": 1773928774468,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 9139,
+        "lastDurationMs": 4304,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
-        "lastDelivered": false,
-        "runningAtMs": 1773887374222
+        "lastDelivered": false
       }
     },
     {
@@ -172,7 +171,7 @@
       "name": "educationexpert heartbeat",
       "enabled": true,
       "createdAtMs": 1773464292989,
-      "updatedAtMs": 1773886094567,
+      "updatedAtMs": 1773927502956,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -189,11 +188,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773887883314,
-        "lastRunAtMs": 1773886083314,
+        "nextRunAtMs": 1773929296144,
+        "lastRunAtMs": 1773927496144,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 11253,
+        "lastDurationMs": 6812,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -338,10 +337,10 @@
     {
       "id": "3cfc7627-d766-4234-851b-41327ce38259",
       "name": "课程提醒-手风琴-15:50",
-      "enabled": true,
+      "enabled": false,
       "deleteAfterRun": true,
       "createdAtMs": 1773875116054,
-      "updatedAtMs": 1773875116054,
+      "updatedAtMs": 1773905430039,
       "schedule": {
         "kind": "at",
         "at": "2026-03-19T07:30:00.000Z"
@@ -359,61 +358,14 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773905400000
-      }
-    },
-    {
-      "id": "8384114d-22d9-4724-bef2-3191ed802ab4",
-      "name": "课程提醒-小白鸽-18:20",
-      "enabled": true,
-      "deleteAfterRun": true,
-      "createdAtMs": 1773875116080,
-      "updatedAtMs": 1773875116080,
-      "schedule": {
-        "kind": "at",
-        "at": "2026-03-19T10:00:00.000Z"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "🕊️ 提醒：妞妞的小白鸽课程还有20分钟就要出发了！\\n⏰ 出发时间：18:20\\n📍 地点：枫丹雅苑\\n🕐 课程时间：18:30-20:00\\n\\n加油！今天的课程安排比较满，记得适时休息补充能量！",
-        "timeoutSeconds": 30
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "last",
-        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
-      },
-      "state": {
-        "nextRunAtMs": 1773914400000
-      }
-    },
-    {
-      "id": "e0f37dd0-1994-410a-a0b2-0441e8479493",
-      "name": "课程提醒-蛋蛋自习-18:40",
-      "enabled": true,
-      "deleteAfterRun": true,
-      "createdAtMs": 1773875361866,
-      "updatedAtMs": 1773875361866,
-      "schedule": {
-        "kind": "at",
-        "at": "2026-03-19T10:20:00.000Z"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "📚 提醒：蛋蛋的自习课还有20分钟就要出发了！\\n⏰ 出发时间：18:40\\n📍 地点：青海大厦\\n🕐 课程时间：19:00-20:30\\n\\n记得带好课本和作业，加油！",
-        "timeoutSeconds": 30
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "last",
-        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
-      },
-      "state": {
-        "nextRunAtMs": 1773915600000
+        "lastRunAtMs": 1773905400011,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 30028,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       }
     }
   ]

@@ -18,7 +18,7 @@
   ],
   "gifPlayback": false,
   "silent": false,
-  "retryCount": 2,
-  "lastAttemptAt": 1773879578397,
+  "retryCount": 5,
+  "lastAttemptAt": 1773914558099,
   "lastError": "Request failed with status code 400"
 }

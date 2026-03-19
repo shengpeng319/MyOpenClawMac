@@ -9,7 +9,7 @@ triggers:
   - "search web"
   - "find information"
   - "look up"
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["python3"]},"config":{"env":{"SEARXNG_URL":{"description":"SearXNG instance URL","default":"http://localhost:7890","required":true}}}}}
+metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["python3"]},"config":{"env":{"SEARXNG_URL":{"description":"SearXNG instance URL","default":"http://localhost:12613","required":true}}}}}
 ---
 
 # SearXNG Search
@@ -55,7 +55,7 @@ Or configure in your Clawdbot config:
 }
 ```
 
-Default (if not set): `http://localhost:7890`
+Default (if not set): `http://localhost:12613`
 
 ## Features
 
