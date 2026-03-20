@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1772635670112,
-      "updatedAtMs": 1773887189765,
+      "updatedAtMs": 1773928924492,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -24,15 +24,15 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1773928800000,
-        "lastRunAtMs": 1773842400010,
+        "nextRunAtMs": 1774015200000,
+        "lastRunAtMs": 1773928800011,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 136776,
+        "lastDurationMs": 124481,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
-        "runningAtMs": 1773928800008
+        "runningAtMs": 1774015200006
       }
     },
     {
@@ -40,7 +40,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1772892870560,
-      "updatedAtMs": 1773874932270,
+      "updatedAtMs": 1773961343862,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -57,11 +57,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773961200000,
-        "lastRunAtMs": 1773874800011,
+        "nextRunAtMs": 1774047600000,
+        "lastRunAtMs": 1773961200013,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 132259,
+        "lastDurationMs": 143849,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -73,7 +73,7 @@
       "name": "coder heartbeat",
       "enabled": true,
       "createdAtMs": 1773464285739,
-      "updatedAtMs": 1773928693844,
+      "updatedAtMs": 1774015092658,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -90,11 +90,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773930488355,
-        "lastRunAtMs": 1773928688355,
+        "nextRunAtMs": 1774016888851,
+        "lastRunAtMs": 1774015088851,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 5489,
+        "lastDurationMs": 3807,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -106,7 +106,7 @@
       "name": "researcher heartbeat",
       "enabled": true,
       "createdAtMs": 1773464288417,
-      "updatedAtMs": 1773928740637,
+      "updatedAtMs": 1774015164601,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -123,11 +123,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773930532444,
-        "lastRunAtMs": 1773928732444,
+        "nextRunAtMs": 1774016960500,
+        "lastRunAtMs": 1774015160500,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 8193,
+        "lastDurationMs": 4101,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -139,7 +139,7 @@
       "name": "projectmanager heartbeat",
       "enabled": true,
       "createdAtMs": 1773464290798,
-      "updatedAtMs": 1773928778772,
+      "updatedAtMs": 1774015190087,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -156,11 +156,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773930574468,
-        "lastRunAtMs": 1773928774468,
+        "nextRunAtMs": 1774016984541,
+        "lastRunAtMs": 1774015184541,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 4304,
+        "lastDurationMs": 5546,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -172,7 +172,7 @@
       "name": "educationexpert heartbeat",
       "enabled": true,
       "createdAtMs": 1773464292989,
-      "updatedAtMs": 1773927502956,
+      "updatedAtMs": 1774013905346,
       "schedule": {
         "kind": "every",
         "everyMs": 1800000,
@@ -189,11 +189,11 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1773929296144,
-        "lastRunAtMs": 1773927496144,
+        "nextRunAtMs": 1774015696632,
+        "lastRunAtMs": 1774013896632,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 6812,
+        "lastDurationMs": 8714,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDelivered": false
@@ -205,7 +205,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1773468718510,
-      "updatedAtMs": 1773875120535,
+      "updatedAtMs": 1773961523185,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -223,11 +223,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1773961500000,
-        "lastRunAtMs": 1773875100011,
+        "nextRunAtMs": 1774047900000,
+        "lastRunAtMs": 1773961500009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 20524,
+        "lastDurationMs": 23176,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -363,6 +363,40 @@
         "lastRunStatus": "error",
         "lastStatus": "error",
         "lastDurationMs": 30028,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "5b7acd13-e6ac-489e-a121-9813669aa326",
+      "name": "课程提醒-小白鸽-16:30",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1773961514689,
+      "updatedAtMs": 1773995430030,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-03-20T08:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🌟 课程提醒：妞妞的小白鸽课还有20分钟就要出发了！\n⏰ 出发时间：16:30\n📍 地点：枫丹雅苑\n🕐 课程时间：17:00-18:30\n\n记得提前收拾好东西，带好装备哦！",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1773995400011,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 30019,
         "lastError": "cron: job execution timed out",
         "lastErrorReason": "timeout",
         "lastDeliveryStatus": "unknown",
