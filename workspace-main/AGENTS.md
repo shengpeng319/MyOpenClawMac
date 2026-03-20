@@ -136,6 +136,16 @@ You're a participant, not their voice.
    - 需要真实人类授权或支付
    - 任务涉及系统安全稳定
 
+
+### 🔧 OpenClaw 配置更改检查清单 (2026-03-19)
+
+修改配置后必做：
+- [ ] 验证配置文件内容（jq 读取）
+- [ ] openclaw gateway restart
+- [ ] 状态验证
+
+→ 配置文件更新 ≠ 运行时生效，重启 gateway 才能生效！
+
 ---
 
 ## 🧠 自我成长系统（Self-Growth System）
