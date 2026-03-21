@@ -1,7 +1,8 @@
 {
   "lastChecks": {
-    "general": 1773997732,
-    "email": 1773997732,
-    "2026-03-20": 1773997732
-  }
+    "email": null,
+    "calendar": null,
+    "weather": null
+  },
+  "lastHeartbeat": 1742596620
 }
