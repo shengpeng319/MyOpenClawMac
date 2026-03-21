@@ -45,3 +45,27 @@ transfers/
 lcm.db
 lcm.db-wal
 lcm.db-shm
+
+# === 敏感个人数据 (2026-03-21) ===
+# 长期记忆 & 用户信息
+MEMORY.md
+USER.md
+HEARTBEAT.md
+BOOTSTRAP.md
+
+# 每日对话日志
+memory/
+
+# Cron 任务配置 (包含定时任务详情)
+cron/
+cron-backup.json
+
+# Skills 目录 (包含 API 凭证)
+skills/
+
+# 定时任务备份
+*.bak
+
+# 配置文件 (可能包含敏感信息)
+plugins/
+config.json
