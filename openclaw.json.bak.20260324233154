@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.12",
-    "lastTouchedAt": "2026-03-19T02:34:33.425Z"
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-24T15:17:38.153Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-12T04:50:23.808Z",
@@ -20,14 +20,6 @@
       "dev-chrome": {
         "cdpUrl": "http://127.0.0.1:9222",
         "color": "#FF5733"
-      }
-    }
-  },
-  "auth": {
-    "profiles": {
-      "minimax:default": {
-        "provider": "minimax",
-        "mode": "api_key"
       }
     }
   },
@@ -77,8 +69,9 @@
       },
       "localqwen35": {
         "baseUrl": "http://localhost:12814/v1",
+        "apiKey": "omlx",
         "api": "openai-completions",
-        "authHeader": true,
+        "authHeader": false,
         "models": [
           {
             "id": "Qwen3.5-4B-MLX-4bit",
@@ -108,7 +101,7 @@
       },
       "models": {
         "minimax-cn/MiniMax-M2.7-highspeed": {
-          "alias": "Minimax"
+          "alias": "minimax"
         },
         "localqwen35/Qwen3.5-4B-MLX-4bit": {
           "alias": "qwen3.5"
@@ -132,6 +125,7 @@
           "enabled": true
         }
       },
+      "timeoutSeconds": 1800,
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
@@ -581,12 +575,19 @@
         "env": {
           "SEARXNG_URL": "http://localhost:12613"
         }
+      },
+      "playwright": {
+        "enabled": true
+      },
+      "news-summary": {
+        "enabled": true
       }
     }
   },
   "plugins": {
     "allow": [
       "lossless-claw",
+      "openclaw-weixin",
       "feishu"
     ],
     "slots": {
@@ -594,9 +595,6 @@
       "contextEngine": "lossless-claw"
     },
     "entries": {
-      "feishu": {
-        "enabled": true
-      },
       "lossless-claw": {
         "enabled": true
       },
@@ -605,6 +603,12 @@
       },
       "memory-lancedb": {
         "enabled": false
+      },
+      "openclaw-weixin": {
+        "enabled": true
+      },
+      "feishu": {
+        "enabled": true
       }
     },
     "installs": {
@@ -633,6 +637,19 @@
         "shasum": "4e33e4c0cef6593da0b9e40f96d9310adc5bf6ab",
         "resolvedAt": "2026-03-19T02:34:13.456Z",
         "installedAt": "2026-03-19T02:34:33.403Z"
+      },
+      "openclaw-weixin": {
+        "source": "npm",
+        "spec": "@tencent-weixin/openclaw-weixin@legacy",
+        "installPath": "/Users/shengpeng319/.openclaw/extensions/openclaw-weixin",
+        "version": "1.0.3",
+        "resolvedName": "@tencent-weixin/openclaw-weixin",
+        "resolvedVersion": "1.0.3",
+        "resolvedSpec": "@tencent-weixin/openclaw-weixin@1.0.3",
+        "integrity": "sha512-TOo9rb5gt3ce3lJEulFT5Ta4/8ocWkR40wzM7lZ8OM3/fjTk3UHYeNjHmDcZlLeg93XYJKdVUFUEiujrf8zMYw==",
+        "shasum": "19f65f26d4af26a25f05cdd5f1dd3c687590f91c",
+        "resolvedAt": "2026-03-24T15:11:26.187Z",
+        "installedAt": "2026-03-24T15:12:24.530Z"
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.12",
-    "lastTouchedAt": "2026-03-19T02:34:33.425Z"
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-24T15:12:25.381Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-12T04:50:23.808Z",
@@ -23,14 +23,6 @@
       }
     }
   },
-  "auth": {
-    "profiles": {
-      "minimax:default": {
-        "provider": "minimax",
-        "mode": "api_key"
-      }
-    }
-  },
   "models": {
     "mode": "merge",
     "providers": {
@@ -40,8 +32,8 @@
         "authHeader": true,
         "models": [
           {
-            "id": "MiniMax-M2.5-highspeed",
-            "name": "MiniMax-M2.5-highspeed",
+            "id": "MiniMax-M2.7-highspeed",
+            "name": "MiniMax-M2.7-highspeed",
             "api": "anthropic-messages",
             "reasoning": true,
             "input": [
@@ -76,9 +68,10 @@
         ]
       },
       "localqwen35": {
-        "baseUrl": "http://localhost:12614/v1",
+        "baseUrl": "http://localhost:12814/v1",
+        "apiKey": "omlx",
         "api": "openai-completions",
-        "authHeader": true,
+        "authHeader": false,
         "models": [
           {
             "id": "Qwen3.5-4B-MLX-4bit",
@@ -104,11 +97,11 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.5-highspeed"
+        "primary": "minimax-cn/MiniMax-M2.7-highspeed"
       },
       "models": {
-        "minimax-cn/MiniMax-M2.5-highspeed": {
-          "alias": "Minimax"
+        "minimax-cn/MiniMax-M2.7-highspeed": {
+          "alias": "minimax"
         },
         "localqwen35/Qwen3.5-4B-MLX-4bit": {
           "alias": "qwen3.5"
@@ -132,6 +125,7 @@
           "enabled": true
         }
       },
+      "timeoutSeconds": 1800,
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
@@ -376,7 +370,7 @@
   },
   "channels": {
     "feishu": {
-      "enabled": true,
+      "enabled": false,
       "domain": "feishu",
       "groups": {
         "oc_49bd38a7e7152bafbb125392b40e2939": {
@@ -587,16 +581,13 @@
   "plugins": {
     "allow": [
       "lossless-claw",
-      "feishu"
+      "openclaw-weixin"
     ],
     "slots": {
       "memory": "memory-core",
       "contextEngine": "lossless-claw"
     },
     "entries": {
-      "feishu": {
-        "enabled": true
-      },
       "lossless-claw": {
         "enabled": true
       },
@@ -605,6 +596,9 @@
       },
       "memory-lancedb": {
         "enabled": false
+      },
+      "openclaw-weixin": {
+        "enabled": true
       }
     },
     "installs": {
@@ -633,6 +627,19 @@
         "shasum": "4e33e4c0cef6593da0b9e40f96d9310adc5bf6ab",
         "resolvedAt": "2026-03-19T02:34:13.456Z",
         "installedAt": "2026-03-19T02:34:33.403Z"
+      },
+      "openclaw-weixin": {
+        "source": "npm",
+        "spec": "@tencent-weixin/openclaw-weixin@legacy",
+        "installPath": "/Users/shengpeng319/.openclaw/extensions/openclaw-weixin",
+        "version": "1.0.3",
+        "resolvedName": "@tencent-weixin/openclaw-weixin",
+        "resolvedVersion": "1.0.3",
+        "resolvedSpec": "@tencent-weixin/openclaw-weixin@1.0.3",
+        "integrity": "sha512-TOo9rb5gt3ce3lJEulFT5Ta4/8ocWkR40wzM7lZ8OM3/fjTk3UHYeNjHmDcZlLeg93XYJKdVUFUEiujrf8zMYw==",
+        "shasum": "19f65f26d4af26a25f05cdd5f1dd3c687590f91c",
+        "resolvedAt": "2026-03-24T15:11:26.187Z",
+        "installedAt": "2026-03-24T15:12:24.530Z"
       }
     }
   }

@@ -94,8 +94,6 @@
 **问题**：做任务前没有先检查 best practice 文档
 
 **教训**：
-- 任务涉及外部渠道（飞书文件传输）时，必须先读 FILE_TRANSFER_BEST_PRACTICE.md
-- 交付流程 → 先读 WORK_QUALITY_CHECKLIST.md
 - 任何新任务类型 → 先检查是否有对应的 best practice
 
 **改进**：已在 AGENTS.md 的"任务执行铁律"中加入【前置检查】步骤
