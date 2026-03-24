@@ -43,9 +43,10 @@
       "apiKey": "sk-cp-njZAK26hFYuPB5MJkEyeXRcIcPQfssN5_G1bZjTieyTEzB9jA5qn2CocKE7tMecfbMwT2URDzc1wsPRDdWOdtJv3X7jW732O3oEWO02YPYmtsZPRGg-JJOI"
     },
     "localqwen35": {
-      "baseUrl": "http://localhost:12614/v1",
+      "baseUrl": "http://localhost:12814/v1",
+      "apiKey": "ollama",
       "api": "openai-completions",
-      "authHeader": true,
+      "authHeader": false,
       "models": [
         {
           "id": "Qwen3.5-4B-MLX-4bit",
@@ -64,8 +65,7 @@
           "contextWindow": 64000,
           "maxTokens": 8192
         }
-      ],
-      "apiKey": "ollama"
+      ]
     }
   }
 }
