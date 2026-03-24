@@ -6,8 +6,8 @@
       "authHeader": true,
       "models": [
         {
-          "id": "MiniMax-M2.5-highspeed",
-          "name": "MiniMax-M2.5-highspeed",
+          "id": "MiniMax-M2.7-highspeed",
+          "name": "MiniMax-M2.7-highspeed",
           "api": "anthropic-messages",
           "reasoning": true,
           "input": [
