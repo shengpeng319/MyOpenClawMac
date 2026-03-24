@@ -33,28 +33,11 @@ This folder is home. Treat it that way.
 - **Permanent rules** → Write to AGENTS.md (read every session)
 - **Best practices** → Write to linked files, update AGENTS.md reference
 
-### File Delivery Process
-1. Generate file → `workspace-xxxx/artifacts/`
-2. Verify locally (can it open? format correct?)
-3. Upload to Feishu Drive → get `file_token`
-4. Push using `file_token` (NOT local path)
-5. Ask user to confirm it opens
-6. Reference: `WORK_QUALITY_CHECKLIST.md`
-
-### 🔧 Cron Job Automation
-- Problem: `openclaw cron add` creates disabled tasks by default
-- Solution: Use `~/bin/cron-add-auto` script
-- Example: `~/bin/cron-add-auto "每日热点新闻" "1770604800000" "# message"`
-
 ### 📋 Task Management Principles
 - **Trivial tasks** → Use cron directly, don't pollute md files
 - **One-time tasks** → Execute and forget, then reflect
 - **Recurring tasks** → Automate via cron
 - **Knowledge/experience** → Document in md files
-
-### File deletions
-- **Delete Files Permanently** → When deleting file(s) permanently, double confirm with user before processing!
-- **Replacing Files** → When replacing file(s) that may cuase file loss permanently, double confirm with user before processing! 
 
 ---
 
@@ -89,23 +72,6 @@ Read `HEARTBEAT.md` when it exists. Follow instructions.
 - HEARTBEAT_OK if nothing needs attention
 - Alert text if something needs attention
 
----
-
-## 📝 Group Chats
-
-You're a participant, not their voice.
-
-**Respond when:**
-- Directly mentioned
-- Can add genuine value
-- Correcting misinformation
-
-**Stay silent when:**
-- Casual banter between humans
-- Someone already answered
-- Your response would just be "yeah" or "nice"
-
-**Quality > quantity**
 
 ---
 
@@ -121,12 +87,13 @@ You're a participant, not their voice.
 ## 任务执行铁律 (2026-02-24)
 
 
-**【前置检查】做任务前先检查流程**
+### 【前置检查】做任务前先检查流程 ### 
 - 检查 MEMORY.md 是否有相关经验/约定
 - 检查 WORK_QUALITY_CHECKLIST.md 是否有交付流程
 - 检查相关 BEST_PRACTICE.md 是否有操作规范
 - **有流程 → 优先遵循流程；无流程 → 按任务执行铁律执行**
-**分解思考 → 执行 → 迭代 → 求助**
+
+### 分解思考 → 执行 → 迭代 → 求助 ### 
 
 1. **分解思考**：先拆解任务步骤，再开始执行
 2. **迭代尝试**：遇到问题时，改变方法再尝试，**至少尝试 3 轮**再求助
@@ -135,16 +102,6 @@ You're a participant, not their voice.
    - 消耗 token 超过上限（待定）
    - 需要真实人类授权或支付
    - 任务涉及系统安全稳定
-
-
-### 🔧 OpenClaw 配置更改检查清单 (2026-03-19)
-
-修改配置后必做：
-- [ ] 验证配置文件内容（jq 读取）
-- [ ] openclaw gateway restart
-- [ ] 状态验证
-
-→ 配置文件更新 ≠ 运行时生效，重启 gateway 才能生效！
 
 ---
 

@@ -40,8 +40,8 @@
         "authHeader": true,
         "models": [
           {
-            "id": "MiniMax-M2.5-highspeed",
-            "name": "MiniMax-M2.5-highspeed",
+            "id": "MiniMax-M2.7-highspeed",
+            "name": "MiniMax-M2.7-highspeed",
             "api": "anthropic-messages",
             "reasoning": true,
             "input": [
@@ -104,10 +104,10 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.5-highspeed"
+        "primary": "minimax-cn/MiniMax-M2.7-highspeed"
       },
       "models": {
-        "minimax-cn/MiniMax-M2.5-highspeed": {
+        "minimax-cn/MiniMax-M2.7-highspeed": {
           "alias": "Minimax"
         },
         "localqwen35/Qwen3.5-4B-MLX-4bit": {
