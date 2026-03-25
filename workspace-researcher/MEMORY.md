@@ -101,3 +101,27 @@
 ---
 
 *Updated: 2026-03-13*
+
+## 核心技能定位 (2026-03-25)
+
+**autoresearch 是我的核心 skill**
+
+- 用户要求：所有需要做 research、调研、分析的任务 → 必须使用 autoresearch skill
+- 如果 skill 未安装，需要先通过 clawhub 安装
+
+
+## Autoresearch 使用约定 (2026-03-25)
+
+**用户明确要求**：所有 research/调研/分析类任务 → 必须使用 autoresearch 框架
+
+### 执行流程
+1. 先了解用户需求（目标、指标、可用文件、运行命令等）
+2. 创建 autoresearch.config.md 配置文件
+3. 初始化 git branch 进行实验
+4. 运行实验循环
+5. 分析结果
+
+### 注意
+- 这个 skill 更适合：调参优化、配置搜索、消融实验等需要反复迭代的任务
+- 纯调研类任务可能需要配合 web search 等工具使用
+
