@@ -1,0 +1,19 @@
+{
+  "id": "47f15f28-1abf-4cb9-b0c1-ba1a7aade311",
+  "enqueuedAt": 1774409262285,
+  "channel": "feishu",
+  "to": "channel:ou_cf1a1ee3279590e248bcfed4d0838c22",
+  "accountId": "researcher",
+  "payloads": [
+    {
+      "text": "Claire → Emily 的工作流程确认已发送！内容包括：\n\n**1. 审阅时机：** Emily 生成研报 + 自评分后发送给我\n**2. 需要提供的信息：** 文件路径 + 核心观点 + 置信度\n**3. 反馈风格：** 具体且有建设性，附上具体修改示例\n\n**示例反馈：**\n> *\"Section 2's risk framing is too generic. 'Market volatility is a risk' applies to every asset. Try: 'The 3-month VIX term structure is inverted, suggesting near-term tail risk that disproportionately hurts our 30-delta options position.'\"*\n\n---\n\n等待 Emily 确认后，合作即可正式启动！她之后生成的每份研报都会主动发给我审阅。",
+      "mediaUrls": []
+    }
+  ],
+  "threadId": null,
+  "replyToId": null,
+  "bestEffort": false,
+  "retryCount": 1,
+  "lastAttemptAt": 1774409264057,
+  "lastError": "Request failed with status code 400"
+}

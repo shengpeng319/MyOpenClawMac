@@ -1,12 +1,12 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-24T15:12:25.381Z"
+    "lastTouchedVersion": "2026.3.23-2",
+    "lastTouchedAt": "2026-03-25T01:24:57.558Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-12T04:50:23.808Z",
-    "lastRunVersion": "2026.3.8",
-    "lastRunCommand": "configure",
+    "lastRunAt": "2026-03-25T00:54:45.117Z",
+    "lastRunVersion": "2026.3.23-2",
+    "lastRunCommand": "doctor",
     "lastRunMode": "local"
   },
   "browser": {
@@ -99,6 +99,9 @@
       "model": {
         "primary": "minimax-cn/MiniMax-M2.7-highspeed"
       },
+      "imageGenerationModel": {
+        "primary": "google/gemini-3-pro-image-preview"
+      },
       "models": {
         "minimax-cn/MiniMax-M2.7-highspeed": {
           "alias": "minimax"
@@ -136,140 +139,22 @@
     },
     "list": [
       {
-        "id": "main",
-        "default": true,
-        "name": "个人助理",
-        "workspace": "/Users/shengpeng319/.openclaw/workspace-main",
-        "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
-        "subagents": {
-          "allowAgents": [
-            "main",
-            "coder",
-            "researcher",
-            "projectmanager",
-            "educationexpert"
-          ]
-        },
-        "tools": {
-          "allow": [
-            "sessions_spawn",
-            "sessions_send",
-            "sessions_list",
-            "sessions_history",
-            "session_status",
-            "subagents",
-            "read",
-            "exec"
-          ]
-        }
+        "id": "main"
       },
       {
-        "id": "coder",
-        "name": "coder",
-        "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
-        "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
-        "subagents": {
-          "allowAgents": [
-            "main",
-            "coder",
-            "researcher",
-            "projectmanager",
-            "educationexpert"
-          ]
-        },
-        "tools": {
-          "allow": [
-            "sessions_spawn",
-            "sessions_send",
-            "sessions_list",
-            "sessions_history",
-            "session_status",
-            "subagents",
-            "read",
-            "exec"
-          ]
-        }
+        "id": "coder"
       },
       {
-        "id": "researcher",
-        "name": "researcher",
-        "workspace": "/Users/shengpeng319/.openclaw/workspace-researcher",
-        "agentDir": "/Users/shengpeng319/.openclaw/agents/researcher/agent",
-        "subagents": {
-          "allowAgents": [
-            "main",
-            "coder",
-            "researcher",
-            "projectmanager",
-            "educationexpert"
-          ]
-        },
-        "tools": {
-          "allow": [
-            "sessions_spawn",
-            "sessions_send",
-            "sessions_list",
-            "sessions_history",
-            "session_status",
-            "subagents",
-            "read",
-            "exec"
-          ]
-        }
+        "id": "researcher"
       },
       {
-        "id": "projectmanager",
-        "name": "projectmanager",
-        "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
-        "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
-        "subagents": {
-          "allowAgents": [
-            "main",
-            "coder",
-            "researcher",
-            "projectmanager",
-            "educationexpert"
-          ]
-        },
-        "tools": {
-          "allow": [
-            "sessions_spawn",
-            "sessions_send",
-            "sessions_list",
-            "sessions_history",
-            "session_status",
-            "subagents",
-            "read",
-            "exec"
-          ]
-        }
+        "id": "projectmanager"
       },
       {
-        "id": "educationexpert",
-        "name": "educationexpert",
-        "workspace": "/Users/shengpeng319/.openclaw/workspace-educationexpert",
-        "agentDir": "/Users/shengpeng319/.openclaw/agents/educationexpert/agent",
-        "subagents": {
-          "allowAgents": [
-            "main",
-            "coder",
-            "researcher",
-            "projectmanager",
-            "educationexpert"
-          ]
-        },
-        "tools": {
-          "allow": [
-            "sessions_spawn",
-            "sessions_send",
-            "sessions_list",
-            "sessions_history",
-            "session_status",
-            "subagents",
-            "read",
-            "exec"
-          ]
-        }
+        "id": "educationexpert"
+      },
+      {
+        "id": "financialadvisor"
       }
     ]
   },
@@ -332,6 +217,13 @@
         "channel": "feishu",
         "accountId": "educationexpert"
       }
+    },
+    {
+      "agentId": "financialadvisor",
+      "match": {
+        "channel": "feishu",
+        "accountId": "financialadvisor"
+      }
     }
   ],
   "messages": {
@@ -370,7 +262,7 @@
   },
   "channels": {
     "feishu": {
-      "enabled": false,
+      "enabled": true,
       "domain": "feishu",
       "groups": {
         "oc_49bd38a7e7152bafbb125392b40e2939": {
@@ -410,6 +302,11 @@
           "allowFrom": [
             "*"
           ]
+        },
+        "financialadvisor": {
+          "appId": "cli_a9340afcd9f89cb6",
+          "appSecret": "iPcnmNkrmsdD5MKb01m8Cha7NknFPnVQ",
+          "botName": "Emily - Financial Advisor"
         }
       },
       "footer": {
@@ -487,9 +384,6 @@
         "enabled": false
       },
       "notion": {
-        "enabled": false
-      },
-      "nano-banana-pro": {
         "enabled": false
       },
       "model-usage": {
@@ -571,17 +465,21 @@
         "enabled": true
       },
       "searxng": {
-        "enabled": true,
-        "env": {
-          "SEARXNG_URL": "http://localhost:12613"
-        }
+        "enabled": false
+      },
+      "playwright": {
+        "enabled": true
+      },
+      "news-summary": {
+        "enabled": false
       }
     }
   },
   "plugins": {
     "allow": [
       "lossless-claw",
-      "openclaw-weixin"
+      "openclaw-weixin",
+      "feishu"
     ],
     "slots": {
       "memory": "memory-core",
@@ -599,6 +497,9 @@
       },
       "openclaw-weixin": {
         "enabled": true
+      },
+      "feishu": {
+        "enabled": true
       }
     },
     "installs": {
@@ -612,34 +513,21 @@
         "resolvedSpec": "@martian-engineering/lossless-claw@0.3.0",
         "integrity": "sha512-SsY0bp3SoSzEu+KB8fOBke46MFhTmslfWg6OvC4pShq34ig2+V+jkTFAHib8PTZ0MoethAddR+ZmRN9OASorAA==",
         "shasum": "bc9725d6d59d9b1523128ab528f1258c4258fa3f",
-        "resolvedAt": "2026-03-19T02:32:37.073Z",
-        "installedAt": "2026-03-19T02:34:11.894Z"
-      },
-      "feishu": {
-        "source": "npm",
-        "spec": "@m1heng-clawd/feishu@0.1.17",
-        "installPath": "/Users/shengpeng319/.openclaw/extensions/feishu",
-        "version": "0.1.17",
-        "resolvedName": "@m1heng-clawd/feishu",
-        "resolvedVersion": "0.1.17",
-        "resolvedSpec": "@m1heng-clawd/feishu@0.1.17",
-        "integrity": "sha512-6BMqvndOXvWvGzMJEQQdp3vX1jidaIXrwwlz6Q8F5gC+yzcuHmNqIaAxXsrVOj7jaEAtznFjGmPWZ97sGc2eRw==",
-        "shasum": "4e33e4c0cef6593da0b9e40f96d9310adc5bf6ab",
-        "resolvedAt": "2026-03-19T02:34:13.456Z",
-        "installedAt": "2026-03-19T02:34:33.403Z"
+        "resolvedAt": "2026-03-25T01:03:41.642Z",
+        "installedAt": "2026-03-25T01:04:09.776Z"
       },
       "openclaw-weixin": {
         "source": "npm",
-        "spec": "@tencent-weixin/openclaw-weixin@legacy",
+        "spec": "@tencent-weixin/openclaw-weixin",
         "installPath": "/Users/shengpeng319/.openclaw/extensions/openclaw-weixin",
-        "version": "1.0.3",
+        "version": "2.0.1",
         "resolvedName": "@tencent-weixin/openclaw-weixin",
-        "resolvedVersion": "1.0.3",
-        "resolvedSpec": "@tencent-weixin/openclaw-weixin@1.0.3",
-        "integrity": "sha512-TOo9rb5gt3ce3lJEulFT5Ta4/8ocWkR40wzM7lZ8OM3/fjTk3UHYeNjHmDcZlLeg93XYJKdVUFUEiujrf8zMYw==",
-        "shasum": "19f65f26d4af26a25f05cdd5f1dd3c687590f91c",
-        "resolvedAt": "2026-03-24T15:11:26.187Z",
-        "installedAt": "2026-03-24T15:12:24.530Z"
+        "resolvedVersion": "2.0.1",
+        "resolvedSpec": "@tencent-weixin/openclaw-weixin@2.0.1",
+        "integrity": "sha512-Ib7onvLU8a1ox9craMZxPwrN+ffJQJbToZzeMwoYryBOMIoBlVY0oCuQF7BZvZ7GRQQKOSSAdxvFkO47hKu0rg==",
+        "shasum": "06339fdc83226454e1286221889fd62c76ae2463",
+        "resolvedAt": "2026-03-25T01:17:16.821Z",
+        "installedAt": "2026-03-25T01:18:02.227Z"
       }
     }
   }
