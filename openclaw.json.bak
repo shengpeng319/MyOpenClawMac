@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.23-2",
-    "lastTouchedAt": "2026-03-25T01:24:57.558Z"
+    "lastTouchedAt": "2026-03-25T14:46:39.653Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-25T00:54:45.117Z",
@@ -110,7 +110,6 @@
           "alias": "qwen3.5"
         }
       },
-      "workspace": "/Users/shengpeng319/.openclaw/workspace",
       "memorySearch": {
         "enabled": true,
         "sources": [
@@ -120,7 +119,8 @@
         "experimental": {
           "sessionMemory": true
         },
-        "provider": "local"
+        "provider": "ollama",
+        "model": "nomic-embed-text"
       },
       "compaction": {
         "mode": "safeguard",
@@ -139,22 +139,179 @@
     },
     "list": [
       {
-        "id": "main"
+        "id": "main",
+        "default": true,
+        "name": "Jarvis",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-main",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "coder"
+        "id": "coder",
+        "name": "Bonnie - Coder",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "researcher"
+        "id": "researcher",
+        "name": "Claire - Researcher",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-researcher",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/researcher/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "projectmanager"
+        "id": "projectmanager",
+        "name": "Annie - Project Manager",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "educationexpert"
+        "id": "educationexpert",
+        "name": "Diana - Education Expert",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-educationexpert",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/educationexpert/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "financialadvisor"
+        "id": "financialadvisor",
+        "name": "Emily - Financial Advisor",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-financialadvisor",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/financialadvisor/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       }
     ]
   },
@@ -171,6 +328,7 @@
     "agentToAgent": {
       "enabled": true,
       "allow": [
+        "financialadvisor",
         "main",
         "coder",
         "researcher",
@@ -340,7 +498,7 @@
   "skills": {
     "load": {
       "extraDirs": [
-        "/Users/shengpeng319/.openclaw/skills"
+        "/Users/shengpeng319/.openclaw/workspace/skills"
       ]
     },
     "install": {
@@ -471,14 +629,13 @@
         "enabled": true
       },
       "news-summary": {
-        "enabled": false
+        "enabled": true
       }
     }
   },
   "plugins": {
     "allow": [
       "lossless-claw",
-      "openclaw-weixin",
       "feishu"
     ],
     "slots": {
@@ -494,9 +651,6 @@
       },
       "memory-lancedb": {
         "enabled": false
-      },
-      "openclaw-weixin": {
-        "enabled": true
       },
       "feishu": {
         "enabled": true
@@ -515,20 +669,12 @@
         "shasum": "bc9725d6d59d9b1523128ab528f1258c4258fa3f",
         "resolvedAt": "2026-03-25T01:03:41.642Z",
         "installedAt": "2026-03-25T01:04:09.776Z"
-      },
-      "openclaw-weixin": {
-        "source": "npm",
-        "spec": "@tencent-weixin/openclaw-weixin",
-        "installPath": "/Users/shengpeng319/.openclaw/extensions/openclaw-weixin",
-        "version": "2.0.1",
-        "resolvedName": "@tencent-weixin/openclaw-weixin",
-        "resolvedVersion": "2.0.1",
-        "resolvedSpec": "@tencent-weixin/openclaw-weixin@2.0.1",
-        "integrity": "sha512-Ib7onvLU8a1ox9craMZxPwrN+ffJQJbToZzeMwoYryBOMIoBlVY0oCuQF7BZvZ7GRQQKOSSAdxvFkO47hKu0rg==",
-        "shasum": "06339fdc83226454e1286221889fd62c76ae2463",
-        "resolvedAt": "2026-03-25T01:17:16.821Z",
-        "installedAt": "2026-03-25T01:18:02.227Z"
       }
+    }
+  },
+  "mcpServers": {
+    "tavily": {
+      "baseUrl": "https://mcp.tavily.com/mcp/?tavilyApiKey=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"
     }
   }
 }

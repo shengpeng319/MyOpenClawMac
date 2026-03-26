@@ -101,3 +101,36 @@
 ---
 
 *Updated: 2026-03-13*
+
+---
+
+## IMA API 集成 (2026-03-26)
+
+**凭证已配置**
+- client_id: `d3f4e56d8d9494225d0c84d75f679989`
+- API Key: 已保存到 `~/.config/ima/api_key`
+- Base URL: `https://ima.qq.com/openapi/note/v1/`
+
+**认证方式（重要）**
+- 需要用 header 格式: `ima-openapi-clientid` + `ima-openapi-apikey`
+- JSON body 格式不工作
+- endpoint `search_note_book` 需要参数: `{"search_type": 0, "query_info": {...}, "start": 0, "end": 20}`
+
+**经验教训**
+- 调试 IMA API 时，先用 -v 看详细响应
+- "skill auth failed" = header 格式正确但凭证无效
+- "clientID or apiKey is empty" = JSON body 格式（错误）
+
+---
+
+## 记忆系统架构 (2026-03-26)
+
+**三层记忆架构**
+| 层级 | 位置 | 状态 |
+|-----|------|------|
+| Session logs | ~/.openclaw/agents/<agent>/sessions/*.jsonl | ✅ 正常 |
+| Daily memory | memory/YYYY-MM-DD.md | ✅ 今日已创建 |
+| Long-term | MEMORY.md | ⚠️ 需更新 |
+
+**注意**: 需要定期将每日重要内容提炼到 MEMORY.md
+

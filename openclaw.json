@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.23-2",
-    "lastTouchedAt": "2026-03-25T01:31:41.820Z"
+    "lastTouchedAt": "2026-03-25T16:29:14.722Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-25T00:54:45.117Z",
@@ -119,7 +119,8 @@
         "experimental": {
           "sessionMemory": true
         },
-        "provider": "local"
+        "provider": "ollama",
+        "model": "nomic-embed-text"
       },
       "compaction": {
         "mode": "safeguard",
@@ -155,7 +156,7 @@
         },
         "tools": {
           "allow": [
-        "financialadvisor",
+            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -184,7 +185,7 @@
         },
         "tools": {
           "allow": [
-        "financialadvisor",
+            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -213,7 +214,7 @@
         },
         "tools": {
           "allow": [
-        "financialadvisor",
+            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -242,7 +243,7 @@
         },
         "tools": {
           "allow": [
-        "financialadvisor",
+            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -271,7 +272,7 @@
         },
         "tools": {
           "allow": [
-        "financialadvisor",
+            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -300,7 +301,7 @@
         },
         "tools": {
           "allow": [
-        "financialadvisor",
+            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -629,15 +630,17 @@
       },
       "news-summary": {
         "enabled": true
+      },
+      "openai-whisper": {
+        "enabled": false
       }
     }
   },
   "plugins": {
     "allow": [
-        "financialadvisor",
       "lossless-claw",
-      "openclaw-weixin",
-      "feishu"
+      "feishu",
+      "tavily"
     ],
     "slots": {
       "memory": "memory-core",
@@ -653,11 +656,16 @@
       "memory-lancedb": {
         "enabled": false
       },
-      "openclaw-weixin": {
-        "enabled": true
-      },
       "feishu": {
         "enabled": true
+      },
+      "tavily": {
+        "enabled": true,
+        "config": {
+          "webSearch": {
+            "apiKey": "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"
+          }
+        }
       }
     },
     "installs": {
@@ -673,19 +681,6 @@
         "shasum": "bc9725d6d59d9b1523128ab528f1258c4258fa3f",
         "resolvedAt": "2026-03-25T01:03:41.642Z",
         "installedAt": "2026-03-25T01:04:09.776Z"
-      },
-      "openclaw-weixin": {
-        "source": "npm",
-        "spec": "@tencent-weixin/openclaw-weixin",
-        "installPath": "/Users/shengpeng319/.openclaw/extensions/openclaw-weixin",
-        "version": "2.0.1",
-        "resolvedName": "@tencent-weixin/openclaw-weixin",
-        "resolvedVersion": "2.0.1",
-        "resolvedSpec": "@tencent-weixin/openclaw-weixin@2.0.1",
-        "integrity": "sha512-Ib7onvLU8a1ox9craMZxPwrN+ffJQJbToZzeMwoYryBOMIoBlVY0oCuQF7BZvZ7GRQQKOSSAdxvFkO47hKu0rg==",
-        "shasum": "06339fdc83226454e1286221889fd62c76ae2463",
-        "resolvedAt": "2026-03-25T01:17:16.821Z",
-        "installedAt": "2026-03-25T01:18:02.227Z"
       }
     }
   }

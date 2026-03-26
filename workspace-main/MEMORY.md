@@ -144,3 +144,36 @@
 - 事件驱动分析（地缘政治、财报等）
 
 *Updated: 2026-03-21*
+
+---
+
+## Memory Search 配置要点 (2026-03-25)
+
+**QMD vs Memory Search 区别**
+- QMD 只是 Memory Search 的一个可选后端（本地方案）
+- 远程 API（OpenAI/Gemini）方案更简单，不需要安装 QMD
+- 如配置 Memory Search，优先考虑远程 API
+
+---
+
+## Emily-Claire 多 Agent 协作模式 (2026-03-25)
+
+**Agent 分工**
+- **Emily**：financial advisor agent，生成投资研报
+- **Claire**：researcher agent，review 并提供反馈
+
+**协作流程**：Emily 发报告 → Claire review → 追踪改进
+
+---
+
+## Emily 量化交易项目 Review 要点 (2026-03-25)
+
+**Claire 发现的核心问题**
+- 风控漏洞（跨策略仓位叠加、隔夜跳空、单点故障）
+- 策略太简单（需 ADX/成交量确认/ETF 代理）
+- 遗漏模块（订单队列、崩溃恢复、性能监控）
+- 技术选型错误（Python 3.14 太新、alpaca-trade-api 已废弃）
+
+**详细 checklist**（目录结构、新增模块、依赖、路线图、测试、安全）已存到 `workspace-financialadvisor/MEMORY.md`
+
+*Updated: 2026-03-25*
