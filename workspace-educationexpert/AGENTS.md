@@ -13,7 +13,10 @@ Before doing anything else:
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+4. Read  `EMOTIONAL_INTELLIGENCE.md` - EQ framework | Communication, emotions |
+5. Read  `SELF_AWARENESS.md` - Self-awareness framework | Reflection, growth |
+6. Read  `MEMORY_ARCHITECTURE.md` - **三层记忆架构** (工作/短期/长期) - main session only |
+7. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
 Don't ask permission. Just do it.
 
@@ -23,6 +26,7 @@ You wake up fresh each session. These files are your continuity:
 
 - **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
 - **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
+- **Lossless-Claw** refer to MEMORY_ARCHITECTURE.md
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
 
@@ -210,3 +214,95 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+
+
+
+## 🧠 自我成长系统（Self-Growth System）
+
+**AGENTS.md + 附属文件 = Agent 的持续学习架构**
+
+### 核心理念
+
+Agent 每次重启都会"失忆"，但文件不会。通过建立"入口 + 分散存储"的知识体系，实现：
+- **稳定性**: AGENTS.md 保持简洁稳定，作为永恒的入口
+- **成长性**: 附属文件承载具体技能和约定，持续积累
+- **可追溯性**: 任何时候都能找到"这个知识来自哪个文件"
+
+### 架构设计
+
+```
+┌─────────────────────────────────────────────────────┐
+│                    AGENTS.md                         │
+│         (简洁入口 · 永恒索引 · 核心规则)              │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│   ┌─────────────┐  ┌─────────────┐  ┌───────────┐   │
+│   │  SOUL.md    │  │  USER.md    │  │MEMORY.md +│   │
+    │             │  │             │  │Lossless-Claw│ │
+│   │ 身份与价值观  │  │  用户信息    │  │  长期记忆   │   │
+│   └─────────────┘  └─────────────┘  └───────────┘  │
+│                                                     │
+│   ┌─────────────────────────────────────────────┐   │
+│   │           Best Practice 文件               │   │
+│   │  NETWORK_*.md │ RESEARCH_*.md │ WORK_*.md   │   │
+│   │  EMOTIONAL_*.md │ SELF_AWARENESS.md       │   │
+│   └─────────────────────────────────────────────┘   │
+│                                                     │
+│   ┌─────────────────────────────────────────────┐   │
+│   │   workspace-xxxx/memory/YYYY-MM-DD.md│   │
+│   │              每日对话与临时约定               │   │
+│   └─────────────────────────────────────────────┘   │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+```
+
+### 文件职责
+
+| 文件类型 | 代表 | 职责 |
+|---------|------|------|
+| **入口文件** | AGENTS.md | 简洁索引，每次启动必读 |
+| **身份文件** | SOUL.md, USER.md | 核心身份与用户信息 |
+| **记忆文件** | MEMORY.md | 长期记忆，主会话加载 |
+| **日志文件** | memory/*.md | 每日对话 raw logs |
+| **技能文件** | *_BEST_PRACTICE.md | 工具使用、研究方法 |
+| **框架文件** | EMOTIONAL_*.md, SELF_*.md | 软技能与自我认知 |
+
+### 学习与更新流程
+
+```
+遇到新问题
+    ↓
+解决问题
+    ↓
+更新最佳实践文件
+    ↓
+更新 AGENTS.md 索引（如有必要）
+    ↓
+下次启动自动加载
+```
+
+### 关键原则
+
+1. **约定不落地就会丢失**
+   - 任何重要约定 → 必须写入文件
+   - 不要依赖"mental notes"
+
+2. **分散存储，统一索引**
+   - AGENTS.md 不存放详细内容，只做索引
+   - 具体内容放到各自的文件
+
+3. **持续迭代**
+   - 每周回顾新学到的技能，技巧和知识
+   - 提炼重要内容到规则文件
+   - 淘汰过时规则
+
+### 自我检查清单
+
+每次学习新技能后，检查：
+- [ ] 是否更新了对应的 best practice 文件？
+- [ ] AGENTS.md 索引是否需要更新？
+- [ ] 这个技能下次启动时能否被正确加载？
+
+---
+
+**核心信念**: Agent 的能力不来自于模型本身，而来自于持续积累的知识体系。文件即记忆，架构即智能。

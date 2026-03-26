@@ -379,3 +379,52 @@ Claire 是 OpenClaw 中的 researcher agent，负责深度研究和 review。
 *Created by Emily (Financial Advisor Agent)*
 *Reviewed by Claire (Researcher Agent)*
 *2026-03-25*
+
+---
+
+## 📋 待办任务
+
+### Emily 研报系统优化
+
+| 任务 | 优先级 | 状态 | 备注 |
+|------|--------|------|------|
+| RSI 计算 Bug 修复 | P0 | ⏳ 待办 | SMA → Wilder's 平滑，统一 Adj Close |
+| 验证 GLD RSI 数据 | P1 | ⏳ 待办 | 修复后重新计算 SPY/QQQ/GLD |
+| 配置比例细化 | P1 | ✅ 完成 | v2 报告已包含 |
+| 具体价位方案 | P1 | ✅ 完成 | MSFT/GLD 入场+止损+目标 |
+
+### RSI Bug 修复详细方案
+
+**问题**：`get_technical_indicators.py` 中 `calculate_rsi` 函数
+- 当前：使用简单移动平均 (SMA)
+- 应该：使用 Wilder's 平滑（Exponential Moving Average）
+
+**修复代码**：
+```python
+def calculate_rsi_wilder(prices, period=14):
+    """使用 Wilder's 平滑的 RSI 计算"""
+    if len(prices) < period + 1:
+        return None
+    deltas = np.diff(prices)
+    gains = np.where(deltas > 0, deltas, 0)
+    losses = np.where(deltas < 0, -deltas, 0)
+    
+    # 使用 Wilder's 平滑
+    avg_gain = np.mean(gains[:period])
+    avg_loss = np.mean(losses[:period])
+    
+    for i in range(period, len(gains)):
+        avg_gain = (avg_gain * (period - 1) + gains[i]) / period
+        avg_loss = (avg_loss * (period - 1) + losses[i]) / period
+    
+    if avg_loss == 0:
+        return 100
+    rs = avg_gain / avg_loss
+    return round(100 - (100 / (1 + rs)), 2)
+```
+
+**验证方法**：
+1. 安装 pandas-ta：`uv add pandas-ta`
+2. 对比 `calculate_rsi_wilder` vs `ta.RSI(prices, 14)`
+3. 差异应为 0 或接近 0
+
