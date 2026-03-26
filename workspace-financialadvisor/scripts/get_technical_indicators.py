@@ -2,8 +2,13 @@
 """
 Emily 技术指标计算脚本
 计算 RSI、MACD、Bollinger Bands、移动均线等
+
+Bug修复 (2026-03-26):
+- RSI 计算从 SMA 改为 Wilder's 平滑 (与 pandas-ta/TradingView 一致)
+- 改用 Adj Close 替代 Close (考虑分红/拆股调整)
 """
 import sys
+import numpy as np
 from datetime import datetime
 
 def calculate_sma(prices, period):
@@ -21,21 +26,36 @@ def calculate_ema(prices, period):
     return ema
 
 def calculate_rsi(prices, period=14):
+    """
+    使用 Wilder's 平滑计算 RSI (标准 RSI 算法)
+    与 pandas-ta.ta.RSI() 和 TradingView 一致
+    """
     if len(prices) < period + 1:
         return None
-    gains, losses = [], []
-    for i in range(1, len(prices)):
-        change = prices[i] - prices[i-1]
-        gains.append(change if change > 0 else 0)
-        losses.append(abs(change) if change < 0 else 0)
-    if len(gains) < period:
-        return None
-    avg_gain = sum(gains[-period:]) / period
-    avg_loss = sum(losses[-period:]) / period
+    
+    # Calculate price changes
+    deltas = np.diff(prices)
+    
+    # Separate gains and losses
+    gains = np.where(deltas > 0, deltas, 0.0)
+    losses = np.where(deltas < 0, -deltas, 0.0)
+    
+    # Initialize with SMA for first period (Wilder's 平滑起点)
+    avg_gain = np.mean(gains[:period])
+    avg_loss = np.mean(losses[:period])
+    
+    # Apply Wilder's smoothing for remaining values
+    # avg_gain = (prev_avg_gain * (period - 1) + current_gain) / period
+    for i in range(period, len(gains)):
+        avg_gain = (avg_gain * (period - 1) + gains[i]) / period
+        avg_loss = (avg_loss * (period - 1) + losses[i]) / period
+    
     if avg_loss == 0:
-        return 100
+        return 100.0
+    
     rs = avg_gain / avg_loss
-    return round(100 - (100 / (1 + rs)), 2)
+    rsi = 100 - (100 / (1 + rs))
+    return round(rsi, 2)
 
 def calculate_macd(prices, fast=12, slow=26, signal=9):
     if len(prices) < slow + signal:
@@ -77,7 +97,13 @@ def get_technical_summary(ticker, period='3mo'):
     hist = stock.history(period=period)
     if hist.empty or len(hist) < 50:
         return None
-    closes = hist['Close'].tolist()
+    
+    # Bug fix: 使用 Adj Close 替代 Close (考虑分红/拆股调整)
+    if 'Adj Close' in hist.columns:
+        closes = hist['Adj Close'].tolist()
+    else:
+        closes = hist['Close'].tolist()
+    
     highs = hist['High'].tolist()
     lows = hist['Low'].tolist()
     volumes = hist['Volume'].tolist()

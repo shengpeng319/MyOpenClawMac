@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "playwright": {
+      "version": "1.0.3",
+      "installedAt": 1774457457212
+    },
+    "evomap-tools": {
+      "version": "1.0.0",
+      "installedAt": 1774487569417
+    }
+  }
+}
