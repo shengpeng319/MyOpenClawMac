@@ -8,6 +8,14 @@
     "evomap-tools": {
       "version": "1.0.0",
       "installedAt": 1774487569417
+    },
+    "opencli-skill": {
+      "version": "1.0.0",
+      "installedAt": 1774593506257
+    },
+    "cli-anything-openclaw": {
+      "version": "0.1.0",
+      "installedAt": 1774604447825
     }
   }
 }

@@ -1,41 +1,29 @@
-# Autoresearch Configuration - Emily 研报审核
+# Autoresearch Config: 美股量化交易 API 研究
 
-## Goal
-通过迭代审核流程，提升 Emily 投资研报质量，达到 production-ready 标准（≥90分）。
+## 任务目标
+研究适合美股量化交易的 API，整理成最终推荐清单
 
-## Metric
-- **Name**: 研报评分 (0-100)
-- **Direction**: 越高越好
-- **评估维度**:
-  - 数据准确性 (25分)
-  - 技术分析完整性 (25分)
-  - 投资建议可操作性 (25分)
-  - 格式规范/预测跟踪 (25分)
+## 研究问题
+业界有哪些 API 适合做美股的量化自动化交易？
 
-## Target Files
-- Emily 研报: `/Users/shengpeng319/.openclaw/workspace-financialadvisor/results/report_YYYYMMDD.md`
-- Emily 框架模板: `/Users/shengpeng319/.openclaw/workspace-financialadvisor/MARKET_ANALYSIS_FRAMEWORK.md`
+## 验证维度
+1. **数据覆盖**：行情、技术指标、基本面、新闻
+2. **免费额度**：是否有免费层、限制多少
+3. **API 限制**：频率限制、延迟、可靠性
+4. **易用性**：文档质量、Python 封装、执行门槛
 
-## Read-Only Files
-- Yahoo Finance 数据源 (只读)
-- 我的审核标准和反馈意见
+## 初始候选 API（待验证）
+- 行情：yfinance, Finnhub, Polygon.io, Alpha Vantage
+- 技术指标：pandas-ta, Alpha Vantage
+- 基本面：SEC EDGAR, yfinance
+- 新闻：NewsAPI, Benzinga, Finnhub News
+- 交易执行：Alpaca, Interactive Brokers, TD Ameritrade
 
-## Run Command
-Emily 根据反馈修订报告，生成新版本 (v3.3, v3.4...)
+## 评分标准（待设定）
+- 实用性
+- 成本效率
+- 数据质量
 
-## Time Budget
-- **每次迭代**: 5-10 分钟 (Emily 修订)
-- **Kill timeout**: 15 分钟
+## 成功标准
+整理出 3-5 个核心 API 推荐组合，覆盖行情+基本面+新闻+执行
 
-## Constraints
-- 不修改 Yahoo Finance 数据获取逻辑
-- 只审核已生成的报告
-- 反馈必须具体、可操作
-
-## Branch
-`autoresearch/emily-report-review-20260327`
-
-## Notes
-- 审核对象: Emily 2026-03-27 研报
-- 当前版本得分: 75/100
-- 待解决问题: RSI 计算修复、具体价位、预测跟踪表

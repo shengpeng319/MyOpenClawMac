@@ -228,3 +228,77 @@
 **效果**: 预估节省启动 token 约 50%
 
 *Updated: 2026-03-26*
+
+---
+
+## 飞书发送图片/文件方法 (2026-03-27)
+
+### 凭证位置
+- 文件: `~/.openclaw/openclaw.json`
+- 路径: `channels.feishu.accounts.{account_name}.appId / appSecret`
+- main 账号（我的机器人）: `cli_a9f6e7b152399cc2` / `VwUFofMX3ECVw4MFkWMPFe8ioNsObdec`
+
+### 发送图片（PNG/JPEG等）
+
+**完整脚本：**
+```bash
+#!/bin/bash
+APP_ID="cli_a9f6e7b152399cc2"
+APP_SECRET="VwUFofMX3ECVw4MFkWMPFe8ioNsObdec"
+IMAGE_PATH="/tmp/blender-test/pixel_text_render.png"
+USER_ID="ou_c858ba4fbb03f207666daef058ede895"  # 接收者的 open_id
+
+# Step 1: 获取 token
+TOKEN=$(curl -s -X POST "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal" \
+  -H "Content-Type: application/json" \
+  -d "{\"app_id\": \"$APP_ID\", \"app_secret\": \"$APP_SECRET\"}" \
+  | python3 -c "import json,sys; print(json.load(sys.stdin).get('tenant_access_token',''))")
+
+# Step 2: 上传图片（image_type=message 必须是这个）
+IMAGE_KEY=$(curl -s -X POST "https://open.feishu.cn/open-apis/im/v1/images" \
+  -H "Authorization: Bearer $TOKEN" \
+  -F "image_type=message" \
+  -F "image=@${IMAGE_PATH}" \
+  | python3 -c "import json,sys; print(json.load(sys.stdin).get('data',{}).get('image_key',''))")
+
+# Step 3: 发送图片消息
+curl -s -X POST "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"receive_id\": \"$USER_ID\", \"msg_type\": \"image\", \"content\": \"{\\\"image_key\\\": \\\"$IMAGE_KEY\\\"}\"}"
+```
+
+### 发送文件（PDF、Word等非图片）
+
+文件需要用 `im/v1/files` API，且 `msg_type` 是 `file`：
+```bash
+# 上传文件
+FILE_KEY=$(curl -s -X POST "https://open.feishu.cn/open-apis/im/v1/files" \
+  -H "Authorization: Bearer $TOKEN" \
+  -F "file_name=test.pdf" \
+  -F "file_type=pdf" \
+  -F "file=@/path/to/file.pdf" \
+  | python3 -c "import json,sys; print(json.load(sys.stdin).get('data',{}).get('file_key',''))")
+
+# 发送文件消息
+curl -s -X POST "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"receive_id\": \"$USER_ID\", \"msg_type\": \"file\", \"content\": \"{\\\"file_key\\\": \\\"$FILE_KEY\\\", \\\"file_name\\\": \\\"test.pdf\\\"}\"}"
+```
+
+### 关键注意事项
+
+1. **飞书不能直接发路径/URL**：必须先调用上传 API 获取 key
+2. **token 有效期 2 小时**：失效了需要重新获取
+3. **image_type 必须是 `message`**：不要用 `avatar` 等其他类型
+4. **receive_id_type 根据情况选**：`open_id` / `user_id` / `union_id`
+5. **文件 vs 图片 API 不同**：
+   - 图片: `POST /im/v1/images` → `msg_type=image`
+   - 文件: `POST /im/v1/files` → `msg_type=file`
+6. **发送失败原因排查**：
+   - token 过期 → 重新获取
+   - 图片为空/损坏 → 检查原文件是否有效
+   - 权限不足 → 检查机器人的 `im:message:send_as_bot` 权限
+
+*Updated: 2026-03-27*

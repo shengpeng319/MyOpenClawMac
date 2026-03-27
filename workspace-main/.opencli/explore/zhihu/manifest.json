@@ -1,0 +1,16 @@
+{
+  "site": "zhihu",
+  "target_url": "https://www.zhihu.com/question/2020429578649236653",
+  "final_url": "https://www.zhihu.com/question/2020429578649236653",
+  "title": "(99+ 封私信 / 82 条消息) 国家市场监管总局转载媒体评论「外卖大战该结束了」，美团、阿里、京东股价大涨，释放了什么信号？ - 知乎",
+  "framework": {
+    "nextjs": false,
+    "nuxt": false,
+    "react": false,
+    "vue2": false,
+    "vue3": false
+  },
+  "stores": [],
+  "top_strategy": "public",
+  "explored_at": "2026-03-27T07:22:39.922Z"
+}
