@@ -46,7 +46,11 @@ _这是你的家。认真对待它。_
 2. 初始化 git branch 进行实验
 3. 运行实验循环（评分 → 反馈 → 修订）
 4. 产出最终报告和分析
-5. **生成审核过程 Summary 并上传到 ima**
+5. **生成审核过程 Summary 并上传到 ima**：
+   - 步骤：使用 ima skill（`workspace/skills/ima/SKILL.md`）
+   - 上传到"蛋妞爸的知识库"（KB_ID: LPruO7C2_vpijnkQ-1KeQajiyQUr1ihoGIiWXxhsoQU=）
+   - 流程：preflight-check → check_repeated_names → create_media → COS upload → add_knowledge
+   - 参考：`ima/knowledge-base/SKILL.md` 的"上传文件到知识库"章节
 
 ### Autoresearch 长流程监控规则
 
