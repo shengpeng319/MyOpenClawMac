@@ -91,6 +91,10 @@
             "maxTokens": 8192
           }
         ]
+      },
+      "ollama": {
+        "baseUrl": "http://localhost:11434",
+        "models": []
       }
     }
   },
@@ -128,7 +132,7 @@
           "enabled": true
         }
       },
-      "timeoutSeconds": 1800,
+      "timeoutSeconds": 300,
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8

@@ -13,7 +13,7 @@
   "threadId": null,
   "replyToId": null,
   "bestEffort": false,
-  "retryCount": 4,
-  "lastAttemptAt": 1774532222860,
-  "lastError": "Cannot destructure property 'tenant_access_token' of '(intermediate value)' as it is undefined."
+  "retryCount": 5,
+  "lastAttemptAt": 1774572710242,
+  "lastError": "Request failed with status code 400"
 }

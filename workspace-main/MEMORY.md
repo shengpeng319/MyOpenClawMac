@@ -177,3 +177,54 @@
 **详细 checklist**（目录结构、新增模块、依赖、路线图、测试、安全）已存到 `workspace-financialadvisor/MEMORY.md`
 
 *Updated: 2026-03-25*
+
+---
+
+## IMA Skill 使用要点 (2026-03-26)
+
+**IMA Skill 位置**
+- 路径: `~/.openclaw/workspace/skills/ima/`
+- 注意: 系统 skill 列表不包含它，但 import_doc API 可用
+
+**IMA 笔记上传 Doc IDs**
+- Agent 开发课程第一课 (什么是 Agent): 7442848899167446
+- Agent 开发课程第二课 (核心架构): 7442850757243064
+- Agent 局限性第十一课: 7442930323190905
+
+---
+
+## 网络搜索 Fallback 技巧 (2026-03-26)
+
+**问题**: SearXNG 返回非标准 JSON
+**解决方案**: 换用 DuckDuckGo HTML
+
+---
+
+## Subagent 设计原则 (2026-03-26)
+
+**关键**: 设计 subagent 任务方案时要确保方案完整可执行
+- coder subagent 产出了完整可执行的重构方案
+- 方案包含具体步骤和执行路径
+
+---
+
+## GitHub 备份配置 (2026-03-26)
+
+**备份目标**: shengpeng319/MyOpenClawMac
+**备份内容**: AGENT_DEVELOPMENT_GUIDE.md + 各 workspace 配置
+**命令**: git push
+
+---
+
+## 多 Agent Workspace 重构效果 (2026-03-26)
+
+**成果**: 6 个 agent workspace 重构
+**操作**:
+- 删除冗长的 MEMORY_ARCHITECTURE.md → 替换为简洁的 MEMORY_GUIDE.md
+- 删除 NETWORK_ACCESS_BEST_PRACTICE.md → 替换为简洁的 NETWORK_GUIDE.md
+- 精简 AGENTS.md（340行 → ~120行）
+- 保留专业文件
+
+**效果**: 预估节省启动 token 约 50%
+
+*Updated: 2026-03-26*
