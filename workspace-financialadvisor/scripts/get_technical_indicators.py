@@ -94,7 +94,7 @@ def calculate_atr(highs, lows, closes, period=14):
 def get_technical_summary(ticker, period='3mo'):
     import yfinance as yf
     stock = yf.Ticker(ticker)
-    hist = stock.history(period=period)
+    hist = stock.history(period=period, auto_adjust=True)
     if hist.empty or len(hist) < 50:
         return None
     
