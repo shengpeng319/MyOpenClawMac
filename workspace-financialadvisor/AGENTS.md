@@ -38,6 +38,24 @@ _这是你的家。认真对待它。_
 - 破坏性命令先问
 - `trash` > `rm`
 
+## 跨 Agent 消息发送 (sessions_send)
+
+**问题：** sessions_send 工具默认 30 秒超时，大消息失败
+
+**解决：** 用 CLI 命令代替工具调用
+
+```bash
+MSG=$(echo "消息" | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read()))')
+openclaw gateway call sessions.send --params "{\"key\":\"<session_key>\",\"message\":$MSG}" --timeout 300000
+```
+
+**要点：**
+- `key` = 完整 session key（如 `agent:researcher:feishu:direct:ou_cf1a1ee3279590e248bcfed4d0838c22`）
+- `--timeout` = 毫秒，建议 300000
+- 大文件只发路径，不发内容
+- 常用 key: researcher=`ou_cf1a1ee3279590e248bcfed4d0838c22`, financialadvisor=`ou_cd9dabe38e7378c0eef8b7a6c048591e`
+
+
 ## 工具
 
 技能定义工具怎么用。`TOOLS.md` 存你的本地配置（SSH 别名、TTS 声音偏好等）。
