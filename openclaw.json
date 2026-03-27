@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.23-2",
-    "lastTouchedAt": "2026-03-27T07:48:44.765Z"
+    "lastTouchedAt": "2026-03-27T12:21:43.442Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-25T00:54:45.117Z",
@@ -131,8 +131,8 @@
         "memoryFlush": {
           "enabled": true,
           "softThresholdTokens": 4000,
-          "systemPrompt": "Session nearing compaction. Store durable memories now.",
-          "prompt": "Write any lasting notes to memory/YYYY-MM-DD.md; reply with NO_REPLY if nothing to store."
+          "prompt": "Write any lasting notes to memory/YYYY-MM-DD.md; reply with NO_REPLY if nothing to store.",
+          "systemPrompt": "Session nearing compaction. Store durable memories now."
         }
       },
       "timeoutSeconds": 300,
@@ -643,6 +643,45 @@
       },
       "proactive-agent": {
         "enabled": true
+      },
+      "agent-reach": {
+        "enabled": true
+      },
+      "autoresearch": {
+        "enabled": true
+      },
+      "find-skills": {
+        "enabled": true
+      },
+      "humanizer": {
+        "enabled": true
+      },
+      "ima": {
+        "enabled": true
+      },
+      "marketing-skills": {
+        "enabled": true
+      },
+      "playwright-cli": {
+        "enabled": true
+      },
+      "self-improving-agent": {
+        "enabled": true
+      },
+      "skill-vetter": {
+        "enabled": true
+      },
+      "stock-market-pro": {
+        "enabled": true
+      },
+      "tavily": {
+        "enabled": true
+      },
+      "ui-ux-pro-max": {
+        "enabled": true
+      },
+      "web-access": {
+        "enabled": true
       }
     }
   },
@@ -650,8 +689,14 @@
     "allow": [
       "lossless-claw",
       "feishu",
-      "tavily"
+      "tavily",
+      "acpx"
     ],
+    "load": {
+      "paths": [
+        "/Users/shengpeng319/.local/share/fnm/node-versions/v22.22.1/installation/lib/node_modules/openclaw/dist/extensions/acpx"
+      ]
+    },
     "slots": {
       "memory": "memory-core",
       "contextEngine": "lossless-claw"
@@ -676,6 +721,9 @@
             "apiKey": "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"
           }
         }
+      },
+      "acpx": {
+        "enabled": true
       }
     },
     "installs": {
@@ -691,7 +739,17 @@
         "shasum": "bc9725d6d59d9b1523128ab528f1258c4258fa3f",
         "resolvedAt": "2026-03-25T01:03:41.642Z",
         "installedAt": "2026-03-25T01:04:09.776Z"
+      },
+      "acpx": {
+        "source": "path",
+        "spec": "acpx",
+        "sourcePath": "/Users/shengpeng319/.local/share/fnm/node-versions/v22.22.1/installation/lib/node_modules/openclaw/dist/extensions/acpx",
+        "installPath": "/Users/shengpeng319/.local/share/fnm/node-versions/v22.22.1/installation/lib/node_modules/openclaw/dist/extensions/acpx",
+        "installedAt": "2026-03-27T12:21:43.399Z"
       }
     }
+  },
+  "acp": {
+    "enabled": true
   }
 }
