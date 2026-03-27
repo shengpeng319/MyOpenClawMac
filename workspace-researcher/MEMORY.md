@@ -164,3 +164,21 @@ openclaw gateway call sessions.send --params "{\"key\":\"<session_key>\",\"messa
 ---
 
 *Updated: 2026-03-27*
+
+---
+
+## Emily-Claire 协作工作流 (2026-03-27 更新)
+
+**正确流程：**
+1. Emily 生成研报 → **先发群聊**（让大家看到）
+2. Emily 发群聊后 → **再发一份给 Claire** 审阅
+3. Claire 审核后 → **通过 openclaw gateway call sessions.send** 给 Emily 反馈
+4. Emily 收到反馈 → **下次生成报告时应用修改**
+
+**注意：**
+- Claire 没有群聊读取权限，只能看 Emily 直接发给她的消息
+- 用户转发也是一种方式，但推荐 Emily 直接发 session send 给 Claire
+
+---
+
+*Updated: 2026-03-27*
