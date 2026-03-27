@@ -81,3 +81,15 @@ openclaw gateway call sessions.send --params "{\"key\":\"<session_key>\",\"messa
 ---
 
 _这是起点。随着你找到适合自己的方式，更新它。_
+---
+
+## 飞书发图/发文件
+
+**必须走 API，不能发路径/URL。** 流程：token → 上传拿key → 发消息。
+
+- **图片**：POST `/im/v1/images`（form: image_type=message, image=@$PATH）→ msg_type=image
+- **文件**：POST `/im/v1/files` → msg_type=file（content 多 file_name 字段）
+- **凭证**：`~/.openclaw/openclaw.json` → channels.feishu.accounts.main 的 appId/appSecret
+- **token 有效期 2 小时**
+- **首发送空 → 重新上传再发一次**
+
