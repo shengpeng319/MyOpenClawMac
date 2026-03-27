@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.23-2",
-    "lastTouchedAt": "2026-03-25T14:46:39.653Z"
+    "lastTouchedAt": "2026-03-25T16:29:14.722Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-25T00:54:45.117Z",
@@ -91,6 +91,10 @@
             "maxTokens": 8192
           }
         ]
+      },
+      "ollama": {
+        "baseUrl": "http://localhost:11434",
+        "models": []
       }
     }
   },
@@ -128,7 +132,7 @@
           "enabled": true
         }
       },
-      "timeoutSeconds": 1800,
+      "timeoutSeconds": 300,
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
@@ -630,13 +634,17 @@
       },
       "news-summary": {
         "enabled": true
+      },
+      "openai-whisper": {
+        "enabled": false
       }
     }
   },
   "plugins": {
     "allow": [
       "lossless-claw",
-      "feishu"
+      "feishu",
+      "tavily"
     ],
     "slots": {
       "memory": "memory-core",
@@ -654,6 +662,14 @@
       },
       "feishu": {
         "enabled": true
+      },
+      "tavily": {
+        "enabled": true,
+        "config": {
+          "webSearch": {
+            "apiKey": "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"
+          }
+        }
       }
     },
     "installs": {
@@ -670,11 +686,6 @@
         "resolvedAt": "2026-03-25T01:03:41.642Z",
         "installedAt": "2026-03-25T01:04:09.776Z"
       }
-    }
-  },
-  "mcpServers": {
-    "tavily": {
-      "baseUrl": "https://mcp.tavily.com/mcp/?tavilyApiKey=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"
     }
   }
 }

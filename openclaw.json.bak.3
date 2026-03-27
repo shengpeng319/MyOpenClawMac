@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.23-2",
-    "lastTouchedAt": "2026-03-25T01:24:57.558Z"
+    "lastTouchedAt": "2026-03-25T01:31:41.820Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-25T00:54:45.117Z",
@@ -110,7 +110,6 @@
           "alias": "qwen3.5"
         }
       },
-      "workspace": "/Users/shengpeng319/.openclaw/workspace",
       "memorySearch": {
         "enabled": true,
         "sources": [
@@ -120,7 +119,8 @@
         "experimental": {
           "sessionMemory": true
         },
-        "provider": "local"
+        "provider": "ollama",
+        "model": "nomic-embed-text"
       },
       "compaction": {
         "mode": "safeguard",
@@ -139,22 +139,179 @@
     },
     "list": [
       {
-        "id": "main"
+        "id": "main",
+        "default": true,
+        "name": "Jarvis",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-main",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/main/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+        "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "coder"
+        "id": "coder",
+        "name": "Bonnie - Coder",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+        "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "researcher"
+        "id": "researcher",
+        "name": "Claire - Researcher",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-researcher",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/researcher/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+        "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "projectmanager"
+        "id": "projectmanager",
+        "name": "Annie - Project Manager",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+        "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "educationexpert"
+        "id": "educationexpert",
+        "name": "Diana - Education Expert",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-educationexpert",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/educationexpert/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+        "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       },
       {
-        "id": "financialadvisor"
+        "id": "financialadvisor",
+        "name": "Emily - Financial Advisor",
+        "workspace": "/Users/shengpeng319/.openclaw/workspace-financialadvisor",
+        "agentDir": "/Users/shengpeng319/.openclaw/agents/financialadvisor/agent",
+        "subagents": {
+          "allowAgents": [
+            "main",
+            "coder",
+            "researcher",
+            "projectmanager",
+            "educationexpert",
+            "financialadvisor"
+          ]
+        },
+        "tools": {
+          "allow": [
+        "financialadvisor",
+            "sessions_spawn",
+            "sessions_send",
+            "sessions_list",
+            "sessions_history",
+            "session_status",
+            "subagents",
+            "read",
+            "exec"
+          ]
+        }
       }
     ]
   },
@@ -171,6 +328,7 @@
     "agentToAgent": {
       "enabled": true,
       "allow": [
+        "financialadvisor",
         "main",
         "coder",
         "researcher",
@@ -340,7 +498,7 @@
   "skills": {
     "load": {
       "extraDirs": [
-        "/Users/shengpeng319/.openclaw/skills"
+        "/Users/shengpeng319/.openclaw/workspace/skills"
       ]
     },
     "install": {
@@ -471,12 +629,13 @@
         "enabled": true
       },
       "news-summary": {
-        "enabled": false
+        "enabled": true
       }
     }
   },
   "plugins": {
     "allow": [
+        "financialadvisor",
       "lossless-claw",
       "openclaw-weixin",
       "feishu"

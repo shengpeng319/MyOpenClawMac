@@ -1,0 +1,56 @@
+[
+  {
+    "pattern": "www.zhihu.com/api/v4/questions/{id}/concerned_followers?limit={}&offset={}",
+    "method": "GET",
+    "url": "https://www.zhihu.com/api/v4/questions/2020429578649236653/concerned_followers?limit=7&offset=0",
+    "status": null,
+    "contentType": "",
+    "score": 7,
+    "queryParams": [
+      "limit",
+      "offset"
+    ],
+    "itemPath": null,
+    "itemCount": 0,
+    "detectedFields": {},
+    "authIndicators": []
+  },
+  {
+    "pattern": "www.zhihu.com/api/v4/questions/{id}/feeds?cursor={}&include={}&limit={}&offset={}&order={}&platform={}&session_id={}&ws_qiangzhisafe={}",
+    "method": "GET",
+    "url": "https://www.zhihu.com/api/v4/questions/2020429578649236653/feeds?cursor=e51078f5b0d5a4db6b0e3cdc04074819&include=data%5B%2A%5D.is_normal%2Cadmin_closed_comment%2Creward_info%2Cis_collapsed%2Cannotation_action%2Cannotation_detail%2Ccollapse_reason%2Cis_sticky%2Ccollapsed_by%2Csuggest_edit%2Ccomment_count%2Ccan_comment%2Ccontent%2Ceditable_content%2Cattachment%2Cvoteup_count%2Creshipment_settings%2Ccomment_permission%2Ccreated_time%2Cupdated_time%2Creview_info%2Crelevant_info%2Cquestion%2Cexcerpt%2Cis_labeled%2Cpaid_info%2Cpaid_info_content%2Creaction%2Creaction_instruction%2Csegment_infos%2Callow_segment_interaction%2Chot_comment%2Crelationship.is_authorized%2Cis_author%2Cvoting%2Cis_thanked%2Cis_nothelp%3Bdata%5B%2A%5D.author.follower_count%2Cvip_info%2Ckvip_info%2Cbadge%5B%2A%5D.topics%3Bdata%5B%2A%5D.settings.table_of_content.enabled&limit=5&offset=1&order=default&platform=desktop&session_id=1774596138726446882&ws_qiangzhisafe=0",
+    "status": null,
+    "contentType": "",
+    "score": 7,
+    "queryParams": [
+      "cursor",
+      "include",
+      "limit",
+      "offset",
+      "order",
+      "platform",
+      "session_id",
+      "ws_qiangzhisafe"
+    ],
+    "itemPath": null,
+    "itemCount": 0,
+    "detectedFields": {},
+    "authIndicators": []
+  },
+  {
+    "pattern": "www.zhihu.com/api/v4/questions/{id}/similar-questions?include={}&limit={}",
+    "method": "GET",
+    "url": "https://www.zhihu.com/api/v4/questions/2020429578649236653/similar-questions?include=data%5B*%5D.answer_count%2Cauthor%2Cfollower_count&limit=5",
+    "status": null,
+    "contentType": "",
+    "score": 5,
+    "queryParams": [
+      "include",
+      "limit"
+    ],
+    "itemPath": null,
+    "itemCount": 0,
+    "detectedFields": {},
+    "authIndicators": []
+  }
+]

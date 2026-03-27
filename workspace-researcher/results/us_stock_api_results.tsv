@@ -1,0 +1,11 @@
+API_Name	Category	Free_Tier	Monthly_Cost	Rate_Limit	Latency	Python_Support	Overall_Score	Notes
+yfinance	行情	无限	免费	无明确限制	延迟	✅ pip install	待评分	
+Finnhub	行情/新闻	100 calls/day	$29/月起	60 calls/sec	实时	✅ pip install	待评分	
+Polygon.io	行情	500 calls/day	$200/月起	无明确限制	实时	✅ 官方SDK	待评分	
+Alpha Vantage	行情/技术指标	25 calls/day	$49.99/月起	5-75 calls/min	延迟	✅ pip install	待评分	
+NewsAPI	新闻	100 calls/day	$449/月起	无明确限制	实时	✅ pip install	待评分	
+SEC EDGAR	基本面	无限	免费	无明确限制	延迟	❌ 需爬虫	待评分	
+pandas-ta	技术指标计算	免费	免费	无限制	本地计算	✅ pip install	待评分	
+Benzinga	新闻/数据	有限免费	$100/月起	无明确限制	实时	✅ API	待评分	
+Alpaca	交易执行	✅模拟交易免费	$0	无限制	实时	✅ 官方SDK	待评分	
+Interactive Brokers	交易执行	✅模拟交易免费	$0(真实账户)	无限制	实时	✅ 官方TWS API	待评分	
