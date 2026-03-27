@@ -1,2 +1,4 @@
 commit\tscore\tstatus\tdescription
 11af4eb	75	baseline	初始版本 v3.2，存在 RSI计算错误/无具体价位/缺少预测跟踪表
+5973f03	80	v3.3	Emily自检80分，含RSI/价位/预测跟踪；待Claire复审
+8ec6de0	87	v3.3 FINAL	通过≥85阈值；RSI/GLD数据源观察项
