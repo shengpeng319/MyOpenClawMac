@@ -302,3 +302,41 @@ curl -s -X POST "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type
    - 权限不足 → 检查机器人的 `im:message:send_as_bot` 权限
 
 *Updated: 2026-03-27*
+
+---
+
+## sessions_send RPC 验证成功 (2026-03-27)
+
+**测试结果**: 4/4 agent 间路由全部成功 ✅
+**关键发现**: 消息路由延迟约 1-2 分钟，是设计机制非 bug
+**结论**: `sessions.send` 是可靠的 agent 间通信机制
+
+---
+
+## Emily 量化报告 v2.0 Review 通过 (2026-03-27)
+
+**评分**: 78/100 ❌ → v2.0 88/100 ✅ PASSED
+**Claire 修正的 5 个问题**:
+1. Polygon.io → Massive（API 提供商替代）
+2. 模式 3 增加 Benzinga
+3. 模式 6 增加 IBKR 对比
+4. ta-lib/finta 替代方案
+5. CQG 延迟指标
+**最终交付 doc_id**: 7443295055672925
+
+---
+
+## 教育提醒时间冲突问题 (2026-03-27)
+
+**问题**: 妞妞小白鸽 18:30 下课后只有 10 分钟就到游泳出发时间（19:00），但路程需 20 分钟
+**结论**: 时间根本不够，已预警用户
+**待办**: 教育提醒需增加「时间冲突自动检测」功能
+
+---
+
+## openclaw-tui 用户消息识别 (2026-03-27)
+
+**发现**: openclaw-tui 发送的 "?" 是真实用户消息，不是心跳探测
+**处理**: 应正常回复，非 HEARTBEAT_OK
+
+*Updated: 2026-03-27*
