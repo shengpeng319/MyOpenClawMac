@@ -125,3 +125,42 @@
 - 这个 skill 更适合：调参优化、配置搜索、消融实验等需要反复迭代的任务
 - 纯调研类任务可能需要配合 web search 等工具使用
 
+
+---
+
+## sessions_send 正确方法 (2026-03-27)
+
+**问题**：之前一直用 sessions_send 工具发给其他 agent，总是超时失败
+
+**根因**：sessions_send 工具有内部路由限制，不是直接发送
+
+**正确方法**：使用 `openclaw gateway call sessions.send` CLI 命令
+
+### 正确命令格式
+```bash
+MSG=$(cat message.txt | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read()))')
+openclaw gateway call sessions.send --params "{\"key\":\"<session_key>\",\"message\":$MSG}" --timeout 150000
+```
+
+### 关键参数
+- `key`: 目标 session 的完整 key（不是 sessionKey，是 key）
+- `message`: 消息内容（可以是 JSON 格式）
+- `timeout`: 超时时间（毫秒），默认 10000
+
+### 常见 session key 格式
+- `agent:financialadvisor:feishu:direct:ou_cd9dabe38e7378c0eef8b7a6c048591e`
+- `agent:researcher:feishu:direct:ou_cf1a1ee3279590e248bcfed4d0838c22`
+
+### 交叉测试结果 (2026-03-27)
+| 路由 | 状态 |
+|------|------|
+| researcher → financialadvisor | ✅ 成功 |
+| financialadvisor → researcher | ✅ 成功 |
+| main → researcher | ✅ 成功 |
+| main → financialadvisor | ✅ 成功 |
+
+**全部 4 条路由均畅通！**
+
+---
+
+*Updated: 2026-03-27*
