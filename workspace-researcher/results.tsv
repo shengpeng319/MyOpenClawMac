@@ -1,1 +1,2 @@
 commit\tscore\tstatus\tdescription
+11af4eb	75	baseline	初始版本 v3.2，存在 RSI计算错误/无具体价位/缺少预测跟踪表

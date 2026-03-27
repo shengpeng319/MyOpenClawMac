@@ -68,7 +68,7 @@
       ]
     },
     "ollama": {
-      "baseUrl": "http://127.0.0.1:11434",
+      "baseUrl": "http://localhost:11434",
       "api": "ollama",
       "models": [
         {
