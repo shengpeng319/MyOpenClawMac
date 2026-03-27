@@ -1,29 +1,31 @@
-# Autoresearch Config: 美股量化交易 API 研究
+# Autoresearch Config - 选股型自动化交易系统教程改进
 
 ## 任务目标
-研究适合美股量化交易的 API，整理成最终推荐清单
+改进 Emily 的《选股型自动化交易系统数据源教程》，从 85 分提升到 90+ 分
 
-## 研究问题
-业界有哪些 API 适合做美股的量化自动化交易？
+## 当前问题（v1_baseline: 85/100）
+1. **Sharpe Ratio 计算错误**：公式少减无风险利率
+2. **缺 Benzinga**：新闻情绪数据源未收录
+3. **缺 FMP vs Finnhub 对比**：财务数据源对比
+4. **中文社区反馈缺失**：未调研国内用户实际使用反馈
 
-## 验证维度
-1. **数据覆盖**：行情、技术指标、基本面、新闻
-2. **免费额度**：是否有免费层、限制多少
-3. **API 限制**：频率限制、延迟、可靠性
-4. **易用性**：文档质量、Python 封装、执行门槛
+## 目标评分
+- 通过阈值：≥90/100
+- 主要维度：数据准确性、技术完整性、实用性
 
-## 初始候选 API（待验证）
-- 行情：yfinance, Finnhub, Polygon.io, Alpha Vantage
-- 技术指标：pandas-ta, Alpha Vantage
-- 基本面：SEC EDGAR, yfinance
-- 新闻：NewsAPI, Benzinga, Finnhub News
-- 交易执行：Alpaca, Interactive Brokers, TD Ameritrade
-
-## 评分标准（待设定）
-- 实用性
-- 成本效率
-- 数据质量
+## 验证方式
+1. 对比各数据源实际 API 响应
+2. 验证 Python 代码可运行性
+3. 检查 Sharpe Ratio 公式正确性
 
 ## 成功标准
-整理出 3-5 个核心 API 推荐组合，覆盖行情+基本面+新闻+执行
+改进版本需包含：
+- ✅ Sharpe Ratio 正确计算（含无风险利率）
+- ✅ Benzinga 数据源说明
+- ✅ FMP vs Finnhub 对比表
+- ✅ 中文社区使用反馈（至少 1-2 个来源）
 
+## 实验记录
+- 分支：autoresearch/tutorial-improvement-20260327
+- baseline：85/100
+- 目标：90/100
