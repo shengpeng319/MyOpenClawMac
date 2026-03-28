@@ -134,17 +134,8 @@ _这是起点。随着你找到适合自己的方式，更新它。_
     {
       "name": "Emily",
       "role": "financialadvisor",
-      "sessionKey": "agent:financialadvisor:feishu:direct:ou_cd9dabe38e7378c0eef8b7a6c048591e"
-    },
-    {
-      "name": "Diana",
-      "role": "educationexpert",
-      "sessionKey": "agent:educationexpert:feishu:direct:ou_fddf58b3579afe9168ad38eea080294f"
-    },
-    {
-      "name": "Claire",
-      "role": "researcher",
-      "sessionKey": "agent:researcher:feishu:direct:ou_cf1a1ee3279590e248bcfed4d0838c22"
+      "task_id": "lesson-5-atr",
+      "session_key": "agent:financialadvisor:feishu:direct:ou_cd9dabe38e7378c0eef8b7a6c048591e"
     }
   ]
 }

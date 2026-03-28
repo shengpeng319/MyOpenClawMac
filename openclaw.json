@@ -242,7 +242,7 @@
         "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
         "heartbeat": {
-          "prompt": "执行心跳检查：\n- 读取 ~/.openclaw/workspace/active_tasks_sessions.json 获取活跃 Task Agent 列表\n- 用 sessions_send 发消息询问进度：\"任务进度如何？请汇报当前状态\"\n- 发现 >5 分钟无回复再催一次\n- >10 分钟无响应则在飞书上通知 Peng",
+          "prompt": "执行心跳检查：\n- 读取 ~/.openclaw/workspace/active_tasks_sessions.json 获取活跃 Task Agent 列表（包含 task_id）\n- 从文件中获取每个 Agent 对应的 task_id\n- 用 sessions_send 发消息询问进度，格式：\"任务 [task_id] 进度如何？请汇报完成状态\"\n- 发现 >5 分钟无回复再催一次\n- >10 分钟无响应则在飞书上通知 Peng",
           "every": "5m",
           "timeoutSeconds": 30,
           "onTimeout": "ignore",
