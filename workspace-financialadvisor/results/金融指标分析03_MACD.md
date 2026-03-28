@@ -2,7 +2,7 @@
 
 ## 📗 第三课：趋势确认与动量捕捉——MACD
 
-*Emily 老师出品 | 2026-03-28 | v1.2（Claire 技术 QA 修复版）*
+*Emily 老师出品 | 2026-03-28 | v1.3（Claire 顶背离代码逻辑修复版）*
 
 ---
 
@@ -197,7 +197,7 @@ DIF（快线）：━━━━━↘━━━━━━━━
 
 #### 顶背离（看跌信号）⚠️
 
-**现象：** 股价创窗口内阶段性新高，但 DIF/DEA 没同步创新高
+**现象：** 股价创 120 天新高，但 DIF/DEA 没同步创新高
 
 **文字描述：**
 ```
@@ -208,7 +208,7 @@ DIF： 在这里掉头向下 -----↗ （没能创新高）
 
 #### 底背离（看涨信号）✅
 
-**现象：** 股价创窗口内阶段性新低，但 DIF/DEA 没同步创新低
+**现象：** 股价创 120 天新低，但 DIF/DEA 没同步创新低
 
 **文字描述：**
 ```
@@ -217,52 +217,56 @@ DIF： 在这里掉头向上 -----↘ （没能创新低）
 股价：不断创出新低 --------（最低点）
 ```
 
-> ⚠️ **重要说明：** 背离检测函数的 `window` 参数定义了"窗口"大小。函数检测的是窗口内的**局部**最高/最低点，而非绝对历史新高/新低。这是简化算法，适合教学演示。真正的专业系统会用更复杂的方法识别历史新高/新低。
+> ⚠️ **重要说明：** 背离检测使用 120 天（半年）作为历史比较窗口。顶背离判断当前价格是否创 120 天内新高，而非窗口内局部高点。
 
 #### Python 代码：识别 MACD 背离
 
 ```python
-def find_macd_divergence(hist, window=60, threshold=0.5):
+def find_macd_divergence(hist, lookback=120, threshold=0.5):
     """
-    识别 MACD 顶背离和底背离（简化版 - 检测窗口内局部极值）
+    识别 MACD 顶背离和底背离
     
-    注意：这是教学用的简化算法，检测的是 window 周期内的局部极值，
-    不是绝对历史新高/新低。真正的专业系统需要更复杂的算法。
-    
+    lookback: 用于判断"创新高/新低"的历史窗口（默认120天=半年）
     threshold: DIF 从高点下降超过 X 才算有效背离
+    
+    顶背离逻辑：当前价格创 lookback 期新高，但 DIF 没创新高（从高点下降超过阈值）
+    底背离逻辑：当前价格创 lookback 期新低，但 DIF 没创新低（从低点上升超过阈值）
     """
     signals = []
     
-    for i in range(window, len(hist)):
-        window_data = hist.iloc[i-window:i]
-        
-        # 找窗口内的局部最高点和最低点
-        price_max = window_data['Close'].max()
-        price_min = window_data['Close'].min()
-        dif_max = window_data['DIF'].max()
-        dif_min = window_data['DIF'].min()
-        
+    for i in range(lookback, len(hist)):
         current_price = hist.iloc[i]['Close']
         current_dif = hist.iloc[i]['DIF']
         
-        # 顶背离：价格在窗口内创局部新高，但 DIF 从高点下降超过阈值
+        # 用 lookback 窗口判断是否"创新高/新低"
+        lookback_data = hist.iloc[i-lookback:i]
+        price_max = lookback_data['Close'].max()
+        price_min = lookback_data['Close'].min()
+        dif_max = lookback_data['DIF'].max()
+        dif_min = lookback_data['DIF'].min()
+        
+        # 顶背离：价格创 lookback 期新高，但 DIF 从高点下降超过阈值
+        # 价格创新高 = 可能见顶；DIF 没跟上 = 动量衰竭
         if current_price == price_max and (dif_max - current_dif) > threshold:
             signals.append({
                 'date': hist.index[i],
                 'type': '顶背离',
                 'price': current_price,
                 'dif': current_dif,
-                'dif_max': dif_max
+                'dif_max': dif_max,
+                'note': f'价格创{lookback}天新高但DIF未跟随'
             })
         
-        # 底背离：价格在窗口内创局部新低，但 DIF 从低点上升超过阈值
+        # 底背离：价格创 lookback 期新低，但 DIF 从低点上升超过阈值
+        # 价格创新低 = 可能见底；DIF 没跟随创新低 = 动量积累
         if current_price == price_min and (current_dif - dif_min) > threshold:
             signals.append({
                 'date': hist.index[i],
                 'type': '底背离',
                 'price': current_price,
                 'dif': current_dif,
-                'dif_min': dif_min
+                'dif_min': dif_min,
+                'note': f'价格创{lookback}天新低但DIF未跟随'
             })
     
     return signals
@@ -270,7 +274,7 @@ def find_macd_divergence(hist, window=60, threshold=0.5):
 divergences = find_macd_divergence(hist)
 print("=== MACD 背离信号 ===")
 for sig in divergences[-10:]:
-    print(f"{sig['date'].date()}: {sig['type']} | 价格: {sig['price']:.2f} | DIF: {sig['dif']:.4f}")
+    print(f"{sig['date'].date()}: {sig['type']} | 价格: {sig['price']:.2f} | DIF: {sig['dif']:.4f} | {sig['note']}")
 ```
 
 ---
@@ -425,11 +429,11 @@ print(f"MACD+RSI 卖出信号数量: {len(sell_dates)}")
 
 ```python
 # 查找背离信号
-divergences = find_macd_divergence(hist, threshold=0.5)
+divergences = find_macd_divergence(hist)
 
 print("=== MACD 背离信号 ===")
 for sig in divergences[-10:]:
-    print(f"{sig['date'].date()}: {sig['type']} | 价格: {sig['price']:.2f} | DIF: {sig['dif']:.4f}")
+    print(f"{sig['date'].date()}: {sig['type']} | 价格: {sig['price']:.2f} | DIF: {sig['dif']:.4f} | {sig['note']}")
 ```
 
 **📊 案例结果解读：**
@@ -504,8 +508,8 @@ for sig in divergences[-10:]:
 | **零轴下方金叉** | DIF 从下穿越 DEA，但都在零轴下方 | ⭐⭐ 弱 | 谨慎，可能是反弹 |
 | **零轴上方死叉** | DIF 从上穿越 DEA，且两者都在零轴上方 | ⭐⭐⭐ 中 | 减仓 |
 | **零轴下方死叉** | DIF 从上穿越 DEA，但都在零轴下方 | ⭐⭐⭐⭐⭐ 极强 | 卖出/做空 |
-| **顶背离** | 价格创局部新高，DIF 没创新高 | ⭐⭐⭐⭐ 强 | 警惕回调 |
-| **底背离** | 价格创局部新低，DIF 没创新低 | ⭐⭐⭐⭐ 强 | 关注买入机会 |
+| **顶背离** | 价格创120天新高，DIF 没创新高 | ⭐⭐⭐⭐ 强 | 警惕回调 |
+| **底背离** | 价格创120天新低，DIF 没创新低 | ⭐⭐⭐⭐ 强 | 关注买入机会 |
 
 ---
 
@@ -671,27 +675,25 @@ print("\n✅ 验收标准 1-3 全部通过则练习完成！")
 3. 判断是顶背离还是底背离
 
 ```python
-def find_macd_divergence(hist, window=60, threshold=0.5):
+def find_macd_divergence(hist, lookback=120, threshold=0.5):
     """
-    识别 MACD 顶背离和底背离（简化版 - 检测窗口内局部极值）
+    识别 MACD 顶背离和底背离
     
-    注意：这是教学用的简化算法，检测的是 window 周期内的局部极值，
-    不是绝对历史新高/新低。
-    
+    lookback: 用于判断"创新高/新低"的历史窗口（默认120天=半年）
     threshold: DIF 从高点下降超过 X 才算有效背离
     """
     signals = []
     
-    for i in range(window, len(hist)):
-        window_data = hist.iloc[i-window:i]
-        
-        price_max = window_data['Close'].max()
-        price_min = window_data['Close'].min()
-        dif_max = window_data['DIF'].max()
-        dif_min = window_data['DIF'].min()
-        
+    for i in range(lookback, len(hist)):
         current_price = hist.iloc[i]['Close']
         current_dif = hist.iloc[i]['DIF']
+        
+        # 用 lookback 窗口判断是否"创新高/新低"
+        lookback_data = hist.iloc[i-lookback:i]
+        price_max = lookback_data['Close'].max()
+        price_min = lookback_data['Close'].min()
+        dif_max = lookback_data['DIF'].max()
+        dif_min = lookback_data['DIF'].min()
         
         # 顶背离
         if current_price == price_max and (dif_max - current_dif) > threshold:
@@ -715,7 +717,7 @@ def find_macd_divergence(hist, window=60, threshold=0.5):
     
     return signals
 
-divergences = find_macd_divergence(hist, threshold=0.5)
+divergences = find_macd_divergence(hist)
 print("=== MACD 背离信号 ===")
 for sig in divergences:
     print(f"{sig['date'].date()}: {sig['type']} | 价格: {sig['price']:.2f} | DIF: {sig['dif']:.4f}")
@@ -739,7 +741,7 @@ for sig in divergences:
 | **金叉** | DIF 上穿 DEA = 买入信号 |
 | **死叉** | DIF 下穿 DEA = 卖出信号 |
 | **零轴上方** | 上升趋势（12日 EMA > 26日 EMA）|
-| **MACD 背离** | 比 RSI 背离更准确的转势信号（简化算法，仅检测局部极值）|
+| **MACD 背离** | 比 RSI 背离更准确的转势信号（使用120天窗口判断新高/新低）|
 
 ### 💡 记住这句话
 
@@ -758,13 +760,14 @@ for sig in divergences:
 
 ---
 
-## 📎 v1.2 更新说明
+## 📎 v1.3 更新说明
 
 | 版本 | 日期 | 改动 |
 |------|------|------|
 | v1 | 2026-03-28 | Emily 初稿 |
 | v1.1 | 2026-03-28 | Diana 审核后：修正"三步"→"四步"；练习2补充 calculate_rsi 函数；练习1添加验收标准 |
 | v1.2 | 2026-03-28 | Claire QA 后：背离函数添加窗口局部极值说明；MACD 柱添加红绿色区分；参数推荐表格添加"来源：社区经验"标注；添加 MACD 信号速查表 |
+| **v1.3** | 2026-03-28 | **Claire 顶背离代码逻辑修复：改用 lookback=120 天判断真正的新高/新低，替代原来的 window 内局部极值判断** |
 
 ---
 
