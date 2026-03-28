@@ -1,5 +1,28 @@
 {
   "providers": {
+    "ollama": {
+      "baseUrl": "http://localhost:11434",
+      "api": "ollama",
+      "models": [
+        {
+          "id": "nomic-embed-text:latest",
+          "name": "nomic-embed-text:latest",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 2048,
+          "maxTokens": 8192
+        }
+      ],
+      "apiKey": "ollama-local"
+    },
     "minimax-cn": {
       "baseUrl": "https://api.minimaxi.com/anthropic",
       "api": "anthropic-messages",
@@ -44,7 +67,7 @@
     },
     "localqwen35": {
       "baseUrl": "http://localhost:12621/v1",
-      "apiKey": "ollama",
+      "apiKey": "omlx",
       "api": "openai-completions",
       "authHeader": true,
       "models": [
@@ -66,52 +89,6 @@
           "maxTokens": 8192
         }
       ]
-    },
-    "xiaomi": {
-      "baseUrl": "https://api.xiaomimimo.com/anthropic",
-      "api": "anthropic-messages",
-      "models": [
-        {
-          "id": "mimo-v2-flash",
-          "name": "Xiaomi MiMo V2 Flash",
-          "reasoning": false,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "contextWindow": 262144,
-          "maxTokens": 8192
-        }
-      ],
-      "apiKey": "XIAOMI_API_KEY"
-    },
-    "ollama": {
-      "baseUrl": "http://localhost:11434",
-      "api": "ollama",
-      "models": [
-        {
-          "id": "nomic-embed-text:latest",
-          "name": "nomic-embed-text:latest",
-          "reasoning": false,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "contextWindow": 2048,
-          "maxTokens": 8192
-        }
-      ],
-      "apiKey": "ollama-local"
     }
   }
 }
