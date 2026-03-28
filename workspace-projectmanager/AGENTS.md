@@ -135,7 +135,9 @@ _这是起点。随着你找到适合自己的方式，更新它。_
       "name": "Emily",
       "role": "financialadvisor",
       "task_id": "lesson-5-atr",
-      "session_key": "agent:financialadvisor:feishu:direct:ou_cd9dabe38e7378c0eef8b7a6c048591e"
+      "session_key": "agent:financialadvisor:feishu:direct:ou_cd9dabe38e7378c0eef8b7a6c048591e",
+      "timestamp": "2026-03-28T16:58:00+08:00",
+      "progress": "0%"
     }
   ]
 }
@@ -155,10 +157,12 @@ _这是起点。随着你找到适合自己的方式，更新它。_
 1. 读取 `~/.openclaw/workspace/active_tasks_sessions.json`
 2. 遍历 `active_agents` 数组，对每个 sessionKey 执行：
    ```
-   sessions_send(sessionKey, "任务进度如何？请汇报当前状态")
+   sessions_send(sessionKey, "任务 [task_id] 进度如何？请回复：task_id=XXX, progress=XX%")
    ```
-3. 记录每个 Agent 的最后回复时间
-4. 下次心跳时：超过 5 分钟无回复 → 再催；超过 10 分钟无回复 → 通知 Peng
+3. 收到回复后解析 task_id 和 progress，更新文件中的 timestamp 和 progress 字段
+4. 用 timestamp 判断任务卡住时间：
+   - 超过 5 分钟无进度更新 → 再催一次
+   - 超过 10 分钟 → 通知 Peng
 
 ### 通知 Peng 的格式
 ```
