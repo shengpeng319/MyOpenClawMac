@@ -1,10 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.23-2",
-    "lastTouchedAt": "2026-03-28T04:06:27.259Z"
+    "lastTouchedAt": "2026-03-28T06:13:38.794Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-28T04:06:27.254Z",
+    "lastRunAt": "2026-03-28T06:12:53.667Z",
     "lastRunVersion": "2026.3.23-2",
     "lastRunCommand": "doctor",
     "lastRunMode": "local"
@@ -139,6 +139,9 @@
         }
       },
       "timeoutSeconds": 300,
+      "heartbeat": {
+        "every": "5m"
+      },
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
@@ -166,7 +169,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -195,7 +197,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -224,7 +225,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -242,7 +242,14 @@
         "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
         "heartbeat": {
-          "prompt": "执行心跳检查：\n- 读取 ~/.openclaw/workspace/active_tasks_sessions.json 获取活跃 Task Agent 列表\n- 用 sessions_send 发消息询问进度：\"任务进度如何？请汇报当前状态\"\n- 发现 >5 分钟无回复再催一次\n- >10 分钟无响应才通知 Peng"
+          "prompt": "执行心跳检查：\n- 读取 ~/.openclaw/workspace/active_tasks_sessions.json 获取活跃 Task Agent 列表\n- 用 sessions_send 发消息询问进度：\"任务进度如何？请汇报当前状态\"\n- 发现 >5 分钟无回复再催一次\n- >10 分钟无响应则在飞书上通知 Peng",
+          "every": "5m",
+          "timeoutSeconds": 30,
+          "onTimeout": "ignore",
+          "model": {
+            "primary": "localqwen35/Qwen3.5-4B-MLX-4bit"
+          },
+          "lightContext": true
         },
         "subagents": {
           "allowAgents": [
@@ -256,7 +263,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -285,7 +291,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -314,7 +319,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",

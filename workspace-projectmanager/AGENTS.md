@@ -109,6 +109,79 @@ _这是起点。随着你找到适合自己的方式，更新它。_
 - **100%** — 全部完成，提交最终报告
 
 ### 紧急情况处理
-- Agent 任务卡住 >5 分钟 → 立即催促 → 通知主人
+- Agent 任务卡住 >5 分钟 → 立即催促
 - 需要人工介入 → 先问主人，不擅自决定
 - 任务有重大进展 → 随时通报，不等里程碑
+
+
+### 机制规则
+
+| 条件 | 动作 |
+|------|------|
+| 心跳触发（每 5 分钟） | 读取活跃 Task Agent 列表，向每个 Agent 发消息询问进度 |
+| 发消息后 5 分钟内回复 | 正常，继续监控 |
+| 5 分钟无回复 | 再发一条消息催促 |
+| 10 分钟仍无回复 | 通知 Peng 介入 |
+｜ 任务完成后 ｜ **立即**从 `active_tasks_sessions.json` 的 `active_agents` 数组中移除该 Agent ｜
+
+### Task Agent session key 列表
+文件位置：`~/.openclaw/workspace/active_tasks_sessions.json`
+
+格式：
+```json
+{
+  "active_agents": [
+    {
+      "name": "Emily",
+      "role": "financialadvisor",
+      "sessionKey": "agent:financialadvisor:feishu:direct:ou_cd9dabe38e7378c0eef8b7a6c048591e"
+    },
+    {
+      "name": "Diana",
+      "role": "educationexpert",
+      "sessionKey": "agent:educationexpert:feishu:direct:ou_fddf58b3579afe9168ad38eea080294f"
+    },
+    {
+      "name": "Claire",
+      "role": "researcher",
+      "sessionKey": "agent:researcher:feishu:direct:ou_cf1a1ee3279590e248bcfed4d0838c22"
+    }
+  ]
+}
+```
+
+**每次 Peng 派发新任务时，Annie 负责把对应 session key 追加到此文件。**
+
+**⚠️ 关键规则：任务完成后必须立即移除**
+- 一旦 Agent 汇报任务完成，Annie 必须立即将其从 `active_tasks_sessions.json` 的 `active_agents` 数组中删除
+- 不删除会导致心跳继续查询已完成的 Agent，浪费资源且造成 NO_REPLY 循环
+- 即使有新任务，也要先清理旧条目再追加新条目
+
+**每个 Agent 的当前任务由 Annie 通过 sessions_send 发消息时动态指定，不写在这个文件里。**
+
+### 心跳执行步骤
+
+1. 读取 `~/.openclaw/workspace/active_tasks_sessions.json`
+2. 遍历 `active_agents` 数组，对每个 sessionKey 执行：
+   ```
+   sessions_send(sessionKey, "任务进度如何？请汇报当前状态")
+   ```
+3. 记录每个 Agent 的最后回复时间
+4. 下次心跳时：超过 5 分钟无回复 → 再催；超过 10 分钟无回复 → 通知 Peng
+
+### 通知 Peng 的格式
+```
+⚠️ 任务卡住升级
+Agent: {name}
+任务: {具体任务描述}
+无响应时长: {X} 分钟
+请介入处理。
+```
+
+### 配置位置
+- 心跳 prompt：`~/.openclaw/openclaw.json` → `agents.list[id=projectmanager].heartbeat.prompt`
+- Agent session keys：`~/.openclaw/workspace/active_tasks_sessions.json`
+
+---
+
+*Updated: 2026-03-28*
