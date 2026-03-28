@@ -74,7 +74,7 @@
         "baseUrl": "http://localhost:12621/v1",
         "apiKey": "omlx",
         "api": "openai-completions",
-        "authHeader": true,
+        "authHeader": false,
         "models": [
           {
             "id": "Qwen3.5-4B-MLX-4bit",
@@ -242,9 +242,9 @@
         "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
         "heartbeat": {
-          "prompt": "执行心跳检查：\n- 读取 ~/.openclaw/workspace/active_tasks_sessions.json 获取活跃 Task Agent 列表\n- 从文件中获取每个 Agent 的 task_id\n- 用 sessions_send 发消息询问进度，格式：\"任务 [task_id] 进度如何？请回复：task_id=XXX, progress=XX%, additionalDetails=XXX\"\n- 收到回复后，解析 task_id、progress 和 additionalDetails，更新文件中的 timestamp、progress 和 additionalDetails 字段\n- 判断任务状态：\n  - progress = 100% → 立即从 active_tasks_sessions.json 的 active_agents 数组中移除该 Agent，并在飞书上通知 Peng：「🎉 [Agent名] 任务 [task_id] 已完成！additionalDetails=[详情]」\n  - 超过 5 分钟无进度更新 → 催促并在飞书上通知 Peng\n- additionalDetails 用于传递更详细的状态信息（如阻塞原因、已完成步骤、等待什么等）",
-          "every": "10m",
-          "model": "minimax",
+          "prompt": "执行心跳检查：\n- 读取 ~/.openclaw/workspace/active_tasks_sessions.json 获取活跃 Task Agent 列表\n- 从文件中获取每个 Agent 的 task_id\n- 用 sessions_send 发消息询问进度，格式：\"任务 [task_id] 进度如何？请回复：task_id=XXX, progress=XX%\"\n- 收到回复后，解析 task_id 和 progress，更新文件中的 timestamp 和 progress 字段\n- 用 timestamp 判断任务卡住时间：超过 5 分钟无进度更新 → 催促；超过 10 分钟 → 通知 Peng\n- 如果是 NO_REPLY，也要记录（说明 agent 没有回复）",
+          "every": "5m",
+          "model": "localqwen35/Qwen3.5-4B-MLX-4bit",
           "lightContext": true
         },
         "subagents": {

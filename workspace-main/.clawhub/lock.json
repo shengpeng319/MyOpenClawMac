@@ -16,6 +16,10 @@
     "cli-anything-openclaw": {
       "version": "0.1.0",
       "installedAt": 1774604447825
+    },
+    "ima": {
+      "version": "1.0.0",
+      "installedAt": 1774690389637
     }
   }
 }
