@@ -1,0 +1,20 @@
+{
+  "active_agents": [
+    {
+      "name": "Emily",
+      "role": "financialadvisor",
+      "session_key": "agent:financialadvisor:feishu:direct:ou_cd9dabe38e7378c0eef8b7a6c048591e"
+    },
+    {
+      "name": "Diana",
+      "role": "educationexpert", 
+      "session_key": "agent:educationexpert:feishu:direct:ou_fddf58b3579afe9168ad38eea080294f"
+    },
+    {
+      "name": "Claire",
+      "role": "researcher",
+      "session_key": "agent:researcher:feishu:direct:ou_cf1a1ee3279590e248bcfed4d0838c22"
+    }
+  ],
+  "last_updated": "2026-03-28T12:41:00+08:00"
+}

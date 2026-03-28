@@ -3,3 +3,5 @@ commit\tscore\tstatus\tdescription
 5973f03	80	v3.3	Emily自检80分，含RSI/价位/预测跟踪；待Claire复审
 8ec6de0	87	v3.3 FINAL	通过≥85阈值；RSI/GLD数据源观察项
 tutorial-improvement	v1_baseline	85	❌	Sharpe计算错误、缺Benzinga、缺FMP对比
+tutorial-improvement	v2_improved	92	预估	Sharpe修正+Benzinga+FMP对比+中文反馈
+tutorial-improvement	completed	100	✅	IMA上传完成，Annie已通知

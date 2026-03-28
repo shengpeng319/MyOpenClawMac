@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.23-2",
-    "lastTouchedAt": "2026-03-25T14:46:39.653Z"
+    "lastTouchedAt": "2026-03-27T07:48:44.765Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-25T00:54:45.117Z",
@@ -11,7 +11,7 @@
   },
   "browser": {
     "enabled": true,
-    "executablePath": "/usr/bin/google-chrome-stable",
+    "executablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     "headless": false,
     "noSandbox": true,
     "attachOnly": false,
@@ -91,6 +91,10 @@
             "maxTokens": 8192
           }
         ]
+      },
+      "ollama": {
+        "baseUrl": "http://localhost:11434",
+        "models": []
       }
     }
   },
@@ -125,10 +129,13 @@
       "compaction": {
         "mode": "safeguard",
         "memoryFlush": {
-          "enabled": true
+          "enabled": true,
+          "softThresholdTokens": 4000,
+          "systemPrompt": "Session nearing compaction. Store durable memories now.",
+          "prompt": "Write any lasting notes to memory/YYYY-MM-DD.md; reply with NO_REPLY if nothing to store."
         }
       },
-      "timeoutSeconds": 1800,
+      "timeoutSeconds": 300,
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
@@ -630,13 +637,20 @@
       },
       "news-summary": {
         "enabled": true
+      },
+      "openai-whisper": {
+        "enabled": false
+      },
+      "proactive-agent": {
+        "enabled": true
       }
     }
   },
   "plugins": {
     "allow": [
       "lossless-claw",
-      "feishu"
+      "feishu",
+      "tavily"
     ],
     "slots": {
       "memory": "memory-core",
@@ -654,6 +668,14 @@
       },
       "feishu": {
         "enabled": true
+      },
+      "tavily": {
+        "enabled": true,
+        "config": {
+          "webSearch": {
+            "apiKey": "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"
+          }
+        }
       }
     },
     "installs": {
