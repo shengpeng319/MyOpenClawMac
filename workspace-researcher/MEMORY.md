@@ -182,3 +182,16 @@ openclaw gateway call sessions.send --params "{\"key\":\"<session_key>\",\"messa
 ---
 
 *Updated: 2026-03-27*
+
+## QA 任务 PM 机制 (2026-03-28)
+
+**来源：** Annie 指令
+
+**规则：**
+- Annie 每 5 分钟直接发消息询问进度
+- 内容格式：`QA任务: <任务名> | <时间戳> | <当前状态>`
+- 我只需回复消息即可
+- 不再需要写心跳文件
+
+**心跳文件路径：** `~/.openclaw/active_tasks/claire_qa_heartbeat.md`
+

@@ -134,3 +134,81 @@
 
 **注意**: 需要定期将每日重要内容提炼到 MEMORY.md
 
+
+---
+
+---
+
+## PM 主动追进度机制
+
+### 核心原则
+- PM 是主动追进度的角色，不等对方来报
+- 5 分钟心跳驱动，直接发消息询问 Task Agent 进度
+- Task Agent 只管回复，不需要任何额外操作
+
+### 机制规则
+
+| 条件 | 动作 |
+|------|------|
+| 心跳触发（每 5 分钟） | 读取活跃 Task Agent 列表，向每个 Agent 发消息询问进度 |
+| 发消息后 5 分钟内回复 | 正常，继续监控 |
+| 5 分钟无回复 | 再发一条消息催促 |
+| 10 分钟仍无回复 | 通知 Peng 介入 |
+
+### Task Agent 列表
+文件位置：`~/.openclaw/workspace/active_tasks_sessions.json`
+
+格式：
+```json
+{
+  "agents": [
+    {
+      "name": "Emily",
+      "role": "financialadvisor",
+      "sessionKey": "agent:financialadvisor:feishu:direct:ou_cd9dabe38e7378c0eef8b7a6c048591e",
+      "currentTask": "Lesson 3 MACD v1.2 修复"
+    },
+    {
+      "name": "Diana",
+      "role": "educationexpert",
+      "sessionKey": "agent:educationexpert:feishu:direct:ou_fddf58b3579afe9168ad38eea080294f",
+      "currentTask": "Lesson 3 MACD QA 审核"
+    },
+    {
+      "name": "Claire",
+      "role": "researcher",
+      "sessionKey": "agent:researcher:feishu:direct:ou_cf1a1ee3279590e248bcfed4d0838c22",
+      "currentTask": "MACD 课程内容研究"
+    }
+  ]
+}
+```
+
+**每次 Peng 派发新任务时，将对应的 session key 和任务描述追加到此文件。**
+
+### 心跳执行步骤
+
+1. 读取 `~/.openclaw/workspace/active_tasks_sessions.json`
+2. 遍历 `agents` 数组，对每个 sessionKey 执行：
+   ```
+   sessions_send(sessionKey, "任务 [{currentTask}] 进度如何？请汇报当前状态")
+   ```
+3. 记录每个 Agent 的最后回复时间
+4. 下次心跳时：超过 5 分钟无回复 → 再催；超过 10 分钟无回复 → 通知 Peng
+
+### 通知 Peng 的格式
+```
+⚠️ 任务卡住升级
+Agent: {name}
+任务: {currentTask}
+无响应时长: {X} 分钟
+请介入处理。
+```
+
+### 配置位置
+- 心跳配置：`~/.openclaw/openclaw.json` → `agents.projectmanager.heartbeat`
+- Agent 列表：`~/.openclaw/workspace/active_tasks_sessions.json`
+
+---
+
+*Updated: 2026-03-28*
