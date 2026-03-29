@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.23-2",
-    "lastTouchedAt": "2026-03-28T06:12:53.687Z"
+    "lastTouchedAt": "2026-03-28T06:13:38.794Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-28T06:12:53.667Z",
@@ -71,10 +71,10 @@
         ]
       },
       "localqwen35": {
-        "baseUrl": "http://localhost:12814/v1",
+        "baseUrl": "http://localhost:12621/v1",
         "apiKey": "omlx",
         "api": "openai-completions",
-        "authHeader": false,
+        "authHeader": true,
         "models": [
           {
             "id": "Qwen3.5-4B-MLX-4bit",
@@ -90,7 +90,7 @@
               "cacheRead": 0,
               "cacheWrite": 0
             },
-            "contextWindow": 64000,
+            "contextWindow": 128000,
             "maxTokens": 8192
           }
         ]
@@ -130,7 +130,9 @@
         "model": "nomic-embed-text"
       },
       "compaction": {
-        "mode": "safeguard",
+        "reserveTokens": 0,
+        "reserveTokensFloor": 0,
+        "keepRecentTokens": 128000,
         "memoryFlush": {
           "enabled": true,
           "softThresholdTokens": 4000,
@@ -139,6 +141,9 @@
         }
       },
       "timeoutSeconds": 300,
+      "heartbeat": {
+        "every": "5m"
+      },
       "maxConcurrent": 4,
       "subagents": {
         "maxConcurrent": 8
@@ -166,7 +171,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -195,7 +199,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -224,7 +227,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -242,7 +244,10 @@
         "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
         "heartbeat": {
-          "prompt": "执行心跳检查：\n- 读取 ~/.openclaw/workspace/active_tasks_sessions.json 获取活跃 Task Agent 列表\n- 用 sessions_send 发消息询问进度：\"任务进度如何？请汇报当前状态\"\n- 发现 >5 分钟无回复再催一次\n- >10 分钟无响应才通知 Peng"
+          "prompt": "执行心跳检查：\n- 读取 ~/.openclaw/workspace/active_tasks_sessions.json 获取活跃 Task Agent 列表\n- 从文件中获取每个 Agent 的 task_id、session_key、name\n- 用 sessions_send(sessionKey, message) 发消息询问进度，格式：「任务 [task_id] 进度如何？请回复：task_id=XXX, progress=XX%, additionalDetails=XXX」\n- 收到回复后，必须立即执行以下两步：\n  1. 更新 active_tasks_sessions.json 中的 timestamp、progress 和 additionalDetails 字段\n  2. 【关键】用 sessions_send 发送飞书通知给 Peng：\n     - session key: agent:projectmanager:feishu:direct:ou_6f647c48b442a8457c1cf51158b20655\n     - 通知格式：「📊 [Agent名] 进度更新：task_id=[task_id], progress=[progress]%, additionalDetails=[详情]」\n- 判断任务状态并执行对应动作：\n  1. progress = 100% → \n     - 立即从 active_tasks_sessions.json 的 active_agents 数组中移除该 Agent\n     - 发送飞书通知给 Peng：「🎉 [Agent名] 任务 [task_id] 已完成！additionalDetails=[详情]」\n  2. 超过 5 分钟无进度更新（当前时间 - timestamp > 300秒）→\n     - 再次发送催促消息\n     - 记录催促次数到 additionalDetails（如 \"reminder_count\": 1）\n  3. 超过 10 分钟无进度更新（reminder_count >= 2）→\n     - 在飞书上通知 Peng：「⚠️ 任务卡住升级\nAgent: [name]\n任务: [task_id]\n无响应时长: [X] 分钟\n请介入处理。」\n- additionalDetails 用于传递更详细的状态信息（如阻塞原因、已完成步骤、等待什么等）\n- 心跳间隔：10分钟（every: 10m）",
+          "every": "10m",
+          "model": "minimax",
+          "lightContext": true
         },
         "subagents": {
           "allowAgents": [
@@ -256,7 +261,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -285,7 +289,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
@@ -314,7 +317,6 @@
         },
         "tools": {
           "allow": [
-            "financialadvisor",
             "sessions_spawn",
             "sessions_send",
             "sessions_list",
