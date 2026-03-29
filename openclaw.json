@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.23-2",
-    "lastTouchedAt": "2026-03-28T06:13:38.794Z"
+    "lastTouchedAt": "2026-03-28T17:14:15.924Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-28T06:12:53.667Z",
@@ -130,7 +130,9 @@
         "model": "nomic-embed-text"
       },
       "compaction": {
-        "mode": "safeguard",
+        "reserveTokens": 0,
+        "keepRecentTokens": 128000,
+        "reserveTokensFloor": 0,
         "memoryFlush": {
           "enabled": true,
           "softThresholdTokens": 4000,
@@ -241,12 +243,6 @@
         "name": "Annie - Project Manager",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-projectmanager",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/projectmanager/agent",
-        "heartbeat": {
-          "prompt": "执行心跳检查：\n- 读取 ~/.openclaw/workspace/active_tasks_sessions.json 获取活跃 Task Agent 列表\n- 从文件中获取每个 Agent 的 task_id\n- 用 sessions_send 发消息询问进度，格式：\"任务 [task_id] 进度如何？请回复：task_id=XXX, progress=XX%, additionalDetails=XXX\"\n- 收到回复后，解析 task_id、progress 和 additionalDetails，更新文件中的 timestamp、progress 和 additionalDetails 字段\n- 判断任务状态：\n  - progress = 100% → 立即从 active_tasks_sessions.json 的 active_agents 数组中移除该 Agent，并在飞书上通知 Peng：「🎉 [Agent名] 任务 [task_id] 已完成！additionalDetails=[详情]」\n  - 超过 5 分钟无进度更新 → 催促并在飞书上通知 Peng\n- additionalDetails 用于传递更详细的状态信息（如阻塞原因、已完成步骤、等待什么等）",
-          "every": "10m",
-          "model": "minimax",
-          "lightContext": true
-        },
         "subagents": {
           "allowAgents": [
             "main",
@@ -445,27 +441,27 @@
         "main": {
           "appId": "cli_a9f6e7b152399cc2",
           "appSecret": "VwUFofMX3ECVw4MFkWMPFe8ioNsObdec",
-          "botName": "Javis"
+          "name": "Javis"
         },
         "coder": {
           "appId": "cli_a91548d971f89bd6",
           "appSecret": "8eRAV7IKNTMPabt5p9bpceCA4sqahWn7",
-          "botName": "Bonnie - Coder"
+          "name": "Bonnie - Coder"
         },
         "researcher": {
           "appId": "cli_a91544380138dbc8",
           "appSecret": "I2KCOU2OOudFI12eucAlibE4ZKJ4QB8B",
-          "botName": "Claire - Researcher"
+          "name": "Claire - Researcher"
         },
         "projectmanager": {
           "appId": "cli_a9154b2f8da11bd3",
           "appSecret": "UKYZxhIDOeZmKqfsQXVm5cQifhOSkq8f",
-          "botName": "Annie - Project Manager"
+          "name": "Annie - Project Manager"
         },
         "educationexpert": {
           "appId": "cli_a93ea1762b615bdb",
           "appSecret": "jjegmYrnlDvvEWKVM95tYcDAuLo75E0i",
-          "botName": "Diana - Education Expert"
+          "name": "Diana - Education Expert"
         },
         "default": {
           "groupPolicy": "allowlist",
@@ -477,15 +473,10 @@
         "financialadvisor": {
           "appId": "cli_a9340afcd9f89cb6",
           "appSecret": "iPcnmNkrmsdD5MKb01m8Cha7NknFPnVQ",
-          "botName": "Emily - Financial Advisor"
+          "name": "Emily - Financial Advisor"
         }
       },
-      "footer": {
-        "elapsed": true,
-        "status": true
-      },
       "streaming": true,
-      "blockStreaming": false,
       "renderMode": "auto"
     }
   },
@@ -693,24 +684,22 @@
   },
   "plugins": {
     "allow": [
-      "lossless-claw",
       "feishu",
       "tavily",
-      "acpx"
+      "acpx",
+      "lossless-claw"
     ],
     "load": {
       "paths": [
-        "/Users/shengpeng319/.local/share/fnm/node-versions/v22.22.1/installation/lib/node_modules/openclaw/dist/extensions/acpx"
+        "/Users/shengpeng319/.local/share/fnm/node-versions/v22.22.1/installation/lib/node_modules/openclaw/dist/extensions/acpx",
+        "/Users/shengpeng319/.local/share/fnm/node-versions/v22.22.1/installation/lib/node_modules/@martian-engineering/lossless-claw"
       ]
     },
     "slots": {
       "memory": "memory-core",
-      "contextEngine": "lossless-claw"
+      "contextEngine": "legacy"
     },
     "entries": {
-      "lossless-claw": {
-        "enabled": true
-      },
       "memory-core": {
         "enabled": true
       },
@@ -730,22 +719,12 @@
       },
       "acpx": {
         "enabled": true
+      },
+      "lossless-claw": {
+        "enabled": true
       }
     },
     "installs": {
-      "lossless-claw": {
-        "source": "npm",
-        "spec": "@martian-engineering/lossless-claw@0.3.0",
-        "installPath": "/Users/shengpeng319/.openclaw/extensions/lossless-claw",
-        "version": "0.3.0",
-        "resolvedName": "@martian-engineering/lossless-claw",
-        "resolvedVersion": "0.3.0",
-        "resolvedSpec": "@martian-engineering/lossless-claw@0.3.0",
-        "integrity": "sha512-SsY0bp3SoSzEu+KB8fOBke46MFhTmslfWg6OvC4pShq34ig2+V+jkTFAHib8PTZ0MoethAddR+ZmRN9OASorAA==",
-        "shasum": "bc9725d6d59d9b1523128ab528f1258c4258fa3f",
-        "resolvedAt": "2026-03-25T01:03:41.642Z",
-        "installedAt": "2026-03-25T01:04:09.776Z"
-      },
       "acpx": {
         "source": "path",
         "spec": "acpx",

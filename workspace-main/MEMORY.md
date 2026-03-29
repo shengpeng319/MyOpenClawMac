@@ -340,3 +340,56 @@ curl -s -X POST "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type
 **处理**: 应正常回复，非 HEARTBEAT_OK
 
 *Updated: 2026-03-27*
+
+---
+
+## 心跳 Prompt 设计原则 (2026-03-28)
+
+**核心原则：心跳不仅要监控「异常」，还要主动报告「完成」**
+
+### 问题发现
+- 当 subagent 完成任务 100% 时，PM 只在内部 webchat 日志记录，未向 Peng 发飞书通知
+- 原因：心跳 prompt 只有「卡住 > 5 分钟」escalation 逻辑，缺少完成通知
+
+### 正确设计
+```markdown
+## 心跳状态检测
+1. 任务卡住（> 5 分钟无进展）→ escalation 告警
+2. 任务完成（progress = 100%）→ 移除任务 + 飞书通知 Peng
+```
+
+*Updated: 2026-03-28*
+
+---
+
+## IMA 双容器架构 (2026-03-28)
+
+**重要发现：IMA 有两个独立容器**
+
+| 容器 | media_type | 说明 |
+|-----|------------|------|
+| 笔记 | 11 | 普通笔记容器 |
+| 知识库 | 7 | 知识库容器 |
+
+### 关键区别
+- API `get_addable_knowledge_base_list` 只返回**知识库**，不返回**笔记**
+- 笔记上传：直接 `add_knowledge` + `note_info.content_id`（无需 `create_media` + COS）
+- `note_info.content_id` 格式文档未说明，需进一步探索
+
+*Updated: 2026-03-28*
+
+---
+
+## 嵌套 Git Repo 处理 (2026-03-28)
+
+**问题**：workspace-bonnie/、workspace-emily/、workspace-ti/ 是嵌套 git repo，导致 `git add -A` 失败
+
+**解决**：在主备份 repo 的 .gitignore 添加嵌套 workspace 目录
+
+```gitignore
+workspace-bonnie/
+workspace-emily/
+workspace-ti/
+```
+
+*Updated: 2026-03-28*

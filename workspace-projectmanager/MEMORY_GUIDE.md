@@ -34,7 +34,6 @@ _完整文档。启动时不读，需要时查阅。_
 
 ## Lossless-Claw 插件
 
-已安装 `@martian-engineering/lossless-claw`，自动运行：
 - 上下文压缩时保留对话 DAG 结构
 - 增量摘要，比默认更无损
 - 配置位置：`~/.openclaw/lcm.db`
