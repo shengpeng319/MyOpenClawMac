@@ -311,6 +311,19 @@ curl -s -X POST "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type
 **关键发现**: 消息路由延迟约 1-2 分钟，是设计机制非 bug
 **结论**: `sessions.send` 是可靠的 agent 间通信机制
 
+
+## 跨 Agent 文件路径重要教训 (2026-03-31)
+
+**问题**: financialadvisor 保存报告到 `workspace-financialadvisor/results/report_20260331.md`，researcher 在 main workspace 搜索不到
+**原因**: 各 agent workspace 是隔离的，跨 agent 通知不能依赖对方搜索文件
+**教训**: 
+- 跨 agent 通知时发送**绝对路径**，不依赖对方 workspace 搜索
+- 文件实际位置 ≠ 对方可见位置
+- 备份时需明确指定各 workspace 的文件路径
+
+*Updated: 2026-03-31*
+
+
 ---
 
 ## Emily 量化报告 v2.0 Review 通过 (2026-03-27)
@@ -403,3 +416,21 @@ workspace-ti/
 - 降雨概率需结合 hourly forecast 看，不能只看 midday 摘要
 
 *Updated: 2026-03-30*
+
+---
+
+## sessions.send CLI Workaround 再次验证成功 (2026-03-31)
+
+**测试结果**: 3/3 次跨 agent 调用超时 → CLI workaround 全部成功
+**结论**: CLI workaround 是目前最可靠的跨 agent 通信方案
+
+---
+
+## 跨 Agent 文件路径问题 (2026-03-31)
+
+**问题**: financialadvisor 说报告在 `results/report_20260331.md`，researcher 全 workspace 搜索找不到
+**原因**: 报告在 `workspace-financialadvisor/results/`，不是 main workspace，跨 agent 搜索不可见
+**教训**: 跨 agent 通知应发**文件绝对路径**，不依赖对方 workspace 搜索
+**已解决**: 备份时确认文件存在于 financialadvisor workspace
+
+*Updated: 2026-03-31*
