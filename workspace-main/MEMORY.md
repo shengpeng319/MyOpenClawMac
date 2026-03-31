@@ -426,11 +426,14 @@ workspace-ti/
 
 ---
 
-## 跨 Agent 文件路径问题 (2026-03-31)
+## 跨 Agent 文件路径问题（2026-03-31）
 
-**问题**: financialadvisor 说报告在 `results/report_20260331.md`，researcher 全 workspace 搜索找不到
-**原因**: 报告在 `workspace-financialadvisor/results/`，不是 main workspace，跨 agent 搜索不可见
-**教训**: 跨 agent 通知应发**文件绝对路径**，不依赖对方 workspace 搜索
-**已解决**: 备份时确认文件存在于 financialadvisor workspace
+**问题**：financialadvisor 说"已保存 results/report_20260331.md"，researcher 全 workspace 搜索找不到
+
+**原因**：报告保存在 `workspace-financialadvisor/results/` 而不是 main workspace
+
+**教训**：
+- 跨 agent 通知应发**文件绝对路径**，不依赖对方 workspace 搜索
+- 各 agent workspace 相互独立，文件不会自动互通
 
 *Updated: 2026-03-31*
