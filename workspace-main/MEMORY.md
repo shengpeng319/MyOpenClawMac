@@ -426,14 +426,76 @@ workspace-ti/
 
 ---
 
-## 跨 Agent 文件路径问题（2026-03-31）
+---
 
-**问题**：financialadvisor 说"已保存 results/report_20260331.md"，researcher 全 workspace 搜索找不到
+## 跨 Agent 文件共享教训 (2026-03-31)
 
-**原因**：报告保存在 `workspace-financialadvisor/results/` 而不是 main workspace
+**问题**：financialadvisor 保存报告到 `workspace-financialadvisor/results/report_20260331.md`，researcher 在 main workspace 搜索找不到
 
 **教训**：
-- 跨 agent 通知应发**文件绝对路径**，不依赖对方 workspace 搜索
-- 各 agent workspace 相互独立，文件不会自动互通
+- 跨 agent 通知时**必须发绝对路径**，不依赖对方 workspace 搜索
+- 每个 agent workspace 是独立文件系统，文件不会自动共享
+- 备份策略：重要文件应备份到共享位置（如 main workspace 或 GitHub repo）
 
 *Updated: 2026-03-31*
+
+## 跨 Agent 文件路径通知要点 (2026-03-31)
+
+**问题**：financialadvisor 说报告保存在 results/report_20260331.md，researcher 在 main workspace 找不到
+
+**原因**：报告实际保存在 `workspace-financialadvisor/results/`，不是 main workspace
+
+**教训**：跨 agent 通知应发**文件绝对路径**，不依赖对方 workspace 搜索
+
+*Updated: 2026-03-31*
+
+---
+
+## 跨 Agent 文件路径重要教训 (2026-03-31)
+
+**问题**：跨 agent 通知时，agent 说"已保存到 results/report_xxx.md"，但对方全 workspace 搜索找不到
+
+**原因**：文件实际保存在 sender 自己的 workspace，不是 shared 或 main workspace
+
+**教训**：
+- 跨 agent 通知**必须发绝对路径**，不依赖对方 workspace 搜索
+- 示例：`/Users/shengpeng319/.openclaw/workspace-financialadvisor/results/report_20260331.md`
+
+*Updated: 2026-03-31*
+
+---
+
+## sessions.send CLI Workaround 再次验证 (2026-03-31)
+
+**结论**: CLI workaround 是目前最可靠的跨 agent 通信方案
+**验证**: 3个 agent 间调用均超时 → CLI workaround 全部成功
+
+---
+
+## 金融研报文件路径问题 (2026-03-31)
+
+**发现**: 报告实际保存在 `workspace-financialadvisor/results/`，不是 main workspace
+**教训**: 跨 agent 通知应发文件**绝对路径**，不依赖对方 workspace 搜索
+**备份时发现**: 文件确实存在于 financialadvisor workspace
+
+*Updated: 2026-03-31*
+
+---
+
+## 跨 Agent 文件路径传递铁律 (2026-03-31)
+
+**问题**：financialadvisor 说"已保存 results/report_20260331.md"，researcher 全 workspace 搜索找不到
+**原因**：报告在 `workspace-financialadvisor/results/`，不是 main workspace
+**教训**：跨 agent 通知应发**文件绝对路径**，不依赖对方 workspace 搜索
+
+---
+
+## sessions.send CLI Workaround 稳定性确认 (2026-03-31)
+
+**再次验证**：3个 agent 间调用均超时 → CLI workaround 全部成功
+**结论**：CLI workaround 是目前最可靠的跨 agent 通信方案
+**命令模板**：
+```bash
+MSG=$(echo "消息" | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read()))')
+openclaw gateway call sessions.send --params "{\"key\":\"<session_key>\",\"message\":$MSG}" --timeout 300000
+```
