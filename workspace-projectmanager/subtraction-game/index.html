@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐰 数学小兔子 - 两位数减法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B9D;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --purple: #9B59B6;
+            --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --white: #ffffff;
+            --shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Microsoft YaHei', cursive, sans-serif;
+            min-height: 100vh;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* 浮动装饰 */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .floating-star {
+            position: absolute;
+            font-size: 30px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* 标题区 */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            color: var(--white);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        /* 主游戏区 */
+        .game-container {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            width: 100%;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* 分数显示 */
+        .score-panel {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .score-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--purple);
+        }
+
+        .score-value.stars {
+            font-size: 1.5rem;
+        }
+
+        /* 题目显示 */
+        .problem-display {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4eef7 100%);
+            border-radius: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-display::before {
+            content: '🐰';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: hop 1s ease-in-out infinite;
+        }
+
+        @keyframes hop {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-70%) scale(1.1); }
+        }
+
+        .problem-equation {
+            font-size: 2.5rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .problem-number {
+            padding: 10px 20px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-width: 80px;
+        }
+
+        .problem-minus {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .problem-equals {
+            color: var(--purple);
+            font-weight: bold;
+        }
+
+        .problem-answer {
+            background: linear-gradient(135deg, var(--accent) 0%, #ffd93d 100%);
+            border: 3px dashed #f39c12;
+            border-radius: 15px;
+            min-width: 80px;
+            animation: pulse-border 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { border-color: #f39c12; }
+            50% { border-color: var(--accent); }
+        }
+
+        .problem-answer.correct {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            border: 3px solid #27ae60;
+            animation: celebrate 0.5s ease-out;
+        }
+
+        .problem-answer.wrong {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            border: 3px solid #e74c3c;
+            animation: shake 0.5s ease-out;
+        }
+
+        @keyframes celebrate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* 方法选择区 */
+        .method-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .method-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .method-btn.split-big {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff5e8a 100%);
+            color: white;
+        }
+
+        .method-btn.split-small {
+            background: linear-gradient(135deg, var(--secondary) 0%, #3db9b0 100%);
+            color: white;
+        }
+
+        .method-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .method-btn:active {
+            transform: translateY(0);
+        }
+
+        .method-btn.selected {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+
+        .method-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 解题步骤展示 */
+        .solution-area {
+            background: linear-gradient(135deg, #fef9e7 0%, #fdebd0 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            min-height: 200px;
+        }
+
+        .method-title {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--purple);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #ddd;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 12px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease;
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: var(--purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .step-highlight {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .step-formula {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* 可视化数字管道 */
+        .number-pipeline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .pipeline-number {
+            font-size: 2.5rem;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .pipeline-number.minuend {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff5e8a 100%);
+        }
+
+        .pipeline-arrow {
+            font-size: 2rem;
+            color: #666;
+            animation: arrow-move 1s ease-in-out infinite;
+        }
+
+        @keyframes arrow-move {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        /* 输入区域 */
+        .input-area {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .answer-input {
+            width: 150px;
+            height: 60px;
+            font-size: 2rem;
+            text-align: center;
+            border: 4px solid var(--secondary);
+            border-radius: 15px;
+            outline: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .answer-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .submit-btn {
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 下一题按钮 */
+        .next-btn {
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--accent) 0%, #ffd93d 100%);
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            display: none;
+        }
+
+        .next-btn.visible {
+            display: inline-block;
+            animation: pop-in 0.4s ease-out;
+        }
+
+        @keyframes pop-in {
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* 反馈消息 */
+        .feedback {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct {
+            display: block;
+            background: linear-gradient(135deg, #d5f4e6 0%, #ffeaa7 100%);
+            color: #27ae60;
+            animation: pop-in 0.4s ease-out;
+        }
+
+        .feedback.wrong {
+            display: block;
+            background: linear-gradient(135deg, #fab1a0 0%, #ff7675 100%);
+            color: #c0392b;
+            animation: shake 0.5s ease-out;
+        }
+
+        /* 开始界面 */
+        .start-screen {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .start-title {
+            font-size: 2.5rem;
+            color: var(--purple);
+            margin-bottom: 20px;
+        }
+
+        .start-character {
+            font-size: 5rem;
+            margin: 20px 0;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        .start-instructions {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .start-btn {
+            padding: 20px 60px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, #ff5e8a 100%);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            margin-top: 20px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.4);
+        }
+
+        /* 星星动画 */
+        .star-burst {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .star-particle {
+            position: absolute;
+            font-size: 2rem;
+            animation: star-explode 1s ease-out forwards;
+        }
+
+        @keyframes star-explode {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: scale(1.5) rotate(360deg) translate(var(--tx), var(--ty)); opacity: 0; }
+        }
+
+        /* 彩带效果 */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: confetti-fall 3s linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* 难度选择 */
+        .difficulty-selector {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .difficulty-btn {
+            padding: 12px 25px;
+            border: 3px solid #ddd;
+            border-radius: 12px;
+            background: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .difficulty-btn:hover {
+            border-color: var(--purple);
+        }
+
+        .difficulty-btn.selected {
+            background: var(--purple);
+            color: white;
+            border-color: var(--purple);
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .problem-equation {
+                font-size: 1.8rem;
+            }
+            
+            .problem-number {
+                padding: 8px 12px;
+                min-width: 60px;
+            }
+            
+            .game-container {
+                padding: 20px;
+            }
+            
+            .method-btn {
+                min-width: 120px;
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+            
+            .answer-input {
+                width: 120px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* 游戏结束画面 */
+        .end-screen {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .end-title {
+            font-size: 2rem;
+            color: var(--purple);
+            margin-bottom: 15px;
+        }
+
+        .end-stats {
+            font-size: 1.3rem;
+            color: #666;
+            margin: 20px 0;
+        }
+
+        .end-emoji {
+            font-size: 4rem;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮动装饰 -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <!-- 主容器 -->
+    <div class="header">
+        <h1 class="title">🐰 数学小兔子</h1>
+        <p class="subtitle">两位数减法练习</p>
+    </div>
+
+    <div class="game-container" id="gameContainer">
+        <!-- 开始界面 -->
+        <div class="start-screen" id="startScreen">
+            <div class="start-character">🐰</div>
+            <h2 class="start-title">欢迎来到数学王国！</h2>
+            <p class="start-instructions">
+                🎯 学习两种减法技巧<br>
+                ✨ 拆大数法 - 把大数拆开来减<br>
+                ✨ 拆小数法 - 把小数拆开来减<br>
+                ⭐ 每答对10题获得一颗星！
+            </p>
+            <div class="difficulty-selector">
+                <button class="difficulty-btn selected" data-difficulty="easy">🌟 简单 (不借位)</button>
+                <button class="difficulty-btn" data-difficulty="medium">🌟🌟 中等 (简单借位)</button>
+                <button class="difficulty-btn" data-difficulty="hard">🌟🌟🌟 困难 (需要借位)</button>
+            </div>
+            <button class="start-btn" id="startBtn">开始挑战！</button>
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="gameScreen" style="display: none;">
+            <!-- 分数面板 -->
+            <div class="score-panel">
+                <div class="score-item">
+                    <div class="score-label">题目</div>
+                    <div class="score-value" id="questionNum">1</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">正确</div>
+                    <div class="score-value" id="correctCount">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">⭐</div>
+                    <div class="score-value stars" id="starCount">☆☆☆</div>
+                </div>
+            </div>
+
+            <!-- 题目显示 -->
+            <div class="problem-display">
+                <div class="problem-equation">
+                    <span class="problem-number" id="num1">45</span>
+                    <span class="problem-minus">−</span>
+                    <span class="problem-number" id="num2">27</span>
+                    <span class="problem-equals">=</span>
+                    <span class="problem-number problem-answer" id="answerBox">?</span>
+                </div>
+            </div>
+
+            <!-- 方法选择 -->
+            <div class="method-selector">
+                <button class="method-btn split-big" id="splitBigBtn">
+                    📦 拆大数法
+                </button>
+                <button class="method-btn split-small" id="splitSmallBtn">
+                    🎯 拆小数法
+                </button>
+            </div>
+
+            <!-- 解题步骤 -->
+            <div class="solution-area" id="solutionArea">
+                <div class="method-title" id="methodTitle">选择一种方法来解题吧！</div>
+                <div id="stepsContainer"></div>
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="input-area">
+                <input type="number" class="answer-input" id="answerInput" placeholder="?" min="0" max="99">
+                <button class="submit-btn" id="submitBtn" disabled>回答</button>
+                <button class="next-btn" id="nextBtn">下一题 →</button>
+            </div>
+
+            <!-- 反馈 -->
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- 结束界面 -->
+        <div class="end-screen" id="endScreen" style="display: none;">
+            <div class="end-emoji" id="endEmoji">🎉</div>
+            <h2 class="end-title" id="endTitle">太棒了！</h2>
+            <div class="end-stats" id="endStats">
+                <p>完成题目: <strong>10</strong> 道</p>
+                <p>正确率: <strong>80%</strong></p>
+                <p>获得星星: <strong>⭐⭐⭐</strong></p>
+            </div>
+            <button class="start-btn" id="restartBtn">再来一次！</button>
+        </div>
+    </div>
+
+    <script>
+        // 游戏状态
+        const gameState = {
+            num1: 0,
+            num2: 0,
+            answer: 0,
+            correctCount: 0,
+            questionNum: 0,
+            starCount: 0,
+            questionsForStar: 0,
+            difficulty: 'easy',
+            selectedMethod: null,
+            isShowingSolution: false,
+            totalQuestions: 10
+        };
+
+        // DOM 元素
+        const elements = {
+            startScreen: document.getElementById('startScreen'),
+            gameScreen: document.getElementById('gameScreen'),
+            endScreen: document.getElementById('endScreen'),
+            startBtn: document.getElementById('startBtn'),
+            restartBtn: document.getElementById('restartBtn'),
+            splitBigBtn: document.getElementById('splitBigBtn'),
+            splitSmallBtn: document.getElementById('splitSmallBtn'),
+            submitBtn: document.getElementById('submitBtn'),
+            nextBtn: document.getElementById('nextBtn'),
+            answerInput: document.getElementById('answerInput'),
+            answerBox: document.getElementById('answerBox'),
+            num1: document.getElementById('num1'),
+            num2: document.getElementById('num2'),
+            questionNum: document.getElementById('questionNum'),
+            correctCount: document.getElementById('correctCount'),
+            starCount: document.getElementById('starCount'),
+            feedback: document.getElementById('feedback'),
+            methodTitle: document.getElementById('methodTitle'),
+            stepsContainer: document.getElementById('stepsContainer'),
+            solutionArea: document.getElementById('solutionArea'),
+            floatingElements: document.getElementById('floatingElements')
+        };
+
+        // 初始化浮动装饰
+        function initFloatingElements() {
+            const stars = ['⭐', '✨', '🌟', '💫', '🦋', '🌸', '🐰'];
+            for (let i = 0; i < 15; i++) {
+                const star = document.createElement('div');
+                star.className = 'floating-star';
+                star.textContent = stars[Math.floor(Math.random() * stars.length)];
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                star.style.animationDuration = (4 + Math.random() * 4) + 's';
+                elements.floatingElements.appendChild(star);
+            }
+        }
+
+        // 难度选择
+        document.querySelectorAll('.difficulty-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.difficulty-btn').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                gameState.difficulty = btn.dataset.difficulty;
+            });
+        });
+
+        // 生成题目
+        function generateProblem() {
+            let num1, num2;
+            
+            switch (gameState.difficulty) {
+                case 'easy':
+                    // 不借位: 55-23, 67-45 等
+                    do {
+                        num1 = Math.floor(Math.random() * 50) + 20; // 20-69
+                        num2 = Math.floor(Math.random() * (num1 - 10)) + 10; // 保证 num2 >= 10
+                    } while (needsBorrowing(num1, num2));
+                    break;
+                    
+                case '"medium"':
+                    // 简单借位: 被减数11-18，减数大于(被减数-10)且小于10
+                    num1 = Math.floor(Math.random() * 8) + 11; // 11-18
+                    do {
+                        num2 = Math.floor(Math.random() * 8) + 2; // 2-9
+                    } while (num2 <= num1 - 10 || num2 >= 10); // 确保 (num1-10) < num2 < 10
+                    break;
+                    
+                case 'hard':
+                    // 需要借位
+                    num1 = Math.floor(Math.random() * 30) + 60; // 60-89
+                    num2 = Math.floor(Math.random() * 30) + 20; // 20-49
+                    // 确保需要借位
+                    if (num1 % 10 >= num2 % 10) {
+                        num2 = Math.floor(num2 / 10) * 10 + Math.max(0, (num1 % 10) - 1);
+                        if (num2 < 20) num2 = 25;
+                    }
+                    break;
+            }
+
+            // 确保 num1 > num2
+            if (num1 < num2) {
+                [num1, num2] = [num2, num1];
+            }
+
+            gameState.num1 = num1;
+            gameState.num2 = num2;
+            gameState.answer = num1 - num2;
+            
+            elements.num1.textContent = num1;
+            elements.num2.textContent = num2;
+            elements.answerBox.textContent = '?';
+            elements.answerBox.className = 'problem-number problem-answer';
+        }
+
+        // 检查是否需要借位
+        function needsBorrowing(num1, num2) {
+            return (num1 % 10) < (num2 % 10);
+        }
+
+        // 拆大数法
+        function splitBigMethod() {
+            const n1 = gameState.num1;
+            const n2 = gameState.num2;
+            const ones = n1 % 10;
+            const tens = Math.floor(n1 / 10) * 10;
+            
+            let steps = [];
+            
+            if (n1 % 10 >= n2 % 10) {
+                // 不需要借位
+                steps.push({
+                    text: `把 <span class="step-highlight">${n1}</span> 拆成 <span class="step-formula">${tens} + ${ones}</span>`,
+                    formula: ``
+                });
+                steps.push({
+                    text: `先用 <span class="step-highlight">${tens}</span> 减去 <span class="step-highlight">${Math.floor(n2/10)*10}</span>`,
+                    formula: `${tens} - ${Math.floor(n2/10)*10} = ${tens - Math.floor(n2/10)*10}`
+                });
+                steps.push({
+                    text: `再用 <span class="step-highlight">${ones}</span> 减去 <span class="step-highlight">${n2%10}</span>`,
+                    formula: `${ones} - ${n2%10} = ${ones - n2%10}`
+                });
+                steps.push({
+                    text: `最后相加：<span class="step-formula">${tens - Math.floor(n2/10)*10} + ${ones - n2%10} = ${gameState.answer}</span>`,
+                    formula: `答案：${gameState.answer}`
+                });
+            } else {
+                // 需要借位
+                const borrow = 10;
+                const newOnes = ones + 10;
+                const newTens = tens - 10;
+                
+                steps.push({
+                    text: `把 <span class="step-highlight">${n1}</span> 拆成 <span class="step-formula">${tens} + ${ones}</span>`,
+                    formula: ``
+                });
+                steps.push({
+                    text: `${ones} 比 ${n2%10} 小，需要从十位借1（借10）`,
+                    formula: `借位后：${newTens} + ${newOnes}`
+                });
+                steps.push({
+                    text: `先用 <span class="step-highlight">${newOnes}</span> 减去 <span class="step-highlight">${n2%10}</span>`,
+                    formula: `${newOnes} - ${n2%10} = ${newOnes - n2%10}`
+                });
+                steps.push({
+                    text: `再用 <span class="step-highlight">${newTens}</span> 减去 <span class="step-highlight">${Math.floor(n2/10)*10}</span>`,
+                    formula: `${newTens} - ${Math.floor(n2/10)*10} = ${newTens - Math.floor(n2/10)*10}`
+                });
+                steps.push({
+                    text: `最后相加：<span class="step-formula">${newTens - Math.floor(n2/10)*10} + ${newOnes - n2%10} = ${gameState.answer}</span>`,
+                    formula: `答案：${gameState.answer}`
+                });
+            }
+            
+            return steps;
+        }
+
+        // 拆小数法
+        function splitSmallMethod() {
+            const n1 = gameState.num1;
+            const n2 = gameState.num2;
+            const tens2 = Math.floor(n2 / 10) * 10;
+            const ones2 = n2 % 10;
+            
+            let steps = [];
+            
+            if (n1 % 10 >= ones2) {
+                // 不需要借位
+                steps.push({
+                    text: `把 <span class="step-highlight">${n2}</span> 拆成 <span class="step-formula">${tens2} + ${ones2}</span>`,
+                    formula: ``
+                });
+                steps.push({
+                    text: `先用 <span class="step-highlight">${n1}</span> 减去 <span class="step-highlight">${tens2}</span>`,
+                    formula: `${n1} - ${tens2} = ${n1 - tens2}`
+                });
+                steps.push({
+                    text: `再减去 <span class="step-highlight">${ones2}</span>`,
+                    formula: `${n1 - tens2} - ${ones2} = ${gameState.answer}`
+                });
+                steps.push({
+                    text: `<span class="step-formula">答案：${gameState.answer}</span>`,
+                    formula: ``
+                });
+            } else {
+                // 需要借位
+                const borrow = 10;
+                const target = ones2;
+                const temp = n1 + 10;
+                const newTens = Math.floor(n1 / 10) * 10 - 10;
+                const newOnes = (n1 % 10) + 10;
+                
+                steps.push({
+                    text: `把 <span class="step-highlight">${n2}</span> 拆成 <span class="step-formula">${tens2} + ${ones2}</span>`,
+                    formula: ``
+                });
+                steps.push({
+                    text: `${n1 % 10} 比 ${ones2} 小，需要从十位借1（借10）`,
+                    formula: `借位后：个位变成 ${newOnes}`
+                });
+                steps.push({
+                    text: `先用 <span class="step-highlight">${n1}</span> 十位减 <span class="step-highlight">${tens2}</span>，个位加10后减 ${ones2}`,
+                    formula: `(${n1%10}+10) - ${ones2} = ${newOnes - ones2}`
+                });
+                steps.push({
+                    text: `十位：${Math.floor(n1/10)*10} - ${tens2} - 1 = ${newTens}`,
+                    formula: `${newTens} + ${newOnes - ones2} = ${gameState.answer}`
+                });
+                steps.push({
+                    text: `<span class="step-formula">答案：${gameState.answer}</span>`,
+                    formula: ``
+                });
+            }
+            
+            return steps;
+        }
+
+        // 显示步骤动画
+        function showSteps(steps) {
+            elements.stepsContainer.innerHTML = '';
+            let delay = 0;
+            
+            steps.forEach((step, index) => {
+                const stepDiv = document.createElement('div');
+                stepDiv.className = 'step';
+                stepDiv.innerHTML = `
+                    <span class="step-number">${index + 1}</span>
+                    <span class="step-text">${step.text}</span>
+                `;
+                if (step.formula) {
+                    stepDiv.innerHTML += `<br><span style="margin-left: 50px; color: var(--secondary);">${step.formula}</span>`;
+                }
+                elements.stepsContainer.appendChild(stepDiv);
+                
+                setTimeout(() => {
+                    stepDiv.classList.add('visible');
+                }, delay);
+                delay += 600;
+            });
+        }
+
+        // 方法按钮点击
+        elements.splitBigBtn.addEventListener('click', () => {
+            if (gameState.isShowingSolution) return;
+            
+            gameState.selectedMethod = 'big';
+            gameState.isShowingSolution = true;
+            
+            elements.splitBigBtn.classList.add('selected');
+            elements.splitSmallBtn.classList.add('disabled');
+            elements.splitSmallBtn.disabled = true;
+            
+            elements.methodTitle.textContent = '📦 拆大数法';
+            const steps = splitBigMethod();
+            showSteps(steps);
+            
+            elements.submitBtn.disabled = false;
+            
+            setTimeout(() => {
+                elements.submitBtn.disabled = false;
+                elements.answerInput.focus();
+            }, steps.length * 600 + 500);
+        });
+
+        elements.splitSmallBtn.addEventListener('click', () => {
+            if (gameState.isShowingSolution) return;
+            
+            gameState.selectedMethod = 'small';
+            gameState.isShowingSolution = true;
+            
+            elements.splitSmallBtn.classList.add('selected');
+            elements.splitBigBtn.classList.add('disabled');
+            elements.splitBigBtn.disabled = true;
+            
+            elements.methodTitle.textContent = '🎯 拆小数法';
+            const steps = splitSmallMethod();
+            showSteps(steps);
+            
+            elements.submitBtn.disabled = false;
+            
+            setTimeout(() => {
+                elements.submitBtn.disabled = false;
+                elements.answerInput.focus();
+            }, steps.length * 600 + 500);
+        });
+
+        // 提交答案
+        elements.submitBtn.addEventListener('click', checkAnswer);
+        elements.answerInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkAnswer();
+        });
+
+        function checkAnswer() {
+            const userAnswer = parseInt(elements.answerInput.value);
+            
+            if (isNaN(userAnswer)) {
+                elements.feedback.textContent = '请输入答案！';
+                elements.feedback.className = 'feedback wrong';
+                return;
+            }
+            
+            elements.feedback.style.display = 'none';
+            
+            if (userAnswer === gameState.answer) {
+                // 正确
+                elements.answerBox.textContent = userAnswer;
+                elements.answerBox.classList.add('correct');
+                elements.feedback.textContent = getCorrectMessage();
+                elements.feedback.className = 'feedback correct';
+                
+                gameState.correctCount++;
+                gameState.questionsForStar++;
+                elements.correctCount.textContent = gameState.correctCount;
+                
+                // 检查是否获得星星
+                if (gameState.questionsForStar >= 10) {
+                    gameState.starCount++;
+                    gameState.questionsForStar = 0;
+                    updateStarDisplay();
+                    createStarBurst();
+                    createConfetti();
+                }
+                
+                // 播放成功动画
+                createStarBurst();
+            } else {
+                // 错误
+                elements.answerBox.textContent = userAnswer;
+                elements.answerBox.classList.add('wrong');
+                elements.feedback.textContent = getWrongMessage() + ` 正确答案是 ${gameState.answer}`;
+                elements.feedback.className = 'feedback wrong';
+                
+                // 显示正确答案
+                setTimeout(() => {
+                    elements.answerBox.textContent = gameState.answer;
+                    elements.answerBox.classList.remove('wrong');
+                    elements.answerBox.classList.add('correct');
+                }, 1500);
+            }
+            
+            // 禁用输入
+            elements.submitBtn.disabled = true;
+            elements.splitBigBtn.disabled = true;
+            elements.splitSmallBtn.disabled = true;
+            elements.answerInput.disabled = true;
+            
+            // 显示下一题按钮
+            elements.nextBtn.classList.add('visible');
+            
+            // 检查游戏是否结束
+            gameState.questionNum++;
+            if (gameState.questionNum >= gameState.totalQuestions) {
+                elements.nextBtn.textContent = '查看结果 🎉';
+            }
+        }
+
+        function getCorrectMessage() {
+            const messages = [
+                '太棒了！⭐',
+                '你真聪明！🌟',
+                '完全正确！✨',
+                '答对啦！🎉',
+                '厉害！💯',
+                '继续保持！👏'
+            ];
+            return messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        function getWrongMessage() {
+            const messages = [
+                '再想想看~',
+                '没关系，继续加油！',
+                '答案是：',
+                '差一点就对了！'
+            ];
+            return messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        function updateStarDisplay() {
+            let stars = '';
+            for (let i = 0; i < 3; i++) {
+                stars += i < gameState.starCount ? '⭐' : '☆';
+            }
+            elements.starCount.textContent = stars;
+        }
+
+        // 创建星星爆炸效果
+        function createStarBurst() {
+            const burst = document.createElement('div');
+            burst.className = 'star-burst';
+            burst.style.left = '50%';
+            burst.style.top = '50%';
+            
+            const emojis = ['⭐', '🌟', '✨', '💫'];
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'star-particle';
+                particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                const angle = (i / 12) * Math.PI * 2;
+                const distance = 100 + Math.random() * 50;
+                particle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+                particle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+                burst.appendChild(particle);
+            }
+            
+            document.body.appendChild(burst);
+            setTimeout(() => burst.remove(), 1000);
+        }
+
+        // 创建彩带效果
+        function createConfetti() {
+            const colors = ['#FF6B9D', '#4ECDC4', '#FFE66D', '#9B59B6', '#2ecc71'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+
+        // 下一题
+        elements.nextBtn.addEventListener('click', () => {
+            if (gameState.questionNum >= gameState.totalQuestions) {
+                showEndScreen();
+                return;
+            }
+            
+            // 重置状态
+            resetForNextQuestion();
+            generateProblem();
+        });
+
+        function resetForNextQuestion() {
+            gameState.selectedMethod = null;
+            gameState.isShowingSolution = false;
+            
+            elements.answerInput.value = '';
+            elements.answerInput.disabled = false;
+            elements.feedback.style.display = 'none';
+            elements.feedback.className = 'feedback';
+            
+            elements.splitBigBtn.classList.remove('selected', 'disabled');
+            elements.splitBigBtn.disabled = false;
+            elements.splitSmallBtn.classList.remove('selected', 'disabled');
+            elements.splitSmallBtn.disabled = false;
+            
+            elements.submitBtn.disabled = true;
+            elements.nextBtn.classList.remove('visible');
+            
+            elements.methodTitle.textContent = '选择一种方法来解题吧！';
+            elements.stepsContainer.innerHTML = '';
+            
+            elements.questionNum.textContent = gameState.questionNum + 1;
+        }
+
+        // 显示结束画面
+        function showEndScreen() {
+            elements.gameScreen.style.display = 'none';
+            elements.endScreen.style.display = 'block';
+            
+            const accuracy = Math.round((gameState.correctCount / gameState.totalQuestions) * 100);
+            
+            let emoji, title;
+            if (accuracy >= 90) {
+                emoji = '🏆';
+                title = '太厉害了！满分！';
+            } else if (accuracy >= 70) {
+                emoji = '🎉';
+                title = '做得很棒！';
+            } else if (accuracy >= 50) {
+                emoji = '💪';
+                title = '继续加油！';
+            } else {
+                emoji = '🐰';
+                title = '多练习会更好！';
+            }
+            
+            document.getElementById('endEmoji').textContent = emoji;
+            document.getElementById('endTitle').textContent = title;
+            document.getElementById('endStats').innerHTML = `
+                <p>完成题目: <strong>${gameState.totalQuestions}</strong> 道</p>
+                <p>答对: <strong>${gameState.correctCount}</strong> 道</p>
+                <p>正确率: <strong>${accuracy}%</strong></p>
+                <p>获得星星: <strong>${'⭐'.repeat(gameState.starCount)}${'☆'.repeat(3 - gameState.starCount)}</strong></p>
+            `;
+            
+            createConfetti();
+        }
+
+        // 开始游戏
+        elements.startBtn.addEventListener('click', () => {
+            elements.startScreen.style.display = 'none';
+            elements.gameScreen.style.display = 'block';
+            
+            gameState.correctCount = 0;
+            gameState.questionNum = 1;
+            gameState.starCount = 0;
+            gameState.questionsForStar = 0;
+            
+            elements.correctCount.textContent = '0';
+            elements.questionNum.textContent = '1';
+            updateStarDisplay();
+            
+            generateProblem();
+        });
+
+        // 重新开始
+        elements.restartBtn.addEventListener('click', () => {
+            elements.endScreen.style.display = 'none';
+            elements.startScreen.style.display = 'block';
+            
+            // 重置难度选择
+            document.querySelectorAll('.difficulty-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelector('.difficulty-btn[data-difficulty="easy"]').classList.add('selected');
+            gameState.difficulty = 'easy';
+        });
+
+        // 初始化
+        initFloatingElements();
+    </script>
+</body>
+</html>
