@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "classmgr": {
+      "command": "cd /Users/shengpeng319/code/classmgr/server && npm run mcp"
+    }
+  },
+  "imports": []
+}
