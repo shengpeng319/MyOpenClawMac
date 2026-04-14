@@ -89,3 +89,27 @@ _这是起点。随着你找到适合自己的方式，更新它。_
 - **token 有效期 2 小时**
 - **首发送空 → 重新上传再发一次**
 
+
+---
+
+## 🧠 Memory 管理规则 (Phase1 移植)
+
+### 容量限制
+- **MEMORY.md**: 上限 2,200 字符，超出需先整理再添加
+- **USER.md**: 上限 1,375 字符，超出需先整理再添加
+- 超出限制时，提示用户整理后再继续
+
+### Frozen Snapshot 机制
+- 会话启动时，MEMORY.md 和 USER.md 注入一次
+- 会话中对记忆文件的修改**不更新当前会话的 injected copy**
+- 修改持久化到磁盘，**下次会话生效**
+
+### 技能条件激活 (Conditional Activation)
+技能可根据当前工具集动态显示/隐藏。在 SKILL.md 的 metadata 中声明：
+
+```yaml
+metadata:
+  openclaw:
+    fallback_for_tools: [web_search]  # 没有这些工具时技能可见
+    requires_tools: [terminal]          # 有这些工具时技能可见
+```
