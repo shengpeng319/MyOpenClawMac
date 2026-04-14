@@ -1,0 +1,16 @@
+{
+  "id": "0509c17e-dc81-4d16-a51a-3d97e71a9bcd",
+  "enqueuedAt": 1776178056312,
+  "channel": "feishu",
+  "to": "user:ou_c858ba4fbb03f207666daef058ede895",
+  "accountId": "main",
+  "payloads": [
+    {
+      "text": "Automatic session resume failed, so sending the status directly.\n\nCommand did not run: approval request failed.",
+      "replyToTag": false,
+      "replyToCurrent": false,
+      "audioAsVoice": false
+    }
+  ],
+  "retryCount": 0
+}
