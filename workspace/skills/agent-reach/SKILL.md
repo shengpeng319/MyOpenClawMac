@@ -19,6 +19,8 @@ description: >
   "帮我配", "configure twitter", "configure proxy", "帮我安装".
 metadata:
   openclaw:
+    fallback_for_tools: [browser, playwright]
+    requires_tools: []
     homepage: https://github.com/Panniantong/Agent-Reach
 ---
 
