@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "691ef0dd-7238-4c00-aefb-4433bc7e3af4",
+      "agentId": "educationexpert",
+      "name": "课程提醒",
+      "description": "每日课程提醒",
+      "enabled": true,
+      "createdAtMs": 1776207896547,
+      "updatedAtMs": 1776211478707,
+      "schedule": {
+        "kind": "cron",
+        "expr": "5 7 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "今天的课程安排已发送。现在请为每门课程创建单独的出发提醒 Cron 任务（课程开始前20分钟触发，执行后自动删除）。\n\n课程表在 USER.md 中，格式如下：\n- 蛋蛋/妞妞 | 课程名 | 星期X | 出发时间 | 课程时间 | 地点\n\n步骤：\n1. 读取 USER.md 获取今天的课程列表\n2. 计算每门课的开始时间对应的出发提醒时间（课程开始前20分钟）\n3. 用 exec 工具调用 openclaw cron add 为每门课创建单独的 Cron：\n   - 使用 --at 选项指定具体触发时间（用 ISO 格式，如 2026-04-15T18:20:00+08:00）\n   - 使用 --delete-after-run 确保执行后自动删除\n   - 使用 --message 指定出发提醒内容（格式：\\u7231\\uff1a\\u8b66\\u73ed\\uff0c\\u8b66\\u73ed\\uff0c\\u51fa\\u53d1\\uff01[\\u540d\\u5b57]\\uff0c[\\u8bfe\\u7a0b]\\u5f00\\u59cb\\uff0c[\\u65f6\\u95f4]\\u51fa\\u53d1\\uff0c\\u53bb[\\u5730\\u70b9]\\uff01\\uff08\\u5fc5\\u987b\\u5e26\\uff1a...）\n   \n4. 创建完成后输出已创建的子 Cron 数量",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "nextRunAtMs": 1776294300000,
+        "lastRunAtMs": 1776211422413,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 56294,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
+      }
+    },
+    {
+      "id": "ab53ecb8-2639-444f-837f-b8f5c302fa5f",
+      "name": "妞妞-游泳-出发提醒-20260415",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1776211470181,
+      "updatedAtMs": 1776211470181,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-15T10:40:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🚨 警报，警报，出发！[妞妞]，[游泳]开始，[19:00]出发，去[莲花体育中心]！（必须带：泳衣、泳镜、泳帽、毛巾、拖鞋）"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1776249600000
+      }
+    },
+    {
+      "id": "2c468fef-f3ef-4520-b8cd-105b7cf007ba",
+      "name": "蛋蛋-自习-出发提醒-20260415",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1776211470185,
+      "updatedAtMs": 1776211470185,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-15T10:40:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🚨 警报，警报，出发！[蛋蛋]，[自习]开始，[19:00]出发，去[青海大厦]！（必须带：书包、文具、作业本）"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1776249600000
+      }
+    }
+  ]
+}

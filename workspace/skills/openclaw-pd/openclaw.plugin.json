@@ -1,0 +1,9 @@
+{
+  "id": "openclaw-pd",
+  "name": "Progressive Disclosure",
+  "description": "Provides skills_list and skill_view tools for progressive skill loading (L0/L1/L2)",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false
+  }
+}
