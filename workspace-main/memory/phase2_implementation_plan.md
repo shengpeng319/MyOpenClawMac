@@ -114,3 +114,22 @@ clawhub search <q> --source github      # GitHub openai/anthropics skills
 ---
 
 *Created: 2026-04-14*
+
+---
+
+## Status Update: 2026-04-15
+
+### Step 1: Progressive Disclosure Plugin
+- **Status**: ✅ COMPLETED
+- **Verification**: Plugin loaded, provides skills_list/skill_view tools
+- **Issues Fixed**: Missing yaml/typebox deps, removed api.logInfo call
+
+### Step 2: clawhub Multi-Source Support  
+- **Status**: ❌ NOT FEASIBLE
+- **Reason**: clawhub CLI doesn't support --source flag, no public API for skills.sh, GitHub repos don't exist
+
+### Step 3: skill-vetter Automated Scanning
+- **Status**: ✅ COMPLETED
+- **Created**: `references/vet-scan.sh` - automated pattern scanner
+- **Detects**: curl/wget, exec/eval, credential access, suspicious encoding
+- **Verified**: All local skills pass (agent-reach, stock-market-pro, humanizer, summarize, proactive-agent)

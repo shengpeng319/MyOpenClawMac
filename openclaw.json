@@ -690,7 +690,8 @@
       "acpx",
       "lossless-claw",
       "progressive-disclosure",
-      "browser"
+      "browser",
+      "memory-sync"
     ],
     "load": {
       "paths": [
@@ -729,6 +730,9 @@
         "enabled": true
       },
       "browser": {
+        "enabled": true
+      },
+      "memory-sync": {
         "enabled": true
       }
     },

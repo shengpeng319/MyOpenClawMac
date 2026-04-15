@@ -195,3 +195,24 @@ openclaw gateway call sessions.send --params "{\"key\":\"<session_key>\",\"messa
 
 **心跳文件路径：** `~/.openclaw/active_tasks/claire_qa_heartbeat.md`
 
+
+## researcher subagent 关键经验 (2026-04-15)
+
+### openclaw gateway CLI 路径
+- 路径：`/Users/shengpeng319/.nvm/versions/node/v24.14.1/bin/openclaw`
+- 注意：直接运行 `openclaw` 找不到，需要用完整路径
+
+### sessions.send 正确调用方式（Python）
+```python
+import subprocess, json
+params = {"key": "<session_key>", "message": "<msg>"}
+subprocess.run(['/Users/shengpeng319/.nvm/versions/node/v24.14.1/bin/openclaw',
+    'gateway', 'call', 'sessions.send', '--params', json.dumps(params)])
+```
+
+### lossless-claw 警告
+- `~/.openclaw/openclaw.json` 中有 stale entry `lossless-claw`，可安全忽略或删除
+
+---
+
+*Updated: 2026-04-15*
