@@ -104,6 +104,54 @@ NOTES: [Any observations]
 ═══════════════════════════════════════
 ```
 
+
+
+## Automated Scanner (NEW)
+
+The `vet-scan.sh` script provides automated pattern detection for skill vetting.
+
+### Usage
+
+```bash
+bash ~/.openclaw/workspace/skills/skill-vetter/references/vet-scan.sh <skill-directory>
+```
+
+### What It Detects
+
+| Pattern Type | Flags | Description |
+|-------------|-------|-------------|
+| `curl`, `wget`, `fetch` | 🚨 RED FLAG | External network calls |
+| `exec()`, `eval()`, `spawn()` | 🚨 RED FLAG | Code execution |
+| `~/.ssh`, `~/.aws`, `*.key` | 🚨 RED FLAG | Credential access |
+| `base64`, `obfuscate` | ⚠️ WARNING | Suspicious encoding |
+
+### Output
+
+```
+VERDICT: ✅ LIKELY SAFE   → No red flags found
+VERDICT: ⚠️ INSTALL WITH CAUTION → Warnings only
+VERDICT: ❌ DO NOT INSTALL → Red flags found
+```
+
+### Example
+
+```bash
+# Scan a skill before installing
+bash ~/.openclaw/workspace/skills/skill-vetter/references/vet-scan.sh /path/to/skill
+
+# Scan during installation
+clawhub install <slug> --dir skills && \
+  bash ~/.openclaw/workspace/skills/skill-vetter/references/vet-scan.sh skills/<slug>
+```
+
+### Limitations
+
+- Only scans `src/` and `index.*` files (not documentation)
+- Cannot detect malicious logic that doesn't match known patterns
+- Always combine with manual code review for HIGH risk skills
+
+
+
 ## Quick Vet Commands
 
 For GitHub-hosted skills:

@@ -32,7 +32,8 @@
       }
     },
     "createdAtMs": 1773186715322,
-    "approvedAtMs": 1773186725027
+    "approvedAtMs": 1773186725027,
+    "displayName": "agent"
   },
   "6e532f109af59d97e82016d76c8fe423ddb04bc410719c6c5a5c6ded974e46e7": {
     "deviceId": "6e532f109af59d97e82016d76c8fe423ddb04bc410719c6c5a5c6ded974e46e7",
