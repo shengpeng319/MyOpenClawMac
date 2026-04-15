@@ -94,3 +94,56 @@ npx openclaw message send --channel feishu --account main --target ou_xxx --mess
 > **重要**: 禁止直接从 `workspace-*` 目录发送文件。必须先复制到 `~/.openclaw/transfers/` 目录。
 
 **关键词**: 飞书, 文件传输, transfers, 附件, media
+
+---
+
+## 场景4: 发送音频/音乐文件（API直发）
+
+当 --media 方式无法发送音频时，使用飞书 API 直接上传发送。
+
+### 关键发现
+
+| 步骤 | file_type | msg_type | 说明 |
+|------|-----------|----------|------|
+| 上传 | `opus` | - | MP3/音频文件必须用 opus 类型上传 |
+| 发送 | - | `audio` | 消息类型用 audio，不是 file |
+
+### API 流程
+
+```bash
+# 1. 获取 token
+TOKEN=$(curl -s -X POST "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal" \
+  -H "Content-Type: application/json" \
+  -d '{"app_id":"你的AppID","app_secret":"你的AppSecret"}' \
+  | python3 -c "import json,sys; print(json.load(sys.stdin).get('tenant_access_token',''))")
+
+# 2. 上传文件 (file_type=opus)
+FILE_KEY=$(curl -s -X POST "https://open.feishu.cn/open-apis/im/v1/files" \
+  -H "Authorization: Bearer $TOKEN" \
+  -F "file_type=opus" \
+  -F "file_name=文件名.mp3" \
+  -F "file=@/path/to/file.mp3" \
+  | python3 -c "import json,sys; print(json.load(sys.stdin).get('data',{}).get('file_key',''))")
+
+# 3. 发送音频消息 (msg_type=audio)
+curl -s -X POST "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"receive_id\":\"用户的open_id\",\"msg_type\":\"audio\",\"content\":\"{\\\"file_key\\\":\\\"$FILE_KEY\\\"}\"}"
+```
+
+### 重要说明
+
+- **上传时 file_type=opus**，不是 audio，不是 mp3
+- **发送时 msg_type=audio**，不是 file
+- **content 只有 file_key**，不需要 duration 等字段
+- token 有效期 2 小时，超时需要重新获取
+
+### 常见错误
+
+| 错误 | 原因 | 解决 |
+|------|------|------|
+| 230055 | file_type 和 msg_type 不匹配 | 上传用 opus，发送用 audio |
+| 234001 | file_type 参数错误 | 确认用 opus，不是 audio/file/mp3 |
+| 2200 | content 格式错误 | content 应该是纯 JSON 的 file_key 对象 |
+

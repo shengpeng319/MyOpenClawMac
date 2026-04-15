@@ -1,0 +1,20 @@
+{
+  "id": "73d78ed7-19a4-43f9-9208-557f2c683c43",
+  "enqueuedAt": 1776252011767,
+  "channel": "feishu",
+  "to": "heartbeat",
+  "accountId": "main",
+  "payloads": [
+    {
+      "text": "⚠️ Cron job \"妞妞-游泳-出发提醒-20260415\" failed: AxiosError: Request failed with status code 400"
+    }
+  ],
+  "bestEffort": false,
+  "session": {
+    "key": "cron:ab53ecb8-2639-444f-837f-b8f5c302fa5f:failure",
+    "agentId": "main"
+  },
+  "retryCount": 2,
+  "lastAttemptAt": 1776252260288,
+  "lastError": "read ECONNRESET | read ECONNRESET"
+}

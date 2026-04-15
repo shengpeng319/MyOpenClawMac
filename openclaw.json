@@ -1,11 +1,11 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.4.2",
-    "lastTouchedAt": "2026-04-15T09:07:34.642Z"
+    "lastTouchedVersion": "2026.4.14",
+    "lastTouchedAt": "2026-04-15T11:19:11.250Z"
   },
   "wizard": {
-    "lastRunAt": "2026-04-15T09:07:34.600Z",
-    "lastRunVersion": "2026.4.2",
+    "lastRunAt": "2026-04-15T11:19:11.126Z",
+    "lastRunVersion": "2026.4.14",
     "lastRunCommand": "doctor",
     "lastRunMode": "local"
   },
@@ -67,6 +67,19 @@
             },
             "contextWindow": 128000,
             "maxTokens": 8192
+          },
+          {
+            "id": "music-2.6",
+            "name": "MiniMax Music 2.6",
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            }
           }
         ]
       },
@@ -151,6 +164,9 @@
       },
       "sandbox": {
         "mode": "off"
+      },
+      "musicGenerationModel": {
+        "primary": "minimax-cn/music-2.6"
       }
     },
     "list": [
@@ -395,7 +411,22 @@
     }
   ],
   "messages": {
-    "ackReactionScope": "group-mentions"
+    "ackReactionScope": "group-mentions",
+    "tts": {
+      "auto": "off",
+      "provider": "minimax",
+      "providers": {
+        "minimax": {
+          "apiKey": "sk-cp-njZAK26hFYuPB5MJkEyeXRcIcPQfssN5_G1bZjTieyTEzB9jA5qn2CocKE7tMecfbMwT2URDzc1wsPRDdWOdtJv3X7jW732O3oEWO02YPYmtsZPRGg-JJOI",
+          "baseUrl": "https://api.minimax.io",
+          "model": "speech-2.8-hd",
+          "voiceId": "English_expressive_narrator",
+          "speed": 1,
+          "vol": 1,
+          "pitch": 0
+        }
+      }
+    }
   },
   "commands": {
     "native": "auto",
@@ -690,7 +721,8 @@
       "acpx",
       "progressive-disclosure",
       "browser",
-      "memory-sync"
+      "memory-sync",
+      "memory-core"
     ],
     "load": {
       "paths": [

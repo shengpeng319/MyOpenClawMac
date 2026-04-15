@@ -39,10 +39,10 @@
     {
       "id": "ab53ecb8-2639-444f-837f-b8f5c302fa5f",
       "name": "妞妞-游泳-出发提醒-20260415",
-      "enabled": true,
+      "enabled": false,
       "deleteAfterRun": true,
       "createdAtMs": 1776211470181,
-      "updatedAtMs": 1776211470181,
+      "updatedAtMs": 1776252001219,
       "schedule": {
         "kind": "at",
         "at": "2026-04-15T10:40:00.000Z"
@@ -58,16 +58,22 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1776249600000
+        "lastRunAtMs": 1776251978039,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 23180,
+        "lastError": "AxiosError: Request failed with status code 400",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       }
     },
     {
       "id": "2c468fef-f3ef-4520-b8cd-105b7cf007ba",
       "name": "蛋蛋-自习-出发提醒-20260415",
-      "enabled": true,
+      "enabled": false,
       "deleteAfterRun": true,
       "createdAtMs": 1776211470185,
-      "updatedAtMs": 1776211470185,
+      "updatedAtMs": 1776252011744,
       "schedule": {
         "kind": "at",
         "at": "2026-04-15T10:40:00.000Z"
@@ -83,7 +89,13 @@
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1776249600000
+        "lastRunAtMs": 1776252001219,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 10525,
+        "lastError": "AxiosError: Request failed with status code 400",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       }
     }
   ]

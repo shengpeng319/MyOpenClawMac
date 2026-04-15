@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "lastGood": {
+    "minimax-cn": "minimax-cn:default",
+    "localqwen35": "localqwen35:default"
+  },
+  "usageStats": {
+    "minimax-cn:default": {
+      "lastUsed": 1776261914197,
+      "errorCount": 0
+    },
+    "localqwen35:default": {
+      "lastUsed": 1774699507936,
+      "errorCount": 0,
+      "lastFailureAt": 1774696195905
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "c6abd523-99f1-4463-9162-7b04d3eab434",
+  "enqueuedAt": 1776252011767,
+  "channel": "feishu",
+  "to": "heartbeat",
+  "accountId": "main",
+  "payloads": [
+    {
+      "text": "⚠️ Cron job \"蛋蛋-自习-出发提醒-20260415\" failed: AxiosError: Request failed with status code 400"
+    }
+  ],
+  "bestEffort": false,
+  "session": {
+    "key": "cron:2c468fef-f3ef-4520-b8cd-105b7cf007ba:failure",
+    "agentId": "main"
+  },
+  "retryCount": 2,
+  "lastAttemptAt": 1776252265301,
+  "lastError": "read ECONNRESET | read ECONNRESET"
+}
