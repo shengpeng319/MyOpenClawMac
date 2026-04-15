@@ -14,7 +14,7 @@
     "key": "cron:ab53ecb8-2639-444f-837f-b8f5c302fa5f:failure",
     "agentId": "main"
   },
-  "retryCount": 2,
-  "lastAttemptAt": 1776252260288,
-  "lastError": "read ECONNRESET | read ECONNRESET"
+  "retryCount": 3,
+  "lastAttemptAt": 1776267250948,
+  "lastError": "Cannot destructure property 'tenant_access_token' of '(intermediate value)' as it is undefined."
 }

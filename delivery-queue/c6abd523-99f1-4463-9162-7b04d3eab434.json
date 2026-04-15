@@ -14,7 +14,7 @@
     "key": "cron:2c468fef-f3ef-4520-b8cd-105b7cf007ba:failure",
     "agentId": "main"
   },
-  "retryCount": 2,
-  "lastAttemptAt": 1776252265301,
-  "lastError": "read ECONNRESET | read ECONNRESET"
+  "retryCount": 3,
+  "lastAttemptAt": 1776267251918,
+  "lastError": "Request failed with status code 400"
 }

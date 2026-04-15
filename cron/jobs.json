@@ -2,13 +2,38 @@
   "version": 1,
   "jobs": [
     {
-      "id": "691ef0dd-7238-4c00-aefb-4433bc7e3af4",
-      "agentId": "educationexpert",
-      "name": "课程提醒",
-      "description": "每日课程提醒",
+      "id": "bb942ed1-4d9f-4460-8c0c-9f8803f85781",
+      "name": "每日进化报告",
       "enabled": true,
-      "createdAtMs": 1776207896547,
-      "updatedAtMs": 1776211478707,
+      "createdAtMs": 1776266146983,
+      "updatedAtMs": 1776266146983,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 22 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "# 📊 每日进化报告\n\n请执行以下任务：\n1. 回顾今天的会话历史\n2. 提取关键要点\n3. 分析学会了什么、犯了什么错、怎么解决的\n4. 形成每日进化报告，提议可以固化的技能\n5. 发送报告给我\n6. 运行 ~/bin/backup-openclaw.sh 备份配置到 GitHub",
+        "timeoutSeconds": 120
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "ou_c858ba4fbb03f207666daef058ede895"
+      },
+      "state": {
+        "nextRunAtMs": 1776348000000
+      }
+    },
+    {
+      "id": "56a360cd-48ff-4d15-9637-cd4aaef3f937",
+      "name": "每日早安问候",
+      "enabled": true,
+      "createdAtMs": 1776266151217,
+      "updatedAtMs": 1776266151217,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -17,85 +42,71 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "今天的课程安排已发送。现在请为每门课程创建单独的出发提醒 Cron 任务（课程开始前20分钟触发，执行后自动删除）。\n\n课程表在 USER.md 中，格式如下：\n- 蛋蛋/妞妞 | 课程名 | 星期X | 出发时间 | 课程时间 | 地点\n\n步骤：\n1. 读取 USER.md 获取今天的课程列表\n2. 计算每门课的开始时间对应的出发提醒时间（课程开始前20分钟）\n3. 用 exec 工具调用 openclaw cron add 为每门课创建单独的 Cron：\n   - 使用 --at 选项指定具体触发时间（用 ISO 格式，如 2026-04-15T18:20:00+08:00）\n   - 使用 --delete-after-run 确保执行后自动删除\n   - 使用 --message 指定出发提醒内容（格式：\\u7231\\uff1a\\u8b66\\u73ed\\uff0c\\u8b66\\u73ed\\uff0c\\u51fa\\u53d1\\uff01[\\u540d\\u5b57]\\uff0c[\\u8bfe\\u7a0b]\\u5f00\\u59cb\\uff0c[\\u65f6\\u95f4]\\u51fa\\u53d1\\uff0c\\u53bb[\\u5730\\u70b9]\\uff01\\uff08\\u5fc5\\u987b\\u5e26\\uff1a...）\n   \n4. 创建完成后输出已创建的子 Cron 数量",
-        "timeoutSeconds": 180
+        "message": "生成温馨的早间关怀提醒，包含：1）深圳和广州的天气情况，重点关注温度变化、是否下雨、空气质量等；2）给出穿衣建议（如降温带外套、下雨带伞等）；3）如果前一天有重要新闻可以提一下，但不要太多",
+        "timeoutSeconds": 60
       },
       "delivery": {
         "mode": "announce",
-        "channel": "oc_49bd38a7e7152bafbb125392b40e2939",
+        "channel": "feishu",
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776294300000,
-        "lastRunAtMs": 1776211422413,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 56294,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": true
+        "nextRunAtMs": 1776294300000
       }
     },
     {
-      "id": "ab53ecb8-2639-444f-837f-b8f5c302fa5f",
-      "name": "妞妞-游泳-出发提醒-20260415",
-      "enabled": false,
-      "deleteAfterRun": true,
-      "createdAtMs": 1776211470181,
-      "updatedAtMs": 1776252001219,
+      "id": "6ac9b844-32f0-4001-920d-862b1b12123e",
+      "agentId": "educationexpert",
+      "name": "每日课程提醒",
+      "enabled": true,
+      "createdAtMs": 1776266160435,
+      "updatedAtMs": 1776266160435,
       "schedule": {
-        "kind": "at",
-        "at": "2026-04-15T10:40:00.000Z"
+        "kind": "cron",
+        "expr": "0 7 * * *"
       },
       "sessionTarget": "isolated",
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "🚨 警报，警报，出发！[妞妞]，[游泳]开始，[19:00]出发，去[莲花体育中心]！（必须带：泳衣、泳镜、泳帽、毛巾、拖鞋）"
+        "message": "你是教育专家 Diana。请完成以下任务：\n\n【第一步】读取 USER.md 中的课程表\n\n【第二步】根据今天是星期几，找出两个孩子的课程：\n- 仔细核对每一行，只提取星期X的课程\n- 注意：足球训练只在周一和周五！\n- 列出每个课程的：课程名、出发时间、课程时间、地点\n\n【第三步】发送早间汇总消息到群：oc_49bd38a7e7152bafbb125392b40e2939\n格式：\n📚 今日课程提醒 — [周X X月X日]\n🧒 蛋蛋：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n👧 妞妞：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n\n【第四步】为每个课程创建出发前20分钟提醒任务\n使用 Python 脚本在 ~/.openclaw/cron/jobs.json 中创建一次性 at 任务：\n- 任务名格式：课程提醒-[孩子名]-[课程名]-[出发时间]\n- at 时间：课程出发时间 - 20分钟\n- 时区：Asia/Shanghai (UTC+8)\n- 例如：18:40出发 → at时间为 18:20，即 \"2026-04-13T10:20:00.000+08:00\"\n- timeoutSeconds：60\n- deleteAfterRun: true\n- payload.kind: agentTurn\n- payload 内容：出发前提醒消息（课程名、孩子、出发时间、地点、距出发时间）\n\n【重要】只创建当天（未来24小时内）的提醒任务，不要创建过去的。\n\n【第五步】完成后输出\"✅ 今日课程提醒已完成，共创建 N 个单独提醒任务\"\n\n注意：\n- 不要发送私信，只发群消息\n- 发送消息用飞书 API，直接 POST 到 https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=chat_id\n- data: {\"receive_id\": \"oc_49bd38a7e7152bafbb125392b40e2939\", \"msg_type\": \"text\", \"content\": \"{\"text\":\"消息内容\"}\"}\n- headers: Authorization: Bearer [tenant_access_token]\n\nReturn your summary as plain text.",
+        "timeoutSeconds": 600
       },
       "delivery": {
         "mode": "announce",
-        "channel": "last"
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "lastRunAtMs": 1776251978039,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 23180,
-        "lastError": "AxiosError: Request failed with status code 400",
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1
+        "nextRunAtMs": 1776294000000
       }
     },
     {
-      "id": "2c468fef-f3ef-4520-b8cd-105b7cf007ba",
-      "name": "蛋蛋-自习-出发提醒-20260415",
-      "enabled": false,
-      "deleteAfterRun": true,
-      "createdAtMs": 1776211470185,
-      "updatedAtMs": 1776252011744,
+      "id": "4de7373d-2fc9-4b88-9e24-829c19ec8ce3",
+      "agentId": "financialadvisor",
+      "name": "每日金融研报",
+      "enabled": true,
+      "createdAtMs": 1776266166434,
+      "updatedAtMs": 1776266166434,
       "schedule": {
-        "kind": "at",
-        "at": "2026-04-15T10:40:00.000Z"
+        "kind": "cron",
+        "expr": "50 6 * * *",
+        "tz": "Asia/Shanghai"
       },
       "sessionTarget": "isolated",
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "🚨 警报，警报，出发！[蛋蛋]，[自习]开始，[19:00]出发，去[青海大厦]！（必须带：书包、文具、作业本）"
+        "message": "请生成今日金融研报。步骤：\n1) cd ~/.openclaw/workspace-financialadvisor && uv run --script scripts/get_all_data.py SPY QQQ NVDA AAPL MSFT GOOGL JPM XOM GLD\n2) 按照 MARKET_ANALYSIS_FRAMEWORK.md v3.0 模板生成完整研报，保存到 results/report_YYYYMMDD.md\n3) 直接输出报告内容（OpenClaw会自动发送到群里）【重要：这是第一步，先让群里收到】\n4) 报告发送后，使用 sessions_send 发送简短通知给 Claire：\n   - target session: agent:researcher:feishu:direct:ou_cf1a1ee3279590e248bcfed4d0838c22\n   - 消息格式：'📊 今日研报已发到群里，请审阅。文件路径：results/report_YYYYMMDD.md。核心观点：[1句话总结]。置信度：[高/中/低]。'\n   - timeoutSeconds: 300（重要！）\n   - 不要在消息里传报告正文，只传通知即可",
+        "timeoutSeconds": 900
       },
       "delivery": {
         "mode": "announce",
-        "channel": "last"
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "lastRunAtMs": 1776252001219,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 10525,
-        "lastError": "AxiosError: Request failed with status code 400",
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1
+        "nextRunAtMs": 1776293400000
       }
     }
   ]
