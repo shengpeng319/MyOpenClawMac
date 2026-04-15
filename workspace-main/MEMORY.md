@@ -42,3 +42,20 @@ openclaw gateway call sessions.send --params "{\"key\":\"<key>\",\"message\":$MS
 ---
 
 *Updated: 2026-04-14*
+
+---
+
+## classmgr Service (2026-04-15)
+
+**用途**：课程管理前后端服务
+**Frontend**（H5）：`http://localhost:5173/classmgr/`，局域网 `http://192.168.101.50:5173/classmgr/`
+**Server**：`http://localhost:3000`
+
+**启动方式**：launchd（~/Library/LaunchAgents/）
+- `com.shengpeng319.classmgr-frontend.plist`（H5）
+- `com.shengpeng319.classmgr-server.plist`（Server）
+
+**vite.config.ts 修改**：加 `server: { host: '0.0.0.0', port: 5173 }` 使局域网可访问
+**命令**：`npm run dev:h5` / `npm run dev`
+
+*Updated: 2026-04-15*
