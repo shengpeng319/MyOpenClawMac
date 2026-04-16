@@ -17,7 +17,7 @@
       "payload": {
         "kind": "agentTurn",
         "message": "# 📊 每日进化报告\n\n请执行以下任务：\n1. 回顾今天的会话历史\n2. 提取关键要点\n3. 分析学会了什么、犯了什么错、怎么解决的\n4. 形成每日进化报告，提议可以固化的技能\n5. 发送报告给我\n6. 运行 ~/bin/backup-openclaw.sh 备份配置到 GitHub",
-        "timeoutSeconds": 120
+        "timeoutSeconds": 300
       },
       "delivery": {
         "mode": "announce",
@@ -25,7 +25,8 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1776348000000
+        "nextRunAtMs": 1776348000000,
+        "runningAtMs": 1776349380348
       }
     },
     {
@@ -33,7 +34,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1776266151217,
-      "updatedAtMs": 1776266151217,
+      "updatedAtMs": 1776294317283,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -43,7 +44,7 @@
       "payload": {
         "kind": "agentTurn",
         "message": "生成温馨的早间关怀提醒，包含：1）深圳和广州的天气情况，重点关注温度变化、是否下雨、空气质量等；2）给出穿衣建议（如降温带外套、下雨带伞等）；3）如果前一天有重要新闻可以提一下，但不要太多",
-        "timeoutSeconds": 60
+        "timeoutSeconds": 300
       },
       "delivery": {
         "mode": "announce",
@@ -51,7 +52,14 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776294300000
+        "nextRunAtMs": 1776380700000,
+        "lastRunAtMs": 1776294300008,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 17275,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
       }
     },
     {
@@ -60,7 +68,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1776266160435,
-      "updatedAtMs": 1776266160435,
+      "updatedAtMs": 1776294239639,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -69,7 +77,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "你是教育专家 Diana。请完成以下任务：\n\n【第一步】读取 USER.md 中的课程表\n\n【第二步】根据今天是星期几，找出两个孩子的课程：\n- 仔细核对每一行，只提取星期X的课程\n- 注意：足球训练只在周一和周五！\n- 列出每个课程的：课程名、出发时间、课程时间、地点\n\n【第三步】发送早间汇总消息到群：oc_49bd38a7e7152bafbb125392b40e2939\n格式：\n📚 今日课程提醒 — [周X X月X日]\n🧒 蛋蛋：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n👧 妞妞：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n\n【第四步】为每个课程创建出发前20分钟提醒任务\n使用 Python 脚本在 ~/.openclaw/cron/jobs.json 中创建一次性 at 任务：\n- 任务名格式：课程提醒-[孩子名]-[课程名]-[出发时间]\n- at 时间：课程出发时间 - 20分钟\n- 时区：Asia/Shanghai (UTC+8)\n- 例如：18:40出发 → at时间为 18:20，即 \"2026-04-13T10:20:00.000+08:00\"\n- timeoutSeconds：60\n- deleteAfterRun: true\n- payload.kind: agentTurn\n- payload 内容：出发前提醒消息（课程名、孩子、出发时间、地点、距出发时间）\n\n【重要】只创建当天（未来24小时内）的提醒任务，不要创建过去的。\n\n【第五步】完成后输出\"✅ 今日课程提醒已完成，共创建 N 个单独提醒任务\"\n\n注意：\n- 不要发送私信，只发群消息\n- 发送消息用飞书 API，直接 POST 到 https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=chat_id\n- data: {\"receive_id\": \"oc_49bd38a7e7152bafbb125392b40e2939\", \"msg_type\": \"text\", \"content\": \"{\"text\":\"消息内容\"}\"}\n- headers: Authorization: Bearer [tenant_access_token]\n\nReturn your summary as plain text.",
+        "message": "你是教育专家 Diana。请完成以下任务：\n\n【第一步】读取 USER.md 中的课程表\n\n【第二步】根据今天是星期几，找出两个孩子的课程：\n- 仔细核对每一行，只提取星期X的课程\n- 注意：足球训练只在周一和周五！\n- 列出每个课程的：课程名、出发时间、课程时间、地点\n\n【第三步】发送早间汇总消息到群：oc_49bd38a7e7152bafbb125392b40e2939\n格式：\n📚 今日课程提醒 — [周X X月X日]\n🧒 蛋蛋：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n👧 妞妞：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n\n【第四步】为每个课程创建出发前20分钟提醒任务\n使用 Python 脚本在 ~/.openclaw/cron/jobs.json 中创建一次性 at 任务：\n- 任务名格式：课程提醒-[孩子名]-[课程名]-[出发时间]\n- at 时间：课程出发时间 - 20分钟\n- 时区：Asia/Shanghai (UTC+8)\n- 例如：18:40出发 → at时间为 18:20，即 \"2026-04-13T10:20:00.000+08:00\"\n- timeoutSeconds：180\n- deleteAfterRun: true\n- payload.kind: agentTurn\n- payload 内容：出发前提醒消息（课程名、孩子、出发时间、地点、距出发时间）\n\n【重要】只创建当天（未来24小时内）的提醒任务，不要创建过去的。\n\n【第五步】完成后输出\"✅ 今日课程提醒已完成，共创建 N 个单独提醒任务\"\n\n注意：\n- 不要发送私信，只发群消息\n- 发送消息用飞书 API，直接 POST 到 https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=chat_id\n- data: {\"receive_id\": \"oc_49bd38a7e7152bafbb125392b40e2939\", \"msg_type\": \"text\", \"content\": \"{\"text\":\"消息内容\"}\"}\n- headers: Authorization: Bearer [tenant_access_token]\n\nReturn your summary as plain text.",
         "timeoutSeconds": 600
       },
       "delivery": {
@@ -78,7 +86,14 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776294000000
+        "nextRunAtMs": 1776380400000,
+        "lastRunAtMs": 1776294000009,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 239630,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
       }
     },
     {
@@ -87,7 +102,7 @@
       "name": "每日金融研报",
       "enabled": true,
       "createdAtMs": 1776266166434,
-      "updatedAtMs": 1776266166434,
+      "updatedAtMs": 1776293875874,
       "schedule": {
         "kind": "cron",
         "expr": "50 6 * * *",
@@ -106,8 +121,111 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776293400000
+        "nextRunAtMs": 1776379800000,
+        "lastRunAtMs": 1776293400011,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 475863,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
       }
+    },
+    {
+      "id": "14c3181e-f21c-4f15-8888-bb74aa2901f6",
+      "name": "课程提醒-妞妞-手风琴特色课-15:50",
+      "enabled": false,
+      "createdAtMs": 1776324600000,
+      "updatedAtMs": 1776331863223,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-16T07:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧 孩子：妞妞\n📚 课程：手风琴特色课\n🕐 出发时间：15:50\n📍 地点：学校\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1776331803200,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 60023,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      },
+      "deleteAfterRun": true
+    },
+    {
+      "id": "0759f7bb-f2fc-412f-969a-7e62860cba02",
+      "name": "课程提醒-妞妞-小白鸽-18:20",
+      "enabled": false,
+      "createdAtMs": 1776333600000,
+      "updatedAtMs": 1776333660022,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-16T10:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧 孩子：妞妞\n📚 课程：小白鸽\n🕐 出发时间：18:20\n📍 地点：枫丹雅苑\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1776333600008,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 60014,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      },
+      "deleteAfterRun": true
+    },
+    {
+      "id": "2dfbf27c-5491-4253-9f16-6795efec9da6",
+      "name": "课程提醒-蛋蛋-自习-18:40",
+      "enabled": true,
+      "createdAtMs": 1776334800000,
+      "updatedAtMs": 1776334800000,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-16T10:20:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n🧒 孩子：蛋蛋\n📚 课程：自习\n🕐 出发时间：18:40\n📍 地点：青海大厦\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 300
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "nextRunAtMs": 1776334800000,
+        "runningAtMs": 1776334800003
+      },
+      "deleteAfterRun": true
     }
   ]
 }

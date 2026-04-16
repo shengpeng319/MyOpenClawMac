@@ -59,3 +59,16 @@ openclaw gateway call sessions.send --params "{\"key\":\"<key>\",\"message\":$MS
 **命令**：`npm run dev:h5` / `npm run dev`
 
 *Updated: 2026-04-15*
+
+---
+
+## 飞书音频发送方式（已验证，2026-04-15）
+
+**上传**：`POST /im/v1/files` → `file_type=opus`
+**发送**：`POST /im/v1/messages` → `msg_type=audio`，content 为 `{"file_key":"..."}`
+注意：MP3/音频文件上传时必须用 `opus` 类型，不是 `audio` 不是 `mp3`
+
+## MiniMax music-2.6 模型（2026-04-15）
+
+- 直接 POST 到 `https://api.minimaxi.com/v1/music_generation`（不走 OpenClaw 对话模型）
+- 生成音频示例：`/tmp/test_music.mp3`
