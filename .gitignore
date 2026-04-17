@@ -51,3 +51,16 @@ lcm.db-shm
 
 # 配置文件 (可能包含敏感信息)
 plugins/
+
+# Large file caches - do not commit
+browser/openclaw/user-data/optimization_guide_model_store/
+browser/openclaw/user-data/GraphiteDawnCache/
+browser/openclaw/user-data/BrowserMetrics-spare.pma
+browser/dev-chrome/
+memory/*.sqlite-wal
+memory/*.sqlite-shm
+tasks/runs.sqlite-wal
+tasks/runs.sqlite-shm
+flows/registry.sqlite-wal
+flows/registry.sqlite-shm
+tasks/runs.sqlite
