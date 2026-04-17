@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1776266146983,
-      "updatedAtMs": 1776266146983,
+      "updatedAtMs": 1776349417408,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -25,8 +25,15 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1776348000000,
-        "runningAtMs": 1776349380348
+        "nextRunAtMs": 1776434400000,
+        "lastRunAtMs": 1776349380351,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 37057,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "runningAtMs": 1776434400005
       }
     },
     {
@@ -34,7 +41,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1776266151217,
-      "updatedAtMs": 1776294317283,
+      "updatedAtMs": 1776380745069,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -52,11 +59,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776380700000,
-        "lastRunAtMs": 1776294300008,
+        "nextRunAtMs": 1776467100000,
+        "lastRunAtMs": 1776380700008,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 17275,
+        "lastDurationMs": 45061,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -68,7 +75,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1776266160435,
-      "updatedAtMs": 1776294239639,
+      "updatedAtMs": 1776380603129,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -86,11 +93,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776380400000,
-        "lastRunAtMs": 1776294000009,
+        "nextRunAtMs": 1776466800000,
+        "lastRunAtMs": 1776380400008,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 239630,
+        "lastDurationMs": 203121,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -102,7 +109,7 @@
       "name": "每日金融研报",
       "enabled": true,
       "createdAtMs": 1776266166434,
-      "updatedAtMs": 1776293875874,
+      "updatedAtMs": 1776380283392,
       "schedule": {
         "kind": "cron",
         "expr": "50 6 * * *",
@@ -121,11 +128,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776379800000,
-        "lastRunAtMs": 1776293400011,
+        "nextRunAtMs": 1776466200000,
+        "lastRunAtMs": 1776379800010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 475863,
+        "lastDurationMs": 483382,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -196,34 +203,6 @@
         "lastErrorReason": "timeout",
         "lastDeliveryStatus": "unknown",
         "consecutiveErrors": 1
-      },
-      "deleteAfterRun": true
-    },
-    {
-      "id": "2dfbf27c-5491-4253-9f16-6795efec9da6",
-      "name": "课程提醒-蛋蛋-自习-18:40",
-      "enabled": true,
-      "createdAtMs": 1776334800000,
-      "updatedAtMs": 1776334800000,
-      "schedule": {
-        "kind": "at",
-        "at": "2026-04-16T10:20:00.000Z"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n🧒 孩子：蛋蛋\n📚 课程：自习\n🕐 出发时间：18:40\n📍 地点：青海大厦\n⏰ 请及时准备出发！",
-        "timeoutSeconds": 300
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "feishu",
-        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
-      },
-      "state": {
-        "nextRunAtMs": 1776334800000,
-        "runningAtMs": 1776334800003
       },
       "deleteAfterRun": true
     }
