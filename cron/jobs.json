@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1776266146983,
-      "updatedAtMs": 1776434700022,
+      "updatedAtMs": 1777298539504,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -25,15 +25,15 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1776520800000,
-        "lastRunAtMs": 1776434400010,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 300012,
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1,
-        "lastError": "cron: job execution timed out",
-        "lastErrorReason": "timeout"
+        "nextRunAtMs": 1777384800000,
+        "lastRunAtMs": 1777298400010,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 139494,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true,
+        "runningAtMs": 1777384800006
       }
     },
     {
@@ -41,7 +41,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1776266151217,
-      "updatedAtMs": 1776380745069,
+      "updatedAtMs": 1777331212548,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -59,11 +59,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776467100000,
-        "lastRunAtMs": 1776380700008,
+        "nextRunAtMs": 1777417500000,
+        "lastRunAtMs": 1777331100007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 45061,
+        "lastDurationMs": 112541,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -75,7 +75,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1776266160435,
-      "updatedAtMs": 1776380603129,
+      "updatedAtMs": 1777330923309,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -93,11 +93,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776466800000,
-        "lastRunAtMs": 1776380400008,
+        "nextRunAtMs": 1777417200000,
+        "lastRunAtMs": 1777330800008,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 203121,
+        "lastDurationMs": 123301,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -109,7 +109,7 @@
       "name": "每日金融研报",
       "enabled": true,
       "createdAtMs": 1776266166434,
-      "updatedAtMs": 1776380283392,
+      "updatedAtMs": 1777330616180,
       "schedule": {
         "kind": "cron",
         "expr": "50 6 * * *",
@@ -119,7 +119,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "请生成今日金融研报。步骤：\n1) cd ~/.openclaw/workspace-financialadvisor && uv run --script scripts/get_all_data.py SPY QQQ NVDA AAPL MSFT GOOGL JPM XOM GLD\n2) 按照 MARKET_ANALYSIS_FRAMEWORK.md v3.0 模板生成完整研报，保存到 results/report_YYYYMMDD.md\n3) 直接输出报告内容（OpenClaw会自动发送到群里）【重要：这是第一步，先让群里收到】\n4) 报告发送后，使用 sessions_send 发送简短通知给 Claire：\n   - target session: agent:researcher:feishu:direct:ou_cf1a1ee3279590e248bcfed4d0838c22\n   - 消息格式：'📊 今日研报已发到群里，请审阅。文件路径：results/report_YYYYMMDD.md。核心观点：[1句话总结]。置信度：[高/中/低]。'\n   - timeoutSeconds: 300（重要！）\n   - 不要在消息里传报告正文，只传通知即可",
+        "message": "请生成今日金融研报。步骤：\n1) cd ~/.openclaw/workspace-financialadvisor && uv run --script scripts/get_all_data.py SPY QQQ NVDA AAPL MSFT GOOGL JPM XOM GLD\n2) 按照 MARKET_ANALYSIS_FRAMEWORK.md v3.0 模板生成完整研报，保存到 results/report_YYYYMMDD.md\n3) 直接输出报告内容（OpenClaw会自动发送到群里）【重要：这是第一步，先让群里收到】\n4) 报告发送后，使用 CLI 命令发送简短通知给 Claire（不要用 sessions_send 工具！）：\n   \n   ```bash\n   MSG=$(echo \"📊 今日研报已发到群里，请审阅。文件路径：results/report_YYYYMMDD.md。核心观点：[1句话总结]。置信度：[高/中/低]。\" | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read()))')\n   ~/.nvm/versions/node/v24.14.1/bin/openclaw gateway call sessions.send --params \"{\\\"key\\\":\\\"agent:researcher:feishu:direct:ou_cf1a1ee3279590e248bcfed4d0838c22\\\",\\\"message\\\":$MSG}\" --timeout 300000\n   ```\n   \n   【重要】必须用 CLI，sessions_send 工具会超时！",
         "timeoutSeconds": 900
       },
       "delivery": {
@@ -128,14 +128,14 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1776466200000,
-        "lastRunAtMs": 1776379800010,
+        "nextRunAtMs": 1777416600000,
+        "lastRunAtMs": 1777330200010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 483382,
-        "lastDelivered": true,
+        "lastDurationMs": 416170,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
+        "consecutiveErrors": 0,
+        "lastDelivered": true
       }
     },
     {
@@ -199,6 +199,40 @@
         "lastRunStatus": "error",
         "lastStatus": "error",
         "lastDurationMs": 60014,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      },
+      "deleteAfterRun": true
+    },
+    {
+      "id": "19f9887a-1f9b-4f91-87a0-b6a99aad3d37",
+      "name": "课程提醒-妞妞-多多熊-16:50",
+      "enabled": false,
+      "createdAtMs": 1776726204476,
+      "updatedAtMs": 1776731580026,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-21T00:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧 孩子：妞妞\n📚 课程：多多熊\n🕐 出发时间：16:50\n📍 地点：特发小区\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1776731400009,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 180017,
         "lastError": "cron: job execution timed out",
         "lastErrorReason": "timeout",
         "lastDeliveryStatus": "unknown",

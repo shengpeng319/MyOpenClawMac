@@ -106,7 +106,7 @@ openclaw gateway call sessions.send --params "{\"key\":\"<key>\",\"message\":$MS
 | 方向 | Session Key | 状态 | 备注 |
 |------|-------------|------|------|
 | Hermes → Jarvis | `agent:main:explicit:hermes-to-openclaw-1` | ✅ 稳定 | 长期不变 session key |
-| Jarvis → Hermes | `agent:main:feishu:direct:ou_c858ba4fbb03f207666daef058ede895` | ✅ 确认 | Hermes 在本飞书 app 的 user session |
+| Jarvis → Hermes | `agent:main:explicit:hermes-to-openclaw-1` | ✅ 确认 | 复用 Hermes → Jarvis 同一 channel |
 | 大龙虾 → Jarvis | 通过 Hermes 中转 | ⏳ 待建 | 需 Hermes 配合 |
 
 ### 发送命令（Jarvis → Hermes）
@@ -172,3 +172,129 @@ agent:<agentId>:<channel>:<sessionLabel>
 飞书 P2P session key: `agent:main:feishu:direct:ou_{openid}`
 
 *Updated: 2026-04-17*
+
+---
+
+## Plugin 冲突排查（2026-04-18）
+
+- **现象**：`gateway.err.log` 每 5 秒报 `plugin tool name conflict (memory-sync): memory_search`
+- **根因**：memory-sync 和 memory-core 同时启用，都注册了 `memory_search` 工具
+- **影响**：仅警告日志（每 5 秒一条），不影响核心功能，但日志盘占用缓慢增长
+- **解法**：禁用 memory-sync，保留 memory-core（更稳定的内置插件）
+- **操作**：修改 `~/.openclaw/openclaw.json` 中 `plugins.entries.memory-sync.enabled: false`，然后 `~/.nvm/versions/node/v24.14.1/bin/openclaw gateway restart`
+
+*Updated: 2026-04-18*
+
+---
+
+## 飞书发送文本消息规范（2026-04-19 固化）
+
+**坑**：直接传原始文本给 `content` 字段会报 `230001 content is not a string in json format`
+
+**正确格式**：
+```python
+payload = {
+    "receive_id": "ou_c858ba4fbb03f207666daef058ede895",
+    "msg_type": "text",
+    "content": json.dumps({"text": text_content}, ensure_ascii=False)
+}
+```
+飞书 text 消息的 `content` 必须是 **JSON 字符串**（`json.dumps` 后的结果），内容本身是 `{"text": "..."}` 结构。
+
+**完整流程**：
+```python
+# 1. 获取 token
+TOKEN=$(curl -s -X POST "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal" \
+  -H "Content-Type: application/json" \
+  -d '{"app_id":"cli_a9f6e7b152399cc2","app_secret":"..."}' | python3 -c "import sys,json; print(json.load(sys.stdin).get('tenant_access_token',''))")
+
+# 2. 发消息
+curl -X POST "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"receive_id":"ou_...","msg_type":"text","content":"{\"text\":\"消息内容\"}"}'
+```
+
+---
+
+## sessions.send 大消息失败教训（2026-04-19 固化）
+
+**现象**：`stopReason: aborted`，消息根本发不出去
+
+**根因**：
+1. 2000+ 字的消息体走 gateway call 不稳定，JSON 转义链路长容易断裂
+2. 超大消息 gateway 直接 `aborted`
+
+**解法**：
+- 大段文字/报告 → 先写文件，再用飞书 API 直发（不走 sessions.send）
+- 文件路径共享给接收方
+
+**降级原则**：
+| 消息大小 | 推荐方式 |
+|----------|----------|
+| < 500 字 | `sessions.send` 或飞书 API 都行 |
+| > 500 字 | 飞书 API 直接发 |
+| > 2000 字 | 必须写文件 + 飞书 API |
+
+---
+
+## MiniMax API Key 类型区分（2026-04-19 固化）
+
+| Key 前缀 | 类型 | 视频 | 音乐 | 搜索/图片 |
+|----------|------|------|------|-----------|
+| `sk-cp-` | Token Plan 专用 | ❌ 不支持 | ❌ 不支持 | ✅ 支持 |
+| 普通 Key | 通用 API | ✅ 支持 | ✅ 支持 | ✅ 支持 |
+
+**判断方法**：
+- Token Plan Key：`sk-cp-` 开头，用于 MCP 联网/图片理解
+- 普通 API Key：用于视频生成、音乐生成
+
+**教训**：之前一直用 Token Plan Key 调视频生成，失败原因是 Key 类型不对，不是代码问题。
+
+---
+
+## Jarvis ↔ Hermes 协作协议更新（2026-04-19 修正）
+
+### 错误记录
+之前把消息发到了 `agent:main:feishu:direct:ou_c858ba4fbb03f207666daef058ede895`（这是 Jarvis 自己的飞书 session），而不是 Hermes 的 session。
+
+### 正确 channel
+- **Hermes → Jarvis**：`agent:main:explicit:hermes-to-openclaw-1` ✅
+- **Jarvis → Hermes**：`agent:main:explicit:hermes-to-openclaw-1` ✅（复用同一 channel）
+  - 注意：这是 OpenClaw 内部 session，不是飞书 P2P session
+
+### 协作内容交换
+通过**共享文件路径**交换大内容，避免 sessions.send 大消息丢失。
+
+*Updated: 2026-04-19*
+
+---
+
+## ⚠️ MiniMax M2.7-highspeed 模型 Token Plan 过期（2026-04-22）
+
+- **现象**：`HTTP 500 api_error: your current token plan not support model, MiniMax-M2.7-highspeed (2061)`
+- **影响**：所有使用 MiniMax-M2.7-highspeed 模型 的 Cron Job 失败（早安问候等）
+- **根因**：MiniMax token plan 可能不支持 M2.7-highspeed 模型，或配额已用尽
+- **排查方向**：
+  1. 检查 OpenClaw 配置的 model 设置
+  2. 确认 MiniMax 账户配额/订阅状态
+  3. 考虑切换到其他模型（如 qwen3.5 作为 fallback）
+- **状态**：⏳ 待处理
+
+*Updated: 2026-04-22*
+
+---
+
+## DeepSeek API Key（2026-04-27 记录）
+
+- **Key**: `sk-4cbe644d7308470494f870f310a36a5b`
+- **用途**: 可用于 deepseek/deepseek-v4-pro 模型
+- **配置位置**: `~/.openclaw/openclaw.json` → `models.deepseek/deepseek-v4-pro`
+
+## 模型切换记录（2026-04-27）
+
+- **当前默认模型**: `minimax-cn/MiniMax-M2.7-highspeed`（所有 Agent 统一）
+- **DeepSeek V4 Pro**: 曾在 2026-04-26 短暂切换，但已切回 MiniMax
+- **之前 MiniMax Token Plan 过期问题（2026-04-22）**: 已在 2026-04-27 前恢复，模型正常运行
+
+*Updated: 2026-04-27*

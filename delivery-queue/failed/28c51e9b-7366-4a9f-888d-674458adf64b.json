@@ -16,7 +16,7 @@
     "key": "agent:main:explicit:hermes-to-openclaw-1",
     "agentId": "main"
   },
-  "retryCount": 1,
-  "lastAttemptAt": 1776381879312,
+  "retryCount": 5,
+  "lastAttemptAt": 1776866812137,
   "lastError": "Feishu account \"default\" not configured"
 }

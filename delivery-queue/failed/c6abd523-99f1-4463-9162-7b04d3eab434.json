@@ -14,7 +14,7 @@
     "key": "cron:2c468fef-f3ef-4520-b8cd-105b7cf007ba:failure",
     "agentId": "main"
   },
-  "retryCount": 3,
-  "lastAttemptAt": 1776267251918,
+  "retryCount": 5,
+  "lastAttemptAt": 1776813786546,
   "lastError": "Request failed with status code 400"
 }

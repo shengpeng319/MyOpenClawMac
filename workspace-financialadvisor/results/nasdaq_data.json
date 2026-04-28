@@ -1,0 +1,614 @@
+{
+  "SPY": {
+    "data": {
+      "symbol": "SPY",
+      "companyName": "State Street SPDR S&P 500 ETF Trust",
+      "stockType": null,
+      "exchange": "PSE",
+      "isNasdaqListed": false,
+      "isNasdaq100": false,
+      "isHeld": false,
+      "primaryData": {
+        "lastSalePrice": "$710.2482",
+        "netChange": "-0.9318",
+        "percentageChange": "-0.13%",
+        "deltaIndicator": "down",
+        "lastTradeTimestamp": "Apr 22, 2026 6:54 PM ET",
+        "isRealTime": true,
+        "bidPrice": "$710.19",
+        "askPrice": "$710.26",
+        "bidSize": "1",
+        "askSize": "626",
+        "volume": "42,493,501.927587",
+        "currency": null
+      },
+      "secondaryData": {
+        "lastSalePrice": "$711.18",
+        "netChange": "+7.10",
+        "percentageChange": "+1.01%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Closed at Apr 22, 2026 4:00 PM ET",
+        "isRealTime": false,
+        "bidPrice": "",
+        "askPrice": "",
+        "bidSize": "",
+        "askSize": "",
+        "volume": "",
+        "currency": null
+      },
+      "marketStatus": "After-Hours",
+      "assetClass": "ETF",
+      "keyStats": null,
+      "notifications": []
+    },
+    "message": null,
+    "status": {
+      "rCode": 200,
+      "bCodeMessage": null,
+      "developerMessage": null
+    }
+  },
+  "QQQ": {
+    "data": {
+      "symbol": "QQQ",
+      "companyName": "Invesco QQQ Trust, Series 1",
+      "stockType": null,
+      "exchange": "NASDAQ-GM",
+      "isNasdaqListed": false,
+      "isNasdaq100": false,
+      "isHeld": false,
+      "primaryData": {
+        "lastSalePrice": "$655.21",
+        "netChange": "+0.10",
+        "percentageChange": "+0.02%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Apr 22, 2026 6:54 PM ET",
+        "isRealTime": true,
+        "bidPrice": "$655.16",
+        "askPrice": "$655.22",
+        "bidSize": "600",
+        "askSize": "806",
+        "volume": "37,277,560.211525",
+        "currency": null
+      },
+      "secondaryData": {
+        "lastSalePrice": "$655.11",
+        "netChange": "+10.78",
+        "percentageChange": "+1.67%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Closed at Apr 22, 2026 4:00 PM ET",
+        "isRealTime": false,
+        "bidPrice": "",
+        "askPrice": "",
+        "bidSize": "",
+        "askSize": "",
+        "volume": "",
+        "currency": null
+      },
+      "marketStatus": "After-Hours",
+      "assetClass": "ETF",
+      "keyStats": null,
+      "notifications": []
+    },
+    "message": null,
+    "status": {
+      "rCode": 200,
+      "bCodeMessage": null,
+      "developerMessage": null
+    }
+  },
+  "NVDA": {
+    "data": {
+      "symbol": "NVDA",
+      "companyName": "NVIDIA Corporation Common Stock",
+      "stockType": "Common Stock",
+      "exchange": "NASDAQ-GS",
+      "isNasdaqListed": true,
+      "isNasdaq100": true,
+      "isHeld": false,
+      "primaryData": {
+        "lastSalePrice": "$202.19",
+        "netChange": "-0.31",
+        "percentageChange": "-0.15%",
+        "deltaIndicator": "down",
+        "lastTradeTimestamp": "Apr 22, 2026 6:54 PM ET",
+        "isRealTime": true,
+        "bidPrice": "$202.20",
+        "askPrice": "$202.22",
+        "bidSize": "142",
+        "askSize": "100",
+        "volume": "107,294,393.878545",
+        "currency": null
+      },
+      "secondaryData": {
+        "lastSalePrice": "$202.50",
+        "netChange": "+2.62",
+        "percentageChange": "+1.31%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Closed at Apr 22, 2026 4:00 PM ET",
+        "isRealTime": false,
+        "bidPrice": "",
+        "askPrice": "",
+        "bidSize": "",
+        "askSize": "",
+        "volume": "",
+        "currency": null
+      },
+      "marketStatus": "After-Hours",
+      "assetClass": "STOCKS",
+      "keyStats": {
+        "fiftyTwoWeekHighLow": {
+          "label": "52 Week Range:",
+          "value": "97.28 - 212.19"
+        },
+        "dayrange": {
+          "label": "High/Low:",
+          "value": "199.32 - 202.50"
+        }
+      },
+      "notifications": []
+    },
+    "message": null,
+    "status": {
+      "rCode": 200,
+      "bCodeMessage": null,
+      "developerMessage": null
+    }
+  },
+  "AAPL": {
+    "data": {
+      "symbol": "AAPL",
+      "companyName": "Apple Inc. Common Stock",
+      "stockType": "Common Stock",
+      "exchange": "NASDAQ-GS",
+      "isNasdaqListed": true,
+      "isNasdaq100": true,
+      "isHeld": false,
+      "primaryData": {
+        "lastSalePrice": "$272.5701",
+        "netChange": "-0.5999",
+        "percentageChange": "-0.22%",
+        "deltaIndicator": "down",
+        "lastTradeTimestamp": "Apr 22, 2026 6:54 PM ET",
+        "isRealTime": true,
+        "bidPrice": "$272.57",
+        "askPrice": "$272.63",
+        "bidSize": "105",
+        "askSize": "5",
+        "volume": "43,228,823.608793",
+        "currency": null
+      },
+      "secondaryData": {
+        "lastSalePrice": "$273.17",
+        "netChange": "+7.00",
+        "percentageChange": "+2.63%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Closed at Apr 22, 2026 4:00 PM ET",
+        "isRealTime": false,
+        "bidPrice": "",
+        "askPrice": "",
+        "bidSize": "",
+        "askSize": "",
+        "volume": "",
+        "currency": null
+      },
+      "marketStatus": "After-Hours",
+      "assetClass": "STOCKS",
+      "keyStats": {
+        "fiftyTwoWeekHighLow": {
+          "label": "52 Week Range:",
+          "value": "193.25 - 288.62"
+        },
+        "dayrange": {
+          "label": "High/Low:",
+          "value": "266.87 - 273.74"
+        }
+      },
+      "notifications": [
+        {
+          "headline": "UPCOMING EVENTS",
+          "eventTypes": [
+            {
+              "message": "Earnings Date : Apr 30, 2026",
+              "eventName": "Earnings Date",
+              "url": {
+                "label": "AAPL Earnings Date : Apr 30, 2026",
+                "value": "/market-activity/stocks/AAPL/earnings"
+              },
+              "id": "upcoming_events"
+            }
+          ]
+        },
+        {
+          "headline": "HIGH TECHNICAL ATTRIBUTE",
+          "eventTypes": [
+            {
+              "message": "AAPL has a High Technical Rating by Nasdaq Dorsey Wright. Discover why technical analysis matters",
+              "eventName": "High Technical Attribute",
+              "url": {
+                "label": "Discover why technical analysis matters",
+                "value": "https://www.nasdaq.com/solutions/nasdaq-dorsey-wright/technical-analysis"
+              },
+              "id": "tech_attribute"
+            }
+          ]
+        }
+      ]
+    },
+    "message": null,
+    "status": {
+      "rCode": 200,
+      "bCodeMessage": null,
+      "developerMessage": null
+    }
+  },
+  "MSFT": {
+    "data": {
+      "symbol": "MSFT",
+      "companyName": "Microsoft Corporation Common Stock",
+      "stockType": "Common Stock",
+      "exchange": "NASDAQ-GS",
+      "isNasdaqListed": true,
+      "isNasdaq100": true,
+      "isHeld": false,
+      "primaryData": {
+        "lastSalePrice": "$427.57",
+        "netChange": "-5.35",
+        "percentageChange": "-1.24%",
+        "deltaIndicator": "down",
+        "lastTradeTimestamp": "Apr 22, 2026 6:54 PM ET",
+        "isRealTime": true,
+        "bidPrice": "$427.56",
+        "askPrice": "$427.67",
+        "bidSize": "3",
+        "askSize": "100",
+        "volume": "29,326,078.673942",
+        "currency": null
+      },
+      "secondaryData": {
+        "lastSalePrice": "$432.92",
+        "netChange": "+8.76",
+        "percentageChange": "+2.07%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Closed at Apr 22, 2026 4:00 PM ET",
+        "isRealTime": false,
+        "bidPrice": "",
+        "askPrice": "",
+        "bidSize": "",
+        "askSize": "",
+        "volume": "",
+        "currency": null
+      },
+      "marketStatus": "After-Hours",
+      "assetClass": "STOCKS",
+      "keyStats": {
+        "fiftyTwoWeekHighLow": {
+          "label": "52 Week Range:",
+          "value": "356.28 - 555.45"
+        },
+        "dayrange": {
+          "label": "High/Low:",
+          "value": "423.67 - 433.64"
+        }
+      },
+      "notifications": [
+        {
+          "headline": "UPCOMING EVENTS",
+          "eventTypes": [
+            {
+              "message": "Earnings Date : Apr 29, 2026",
+              "eventName": "Earnings Date",
+              "url": {
+                "label": "MSFT Earnings Date : Apr 29, 2026",
+                "value": "/market-activity/stocks/MSFT/earnings"
+              },
+              "id": "upcoming_events"
+            }
+          ]
+        }
+      ]
+    },
+    "message": null,
+    "status": {
+      "rCode": 200,
+      "bCodeMessage": null,
+      "developerMessage": null
+    }
+  },
+  "GOOGL": {
+    "data": {
+      "symbol": "GOOGL",
+      "companyName": "Alphabet Inc. Class A Common Stock",
+      "stockType": "Class A Common Stock",
+      "exchange": "NASDAQ-GS",
+      "isNasdaqListed": true,
+      "isNasdaq100": true,
+      "isHeld": false,
+      "primaryData": {
+        "lastSalePrice": "$338.35",
+        "netChange": "-0.97",
+        "percentageChange": "-0.29%",
+        "deltaIndicator": "down",
+        "lastTradeTimestamp": "Apr 22, 2026 6:54 PM ET",
+        "isRealTime": true,
+        "bidPrice": "$338.30",
+        "askPrice": "$338.40",
+        "bidSize": "206",
+        "askSize": "12",
+        "volume": "20,277,200.905338",
+        "currency": null
+      },
+      "secondaryData": {
+        "lastSalePrice": "$339.32",
+        "netChange": "+7.03",
+        "percentageChange": "+2.12%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Closed at Apr 22, 2026 4:00 PM ET",
+        "isRealTime": false,
+        "bidPrice": "",
+        "askPrice": "",
+        "bidSize": "",
+        "askSize": "",
+        "volume": "",
+        "currency": null
+      },
+      "marketStatus": "After-Hours",
+      "assetClass": "STOCKS",
+      "keyStats": {
+        "fiftyTwoWeekHighLow": {
+          "label": "52 Week Range:",
+          "value": "147.84 - 349.00"
+        },
+        "dayrange": {
+          "label": "High/Low:",
+          "value": "335.17 - 339.82"
+        }
+      },
+      "notifications": [
+        {
+          "headline": "UPCOMING EVENTS",
+          "eventTypes": [
+            {
+              "message": "Earnings Date : Apr 29, 2026",
+              "eventName": "Earnings Date",
+              "url": {
+                "label": "GOOGL Earnings Date : Apr 29, 2026",
+                "value": "/market-activity/stocks/GOOGL/earnings"
+              },
+              "id": "upcoming_events"
+            }
+          ]
+        },
+        {
+          "headline": "HIGH TECHNICAL ATTRIBUTE",
+          "eventTypes": [
+            {
+              "message": "GOOGL has a High Technical Rating by Nasdaq Dorsey Wright. Discover why technical analysis matters",
+              "eventName": "High Technical Attribute",
+              "url": {
+                "label": "Discover why technical analysis matters",
+                "value": "https://www.nasdaq.com/solutions/nasdaq-dorsey-wright/technical-analysis"
+              },
+              "id": "tech_attribute"
+            }
+          ]
+        }
+      ]
+    },
+    "message": null,
+    "status": {
+      "rCode": 200,
+      "bCodeMessage": null,
+      "developerMessage": null
+    }
+  },
+  "JPM": {
+    "data": {
+      "symbol": "JPM",
+      "companyName": "JP Morgan Chase & Co. Common Stock",
+      "stockType": "Common Stock",
+      "exchange": "NYSE",
+      "isNasdaqListed": false,
+      "isNasdaq100": false,
+      "isHeld": false,
+      "primaryData": {
+        "lastSalePrice": "$313.13",
+        "netChange": "-0.04",
+        "percentageChange": "-0.01%",
+        "deltaIndicator": "down",
+        "lastTradeTimestamp": "Apr 22, 2026 6:54 PM ET",
+        "isRealTime": true,
+        "bidPrice": "$312.30",
+        "askPrice": "$313.16",
+        "bidSize": "5",
+        "askSize": "74",
+        "volume": "5,544,280.172924",
+        "currency": null
+      },
+      "secondaryData": {
+        "lastSalePrice": "$313.17",
+        "netChange": "+0.17",
+        "percentageChange": "+0.05%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Closed at Apr 22, 2026 4:00 PM ET",
+        "isRealTime": false,
+        "bidPrice": "",
+        "askPrice": "",
+        "bidSize": "",
+        "askSize": "",
+        "volume": "",
+        "currency": null
+      },
+      "marketStatus": "After-Hours",
+      "assetClass": "STOCKS",
+      "keyStats": {
+        "fiftyTwoWeekHighLow": {
+          "label": "52 Week Range:",
+          "value": "231.37 - 337.25"
+        },
+        "dayrange": {
+          "label": "High/Low:",
+          "value": "311.94 - 315.14"
+        }
+      },
+      "notifications": [
+        {
+          "headline": "HIGH TECHNICAL ATTRIBUTE",
+          "eventTypes": [
+            {
+              "message": "JPM has a High Technical Rating by Nasdaq Dorsey Wright. Discover why technical analysis matters",
+              "eventName": "High Technical Attribute",
+              "url": {
+                "label": "Discover why technical analysis matters",
+                "value": "https://www.nasdaq.com/solutions/nasdaq-dorsey-wright/technical-analysis"
+              },
+              "id": "tech_attribute"
+            }
+          ]
+        }
+      ]
+    },
+    "message": null,
+    "status": {
+      "rCode": 200,
+      "bCodeMessage": null,
+      "developerMessage": null
+    }
+  },
+  "XOM": {
+    "data": {
+      "symbol": "XOM",
+      "companyName": "Exxon Mobil Corporation Common Stock",
+      "stockType": "Common Stock",
+      "exchange": "NYSE",
+      "isNasdaqListed": false,
+      "isNasdaq100": false,
+      "isHeld": false,
+      "primaryData": {
+        "lastSalePrice": "$149.44",
+        "netChange": "-0.06",
+        "percentageChange": "-0.04%",
+        "deltaIndicator": "down",
+        "lastTradeTimestamp": "Apr 22, 2026 6:54 PM ET",
+        "isRealTime": true,
+        "bidPrice": "$149.10",
+        "askPrice": "$149.44",
+        "bidSize": "15",
+        "askSize": "5",
+        "volume": "13,735,049.921620",
+        "currency": null
+      },
+      "secondaryData": {
+        "lastSalePrice": "$149.50",
+        "netChange": "+1.14",
+        "percentageChange": "+0.77%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Closed at Apr 22, 2026 4:00 PM ET",
+        "isRealTime": false,
+        "bidPrice": "",
+        "askPrice": "",
+        "bidSize": "",
+        "askSize": "",
+        "volume": "",
+        "currency": null
+      },
+      "marketStatus": "After-Hours",
+      "assetClass": "STOCKS",
+      "keyStats": {
+        "fiftyTwoWeekHighLow": {
+          "label": "52 Week Range:",
+          "value": "101.18 - 176.41"
+        },
+        "dayrange": {
+          "label": "High/Low:",
+          "value": "148.18 - 150.67"
+        }
+      },
+      "notifications": [
+        {
+          "headline": "UPCOMING EVENTS",
+          "eventTypes": [
+            {
+              "message": "Earnings Date : May 1, 2026",
+              "eventName": "Earnings Date",
+              "url": {
+                "label": "XOM Earnings Date : May 1, 2026",
+                "value": "/market-activity/stocks/XOM/earnings"
+              },
+              "id": "upcoming_events"
+            }
+          ]
+        },
+        {
+          "headline": "HIGH TECHNICAL ATTRIBUTE",
+          "eventTypes": [
+            {
+              "message": "XOM has a High Technical Rating by Nasdaq Dorsey Wright. Discover why technical analysis matters",
+              "eventName": "High Technical Attribute",
+              "url": {
+                "label": "Discover why technical analysis matters",
+                "value": "https://www.nasdaq.com/solutions/nasdaq-dorsey-wright/technical-analysis"
+              },
+              "id": "tech_attribute"
+            }
+          ]
+        }
+      ]
+    },
+    "message": null,
+    "status": {
+      "rCode": 200,
+      "bCodeMessage": null,
+      "developerMessage": null
+    }
+  },
+  "GLD": {
+    "data": {
+      "symbol": "GLD",
+      "companyName": "SPDR Gold Shares",
+      "stockType": null,
+      "exchange": "PSE",
+      "isNasdaqListed": false,
+      "isNasdaq100": false,
+      "isHeld": false,
+      "primaryData": {
+        "lastSalePrice": "$434.44",
+        "netChange": "-0.855",
+        "percentageChange": "-0.20%",
+        "deltaIndicator": "down",
+        "lastTradeTimestamp": "Apr 22, 2026 6:53 PM ET",
+        "isRealTime": true,
+        "bidPrice": "$434.19",
+        "askPrice": "$434.60",
+        "bidSize": "100",
+        "askSize": "200",
+        "volume": "5,169,899.231734",
+        "currency": null
+      },
+      "secondaryData": {
+        "lastSalePrice": "$435.295",
+        "netChange": "+5.725",
+        "percentageChange": "+1.33%",
+        "deltaIndicator": "up",
+        "lastTradeTimestamp": "Closed at Apr 22, 2026 4:00 PM ET",
+        "isRealTime": false,
+        "bidPrice": "",
+        "askPrice": "",
+        "bidSize": "",
+        "askSize": "",
+        "volume": "",
+        "currency": null
+      },
+      "marketStatus": "After-Hours",
+      "assetClass": "ETF",
+      "keyStats": null,
+      "notifications": []
+    },
+    "message": null,
+    "status": {
+      "rCode": 200,
+      "bCodeMessage": null,
+      "developerMessage": null
+    }
+  }
+}

@@ -38,3 +38,18 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+
+---
+
+## OpenClaw 一键重启
+
+```bash
+~/.nvm/versions/node/v24.14.1/bin/openclaw gateway restart
+```
+
+**路径速查：**
+- 二进制：`~/.nvm/versions/node/v24.14.1/bin/openclaw`
+- 配置：`~/.openclaw/openclaw.json`
+- Gateway 日志：`~/.openclaw/gateway.log` / `gateway.err.log`
+- Workspace：`~/.openclaw/workspace-main/`
+- Agents：`~/.openclaw/agents/*/agent/`

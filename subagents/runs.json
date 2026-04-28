@@ -32,31 +32,6 @@
       "endedReason": "subagent-complete",
       "frozenResultText": "评估完成。核心结论：\n\n**综合评分：2.8/5**（改动方向正确，执行不完整）\n\n🔴 **最大问题**：Phase 1 改动只写入了 `workspace-main/`，researcher 作为独立 subagent 完全看不到。\n\n🟡 **骨架有了，灵魂没有**：4 个 skills 的条件激活 metadata 已写入，但 progressive-disclosure 插件和 AGENTS.md 都没有 runtime 代码读取/实现它。\n\n🟢 **vet-scan.sh** 是本次最实用产出——可立即集成到 skill install 流程。",
       "frozenResultCapturedAt": 1776217734855
-    },
-    "51677c31-823c-48d7-b95b-7fb46cdbbf74": {
-      "runId": "51677c31-823c-48d7-b95b-7fb46cdbbf74",
-      "childSessionKey": "agent:main:subagent:134e349d-34cf-47cc-82fa-25854fa9cee4",
-      "controllerSessionKey": "agent:main:feishu:direct:ou_c858ba4fbb03f207666daef058ede895",
-      "requesterSessionKey": "agent:main:feishu:direct:ou_c858ba4fbb03f207666daef058ede895",
-      "requesterOrigin": {
-        "channel": "feishu",
-        "to": "user:ou_c858ba4fbb03f207666daef058ede895",
-        "accountId": "main"
-      },
-      "requesterDisplayKey": "agent:main:feishu:direct:ou_c858ba4fbb03f207666daef058ede895",
-      "task": "请执行每日进化报告任务：\n1. 回顾今天的会话历史（读 memory/2026-04-18.md 和 memory/2026-04-17.md）\n2. 提取关键要点\n3. 分析学会了什么、犯了什么错、怎么解决的\n4. 形成每日进化报告，提议可以固化的技能\n5. 发送报告给我（Peng Sheng）\n6. 运行 ~/bin/backup-openclaw.sh 备份配置到 GitHub\n\nCurrent time: Saturday, April 18th, 2026 - 00:03 AM (Asia/Shanghai)",
-      "cleanup": "keep",
-      "expectsCompletionMessage": true,
-      "spawnMode": "run",
-      "model": "minimax-cn/MiniMax-M2.7-highspeed",
-      "workspaceDir": "/Users/shengpeng319/.openclaw/workspace-main",
-      "runTimeoutSeconds": 0,
-      "createdAt": 1776441829730,
-      "startedAt": 1776441830178,
-      "sessionStartedAt": 1776441829730,
-      "accumulatedRuntimeMs": 0,
-      "cleanupHandled": false,
-      "retainAttachmentsOnKeep": false
     }
   }
 }

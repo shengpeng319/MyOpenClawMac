@@ -1,8 +1,32 @@
 {
-    "mcpServers": {
-        "tavily": {
-            "baseUrl": "https://mcp.tavily.com/mcp/?tavilyApiKey=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"
-        }
+  "mcpServers": {
+    "tavily": {
+      "baseUrl": "https://mcp.tavily.com/mcp/?tavilyApiKey=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"
     },
-    "imports": []
+    "minimax-coding-plan": {
+      "description": "MiniMax web search and image understanding",
+      "command": "uvx",
+      "args": [
+        "minimax-coding-plan-mcp",
+        "-y"
+      ],
+      "env": {
+        "MINIMAX_API_KEY": "sk-cp-njZAK26hFYuPB5MJkEyeXRcIcPQfssN5_G1bZjTieyTEzB9jA5qn2CocKE7tMecfbMwT2URDzc1wsPRDdWOdtJv3X7jW732O3oEWO02YPYmtsZPRGg-JJOI",
+        "MINIMAX_API_HOST": "https://api.minimaxi.com"
+      }
+    },
+    "minimax-official": {
+      "command": "uvx",
+      "args": [
+        "minimax-mcp",
+        "-y"
+      ],
+      "description": "MiniMax video generation, TTS, image generation",
+      "env": {
+        "MINIMAX_API_KEY": "sk-cp-njZAK26hFYuPB5MJkEyeXRcIcPQfssN5_G1bZjTieyTEzB9jA5qn2CocKE7tMecfbMwT2URDzc1wsPRDdWOdtJv3X7jW732O3oEWO02YPYmtsZPRGg-JJOI",
+        "MINIMAX_API_HOST": "https://api.minimaxi.com"
+      }
+    }
+  },
+  "imports": []
 }
