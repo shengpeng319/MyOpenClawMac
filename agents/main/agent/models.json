@@ -112,6 +112,38 @@
       "api": "ollama",
       "models": [
         {
+          "id": "Qwopus3.6-27B:latest",
+          "name": "Qwopus3.6-27B:latest",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262144,
+          "maxTokens": 8192
+        },
+        {
+          "id": "nutboy02/Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-uncenfull:Q2_K_MTX",
+          "name": "nutboy02/Qwen3.6-35B-A3B-Claude-4.7-Opus-abliterated-uncenfull:Q2_K_MTX",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262144,
+          "maxTokens": 8192
+        },
+        {
           "id": "nomic-embed-text:latest",
           "name": "nomic-embed-text:latest",
           "reasoning": false,

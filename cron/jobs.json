@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1776266146983,
-      "updatedAtMs": 1777298539504,
+      "updatedAtMs": 1777903500024,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -25,15 +25,15 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1777384800000,
-        "lastRunAtMs": 1777298400010,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 139494,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": true,
-        "runningAtMs": 1777384800006
+        "nextRunAtMs": 1777989600000,
+        "lastRunAtMs": 1777903200008,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 300016,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 3,
+        "lastErrorReason": "timeout",
+        "runningAtMs": 1777989600005
       }
     },
     {
@@ -41,7 +41,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1776266151217,
-      "updatedAtMs": 1777331212548,
+      "updatedAtMs": 1777935936128,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -59,11 +59,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1777417500000,
-        "lastRunAtMs": 1777331100007,
+        "nextRunAtMs": 1778022300000,
+        "lastRunAtMs": 1777935900009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 112541,
+        "lastDurationMs": 36119,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -75,7 +75,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1776266160435,
-      "updatedAtMs": 1777330923309,
+      "updatedAtMs": 1777935842020,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -93,11 +93,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1777417200000,
-        "lastRunAtMs": 1777330800008,
+        "nextRunAtMs": 1778022000000,
+        "lastRunAtMs": 1777935600010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 123301,
+        "lastDurationMs": 242010,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -109,7 +109,7 @@
       "name": "每日金融研报",
       "enabled": true,
       "createdAtMs": 1776266166434,
-      "updatedAtMs": 1777330616180,
+      "updatedAtMs": 1777935283941,
       "schedule": {
         "kind": "cron",
         "expr": "50 6 * * *",
@@ -128,11 +128,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1777416600000,
-        "lastRunAtMs": 1777330200010,
+        "nextRunAtMs": 1778021400000,
+        "lastRunAtMs": 1777935000011,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 416170,
+        "lastDurationMs": 283930,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -239,6 +239,216 @@
         "consecutiveErrors": 1
       },
       "deleteAfterRun": true
+    },
+    {
+      "id": "7490e6aa-f138-4aa3-9e18-9c7148c3ce0b",
+      "name": "课程提醒-蛋蛋-自习-18:40",
+      "enabled": false,
+      "createdAtMs": 1777417319254,
+      "updatedAtMs": 1777458006283,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-29T10:20:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧🧒 孩子：蛋蛋\n📚 课程：自习\n🕐 出发时间：18:40\n📍 地点：青海大厦\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "deleteAfterRun": true,
+      "state": {
+        "lastRunAtMs": 1777458000011,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 6272,
+        "lastError": "404 {\"error\":\"model 'Qwopus3.6-27B:latest' not found\"}",
+        "lastErrorReason": "model_not_found",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "b6dd7071-ce8a-4d56-806e-150d6e0387b3",
+      "name": "课程提醒-妞妞-游泳-18:40",
+      "enabled": false,
+      "createdAtMs": 1777417319254,
+      "updatedAtMs": 1777458007609,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-29T10:20:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧🧒 孩子：妞妞\n📚 课程：游泳\n🕐 出发时间：18:40\n📍 地点：莲花体育中心\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "deleteAfterRun": true,
+      "state": {
+        "lastRunAtMs": 1777458006283,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 1326,
+        "lastError": "404 {\"error\":\"model 'Qwopus3.6-27B:latest' not found\"}",
+        "lastErrorReason": "model_not_found",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "name": "课程提醒-妞妞-手风琴特色课-15:50",
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-30T07:30:00.000Z"
+      },
+      "payload": {
+        "kind": "agentTurn",
+        "agentId": "educationexpert",
+        "message": "🚨 出发提醒！\n👧 妞妞：手风琴特色课\n⏰ 出发时间：15:50（距出发还有20分钟）\n📍 地点：学校\n\n记得带好手风琴课所需物品，准时出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "deleteAfterRun": true,
+      "id": "e10fef19-9c68-427a-8851-1ee5204668e9",
+      "enabled": false,
+      "createdAtMs": 1777503788000,
+      "updatedAtMs": 1777534380027,
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "state": {
+        "lastRunAtMs": 1777534200009,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "consecutiveErrors": 1,
+        "lastDurationMs": 180018,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown"
+      }
+    },
+    {
+      "name": "课程提醒-妞妞-小白鸽-16:30",
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-01T08:30:00.000Z"
+      },
+      "payload": {
+        "kind": "agentTurn",
+        "agentId": "educationexpert",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧 孩子：妞妞\n📚 课程：小白鸽\n🕐 出发时间：16:50\n📍 地点：枫丹雅苑\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "deleteAfterRun": true,
+      "id": "niuniu-xiaobai-1630",
+      "enabled": false,
+      "createdAtMs": 1777590167001,
+      "updatedAtMs": 1777624380024,
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "state": {
+        "lastRunAtMs": 1777624200010,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 180014,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "course-remind-蛋蛋-道法-1820",
+      "name": "课程提醒-蛋蛋-道法-18:20",
+      "enabled": false,
+      "createdAtMs": 1777676631222,
+      "updatedAtMs": 1777716180036,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-02T10:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "agentId": "educationexpert",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧🧒 孩子：蛋蛋\n📚 课程：道法\n🕐 出发时间：18:20\n📍 地点：青海大厦\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "deleteAfterRun": true,
+      "state": {
+        "lastRunAtMs": 1777716000023,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 180013,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "2bce3219-645b-465d-8e71-14ad3b8a78d4",
+      "name": "课程提醒-妞妞-足球训练-15:50",
+      "enabled": false,
+      "createdAtMs": 1746300000000,
+      "updatedAtMs": 1777879980023,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-04T07:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "agentId": "educationexpert",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧 孩子：妞妞\n📚 课程：足球训练\n🕐 出发时间：15:50\n📍 地点：学校\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "deleteAfterRun": true,
+      "state": {
+        "lastRunAtMs": 1777879800009,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 180014,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
     }
   ]
 }

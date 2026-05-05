@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.4.14",
-    "lastTouchedAt": "2026-04-26T02:45:06.932Z"
+    "lastTouchedAt": "2026-04-29T13:17:00.010Z"
   },
   "wizard": {
     "lastRunAt": "2026-04-15T11:19:11.126Z",
@@ -142,7 +142,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "deepseek/deepseek-v4-pro"
+        "primary": "minimax-cn/MiniMax-M2.7-highspeed"
       },
       "imageGenerationModel": {
         "primary": "google/gemini-3-pro-image-preview"
@@ -234,7 +234,7 @@
         "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
         "model": {
-          "primary": "minimax-cn/MiniMax-2.7-highspeed"
+          "primary": "ollama/Qwopus3.6-27B:latest"
         },
         "subagents": {
           "allowAgents": [
@@ -755,7 +755,8 @@
       "browser",
       "memory-sync",
       "memory-core",
-      "deepseek"
+      "deepseek",
+      "ollama"
     ],
     "load": {
       "paths": [
@@ -797,6 +798,9 @@
         "enabled": false
       },
       "deepseek": {
+        "enabled": true
+      },
+      "ollama": {
         "enabled": true
       }
     },

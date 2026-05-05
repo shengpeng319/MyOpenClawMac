@@ -1,11 +1,11 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.4.14",
-    "lastTouchedAt": "2026-04-15T09:31:50.461Z"
+    "lastTouchedAt": "2026-04-29T08:03:08.233Z"
   },
   "wizard": {
-    "lastRunAt": "2026-04-15T09:07:34.600Z",
-    "lastRunVersion": "2026.4.2",
+    "lastRunAt": "2026-04-15T11:19:11.126Z",
+    "lastRunVersion": "2026.4.14",
     "lastRunCommand": "doctor",
     "lastRunMode": "local"
   },
@@ -71,7 +71,6 @@
           {
             "id": "music-2.6",
             "name": "MiniMax Music 2.6",
-            "type": "music",
             "input": [
               "text"
             ],
@@ -112,13 +111,38 @@
       "ollama": {
         "baseUrl": "http://localhost:11434",
         "models": []
+      },
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com/v1",
+        "apiKey": "sk-4cbe644d7308470494f870f310a36a5b",
+        "api": "openai-completions",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "deepseek-v4-pro",
+            "name": "DeepSeek V4 Pro",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
       }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.7-highspeed"
+        "primary": "ollama/Qwopus3.6-27B:latest"
       },
       "imageGenerationModel": {
         "primary": "google/gemini-3-pro-image-preview"
@@ -129,6 +153,9 @@
         },
         "localqwen35/Qwen3.5-4B-MLX-4bit": {
           "alias": "qwen3.5"
+        },
+        "deepseek/deepseek-v4-pro": {
+          "alias": "deepseek-v4-pro"
         }
       },
       "memorySearch": {
@@ -168,7 +195,8 @@
       },
       "musicGenerationModel": {
         "primary": "minimax-cn/music-2.6"
-      }
+      },
+      "thinkingDefault": "off"
     },
     "list": [
       {
@@ -205,6 +233,9 @@
         "name": "Bonnie - Coder",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
+        "model": {
+          "primary": "ollama/Qwopus3.6-27B:latest"
+        },
         "subagents": {
           "allowAgents": [
             "main",
@@ -422,8 +453,8 @@
           "baseUrl": "https://api.minimax.io",
           "model": "speech-2.8-hd",
           "voiceId": "English_expressive_narrator",
-          "speed": 1.0,
-          "vol": 1.0,
+          "speed": 1,
+          "vol": 1,
           "pitch": 0
         }
       }
@@ -724,7 +755,7 @@
       "browser",
       "memory-sync",
       "memory-core",
-      "tts"
+      "deepseek"
     ],
     "load": {
       "paths": [
@@ -763,6 +794,9 @@
         "enabled": true
       },
       "memory-sync": {
+        "enabled": false
+      },
+      "deepseek": {
         "enabled": true
       }
     },

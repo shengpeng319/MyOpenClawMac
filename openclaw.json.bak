@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.4.14",
-    "lastTouchedAt": "2026-04-15T11:19:11.250Z"
+    "lastTouchedAt": "2026-04-29T09:06:13.532Z"
   },
   "wizard": {
     "lastRunAt": "2026-04-15T11:19:11.126Z",
@@ -122,7 +122,7 @@
             "id": "deepseek-v4-pro",
             "name": "DeepSeek V4 Pro",
             "api": "openai-completions",
-            "reasoning": true,
+            "reasoning": false,
             "input": [
               "text"
             ],
@@ -142,7 +142,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.7-highspeed"
+        "primary": "ollama/Qwopus3.6-27B:latest"
       },
       "imageGenerationModel": {
         "primary": "google/gemini-3-pro-image-preview"
@@ -195,7 +195,8 @@
       },
       "musicGenerationModel": {
         "primary": "minimax-cn/music-2.6"
-      }
+      },
+      "thinkingDefault": "off"
     },
     "list": [
       {
@@ -233,7 +234,7 @@
         "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
         "model": {
-          "primary": "deepseek/deepseek-v4-pro"
+          "primary": "ollama/Qwopus3.6-27B:latest"
         },
         "subagents": {
           "allowAgents": [
@@ -753,7 +754,9 @@
       "progressive-disclosure",
       "browser",
       "memory-sync",
-      "memory-core"
+      "memory-core",
+      "deepseek",
+      "ollama"
     ],
     "load": {
       "paths": [
@@ -793,6 +796,12 @@
       },
       "memory-sync": {
         "enabled": false
+      },
+      "deepseek": {
+        "enabled": true
+      },
+      "ollama": {
+        "enabled": true
       }
     },
     "installs": {

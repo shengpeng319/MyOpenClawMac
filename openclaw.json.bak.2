@@ -1,11 +1,11 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.4.2",
-    "lastTouchedAt": "2026-04-15T09:07:34.642Z"
+    "lastTouchedVersion": "2026.4.14",
+    "lastTouchedAt": "2026-04-26T02:45:06.932Z"
   },
   "wizard": {
-    "lastRunAt": "2026-04-15T09:07:34.600Z",
-    "lastRunVersion": "2026.4.2",
+    "lastRunAt": "2026-04-15T11:19:11.126Z",
+    "lastRunVersion": "2026.4.14",
     "lastRunCommand": "doctor",
     "lastRunMode": "local"
   },
@@ -67,6 +67,19 @@
             },
             "contextWindow": 128000,
             "maxTokens": 8192
+          },
+          {
+            "id": "music-2.6",
+            "name": "MiniMax Music 2.6",
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            }
           }
         ]
       },
@@ -98,13 +111,38 @@
       "ollama": {
         "baseUrl": "http://localhost:11434",
         "models": []
+      },
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com/v1",
+        "apiKey": "sk-4cbe644d7308470494f870f310a36a5b",
+        "api": "openai-completions",
+        "authHeader": true,
+        "models": [
+          {
+            "id": "deepseek-v4-pro",
+            "name": "DeepSeek V4 Pro",
+            "api": "openai-completions",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
       }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.7-highspeed"
+        "primary": "deepseek/deepseek-v4-pro"
       },
       "imageGenerationModel": {
         "primary": "google/gemini-3-pro-image-preview"
@@ -115,6 +153,9 @@
         },
         "localqwen35/Qwen3.5-4B-MLX-4bit": {
           "alias": "qwen3.5"
+        },
+        "deepseek/deepseek-v4-pro": {
+          "alias": "deepseek-v4-pro"
         }
       },
       "memorySearch": {
@@ -151,7 +192,11 @@
       },
       "sandbox": {
         "mode": "off"
-      }
+      },
+      "musicGenerationModel": {
+        "primary": "minimax-cn/music-2.6"
+      },
+      "thinkingDefault": "off"
     },
     "list": [
       {
@@ -188,6 +233,9 @@
         "name": "Bonnie - Coder",
         "workspace": "/Users/shengpeng319/.openclaw/workspace-coder",
         "agentDir": "/Users/shengpeng319/.openclaw/agents/coder/agent",
+        "model": {
+          "primary": "minimax-cn/MiniMax-2.7-highspeed"
+        },
         "subagents": {
           "allowAgents": [
             "main",
@@ -395,7 +443,22 @@
     }
   ],
   "messages": {
-    "ackReactionScope": "group-mentions"
+    "ackReactionScope": "group-mentions",
+    "tts": {
+      "auto": "off",
+      "provider": "minimax",
+      "providers": {
+        "minimax": {
+          "apiKey": "sk-cp-njZAK26hFYuPB5MJkEyeXRcIcPQfssN5_G1bZjTieyTEzB9jA5qn2CocKE7tMecfbMwT2URDzc1wsPRDdWOdtJv3X7jW732O3oEWO02YPYmtsZPRGg-JJOI",
+          "baseUrl": "https://api.minimax.io",
+          "model": "speech-2.8-hd",
+          "voiceId": "English_expressive_narrator",
+          "speed": 1,
+          "vol": 1,
+          "pitch": 0
+        }
+      }
+    }
   },
   "commands": {
     "native": "auto",
@@ -690,7 +753,9 @@
       "acpx",
       "progressive-disclosure",
       "browser",
-      "memory-sync"
+      "memory-sync",
+      "memory-core",
+      "deepseek"
     ],
     "load": {
       "paths": [
@@ -729,6 +794,9 @@
         "enabled": true
       },
       "memory-sync": {
+        "enabled": false
+      },
+      "deepseek": {
         "enabled": true
       }
     },
