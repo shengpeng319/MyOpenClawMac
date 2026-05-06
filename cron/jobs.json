@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1776266146983,
-      "updatedAtMs": 1777903500024,
+      "updatedAtMs": 1777989843853,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -25,15 +25,15 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1777989600000,
-        "lastRunAtMs": 1777903200008,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 300016,
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 3,
-        "lastErrorReason": "timeout",
-        "runningAtMs": 1777989600005
+        "nextRunAtMs": 1778076000000,
+        "lastRunAtMs": 1777989600012,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 243841,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true,
+        "runningAtMs": 1778076000005
       }
     },
     {
@@ -41,7 +41,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1776266151217,
-      "updatedAtMs": 1777935936128,
+      "updatedAtMs": 1778022492124,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -59,11 +59,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778022300000,
-        "lastRunAtMs": 1777935900009,
+        "nextRunAtMs": 1778108700000,
+        "lastRunAtMs": 1778022302993,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 36119,
+        "lastDurationMs": 189131,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -75,7 +75,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1776266160435,
-      "updatedAtMs": 1777935842020,
+      "updatedAtMs": 1778022300866,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -93,11 +93,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778022000000,
-        "lastRunAtMs": 1777935600010,
+        "nextRunAtMs": 1778108400000,
+        "lastRunAtMs": 1778022000009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 242010,
+        "lastDurationMs": 300857,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -109,7 +109,7 @@
       "name": "每日金融研报",
       "enabled": true,
       "createdAtMs": 1776266166434,
-      "updatedAtMs": 1777935283941,
+      "updatedAtMs": 1778021474455,
       "schedule": {
         "kind": "cron",
         "expr": "50 6 * * *",
@@ -128,11 +128,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778021400000,
-        "lastRunAtMs": 1777935000011,
+        "nextRunAtMs": 1778107800000,
+        "lastRunAtMs": 1778021400011,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 283930,
+        "lastDurationMs": 74444,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
