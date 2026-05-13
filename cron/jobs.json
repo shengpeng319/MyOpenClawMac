@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1776266146983,
-      "updatedAtMs": 1777989843853,
+      "updatedAtMs": 1778594619324,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -25,15 +25,15 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1778076000000,
-        "lastRunAtMs": 1777989600012,
+        "nextRunAtMs": 1778680800000,
+        "lastRunAtMs": 1778594400012,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 243841,
+        "lastDurationMs": 219312,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true,
-        "runningAtMs": 1778076000005
+        "runningAtMs": 1778680800006
       }
     },
     {
@@ -41,7 +41,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1776266151217,
-      "updatedAtMs": 1778022492124,
+      "updatedAtMs": 1778627136503,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -59,11 +59,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778108700000,
-        "lastRunAtMs": 1778022302993,
+        "nextRunAtMs": 1778713500000,
+        "lastRunAtMs": 1778627100008,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 189131,
+        "lastDurationMs": 36495,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -75,7 +75,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1776266160435,
-      "updatedAtMs": 1778022300866,
+      "updatedAtMs": 1778627036151,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -93,11 +93,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778108400000,
-        "lastRunAtMs": 1778022000009,
+        "nextRunAtMs": 1778713200000,
+        "lastRunAtMs": 1778626800010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 300857,
+        "lastDurationMs": 236141,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -109,7 +109,7 @@
       "name": "每日金融研报",
       "enabled": true,
       "createdAtMs": 1776266166434,
-      "updatedAtMs": 1778021474455,
+      "updatedAtMs": 1778626693931,
       "schedule": {
         "kind": "cron",
         "expr": "50 6 * * *",
@@ -128,11 +128,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778107800000,
-        "lastRunAtMs": 1778021400011,
+        "nextRunAtMs": 1778712600000,
+        "lastRunAtMs": 1778626200011,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 74444,
+        "lastDurationMs": 493920,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -444,6 +444,41 @@
         "lastRunStatus": "error",
         "lastStatus": "error",
         "lastDurationMs": 180014,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "853ee6aa-5384-4986-9d5f-9736d90c84c8",
+      "name": "课程提醒-妞妞-足球训练-15:50",
+      "enabled": false,
+      "createdAtMs": 1778454185494,
+      "updatedAtMs": 1778484780026,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-11T07:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "agentId": "educationexpert",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧 孩子：妞妞\n📚 课程：足球训练\n🕐 出发时间：15:50\n📍 地点：学校\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "deleteAfterRun": true,
+      "state": {
+        "lastRunAtMs": 1778484600011,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 180015,
         "lastError": "cron: job execution timed out",
         "lastErrorReason": "timeout",
         "lastDeliveryStatus": "unknown",

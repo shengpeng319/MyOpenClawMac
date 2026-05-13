@@ -6,9 +6,9 @@
   },
   "usageStats": {
     "minimax-cn:default": {
-      "lastUsed": 1778075943254,
+      "lastUsed": 1778681036232,
       "errorCount": 0,
-      "lastFailureAt": 1774400498933
+      "lastFailureAt": 1778547898165
     },
     "localqwen35:default": {
       "lastUsed": 1774694726760,
