@@ -338,3 +338,77 @@ curl -X POST "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=op
   - 23:00-08:00 → 仅记录必要的异常，不做维护写入
 
 *Updated: 2026-05-10*
+
+---
+
+## ⚠️ stooq.com 个股数据方案失败（2026-05-13 教训）
+
+- **现象**：stooq.com 2024年后要求 API key，key 获取需要 Captcha 验证
+- **影响**：P0 方案 stooq 彻底无法自动化（Captcha 无法在 cron 中解决）
+- **验证结果**：
+  ```
+  curl "https://stooq.com/q/d/l/?s=aapl.us" 
+  → "Get your apikey: Open https://stooq.com/q/d/?s=aapl.us&get_apikey"
+  → 必须输入 Captcha，无法自动化
+  ```
+- **正确替代方案**：
+  | 方案 | URL | 状态 | 说明 |
+  |------|-----|------|------|
+  | **新浪财经实时** | `hq.sinajs.cn` | ✅ 已验证可用 | 无需 key，curl 直接访问 |
+  | **东方财富K线** | `push2his.eastmoney.com` | ⚠️ 待验证 | curl 无响应（环境问题待查）|
+  | AKShare Python 库 | `pip install akshare` | ⏳ 未测试 | 聚合多个国内源 |
+- **已验证可用（financialadvisor workspace）**：
+  ```python
+  # 新浪财经 - 实时报价（贵州茅台测试通过）
+  url = "https://hq.sinajs.cn/list=sh600519"
+  # 返回: 贵州茅台,1354.500,1354.550,1344.090,1358.600,...
+  # 字段: 名称,开盘,昨收,当前,最高,最低,...,成交量,成交额,日期,时间
+  ```
+- **教训**：方案选型时必须先在目标环境验证可行性，不能只看官方文档
+
+*Updated: 2026-05-13*
+
+---
+
+## ⚠️ stooq.com 已死 → P0方案纠正（2026-05-13 二次更新）
+
+### 优先级重新排序
+
+| 优先级 | 方案 | URL | 状态 |
+|--------|------|-----|------|
+| **P0** | **新浪财经实时报价** | `hq.sinajs.cn` | ✅ 已验证可用 |
+| **P1** | 东方财富 K线 API | `push2his.eastmoney.com` | ⚠️ 待 financialadvisor venv 测试 |
+| **P2** | 整合到 Emily get_market_data.py | — | ⏳ 待开发 |
+
+### P0 方案详情（新浪财经）
+
+```python
+# ✅ 已验证可用（financialadvisor workspace，贵州茅台测试通过）
+# 编码：GBK（需 decode）
+url = "https://hq.sinajs.cn/list=sh600519"
+
+# 返回字段（逗号分隔）：
+# 0: 名称(sh600519的名称)
+# 1: 开盘价
+# 2: 昨收价
+# 3: 当前价
+# 4: 最高价
+# 5: 最低价
+# 6: ?, 7: ?
+# 8: 成交量(股)
+# 9: 成交额(元)
+# 10: ?, 11: ?, 12: ?
+# 13: 日期(YYYY-MM-DD)
+# 14: 时间(HH:MM:SS)
+
+# 示例：sh600519 贵州茅台
+# "贵州茅台,1354.500,1354.550,1344.090,1358.600,1338.000,...,2026-05-13,15:00:03"
+```
+
+### stooq.com 彻底死亡确认
+
+- **问题**：2024年后 stooq.com 要求 API key，获取流程有 Captcha 验证
+- **影响**：100% 无法自动化，P0 方案彻底失效
+- **教训**：方案选型时必须先在目标环境验证可行性，不能只看官方文档
+
+*Updated: 2026-05-13*

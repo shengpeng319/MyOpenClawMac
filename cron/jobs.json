@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1776266146983,
-      "updatedAtMs": 1778594619324,
+      "updatedAtMs": 1778767443656,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -25,15 +25,15 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1778680800000,
-        "lastRunAtMs": 1778594400012,
+        "nextRunAtMs": 1778853600000,
+        "lastRunAtMs": 1778767200013,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 219312,
+        "lastDurationMs": 243643,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true,
-        "runningAtMs": 1778680800006
+        "runningAtMs": 1778853600006
       }
     },
     {
@@ -41,7 +41,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1776266151217,
-      "updatedAtMs": 1778627136503,
+      "updatedAtMs": 1778799945594,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -59,11 +59,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778713500000,
-        "lastRunAtMs": 1778627100008,
+        "nextRunAtMs": 1778886300000,
+        "lastRunAtMs": 1778799900010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 36495,
+        "lastDurationMs": 45584,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -75,7 +75,7 @@
       "name": "每日课程提醒",
       "enabled": true,
       "createdAtMs": 1776266160435,
-      "updatedAtMs": 1778627036151,
+      "updatedAtMs": 1778799841862,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -93,11 +93,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778713200000,
-        "lastRunAtMs": 1778626800010,
+        "nextRunAtMs": 1778886000000,
+        "lastRunAtMs": 1778799600010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 236141,
+        "lastDurationMs": 241852,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -109,7 +109,7 @@
       "name": "每日金融研报",
       "enabled": true,
       "createdAtMs": 1776266166434,
-      "updatedAtMs": 1778626693931,
+      "updatedAtMs": 1778799286852,
       "schedule": {
         "kind": "cron",
         "expr": "50 6 * * *",
@@ -128,11 +128,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778712600000,
-        "lastRunAtMs": 1778626200011,
+        "nextRunAtMs": 1778885400000,
+        "lastRunAtMs": 1778799000012,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 493920,
+        "lastDurationMs": 286840,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -479,6 +479,76 @@
         "lastRunStatus": "error",
         "lastStatus": "error",
         "lastDurationMs": 180015,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "cr-20260514-niu-shoufengqin-1530",
+      "name": "课程提醒-妞妞-手风琴特色课-15:50",
+      "enabled": false,
+      "createdAtMs": 1778713380000,
+      "updatedAtMs": 1778743980026,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-14T07:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "agentId": "educationexpert",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧 孩子：妞妞\n📚 课程：手风琴特色课\n🕐 出发时间：15:50\n📍 地点：学校\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "deleteAfterRun": true,
+      "state": {
+        "lastRunAtMs": 1778743800012,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 180014,
+        "lastError": "cron: job execution timed out",
+        "lastErrorReason": "timeout",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "cr-20260514-niu-xiaobai-1820",
+      "name": "课程提醒-妞妞-小白鸽-18:20",
+      "enabled": false,
+      "createdAtMs": 1778713380001,
+      "updatedAtMs": 1778752980032,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-14T10:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "agentId": "educationexpert",
+        "message": "🚨 出发提醒 — 距离出发还有20分钟！\n👧 孩子：妞妞\n📚 课程：小白鸽\n🕐 出发时间：18:20\n📍 地点：枫丹雅苑\n⏰ 请及时准备出发！",
+        "timeoutSeconds": 180
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "deleteAfterRun": true,
+      "state": {
+        "lastRunAtMs": 1778752800013,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 180019,
         "lastError": "cron: job execution timed out",
         "lastErrorReason": "timeout",
         "lastDeliveryStatus": "unknown",
