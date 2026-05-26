@@ -53,3 +53,20 @@ Add whatever helps you do your job. This is your cheat sheet.
 - Gateway 日志：`~/.openclaw/gateway.log` / `gateway.err.log`
 - Workspace：`~/.openclaw/workspace-main/`
 - Agents：`~/.openclaw/agents/*/agent/`
+
+## 智谱 MCP 优先级规则（2026-05-25）
+
+**视觉处理、网络搜索、网页读取 → 优先使用智谱 MCP**
+
+| 场景 | 优先工具 | 命令 |
+|------|----------|------|
+| 网络搜索 | `web-search-prime.web_search_prime` | `mcporter call web-search-prime.web_search_prime search_query="..."` |
+| 网页读取 | `web-reader.webReader` | `mcporter call web-reader.webReader url="..."` |
+| 开源仓库 | `zread.search_doc` / `read_file` / `get_repo_structure` | `mcporter call zread.search_doc repo_name="..." query="..."` |
+| 视觉理解 | `zai-vision.*` | `mcporter call zai-vision.image_analysis ...` |
+
+**配置文件**：`~/.mcporter/mcporter.json`
+**API Key**：智谱 zai key（已配置在 MCP env/headers 中）
+**降级**：智谱 MCP 不可用时 → tavily → agent-reach → curl
+
+*Updated: 2026-05-25*

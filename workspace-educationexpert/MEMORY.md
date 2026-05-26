@@ -5,7 +5,7 @@
 ### 配置信息
 - **定时任务**：每天早上 7:05 自动发送课程提醒
 - **群聊 ID**：oc_49bd38a7e7152bafbb125392b40e2939
-- **Cron Job ID**：691ef0dd-7238-4c00-aefb-4433bc7e3af4
+- **Cron Job ID**：321c33a1-24f8-4a4d-84cb-7bef00174fdb
 
 ### 提醒内容
 1. 日期和天气情况
@@ -104,7 +104,7 @@ Week 4: 深入一个框架
 - **Skill**: `skills/course-reminder/SKILL.md`
 
 ### 主 Cron
-- **ID**: `691ef0dd-7238-4c00-aefb-4433bc7e3af4`
+- **ID**: `321c33a1-24f8-4a4d-84cb-7bef00174fdb`
 - **名称**: 课程提醒
 - **时间**: 每天 07:05
 - **功能**: 

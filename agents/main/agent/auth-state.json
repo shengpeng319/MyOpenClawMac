@@ -2,18 +2,30 @@
   "version": 1,
   "lastGood": {
     "minimax-cn": "minimax-cn:default",
-    "localqwen35": "localqwen35:default"
+    "localqwen35": "localqwen35:default",
+    "zai": "zai:default"
   },
   "usageStats": {
     "minimax-cn:default": {
-      "lastUsed": 1778853848516,
-      "errorCount": 0,
-      "lastFailureAt": 1778547898165
+      "lastUsed": 1779681196516,
+      "errorCount": 1,
+      "lastFailureAt": 1779728687338,
+      "failureCounts": {
+        "rate_limit": 1
+      },
+      "cooldownUntil": 1779728717338,
+      "cooldownReason": "rate_limit",
+      "cooldownModel": "MiniMax-M2.7-highspeed"
     },
     "localqwen35:default": {
       "lastUsed": 1774694726760,
       "errorCount": 0,
       "lastFailureAt": 1773312595264
+    },
+    "zai:default": {
+      "errorCount": 0,
+      "lastUsed": 1779803938896,
+      "lastFailureAt": 1779728653325
     }
   }
 }

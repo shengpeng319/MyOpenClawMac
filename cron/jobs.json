@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1776266146983,
-      "updatedAtMs": 1778767443656,
+      "updatedAtMs": 1779717900063,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -25,15 +25,15 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1778853600000,
-        "lastRunAtMs": 1778767200013,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 243643,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": true,
-        "runningAtMs": 1778853600006
+        "nextRunAtMs": 1779804000000,
+        "lastRunAtMs": 1779717600014,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 300049,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 11,
+        "lastErrorReason": "timeout",
+        "runningAtMs": 1779804000006
       }
     },
     {
@@ -41,7 +41,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1776266151217,
-      "updatedAtMs": 1778799945594,
+      "updatedAtMs": 1779752187739,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -59,45 +59,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778886300000,
-        "lastRunAtMs": 1778799900010,
+        "nextRunAtMs": 1779836700000,
+        "lastRunAtMs": 1779752119001,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 45584,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
-      }
-    },
-    {
-      "id": "6ac9b844-32f0-4001-920d-862b1b12123e",
-      "agentId": "educationexpert",
-      "name": "每日课程提醒",
-      "enabled": true,
-      "createdAtMs": 1776266160435,
-      "updatedAtMs": 1778799841862,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 7 * * *"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "你是教育专家 Diana。请完成以下任务：\n\n【第一步】读取 USER.md 中的课程表\n\n【第二步】根据今天是星期几，找出两个孩子的课程：\n- 仔细核对每一行，只提取星期X的课程\n- 注意：足球训练只在周一和周五！\n- 列出每个课程的：课程名、出发时间、课程时间、地点\n\n【第三步】发送早间汇总消息到群：oc_49bd38a7e7152bafbb125392b40e2939\n格式：\n📚 今日课程提醒 — [周X X月X日]\n🧒 蛋蛋：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n👧 妞妞：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n\n【第四步】为每个课程创建出发前20分钟提醒任务\n使用 Python 脚本在 ~/.openclaw/cron/jobs.json 中创建一次性 at 任务：\n- 任务名格式：课程提醒-[孩子名]-[课程名]-[出发时间]\n- at 时间：课程出发时间 - 20分钟\n- 时区：Asia/Shanghai (UTC+8)\n- 例如：18:40出发 → at时间为 18:20，即 \"2026-04-13T10:20:00.000+08:00\"\n- timeoutSeconds：180\n- deleteAfterRun: true\n- payload.kind: agentTurn\n- payload 内容：出发前提醒消息（课程名、孩子、出发时间、地点、距出发时间）\n\n【重要】只创建当天（未来24小时内）的提醒任务，不要创建过去的。\n\n【第五步】完成后输出\"✅ 今日课程提醒已完成，共创建 N 个单独提醒任务\"\n\n注意：\n- 不要发送私信，只发群消息\n- 发送消息用飞书 API，直接 POST 到 https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=chat_id\n- data: {\"receive_id\": \"oc_49bd38a7e7152bafbb125392b40e2939\", \"msg_type\": \"text\", \"content\": \"{\"text\":\"消息内容\"}\"}\n- headers: Authorization: Bearer [tenant_access_token]\n\nReturn your summary as plain text.",
-        "timeoutSeconds": 600
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "feishu",
-        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
-      },
-      "state": {
-        "nextRunAtMs": 1778886000000,
-        "lastRunAtMs": 1778799600010,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 241852,
+        "lastDurationMs": 68738,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -109,7 +75,7 @@
       "name": "每日金融研报",
       "enabled": true,
       "createdAtMs": 1776266166434,
-      "updatedAtMs": 1778799286852,
+      "updatedAtMs": 1779749685659,
       "schedule": {
         "kind": "cron",
         "expr": "50 6 * * *",
@@ -128,11 +94,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1778885400000,
-        "lastRunAtMs": 1778799000012,
+        "nextRunAtMs": 1779835800000,
+        "lastRunAtMs": 1779749400013,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 286840,
+        "lastDurationMs": 285646,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -553,6 +519,41 @@
         "lastErrorReason": "timeout",
         "lastDeliveryStatus": "unknown",
         "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "321c33a1-24f8-4a4d-84cb-7bef00174fdb",
+      "agentId": "educationexpert",
+      "name": "每日课程提醒",
+      "description": "每天早上7点发送课程安排并创建出发前提醒",
+      "enabled": true,
+      "createdAtMs": 1779752129322,
+      "updatedAtMs": 1779752456193,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你是教育专家 Diana。请完成以下任务：\n\n【第一步】读取 USER.md 中的课程表\n\n【第二步】根据今天是星期几（Asia/Shanghai时区），找到两个孩子的课程：\n- 仔细核对每一行，从课程表中提取今天的课程\n- 列出每个课程的：学生昵称、课程名、出发时间、课程时间、地点\n\n【第三步】发送早间汇总消息到群 oc_49bd38a7e7152bafbb125392b40e2939\n格式：\n📚 今日课程提醒 — [周X X月X日]\n🧒 蛋蛋：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n（无课则写\"今日无课外班，好好休息！\"）\n👧 妞妞：[课程名]，出发时间 HH:MM，课程时间 HH:MM-HH:MM，[地点]\n（无课则写\"今日无课外班，好好休息！\"）\n\n关怀提醒：如连续课程时间冲突则提醒提前点餐；天气变化提醒带伞穿衣。\n\n【第四步】为每个课程创建出发前20分钟提醒任务\n使用 openclaw cron add 命令为每门课创建一次性at任务：\n  --name \"课程提醒-[孩子]-[课程名]-[出发时间]\"\n  --agent educationexpert\n  --announce --channel oc_49bd38a7e7152bafbb125392b40e2939\n  --at \"ISO时间\"（Asia/Shanghai，出发时间减20分钟）\n  --delete-after-run\n  --timeout 180\n  --message \"出发提醒内容（孩子、课程、出发时间、地点）\"\n\n【第五步】完成后输出\"✅ 今日课程提醒已完成，共创建 N 个单独提醒任务\"并列出每个任务。\n\n注意：只创建当天未来24小时内的提醒任务。",
+        "model": "deepseek/deepseek-v4-pro"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "to": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "nextRunAtMs": 1779836400000,
+        "lastRunAtMs": 1779752329675,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 126518,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
       }
     }
   ]

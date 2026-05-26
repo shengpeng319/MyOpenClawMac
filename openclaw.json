@@ -1,12 +1,12 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.4.14",
-    "lastTouchedAt": "2026-04-29T13:17:00.010Z"
+    "lastTouchedAt": "2026-05-25T08:42:26.400Z"
   },
   "wizard": {
-    "lastRunAt": "2026-04-15T11:19:11.126Z",
+    "lastRunAt": "2026-05-25T08:42:26.281Z",
     "lastRunVersion": "2026.4.14",
-    "lastRunCommand": "doctor",
+    "lastRunCommand": "configure",
     "lastRunMode": "local"
   },
   "browser": {
@@ -136,13 +136,255 @@
             "maxTokens": 8192
           }
         ]
+      },
+      "zai": {
+        "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "glm-5.1",
+            "name": "GLM-5.1",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 1.2,
+              "output": 4,
+              "cacheRead": 0.24,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202800,
+            "maxTokens": 131100
+          },
+          {
+            "id": "glm-5",
+            "name": "GLM-5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 1,
+              "output": 3.2,
+              "cacheRead": 0.2,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202800,
+            "maxTokens": 131100
+          },
+          {
+            "id": "glm-5-turbo",
+            "name": "GLM-5 Turbo",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 1.2,
+              "output": 4,
+              "cacheRead": 0.24,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202800,
+            "maxTokens": 131100
+          },
+          {
+            "id": "glm-5v-turbo",
+            "name": "GLM-5V Turbo",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 1.2,
+              "output": 4,
+              "cacheRead": 0.24,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202800,
+            "maxTokens": 131100
+          },
+          {
+            "id": "glm-4.7",
+            "name": "GLM-4.7",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.6,
+              "output": 2.2,
+              "cacheRead": 0.11,
+              "cacheWrite": 0
+            },
+            "contextWindow": 204800,
+            "maxTokens": 131072
+          },
+          {
+            "id": "glm-4.7-flash",
+            "name": "GLM-4.7 Flash",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.07,
+              "output": 0.4,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 131072
+          },
+          {
+            "id": "glm-4.7-flashx",
+            "name": "GLM-4.7 FlashX",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.06,
+              "output": 0.4,
+              "cacheRead": 0.01,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 128000
+          },
+          {
+            "id": "glm-4.6",
+            "name": "GLM-4.6",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.6,
+              "output": 2.2,
+              "cacheRead": 0.11,
+              "cacheWrite": 0
+            },
+            "contextWindow": 204800,
+            "maxTokens": 131072
+          },
+          {
+            "id": "glm-4.6v",
+            "name": "GLM-4.6V",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0.3,
+              "output": 0.9,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 32768
+          },
+          {
+            "id": "glm-4.5",
+            "name": "GLM-4.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.6,
+              "output": 2.2,
+              "cacheRead": 0.11,
+              "cacheWrite": 0
+            },
+            "contextWindow": 131072,
+            "maxTokens": 98304
+          },
+          {
+            "id": "glm-4.5-air",
+            "name": "GLM-4.5 Air",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0.2,
+              "output": 1.1,
+              "cacheRead": 0.03,
+              "cacheWrite": 0
+            },
+            "contextWindow": 131072,
+            "maxTokens": 98304
+          },
+          {
+            "id": "glm-4.5-flash",
+            "name": "GLM-4.5 Flash",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 131072,
+            "maxTokens": 98304
+          },
+          {
+            "id": "glm-4.5v",
+            "name": "GLM-4.5V",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0.6,
+              "output": 1.8,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 64000,
+            "maxTokens": 16384
+          },
+          {
+            "id": "glm-4.6v-flash",
+            "name": "GLM-4.6V Flash",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0.1,
+              "output": 0.1,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 4096
+          }
+        ]
       }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "minimax-cn/MiniMax-M2.7-highspeed"
+        "primary": "zai/glm-5.1",
+        "fallbacks": [
+          "minimax-cn/MiniMax-M2.7-highspeed",
+          "localqwen35/Qwen3.5-4B-MLX-4bit",
+          "deepseek/deepseek-v4-pro",
+          "zai/glm-5v-turbo",
+          "zai/glm-4.7",
+          "zai/glm-4.7-flashx"
+        ]
       },
       "imageGenerationModel": {
         "primary": "google/gemini-3-pro-image-preview"
@@ -156,7 +398,13 @@
         },
         "deepseek/deepseek-v4-pro": {
           "alias": "deepseek-v4-pro"
-        }
+        },
+        "zai/glm-5.1": {
+          "alias": "GLM"
+        },
+        "zai/glm-5v-turbo": {},
+        "zai/glm-4.7": {},
+        "zai/glm-4.7-flashx": {}
       },
       "memorySearch": {
         "enabled": true,
@@ -196,7 +444,8 @@
       "musicGenerationModel": {
         "primary": "minimax-cn/music-2.6"
       },
-      "thinkingDefault": "off"
+      "thinkingDefault": "off",
+      "workspace": "/Users/shengpeng319/.openclaw/workspace"
     },
     "list": [
       {
@@ -756,7 +1005,8 @@
       "memory-sync",
       "memory-core",
       "deepseek",
-      "ollama"
+      "ollama",
+      "zai"
     ],
     "load": {
       "paths": [
@@ -802,6 +1052,9 @@
       },
       "ollama": {
         "enabled": true
+      },
+      "zai": {
+        "enabled": true
       }
     },
     "installs": {
@@ -818,6 +1071,14 @@
         "installPath": "/Users/shengpeng319/.openclaw/extensions/progressive-disclosure",
         "version": "1.0.0",
         "installedAt": "2026-04-14T14:46:22.871Z"
+      }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "zai:default": {
+        "provider": "zai",
+        "mode": "api_key"
       }
     }
   }
