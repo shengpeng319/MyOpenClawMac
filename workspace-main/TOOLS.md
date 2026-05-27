@@ -70,3 +70,16 @@ Add whatever helps you do your job. This is your cheat sheet.
 **降级**：智谱 MCP 不可用时 → tavily → agent-reach → curl
 
 *Updated: 2026-05-25*
+
+## 模型使用规范（2026-05-26 用户明确要求）
+
+**所有任务统一用 GLM-5.1，禁止使用 GLM-4.6v-flash**
+
+| 场景 | 模型 | 备注 |
+|------|------|------|
+| 对话/Cron/所有 Agent | `zai/glm-5.1` | 默认模型，不再用 4.6v-flash |
+| 视觉理解 | 智谱 MCP `zai-vision.*` | 走 MCP 不走模型原生视觉 |
+
+**原因**：4.6v-flash 下午频繁 429 限流，5.1 更稳定
+
+*Updated: 2026-05-26*
