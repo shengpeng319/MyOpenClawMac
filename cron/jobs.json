@@ -6,7 +6,7 @@
       "name": "每日进化报告",
       "enabled": true,
       "createdAtMs": 1776266146983,
-      "updatedAtMs": 1779804192217,
+      "updatedAtMs": 1780149715877,
       "schedule": {
         "kind": "cron",
         "expr": "0 22 * * *",
@@ -25,15 +25,14 @@
         "to": "ou_c858ba4fbb03f207666daef058ede895"
       },
       "state": {
-        "nextRunAtMs": 1779890400000,
-        "lastRunAtMs": 1779804000011,
+        "nextRunAtMs": 1780236000000,
+        "lastRunAtMs": 1780149600013,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 192206,
+        "lastDurationMs": 115864,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
-        "lastDelivered": true,
-        "runningAtMs": 1779890400007
+        "lastDelivered": true
       }
     },
     {
@@ -41,7 +40,7 @@
       "name": "每日早安问候",
       "enabled": true,
       "createdAtMs": 1776266151217,
-      "updatedAtMs": 1779836730654,
+      "updatedAtMs": 1780009532908,
       "schedule": {
         "kind": "cron",
         "expr": "5 7 * * *"
@@ -59,11 +58,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1779923100000,
-        "lastRunAtMs": 1779836700009,
+        "nextRunAtMs": 1780182300000,
+        "lastRunAtMs": 1780009500010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 30645,
+        "lastDurationMs": 32898,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -75,7 +74,7 @@
       "name": "每日金融研报",
       "enabled": true,
       "createdAtMs": 1776266166434,
-      "updatedAtMs": 1779836142744,
+      "updatedAtMs": 1780095298582,
       "schedule": {
         "kind": "cron",
         "expr": "50 6 * * *",
@@ -94,11 +93,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1779922200000,
-        "lastRunAtMs": 1779835800010,
+        "nextRunAtMs": 1780181400000,
+        "lastRunAtMs": 1780095000014,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 342734,
+        "lastDurationMs": 298568,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -528,7 +527,7 @@
       "description": "每天早上7点发送课程安排并创建出发前提醒",
       "enabled": true,
       "createdAtMs": 1779752129322,
-      "updatedAtMs": 1779836529057,
+      "updatedAtMs": 1780096067651,
       "schedule": {
         "kind": "cron",
         "expr": "0 7 * * *"
@@ -546,11 +545,11 @@
         "to": "oc_49bd38a7e7152bafbb125392b40e2939"
       },
       "state": {
-        "nextRunAtMs": 1779922800000,
-        "lastRunAtMs": 1779836400008,
+        "nextRunAtMs": 1780182000000,
+        "lastRunAtMs": 1780095600011,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 129049,
+        "lastDurationMs": 467640,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -615,6 +614,358 @@
         "lastRunStatus": "error",
         "lastStatus": "error",
         "lastDurationMs": 4976,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "f61f155d-f81b-4068-a1f8-d16220bad916",
+      "agentId": "educationexpert",
+      "name": "课程提醒-蛋蛋-自习-18:40",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1779923167542,
+      "updatedAtMs": 1779963608989,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-28T10:20:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🔔 出发提醒：蛋蛋（盛泽扬）的自习课将于18:40出发，课程时间19:00-20:30，地点：青海大厦。该出发啦！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1779963600013,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 8976,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "ca9499bf-4254-48a5-8d55-1f583d61e6a8",
+      "agentId": "educationexpert",
+      "name": "课程提醒-妞妞-小白鸽-18:20",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1779923167566,
+      "updatedAtMs": 1779962411068,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-28T10:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🔔 出发提醒：妞妞（李沐甜）的小白鸽课将于18:20出发，课程时间18:30-20:00，地点：枫丹雅苑。该出发啦！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1779962400012,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 11056,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "c0cb671c-ba5d-418e-9e90-79b723f3d9a9",
+      "agentId": "educationexpert",
+      "name": "课程提醒-妞妞-手风琴特色课-15:50",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1779923167613,
+      "updatedAtMs": 1779953410717,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-28T07:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🔔 出发提醒：妞妞（李沐甜）的手风琴特色课将于15:50出发，课程时间16:00-17:35，地点：学校。该出发啦！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1779953400013,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 10704,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "80f0ad58-1418-4621-a9c1-368f719540df",
+      "agentId": "educationexpert",
+      "name": "课程提醒-妞妞-手风琴特色课-15:50",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1779923175164,
+      "updatedAtMs": 1779953421242,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-28T07:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🔔 出发提醒：妞妞（李沐甜）的手风琴特色课将于15:50出发，课程时间16:00-17:35，地点：学校。该出发啦！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1779953410717,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 10525,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "6d814b2c-5419-4ead-a587-a9d6ca8a77d8",
+      "agentId": "educationexpert",
+      "name": "课程提醒-妞妞-小白鸽-1820",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1780009399556,
+      "updatedAtMs": 1780048819921,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-29T10:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "⏰ 妞妞出发提醒！\n\n🩰 小白鸽，出发时间 18:20（还有20分钟），课程时间 18:30-20:00，枫丹雅苑（走路10分钟）\n\n足球刚结束没多久，路上吃点东西垫垫肚子～该出发啦！🎨"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1780048800012,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 19909,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "85524f9e-0e1c-4358-80cb-092a82f06f28",
+      "agentId": "educationexpert",
+      "name": "课程提醒-妞妞-足球训练-1550",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1780009399579,
+      "updatedAtMs": 1780039813217,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-29T07:30:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "⏰ 妞妞出发提醒！\n\n⚽ 足球训练，出发时间 15:50（还有20分钟），课程时间 16:00-17:30，学校\n\n该准备换衣服出发啦，记得带水壶和足球鞋！🏃‍♀️"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1780039800012,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 13205,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "92f53a0d-fb17-4793-8133-3374860891ff",
+      "agentId": "educationexpert",
+      "name": "课程提醒-蛋蛋-语文-0940",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1780095969524,
+      "updatedAtMs": 1780104006645,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-30T01:20:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "⏰ 出发提醒：蛋蛋的语文课！出发时间 09:40，课程 10:00-12:00，地点：景田新东方（地铁约20分钟）。请准备出发！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1780104000012,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 6633,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "5276de38-6e91-4112-95ea-4b698d75d44c",
+      "agentId": "educationexpert",
+      "name": "课程提醒-妞妞-围棋-0955",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1780095974386,
+      "updatedAtMs": 1780104908294,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-30T01:35:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "⏰ 出发提醒：妞妞的围棋课！出发时间 09:55，课程 10:10-12:10，地点：华润万家（电动车约15分钟）。请准备出发！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1780104900009,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 8285,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "76a9ea79-6dcd-49ec-a799-7c452360cd8d",
+      "agentId": "educationexpert",
+      "name": "课程提醒-妞妞-英语-1530",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1780095979251,
+      "updatedAtMs": 1780125005866,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-30T07:10:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "⏰ 出发提醒：妞妞的英语课！出发时间 15:30，课程 15:30-16:30，地点：翰城1号楼6A。请准备出发！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1780125000012,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 5854,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "6ab3e721-f822-42c1-aab1-c52a81842eb1",
+      "agentId": "educationexpert",
+      "name": "课程提醒-蛋蛋-历史-1555",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1780095984887,
+      "updatedAtMs": 1780126507428,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-30T07:35:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "⏰ 出发提醒：蛋蛋的历史课！出发时间 15:55，课程 16:15-18:15，地点：青海大厦（骑车约20分钟）。历史课后还有道法，记得带便当！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1780126500012,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 7416,
+        "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "64771f0d-be88-4cfe-953b-ada92ea16c2f",
+      "agentId": "educationexpert",
+      "name": "课程提醒-蛋蛋-道法-1820",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1780095989815,
+      "updatedAtMs": 1780135205093,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-05-30T10:00:00.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "⏰ 出发提醒：蛋蛋的道法课！出发时间 18:20，课程 18:40-19:40，地点：青海大厦。和历史课同地点，吃完便当后准备上课！"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "oc_49bd38a7e7152bafbb125392b40e2939"
+      },
+      "state": {
+        "lastRunAtMs": 1780135200012,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 5081,
         "lastError": "Unsupported channel: oc_49bd38a7e7152bafbb125392b40e2939",
         "lastDeliveryStatus": "unknown",
         "consecutiveErrors": 1

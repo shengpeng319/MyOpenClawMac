@@ -7,11 +7,11 @@
     "minimax-cn:default": {
       "lastUsed": 1779663808001,
       "errorCount": 1,
-      "lastFailureAt": 1779752036730,
+      "lastFailureAt": 1780095959577,
       "failureCounts": {
         "rate_limit": 1
       },
-      "cooldownUntil": 1779752066730,
+      "cooldownUntil": 1780095989577,
       "cooldownReason": "rate_limit",
       "cooldownModel": "MiniMax-M2.7-highspeed"
     },

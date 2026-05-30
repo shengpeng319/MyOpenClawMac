@@ -50,11 +50,7 @@
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "reasoning": false,
-          "contextWindow": 200000,
-          "maxTokens": 8192,
-          "api": "anthropic-messages"
+          }
         }
       ],
       "apiKey": "MINIMAX_API_KEY"
@@ -286,11 +282,7 @@
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "reasoning": false,
-          "contextWindow": 200000,
-          "maxTokens": 8192,
-          "api": "anthropic-messages"
+          }
         }
       ],
       "apiKey": "MINIMAX_API_KEY"
@@ -418,8 +410,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 202800,
-          "maxTokens": 131100,
-          "api": "openai-completions"
+          "maxTokens": 131100
         },
         {
           "id": "glm-5",
@@ -435,8 +426,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 202800,
-          "maxTokens": 131100,
-          "api": "openai-completions"
+          "maxTokens": 131100
         },
         {
           "id": "glm-5-turbo",
@@ -452,8 +442,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 202800,
-          "maxTokens": 131100,
-          "api": "openai-completions"
+          "maxTokens": 131100
         },
         {
           "id": "glm-5v-turbo",
@@ -470,8 +459,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 202800,
-          "maxTokens": 131100,
-          "api": "openai-completions"
+          "maxTokens": 131100
         },
         {
           "id": "glm-4.7",
@@ -487,8 +475,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 204800,
-          "maxTokens": 131072,
-          "api": "openai-completions"
+          "maxTokens": 131072
         },
         {
           "id": "glm-4.7-flash",
@@ -504,8 +491,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 200000,
-          "maxTokens": 131072,
-          "api": "openai-completions"
+          "maxTokens": 131072
         },
         {
           "id": "glm-4.7-flashx",
@@ -521,8 +507,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 200000,
-          "maxTokens": 128000,
-          "api": "openai-completions"
+          "maxTokens": 128000
         },
         {
           "id": "glm-4.6",
@@ -538,8 +523,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 204800,
-          "maxTokens": 131072,
-          "api": "openai-completions"
+          "maxTokens": 131072
         },
         {
           "id": "glm-4.6v",
@@ -556,8 +540,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 128000,
-          "maxTokens": 32768,
-          "api": "openai-completions"
+          "maxTokens": 32768
         },
         {
           "id": "glm-4.5",
@@ -573,8 +556,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 131072,
-          "maxTokens": 98304,
-          "api": "openai-completions"
+          "maxTokens": 98304
         },
         {
           "id": "glm-4.5-air",
@@ -590,8 +572,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 131072,
-          "maxTokens": 98304,
-          "api": "openai-completions"
+          "maxTokens": 98304
         },
         {
           "id": "glm-4.5-flash",
@@ -607,8 +588,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 131072,
-          "maxTokens": 98304,
-          "api": "openai-completions"
+          "maxTokens": 98304
         },
         {
           "id": "glm-4.5v",
@@ -625,8 +605,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 64000,
-          "maxTokens": 16384,
-          "api": "openai-completions"
+          "maxTokens": 16384
         },
         {
           "id": "glm-4.6v-flash",
@@ -643,8 +622,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 128000,
-          "maxTokens": 4096,
-          "api": "openai-completions"
+          "maxTokens": 4096
         }
       ]
     }

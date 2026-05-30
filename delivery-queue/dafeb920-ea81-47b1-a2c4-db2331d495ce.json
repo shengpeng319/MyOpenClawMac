@@ -1,0 +1,28 @@
+{
+  "id": "dafeb920-ea81-47b1-a2c4-db2331d495ce",
+  "enqueuedAt": 1780096082492,
+  "channel": "feishu",
+  "to": "oc_49bd38a7e7152bafbb125392b40e2939",
+  "payloads": [
+    {
+      "text": "收到，5个出发提醒全部就位 ✅\n\n时间线很紧凑：\n- **09:20** 蛋蛋语文出发 / **09:35** 妞妞围棋出发（上午两人同时段不同地点，需要两个人送）\n- **15:10** 妞妞英语 / **15:35** 蛋蛋历史（下午也是双线并行）\n- **18:00** 蛋蛋道法收尾\n\n周六家长接送也是硬仗 🫡"
+    }
+  ],
+  "threadId": null,
+  "mirror": {
+    "sessionKey": "agent:main:feishu:direct:oc_49bd38a7e7152bafbb125392b40e2939",
+    "agentId": "main",
+    "text": "收到，5个出发提醒全部就位 ✅\n\n时间线很紧凑：\n- **09:20** 蛋蛋语文出发 / **09:35** 妞妞围棋出发（上午两人同时段不同地点，需要两个人送）\n- **15:10** 妞妞英语 / **15:35** 蛋蛋历史（下午也是双线并行）\n- **18:00** 蛋蛋道法收尾\n\n周六家长接送也是硬仗 🫡",
+    "idempotencyKey": "79285b9c-31b6-4987-b280-c2e62d7a90d9"
+  },
+  "session": {
+    "key": "agent:main:feishu:direct:oc_49bd38a7e7152bafbb125392b40e2939",
+    "agentId": "main"
+  },
+  "gatewayClientScopes": [
+    "operator.write"
+  ],
+  "retryCount": 1,
+  "lastAttemptAt": 1780096082493,
+  "lastError": "Feishu account \"default\" not configured"
+}

@@ -6,8 +6,14 @@
   "usageStats": {
     "minimax-cn:default": {
       "lastUsed": 1779663028292,
-      "errorCount": 0,
-      "lastFailureAt": 1779663028177
+      "errorCount": 1,
+      "lastFailureAt": 1780009556107,
+      "failureCounts": {
+        "rate_limit": 1
+      },
+      "cooldownUntil": 1780009586107,
+      "cooldownReason": "rate_limit",
+      "cooldownModel": "MiniMax-M2.7-highspeed"
     },
     "localqwen35:default": {
       "lastUsed": 1773326205517,
