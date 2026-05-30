@@ -64,3 +64,6 @@ tasks/runs.sqlite-shm
 flows/registry.sqlite-wal
 flows/registry.sqlite-shm
 tasks/runs.sqlite
+
+# Database files too large for GitHub
+memory/main.sqlite
